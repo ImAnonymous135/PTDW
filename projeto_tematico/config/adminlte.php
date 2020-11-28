@@ -244,7 +244,7 @@ return [
         ['header' => 'account_settings'],
         [
             'text' => 'Produtos',
-            'url'  => 'admin/settings',
+            'url'  => '/',
             'icon' => 'fas fa-vial',
         ],
         [
@@ -268,7 +268,7 @@ return [
                 ],
                 [
                     'text' => 'Saídas',
-                    'url'  => '#',
+                    'url'  => '/saidas',
                     'icon' => 'fas fa-fw fa-minus',
                 ],
             ],
@@ -311,22 +311,32 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
                     'asset' => false,
-                    'location' => '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
+                    'location' => '//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js',
                 ],
                 [
                     'type' => 'js',
                     'asset' => false,
-                    'location' => '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
+                    'location' => '//cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js',
                 ],
                 [
                     'type' => 'css',
                     'asset' => false,
-                    'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
+                    'location' => '//cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '//cdn.datatables.net/responsive/2.2.6/js/dataTables.responsive.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => '//cdn.datatables.net/responsive/2.2.6/css/responsive.dataTables.min.css',
                 ],
             ],
         ],

@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('produtos');
 });
+
+Route::get('/saidas', function () {
+    return view('saidas');
+});
