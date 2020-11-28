@@ -6,9 +6,6 @@
 
 @section('content')
 <div class="card">
-  <div class="card-header">
-    <h3 class="card-title">DataTable with default features</h3>
-  </div>
   <!-- /.card-header -->
   <div class="card-body">
     <table id="table" class="table table-bordered table-striped">
@@ -443,7 +440,7 @@
   </div>
   <!-- /.card-body -->
 </div>
-
+<br>
 @stop
 
 @section('js')
