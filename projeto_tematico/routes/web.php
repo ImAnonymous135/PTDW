@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/produtos', function () {
     return view('produtos');
 });
 
@@ -21,6 +21,6 @@ Route::get('/saidas', function () {
     return view('saidas');
 });
 
-Route::get('/registoSaida', function () {
-    return view('registoSaida');
+Route::get('/produtos/adicionar', function () {
+    return view('adicionar-produto');
 });

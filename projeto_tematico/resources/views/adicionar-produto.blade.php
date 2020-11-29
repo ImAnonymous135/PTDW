@@ -1,7 +1,24 @@
 @extends('adminlte::page')
 
 @section('content_header')
-    <h1>Novo Produto</h1>
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark">
+          Produtos
+        </h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item "><a href="/produtos">Produtos</a></li>
+          <li class="breadcrumb-item active">Adicionar</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
 @stop
 
 @section('content')
@@ -73,7 +90,7 @@
             </div>
             <div class="d-flex flex-row justify-content-end">
                   <span class="mr-2">
-                    <button type="button" class="btn btn-block btn-outline-primary">Cancelar</button>
+                    <button type="button" class="btn btn-block btn-outline-primary" onclick="window.location.href='/produtos'">Cancelar</button>
                   </span>
                   <span class="mr-2">
                     <button type="button" class="btn btn-block btn-primary">Submeter</button>
