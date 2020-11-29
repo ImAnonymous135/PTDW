@@ -73,10 +73,10 @@
             </div>
             <div class="d-flex flex-row justify-content-end">
                   <span class="mr-2">
-                    <button type="button" class="btn btn-block btn-success">Cancelar</button>
+                    <button type="button" class="btn btn-block btn-outline-primary">Cancelar</button>
                   </span>
                   <span class="mr-2">
-                    <button type="button" class="btn btn-block btn-success">Submeter</button>
+                    <button type="button" class="btn btn-block btn-primary">Submeter</button>
                   </span>
                 </div>
             <!-- /.row -->
