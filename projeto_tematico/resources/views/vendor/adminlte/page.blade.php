@@ -1,5 +1,14 @@
 @extends('adminlte::master')
 
+@section('content_top_nav_right')
+    <div class="dropdown" style="margin-right: 15px">
+        <a type="button" class="dropdown-toggle" data-toggle="dropdown">João Moleirinho</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Terminar Sessão</a>
+        </div>
+      </div>
+@endsection
+
 @inject('layoutHelper', \JeroenNoten\LaravelAdminLte\Helpers\LayoutHelper)
 
 @if($layoutHelper->isLayoutTopnavEnabled())

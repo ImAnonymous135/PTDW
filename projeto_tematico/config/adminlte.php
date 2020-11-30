@@ -46,8 +46,8 @@ return [
     */
 
     'logo' => '<b>Greco</b>',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-    'logo_img_class' => 'brand-image img-circle elevation-3',
+    'logo_img' => 'favicon.ico',
+    'logo_img_class' => 'brand-image',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'AdminLTE',
@@ -233,7 +233,7 @@ return [
     'menu' => [
         [
             'text' => 'search',
-            'search' => true,
+            'search' => false,
             'topnav' => true,
         ],
         [
@@ -241,7 +241,10 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        ['header' => 'Menu Principal'],
+        [
+            'header' => 'Menu Principal',
+            'classes' => 'font-weight-bold'
+        ],
         [
             'text' => 'Produtos',
             'url'  => '/produtos',
@@ -260,7 +263,7 @@ return [
         [
             'text' => 'Fornecedores',
             'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-truck',
         ],
         [
             'text'    => 'Movimentos',
