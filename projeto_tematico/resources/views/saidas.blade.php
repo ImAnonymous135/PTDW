@@ -26,59 +26,51 @@
       <tr>
         <th>Produto</th>
         <th>Localização</th>
-        <th>Data de Entrada</th>
-        <th>Data de Abertura</th>
-        <th>Data de Validade</th>
-        <th>Data de término</th>
+        <th>Embalagens</th>
+        <th>Solicitante</th>
+        <th>Operador</th>
+        <th>Data</th>
       </tr>
       </thead>
       <tbody>
       <tr>
         <td>Água</td>
         <td>G-3</td>
-        <td>24/11/2019</td>
-        <td>26/11/2019</td>
-        <td>21/12/2019</td>
+        <td>2</td>
+        <td>João Carlos</td>
+        <td>Ricardo José</td>
         <td>4/12/2019</td>
       </tr>
       <tr>
         <td>Água</td>
         <td>G-3</td>
-        <td>24/11/2019</td>
-        <td>26/11/2019</td>
-        <td>21/12/2019</td>
+        <td>2</td>
+        <td>João Carlos</td>
+        <td>Ricardo José</td>
         <td>4/12/2019</td>
       </tr>
       <tr>
         <td>Água</td>
         <td>G-3</td>
-        <td>24/11/2019</td>
-        <td>26/11/2019</td>
-        <td>21/12/2019</td>
+        <td>2</td>
+        <td>João Carlos</td>
+        <td>Ricardo José</td>
         <td>4/12/2019</td>
       </tr>
       <tr>
         <td>Água</td>
         <td>G-3</td>
-        <td>24/11/2019</td>
-        <td>26/11/2019</td>
-        <td>21/12/2019</td>
+        <td>2</td>
+        <td>João Carlos</td>
+        <td>Ricardo José</td>
         <td>4/12/2019</td>
       </tr>
       <tr>
         <td>Água</td>
         <td>G-3</td>
-        <td>24/11/2019</td>
-        <td>26/11/2019</td>
-        <td>21/12/2019</td>
-        <td>4/12/2019</td>
-      </tr>
-      <tr>
-        <td>Água</td>
-        <td>G-3</td>
-        <td>24/11/2019</td>
-        <td>26/11/2019</td>
-        <td>21/12/2019</td>
+        <td>1</td>
+        <td>João Carlos</td>
+        <td>Ricardo José</td>
         <td>4/12/2019</td>
       </tr>
       </tfoot>
