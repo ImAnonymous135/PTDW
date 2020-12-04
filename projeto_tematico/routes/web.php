@@ -24,3 +24,7 @@ Route::get('/saidas', function () {
 Route::get('/produtos/adicionar', function () {
     return view('adicionar-produto');
 });
+
+Route::get('/produtos/info-produto', function () {
+    return view('info-produto');
+});
