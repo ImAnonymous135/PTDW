@@ -6,7 +6,7 @@
     <div class="row mb-2">
       <div class="col-sm-6">
         <h1 class="m-0 text-dark">
-          Registar a saída
+          Registar Saída
         </h1>
       </div>
       <div class="col-sm-6">
@@ -29,50 +29,46 @@
         <div class="row">
             <div class="card-body" style="display: block;">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-sm-6">
                         <div class="form-group">
                             <label>Produto</label>
                             <input type="text" class="form-control" id="#" value="água" disabled >
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-sm-3">
                         <div class="form-group">
                             <label>Embalagem</label>
                             <input type="text" class="form-control" id="#" value="219" disabled >
                         </div>
                     </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-sm-3">
                         <div class="form-group">
                             <label>Data</label>
                             <input type="text" class="form-control" id="#" value="05/12/2020" disabled >
                         </div>
                     </div>
-                    <div class="col-md-6">
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Observações</label>
+                            <textarea class="form-control" rows="3" maxlength="100" placeholder="Digite as observações.."></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>Solicitante</label>
+                            <input type="text" class="form-control" id="#" placeholder="Digite o solicitante..">
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
                         <div class="form-group">
                             <label>Operador</label>
                             <input type="text" class="form-control" id="#" placeholder="Digite o operador..">
                         </div>
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Observações</label>
-                            <textarea class="form-control" rows="3" maxlength="100" placeholder="Digite as observações.."></textarea>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Solicitante</label>
-                            <input type="text" class="form-control" id="#" placeholder="Digite o solicitante..">
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
         <div class="">

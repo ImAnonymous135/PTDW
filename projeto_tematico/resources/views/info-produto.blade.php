@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 {{-- Armazenamento --}}
-                <div class="col-sm-6">
+                <div class="col-md-6">
                     <h3>Armazenamento</h3>
                     <div class="margin-top">
                         <div class="card-body table-responsive p-0" style="height: 300px;">
