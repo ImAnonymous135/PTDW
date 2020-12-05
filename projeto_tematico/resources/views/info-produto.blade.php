@@ -21,19 +21,9 @@
 
 @section('content')
 
-{{-- Mini menu --}}
-
-{{-- https://www.cssscript.com/material-inspired-floating-popup-menu/ --}}
-
-<ul id="menu" class="mfb-component--br mfb-slidein" data-mfb-toggle="hover">
-  <li class="mfb-component__wrap">
-    <li>
-        <a href="/produtos/entradas" data-mfb-label="Registar entrada" class="mfb-component__button--child">
-          <i class="mfb-component__child-icon ion-social-github fas fa-plus"></i>
-        </a>
-      </li>
-  </li>
-</ul>
+<a href="/produtos/entradas" class="float">
+  <i class="fa fa-plus"></i>
+</a>
 
 {{-- Mini menu --}}
 
@@ -167,9 +157,9 @@
 
 @section('css')
   <link rel="stylesheet" href="/css/custom.css">
-  <link href="/css/mfb.css" rel="stylesheet">
+  <link href="/css/floatbtn.css" rel="stylesheet">
 @stop
 
 @section('js')
-  <script src="/js/mfb.js"></script>
+  <script src="/js/floatbtn.js"></script>
 @endsection
