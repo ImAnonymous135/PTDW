@@ -251,7 +251,7 @@ return [
             'icon' => 'fas fa-vial',
         ],
         [
-            'text' => 'Laboratórios',
+            'text' => 'Clientes',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-microscope',
         ],

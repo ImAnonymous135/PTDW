@@ -20,6 +20,34 @@
 @stop
 
 @section('content')
+
+{{-- Mini menu --}}
+
+{{-- https://www.cssscript.com/material-inspired-floating-popup-menu/ --}}
+
+<ul id="menu" class="mfb-component--br mfb-slidein" data-mfb-toggle="hover">
+  <li class="mfb-component__wrap">
+    <a href="#" class="mfb-component__button--main">
+      <i class="mfb-component__main-icon--resting fas fa-bars"></i>
+      <i class="mfb-component__main-icon--active fas fa-bars"></i>
+    </a>
+    <ul class="mfb-component__list">
+      <li>
+        <a href="#" data-mfb-label="Nova entrada" class="mfb-component__button--child">
+          <i class="mfb-component__child-icon ion-social-github fas fa-plus"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#" data-mfb-label="Nova saída" class="mfb-component__button--child">
+          <i class="mfb-component__child-icon ion-social-octocat fas fa-minus"></i>
+        </a>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+{{-- Mini menu --}}
+
     <div class="card">
         <div class="card-body">
             <div class="row">
@@ -49,7 +77,7 @@
                     <h3>Armazenamento</h3>
                     <div class="margin-top">
                         <div class="card-body table-responsive p-0" style="height: 300px;">
-                            <table class="table table-head-fixed">
+                            <table class="table table-head-fixed" style=" transform: translateY(-2px)">
                               <thead>
                                 <tr>
                                     <th>ID</th>
@@ -63,15 +91,79 @@
                                   <td>G-3</td>
                                   <td>
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-info">Detalhes</button>
-                                        <button type="button" class="btn btn-info dropdown-toggle dropdown-icon" data-toggle="dropdown">
-                                          <span class="sr-only">Toggle Dropdown</span>
-                                          <div class="dropdown-menu" role="menu">
-                                            <a class="dropdown-item" href="#">Abrir Embalagem</a>
-                                            <a class="dropdown-item" href="/saidas" onclick="window.location = '/saidas'">Remover</a>
-                                          </div>
-                                        </button>
+                                      <button type="button" class="btn btn-primary">Detalhes</button>
+                                      <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                      </button>
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Dar abertura</a>
+                                        <a class="dropdown-item" href="#">Dar Saída</a>
                                       </div>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>219</td>
+                                  <td>G-3</td>
+                                  <td>
+                                    <div class="btn-group">
+                                      <button type="button" class="btn btn-primary">Detalhes</button>
+                                      <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                      </button>
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Dar abertura</a>
+                                        <a class="dropdown-item" href="#">Dar Saída</a>
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>219</td>
+                                  <td>G-3</td>
+                                  <td>
+                                    <div class="btn-group">
+                                      <button type="button" class="btn btn-primary">Detalhes</button>
+                                      <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                      </button>
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Dar abertura</a>
+                                        <a class="dropdown-item" href="#">Dar Saída</a>
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>219</td>
+                                  <td>G-3</td>
+                                  <td>
+                                    <div class="btn-group">
+                                      <button type="button" class="btn btn-primary">Detalhes</button>
+                                      <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                      </button>
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Dar abertura</a>
+                                        <a class="dropdown-item" href="#">Dar Saída</a>
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>219</td>
+                                  <td>G-3</td>
+                                  <td>
+                                    <div class="btn-group">
+                                      <button type="button" class="btn btn-primary">Detalhes</button>
+                                      <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                      </button>
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Dar abertura</a>
+                                        <a class="dropdown-item" href="#">Dar Saída</a>
+                                      </div>
+                                    </div>
                                   </td>
                                 </tr>
                               </tbody>
@@ -85,5 +177,10 @@
 @endsection
 
 @section('css')
-    <link rel="stylesheet" href="/css/custom.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  <link href="/css/mfb.css" rel="stylesheet">
 @stop
+
+@section('js')
+  <script src="/js/mfb.js"></script>
+@endsection
