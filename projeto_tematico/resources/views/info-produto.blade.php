@@ -27,22 +27,11 @@
 
 <ul id="menu" class="mfb-component--br mfb-slidein" data-mfb-toggle="hover">
   <li class="mfb-component__wrap">
-    <a href="#" class="mfb-component__button--main">
-      <i class="mfb-component__main-icon--resting fas fa-bars"></i>
-      <i class="mfb-component__main-icon--active fas fa-bars"></i>
-    </a>
-    <ul class="mfb-component__list">
-      <li>
-        <a href="#" data-mfb-label="Nova entrada" class="mfb-component__button--child">
+    <li>
+        <a href="/produtos/entradas" data-mfb-label="Registar entrada" class="mfb-component__button--child">
           <i class="mfb-component__child-icon ion-social-github fas fa-plus"></i>
         </a>
       </li>
-      <li>
-        <a href="#" data-mfb-label="Nova saída" class="mfb-component__button--child">
-          <i class="mfb-component__child-icon ion-social-octocat fas fa-minus"></i>
-        </a>
-      </li>
-    </ul>
   </li>
 </ul>
 
@@ -80,7 +69,7 @@
                             <table class="table table-head-fixed" style=" transform: translateY(-2px)">
                               <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <th>Embalagem</th>
                                     <th>Localização</th>
                                     <th>Ações</th>
                                 </tr>
@@ -96,14 +85,14 @@
                                         <span class="caret"></span>
                                       </button>
                                       <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Dar abertura</a>
-                                        <a class="dropdown-item" href="#">Dar Saída</a>
+                                        <a class="dropdown-item" href="#">Registar abertura</a>
+                                        <a class="dropdown-item" href="/produtos/saidas">Registar saída</a>
                                       </div>
                                     </div>
                                   </td>
                                 </tr>
                                 <tr>
-                                  <td>219</td>
+                                  <td>218</td>
                                   <td>G-3</td>
                                   <td>
                                     <div class="btn-group">
@@ -119,7 +108,7 @@
                                   </td>
                                 </tr>
                                 <tr>
-                                  <td>219</td>
+                                  <td>217</td>
                                   <td>G-3</td>
                                   <td>
                                     <div class="btn-group">
@@ -135,7 +124,7 @@
                                   </td>
                                 </tr>
                                 <tr>
-                                  <td>219</td>
+                                  <td>216</td>
                                   <td>G-3</td>
                                   <td>
                                     <div class="btn-group">
@@ -151,7 +140,7 @@
                                   </td>
                                 </tr>
                                 <tr>
-                                  <td>219</td>
+                                  <td>215</td>
                                   <td>G-3</td>
                                   <td>
                                     <div class="btn-group">

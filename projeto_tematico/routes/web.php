@@ -28,3 +28,15 @@ Route::get('/produtos/adicionar', function () {
 Route::get('/produtos/info-produto', function () {
     return view('info-produto');
 });
+
+Route::get('/produtos/entradas/quimico', function () {
+    return view('registarEntradaQuimicos');
+});
+
+Route::get('/produtos/entradas/naoquimico', function () {
+    return view('registarEntradaNaoQuimicos');
+});
+
+Route::get('/produtos/saidas', function () {
+    return view('registarSaida');
+});

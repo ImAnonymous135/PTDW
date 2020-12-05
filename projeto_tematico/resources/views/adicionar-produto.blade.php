@@ -118,7 +118,6 @@
                                     <option>Tóxico</option>
                                   </select>
                             </div>
-
                             <div class="form-group">
                                 <label>Código de recomendação de prudência</label>
                                 <input type="text" class="form-control" id=""
