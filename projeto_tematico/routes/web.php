@@ -17,6 +17,10 @@ Route::get('/produtos', function () {
     return view('produtos');
 });
 
+Route::get('/entradas', function () {
+    return view('entradas');
+});
+
 Route::get('/saidas', function () {
     return view('saidas');
 });
@@ -36,3 +40,8 @@ Route::get('/produtos/entradas', function () {
 Route::get('/produtos/saidas', function () {
     return view('registo-saida');
 });
+
+Route::get('/fornecedores', function () {
+    return view('fornecedores');
+});
+
