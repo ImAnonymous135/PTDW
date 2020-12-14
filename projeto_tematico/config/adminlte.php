@@ -242,10 +242,6 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'header' => 'Menu Principal',
-            'classes' => 'font-weight-bold'
-        ],
-        [
             'text' => 'Produtos',
             'url'  => '/produtos',
             'icon' => 'fas fa-vial',
@@ -262,7 +258,7 @@ return [
         ],
         [
             'text' => 'Fornecedores',
-            'url'  => 'admin/settings',
+            'url'  => 'fornecedores',
             'icon' => 'fas fa-truck',
         ],
         [
