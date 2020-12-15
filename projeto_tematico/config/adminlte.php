@@ -248,7 +248,7 @@ return [
         ],
         [
             'text' => 'Clientes',
-            'url'  => 'admin/settings',
+            'url'  => '/clientes',
             'icon' => 'fas fa-fw fa-microscope',
         ],
         [
