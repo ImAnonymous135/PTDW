@@ -18,7 +18,11 @@ Route::get('/produtos', function () {
 });
 
 Route::get('/entrada-quimico', function () {
-    return view('entradas');
+    return view('entrada-quimico');
+});
+
+Route::get('/entrada-nao-quimico', function () {
+    return view('entrada-nao-quimico');
 });
 
 Route::get('/saidas', function () {

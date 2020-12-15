@@ -43,7 +43,9 @@
                     <td>14/12/2020</td>
                     <td></td>
                     <td>Observação</td>
-                    <td></td>
+                    <td>
+                        
+                    </td>
                 </tr>
                 <tr>
                     <td>Joaquim Fernandes</td>
@@ -52,7 +54,9 @@
                     <td>14/12/2020</td>
                     <td>15/12/2020</td>
                     <td>Observação</td>
-                    <td></td>
+                    <td>
+                        
+                    </td>
                 </tr>
                 <tr>
                     <td>Joaquim Fernandes</td>
@@ -61,7 +65,9 @@
                     <td>14/12/2020</td>
                     <td>15/12/2020</td>
                     <td>Observação</td>
-                    <td></td>
+                    <td>
+                        
+                    </td>
                 </tr>
                 <tr>
                     <td>Joaquim Fernandes</td>
@@ -70,7 +76,9 @@
                     <td>14/12/2020</td>
                     <td>15/12/2020</td>
                     <td>Observação</td>
-                    <td></td>
+                    <td>
+                        
+                    </td>
                 </tr>
                 <tr>
                     <td>Joaquim Fernandes</td>
@@ -79,7 +87,8 @@
                     <td>14/12/2020</td>
                     <td>15/12/2020</td>
                     <td>Observação</td>
-                    <td></td>
+                    <td>
+                    </td>
                 </tr>
                 <tr>
                     <td>Joaquim Fernandes</td>
@@ -88,7 +97,8 @@
                     <td>14/12/2020</td>
                     <td>15/12/2020</td>
                     <td>Observação</td>
-                    <td></td>
+                    <td>
+                    </td>
                 </tr>
                 <tr>
                     <td>Joaquim Fernandes</td>
@@ -97,7 +107,8 @@
                     <td>14/12/2020</td>
                     <td>15/12/2020</td>
                     <td>Observação</td>
-                    <td></td>
+                    <td>
+                    </td>
                 </tr>
                 <tr>
                     <td>Joaquim Fernandes</td>
@@ -106,7 +117,8 @@
                     <td>14/12/2020</td>
                     <td>15/12/2020</td>
                     <td>Observação</td>
-                    <td></td>
+                    <td>
+                    </td>
                 </tr>
                 <tr>
                     <td>Joaquim Fernandes</td>
@@ -115,7 +127,8 @@
                     <td>14/12/2020</td>
                     <td>15/12/2020</td>
                     <td>Observação</td>
-                    <td></td>
+                    <td>
+                    </td>
                 </tr>
                 <tr>
                     <td>Joaquim Fernandes</td>
@@ -124,7 +137,8 @@
                     <td>14/12/2020</td>
                     <td>15/12/2020</td>
                     <td>Observação</td>
-                    <td></td>
+                    <td>
+                    </td>
                 </tr>
                 <tr>
                     <td>Joaquim Fernandes</td>
@@ -133,7 +147,8 @@
                     <td>14/12/2020</td>
                     <td>15/12/2020</td>
                     <td>Observação</td>
-                    <td></td>
+                    <td>
+                    </td>
                 </tr>
                 <tr>
                     <td>Joaquim Fernandes</td>
@@ -142,8 +157,11 @@
                     <td>14/12/2020</td>
                     <td>15/12/2020</td>
                     <td>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et accumsan purus. Vestibulum vel leo.</td>
-                    <td></td>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et accumsan purus. Vestibulum vel
+                        leo.</td>
+                        <td>
+                            
+                        </td>
                 </tr>
                 <tr>
                     <td>Joaquim Fernandes</td>
@@ -152,7 +170,9 @@
                     <td>14/12/2020</td>
                     <td>15/12/2020</td>
                     <td>Observação</td>
-                    <td></td>
+                    <td>
+                        
+                    </td>
                 </tr>
                 </tfoot>
         </table>
@@ -175,7 +195,7 @@
         "columnDefs": [ {
             "targets": -1,
             "data": null,
-            "defaultContent": "<button class='btn btn-primary'>Click!</button>"
+            "defaultContent": '<div class="btn-group"><button type="button" class="btn btn-primary">Detalhes</button><button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split"data-toggle="dropdown"><span class="caret"></span></button><div class="dropdown-menu"><a class="dropdown-item" href="#">Mudar cargo</a><a class="dropdown-item" href="#">Eliminar operador</a></div></div>'
         }]
     });
   });
