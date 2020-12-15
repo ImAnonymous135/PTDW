@@ -48,3 +48,7 @@ Route::get('/fornecedores', function () {
 Route::get('/operadores', function () {
     return view('operadores');
 });
+
+Route::get('/clientes', function () {
+    return view('clientes');
+});
