@@ -28,7 +28,7 @@
             <thead>
                 <tr>
                     <th>Fornecedor</th>
-                    <th>Rua,Lote,Nº</th>
+                    <th>Morada</th>
                     <th>Localidade</th>
                     <th>Código Postal</th>
                     <th>Telefone</th>
@@ -44,8 +44,7 @@
                     <td>3750-141</td>
                     <td>912478356</td>
                     <td>215478543</td>
-                    <td>
-                    </td>
+                    <td><button type="button" class="btn btn-primary">Detalhes</button></td>
                 </tr>
                 <tr>
                     <td>Quimifeira</td>
@@ -54,7 +53,7 @@
                     <td>3750-141</td>
                     <td>912478356</td>
                     <td>215478543</td>
-                    <td></td>
+                    <td><button type="button" class="btn btn-primary">Detalhes</button></td>
                 </tr>
                 <tr>
                     <td>Quimifeira</td>
@@ -63,7 +62,7 @@
                     <td>3750-141</td>
                     <td>912478356</td>
                     <td>215478543</td>
-                    <td></td>
+                    <td><button type="button" class="btn btn-primary">Detalhes</button></td>
                 </tr>
                 <tr>
                     <td>Quimifeira</td>
@@ -72,7 +71,7 @@
                     <td>3750-141</td>
                     <td>912478356</td>
                     <td>215478543</td>
-                    <td></td>
+                    <td><button type="button" class="btn btn-primary">Detalhes</button></td>
                 </tr>
                 <tr>
                     <td>Feira</td>
@@ -81,10 +80,11 @@
                     <td>3750-141</td>
                     <td>912478356</td>
                     <td>215478543</td>
-                    <td></td>
+                    <td><button type="button" class="btn btn-primary">Detalhes</button></td>
                 </tr>
                 </tfoot>
         </table>
+        <br>
     </div>
     <!-- /.card-body -->
 </div>
@@ -93,12 +93,20 @@
 
 @section('js')
 <script>
-    $(function () {
-    $('#table').DataTable({
-      "responsive": true,
-      "autoWidth": false,
-      "ordering": false,
+    $(document).ready(function(){
+        var table = $('#table').DataTable({
+        "responsive": true,
+        "autoWidth": false,
+        "ordering": false,
+        dom: '<"col-sm-12 col-md-6 float-sm-left"l><"col-sm-12 col-md-6 float-sm-right"f>rtip<"float-sm-right"B>',
+        buttons: [
+            {
+            extend: 'csvHtml5',
+            text: 'Exportar dados',
+            className: 'btn btn-block btn-primary'
+            },
+        ]
+        });
     });
-  });
 </script>
 @stop
