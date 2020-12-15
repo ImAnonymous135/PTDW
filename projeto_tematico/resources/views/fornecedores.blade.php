@@ -94,19 +94,54 @@
 @section('js')
 <script>
     $(document).ready(function(){
-        var table = $('#table').DataTable({
+        	
+        $.fn.dataTable.Buttons.defaults.dom.button.className = 'btn';
+        var table = $('#table').on('init.dt', function(){
+            $('#butn').on('mouseenter', function() {
+                $('#butn').css('cursor', 'default');
+                $('#butn').click();
+                $('.dt-button-collection').on('mouseleave', function() {
+                        $('h1').click();
+                });
+            });
+        }).DataTable({
         "responsive": true,
         "autoWidth": false,
         "ordering": false,
         dom: '<"col-sm-12 col-md-6 float-sm-left"l><"col-sm-12 col-md-6 float-sm-right"f>rtip<"float-sm-right"B>',
         buttons: [
             {
-            extend: 'csvHtml5',
+            extend: 'collection',
+            attr: {id: "butn"},
             text: 'Exportar dados',
-            className: 'btn btn-block btn-primary'
-            },
-        ]
+            className: 'btn btn-primary dropdown-toggle',
+            autoClose: true,
+            buttons: [
+                { text: 'CSV',
+                extend: 'csvHtml5',
+                className: 'dropdown-item',
+                tag: "a"},
+
+                { text: 'PDF',
+                extend: 'pdfHtml5',
+                className: 'dropdown-item',
+                tag: "a"},
+
+                { text: 'Excel',
+                extend: 'excelHtml5',
+                className: 'dropdown-item',
+                tag: "a" }
+            ],
+            fade: true,
+            background: false,
+
+        }
+        ],
+        language: {
+            url: '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
+        },
         });
+
     });
 </script>
 @stop

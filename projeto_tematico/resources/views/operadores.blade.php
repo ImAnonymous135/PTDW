@@ -141,7 +141,8 @@
                     <td>Fiel de armazém</td>
                     <td>14/12/2020</td>
                     <td>15/12/2020</td>
-                    <td>Observação</td>
+                    <td>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et accumsan purus. Vestibulum vel leo.</td>
                     <td></td>
                 </tr>
                 <tr>
@@ -165,9 +166,17 @@
 <script>
     $(function () {
     $('#table').DataTable({
-      "responsive": true,
-      "autoWidth": false,
-      "ordering": false,
+        "responsive": true,
+        "autoWidth": false,
+        "ordering": false,
+        language: {
+                url: '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
+        },
+        "columnDefs": [ {
+            "targets": -1,
+            "data": null,
+            "defaultContent": "<button class='btn btn-primary'>Click!</button>"
+        }]
     });
   });
 </script>
