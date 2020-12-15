@@ -342,6 +342,26 @@ return [
                     'asset' => false,
                     'location' => '//cdn.datatables.net/responsive/2.2.6/css/responsive.dataTables.min.css',
                 ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '//cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '//cdn.datatables.net/buttons/1.6.5/js/buttons.flash.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => '//cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '//cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js',
+                ],
             ],
         ],
         'Select2' => [
