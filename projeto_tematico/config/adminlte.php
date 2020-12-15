@@ -267,8 +267,19 @@ return [
             'submenu' => [
                 [
                     'text' => 'Entradas',
-                    'url'  => '/entradas',
-                    'icon' => 'fas fa-fw fa-plus'
+                    'icon' => 'fas fa-fw fa-plus',
+                    'submenu' => [
+                        [
+                            'text' => 'Químico',
+                            'url'  => '/entrada-quimico',
+                            'icon' => 'fas fa-fw fa-flask',
+                        ],
+                        [
+                            'text' => 'Não Químico ',
+                            'url'  => '/entrada-nao-quimico',
+                            'icon' => 'fas fa-fw fa-eye-dropper',
+                        ]
+                    ]
                 ],
                 [
                     'text' => 'Saídas',

@@ -21,9 +21,13 @@
 
 @section('content')
 
-<a href="/produtos/entradas" class="float">
-  <i class="fa fa-plus"></i>
-</a>
+<ul id="menu" class="mfb-component--br mfb-slidein" data-mfb-toggle="hover">
+  <li class="mfb-component__wrap">
+    <a href="#" data-mfb-label="Nova entrada" class="mfb-component__button--main">
+      <i class="mfb-component__main-icon--resting fas fa-plus" style="font-size: 1.5rem;"></i>
+    </a>
+  </li>
+</ul>
 
 {{-- Mini menu --}}
 
@@ -157,9 +161,9 @@
 
 @section('css')
   <link rel="stylesheet" href="/css/custom.css">
-  <link href="/css/floatbtn.css" rel="stylesheet">
+  <link href="/css/mfb.css" rel="stylesheet">
 @stop
 
 @section('js')
-  <script src="/js/floatbtn.js"></script>
+  <script src="/js/mfb.js"></script>
 @endsection

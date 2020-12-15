@@ -28,10 +28,10 @@
       <div class="card-body">
         @if (true)
         {{-- Quimicos --}}
-        @include('registo.quimicos')
+        @include('sub-views.quimicos')
         @else
         {{-- nao quimicos --}}
-        @include('registo.nao-quimicos')
+        @include('sub-views.nao-quimicos')
         @endif
       </div>
     </div>

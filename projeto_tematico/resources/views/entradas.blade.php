@@ -10,7 +10,7 @@
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item active">Entradas</li>
+          <li class="breadcrumb-item active">Entradas / Químicos</li>
         </ol>
       </div>
     </div>
@@ -19,6 +19,9 @@
 @stop
 
 @section('content')
+
+@include('sub-views.export-button')
+
 <div class="card">
   <div class="card-body">
     <table id="table" class="table table-bordered table-striped">
@@ -106,6 +109,7 @@
 @stop
 
 @section('js')
+<script src="js/mfb.js"></script>
 <script>
   $(function () {
     $('#table').DataTable({
@@ -114,4 +118,9 @@
     });
   });
 </script>
+@include('sub-views.exports')
 @stop
+
+@section('css')
+<link href="css/mfb.css" rel="stylesheet">
+@endsection

@@ -19,61 +19,64 @@
 @stop
 
 @section('content')
+
+@include('sub-views.export-button')
+
 <div class="card">
   <div class="card-body">
     <table id="table" class="table table-bordered table-striped">
       <thead>
-      <tr>
-        <th>Produto</th>
-        <th>Localização</th>
-        <th>Embalagens</th>
-        <th>Solicitante</th>
-        <th>Operador</th>
-        <th>Data</th>
-      </tr>
+        <tr>
+          <th>Produto</th>
+          <th>Localização</th>
+          <th>Embalagens</th>
+          <th>Solicitante</th>
+          <th>Operador</th>
+          <th>Data</th>
+        </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>Água</td>
-        <td>G-3</td>
-        <td>2</td>
-        <td>Carlos Fonseca</td>
-        <td>Ricardo José</td>
-        <td>4/12/2019</td>
-      </tr>
-      <tr>
-        <td>Água</td>
-        <td>G-3</td>
-        <td>2</td>
-        <td>João Carlos</td>
-        <td>Ricardo José</td>
-        <td>4/12/2019</td>
-      </tr>
-      <tr>
-        <td>Água</td>
-        <td>G-3</td>
-        <td>2</td>
-        <td>João Carlos</td>
-        <td>Ricardo José</td>
-        <td>4/12/2019</td>
-      </tr>
-      <tr>
-        <td>Água</td>
-        <td>G-3</td>
-        <td>2</td>
-        <td>João Carlos</td>
-        <td>Ricardo José</td>
-        <td>4/12/2019</td>
-      </tr>
-      <tr>
-        <td>Água</td>
-        <td>G-3</td>
-        <td>1</td>
-        <td>João Carlos</td>
-        <td>Ricardo José</td>
-        <td>4/12/2019</td>
-      </tr>
-      </tfoot>
+        <tr>
+          <td>Água</td>
+          <td>G-3</td>
+          <td>2</td>
+          <td>Carlos Fonseca</td>
+          <td>Ricardo José</td>
+          <td>4/12/2019</td>
+        </tr>
+        <tr>
+          <td>Água</td>
+          <td>G-3</td>
+          <td>2</td>
+          <td>João Carlos</td>
+          <td>Ricardo José</td>
+          <td>4/12/2019</td>
+        </tr>
+        <tr>
+          <td>Água</td>
+          <td>G-3</td>
+          <td>2</td>
+          <td>João Carlos</td>
+          <td>Ricardo José</td>
+          <td>4/12/2019</td>
+        </tr>
+        <tr>
+          <td>Água</td>
+          <td>G-3</td>
+          <td>2</td>
+          <td>João Carlos</td>
+          <td>Ricardo José</td>
+          <td>4/12/2019</td>
+        </tr>
+        <tr>
+          <td>Água</td>
+          <td>G-3</td>
+          <td>1</td>
+          <td>João Carlos</td>
+          <td>Ricardo José</td>
+          <td>4/12/2019</td>
+        </tr>
+        </tfoot>
     </table>
   </div>
   <!-- /.card-body -->
@@ -82,8 +85,9 @@
 @stop
 
 @section('js')
+<script src="js/mfb.js"></script>
+{{-- Data table --}}
 <script>
-  
   $(function () {
     $('#table').DataTable({
       "responsive": true,
@@ -91,4 +95,9 @@
     });
   });
 </script>
+@include('sub-views.exports')
 @stop
+
+@section('css')
+<link href="css/mfb.css" rel="stylesheet">
+@endsection
