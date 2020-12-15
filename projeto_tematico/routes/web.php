@@ -52,3 +52,7 @@ Route::get('/operadores', function () {
 Route::get('/clientes', function () {
     return view('clientes');
 });
+
+Route::get('/historico', function () {
+    return view('historico-operadores');
+});

@@ -286,6 +286,11 @@ return [
                     'url'  => '/saidas',
                     'icon' => 'fas fa-fw fa-minus',
                 ],
+                [
+                    'text' => 'Histórico',
+                    'url'  => '/historico',
+                    'icon' => 'fas fa-fw fa-history',
+                ]
             ],
         ]
     ],
