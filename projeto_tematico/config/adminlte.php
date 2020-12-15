@@ -253,12 +253,12 @@ return [
         ],
         [
             'text' => 'Operadores',
-            'url'  => 'admin/settings',
+            'url'  => '/operadores',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'Fornecedores',
-            'url'  => 'fornecedores',
+            'url'  => '/fornecedores',
             'icon' => 'fas fa-truck',
         ],
         [
@@ -267,7 +267,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Entradas',
-                    'url'  => '',
+                    'url'  => '/entradas',
                     'icon' => 'fas fa-fw fa-plus'
                 ],
                 [

@@ -111,7 +111,6 @@
     $('#table').DataTable({
       "responsive": true,
       "autoWidth": false,
-     
     });
   });
 </script>

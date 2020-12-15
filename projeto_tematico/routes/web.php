@@ -45,3 +45,6 @@ Route::get('/fornecedores', function () {
     return view('fornecedores');
 });
 
+Route::get('/operadores', function () {
+    return view('operadores');
+});
