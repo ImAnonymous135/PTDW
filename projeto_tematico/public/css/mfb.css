@@ -94,7 +94,7 @@
   margin: 25px;
   position: fixed;
   white-space: nowrap;
-  z-index: 30;
+  z-index: 3000;
   padding-left: 0;
   list-style: none;
 }
@@ -210,7 +210,7 @@
 .mfb-component__button--main {
   height: 56px;
   width: 56px;
-  z-index: 20;
+  z-index: 2000;
 }
 
 .mfb-component__button--child {

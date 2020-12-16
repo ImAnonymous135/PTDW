@@ -16,6 +16,10 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/e', function () {
+    return view('estilos');
+});
+
 Route::get('/produtos', function () {
     return view('lista-produtos');
 });

@@ -160,7 +160,6 @@
 @endsection
 
 @section('css')
-  <link rel="stylesheet" href="/css/custom.css">
   <link href="/css/mfb.css" rel="stylesheet">
 @stop
 

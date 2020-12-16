@@ -119,6 +119,8 @@
     <!-- /.card-body -->
 </div>
 <br>
+<br>
+<br>
 @stop
 
 @section('js')
