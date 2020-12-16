@@ -17,7 +17,7 @@ Route::get('/', function () {
 });
 
 Route::get('/produtos', function () {
-    return view('produtos');
+    return view('lista-produtos');
 });
 
 Route::get('/entrada-quimico', function () {

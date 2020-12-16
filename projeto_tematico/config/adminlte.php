@@ -245,6 +245,13 @@ return [
             'text' => 'Produtos',
             'url'  => '/produtos',
             'icon' => 'fas fa-vial',
+            /*'submenu' => [
+                [
+                    'text' => 'Adicionar produto',
+                    'url'  => '/produtos/adicionar',
+                    'icon' => 'fas fa-fw fa-plus',
+                ],
+            ] */
         ],
         [
             'text' => 'Clientes',
