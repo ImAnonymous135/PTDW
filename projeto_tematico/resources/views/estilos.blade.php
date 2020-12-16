@@ -21,6 +21,12 @@
 @section('content')
 <div class="card">
     <div class="card-header">
+        <h1 class="m-0 text-dark">H1</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere, doloribus fugit dolor fuga cum impedit debitis vel voluptatum consequatur! Expedita odit amet aliquid, numquam sunt error quibusdam quaerat quisquam enim?</p>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">
         <h4>Botões</h4>
     </div>
     <div class="card-body">
@@ -145,7 +151,7 @@
 <div class="card">
     <div class="card-header">
         <h4>Listas</h4>
-        <table id="table" class="table table-head-fixed">
+        <table id="table1" class="table table-head-fixed">
             <thead>
                 <tr>
                     <th>Fornecedor</th>
@@ -177,7 +183,7 @@
 <div class="card">
     <div class="card-header">
         <h4>Tabela</h4>
-        <table id="table" class="table table-bordered table-striped">
+        <table id="table2" class="table table-bordered table-striped">
       <thead>
         <tr>
           <th>Produto</th>
@@ -216,4 +222,25 @@
 
 @section('js')
 <script src="/js/mfb.js"></script>
+<script>
+    $(function () {
+    $('#table1').DataTable({
+      "responsive": true,
+      "autoWidth": false,
+      "ordering": false,
+      language: {
+            url: '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
+        },
+    });
+  });
+  $(function () {
+    $('#table2').DataTable({
+      "responsive": true,
+      "autoWidth": false,
+      language: {
+            url: '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
+        },
+    });
+  });
+</script>
 @endsection

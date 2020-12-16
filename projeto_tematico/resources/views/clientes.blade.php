@@ -27,9 +27,9 @@
                 <thead>
                     <tr>
                         <th>Designação</th>
-                        <th>Nome do responsavel</th>
-                        <th>E-mail do responsavel</th>
-                        <th>Nome do Solicitante</th>
+                        <th>Nome do responsável</th>
+                        <th>E-mail do responsável</th>
+                        <th>Nome do solicitante</th>
                         <th>E-mail do socilitante</th>
                         <th>Observações</th>
                     </tr>
@@ -41,7 +41,7 @@
                         <td>j.quim@ua.pt</td>
                         <td>Méci Tabuleiro</td>
                         <td>Mci@ua.pt</td>
-                        <td>10/10 will work here</td>
+                        <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
                     </tr>
                     <tr>
                         <td>Sala 16.7</td>
@@ -49,7 +49,7 @@
                         <td>j.quim@ua.pt</td>
                         <td>Méci Tabuleiro</td>
                         <td>Mci@ua.pt</td>
-                        <td>10/10 will work here</td>
+                        <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
                     </tr>
                     <tr>
                         <td>Sala 16.7</td>
@@ -57,7 +57,7 @@
                         <td>j.quim@ua.pt</td>
                         <td>Méci Tabuleiro</td>
                         <td>Mci@ua.pt</td>
-                        <td>10/10 will work here</td>
+                        <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
                     </tr>
                     <tr>
                         <td>Sala 16.7</td>
@@ -65,7 +65,7 @@
                         <td>j.quim@ua.pt</td>
                         <td>Méci Tabuleiro</td>
                         <td>Mci@ua.pt</td>
-                        <td>10/10 will work here</td>
+                        <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
                     </tr>
                     <tr>
                         <td>Sala 16.7</td>
@@ -73,7 +73,7 @@
                         <td>j.quim@ua.pt</td>
                         <td>Méci Tabuleiro</td>
                         <td>Mci@ua.pt</td>
-                        <td>10/10 will work here</td>
+                        <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
                     </tr>
                     <tr>
                         <td>Sala 16.7</td>
@@ -81,7 +81,7 @@
                         <td>j.quim@ua.pt</td>
                         <td>Méci Tabuleiro</td>
                         <td>Mci@ua.pt</td>
-                        <td>10/10 will work here</td>
+                        <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
                     </tr>
                     <tr>
                         <td>Sala 16.7</td>
@@ -89,7 +89,7 @@
                         <td>j.quim@ua.pt</td>
                         <td>Méci Tabuleiro</td>
                         <td>Mci@ua.pt</td>
-                        <td>10/10 will work here</td>
+                        <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
                     </tr>
                     <tr>
                         <td>Sala 16.7</td>
@@ -97,7 +97,7 @@
                         <td>j.quim@ua.pt</td>
                         <td>Méci Tabuleiro</td>
                         <td>Mci@ua.pt</td>
-                        <td>10/10 will work here</td>
+                        <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
                     </tr>
                     <tr>
                         <td>Sala 16.7</td>
@@ -105,7 +105,7 @@
                         <td>j.quim@ua.pt</td>
                         <td>Méci Tabuleiro</td>
                         <td>Mci@ua.pt</td>
-                        <td>10/10 will work here</td>
+                        <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
                     </tr>
                     <tr>
                         <td>Sala 16.7</td>
@@ -113,7 +113,7 @@
                         <td>j.quim@ua.pt</td>
                         <td>Méci Tabuleiro</td>
                         <td>Mci@ua.pt</td>
-                        <td>10/10 will work here</td>
+                        <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
                     </tr>
                     <tr>
                         <td>Sala 16.7</td>
@@ -121,7 +121,7 @@
                         <td>j.quim@ua.pt</td>
                         <td>Méci Tabuleiro</td>
                         <td>Mci@ua.pt</td>
-                        <td>10/10 will work here</td>
+                        <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
                     </tr>
                     <tr>
                         <td>Sala 16.7</td>
@@ -129,7 +129,7 @@
                         <td>j.quim@ua.pt</td>
                         <td>Méci Tabuleiro</td>
                         <td>Mci@ua.pt</td>
-                        <td>10/10 will work here</td>
+                        <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
                     </tr>
                     <tr>
                         <td>Sala 16.7</td>
@@ -137,7 +137,7 @@
                         <td>j.quim@ua.pt</td>
                         <td>Méci Tabuleiro</td>
                         <td>Mci@ua.pt</td>
-                        <td>10/10 will work here</td>
+                        <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
                     </tr>
                     </tfoot>
             </table>

@@ -22,6 +22,14 @@
     Como ainda ha muita informaçao para por é melhor por um botao com mais informaçoes ou algo do genero
 -->
 @section('content')
+<ul id="menu" class="mfb-component--br mfb-slidein" data-mfb-toggle="hover">
+  <li class="mfb-component__wrap">
+    <a data-mfb-label="Novo fornecedor" class="mfb-component__button--main" href="/produtos/adicionar">
+      <i class="mfb-component__main-icon--resting fas fa-plus" style="font-size: 1.5rem;" ></i>
+    </a>
+  </li>
+</ul>
+
 <div class="card">
     <div class="card-body">
         <table id="table" class="table table-head-fixed">
@@ -93,55 +101,29 @@
 
 @section('js')
 <script>
-    $(document).ready(function(){
-        	
-        $.fn.dataTable.Buttons.defaults.dom.button.className = 'btn';
-        var table = $('#table').on('init.dt', function(){
-            $('#butn').on('mouseenter', function() {
-                $('#butn').css('cursor', 'default');
-                $('#butn').click();
-                $('.dt-button-collection').on('mouseleave', function() {
-                        $('h1').click();
-                });
-            });
-        }).DataTable({
+        $(function () {
+    $('#table').DataTable({
         "responsive": true,
         "autoWidth": false,
-        "ordering": false,
-        dom: '<"col-sm-12 col-md-6 float-sm-left"l><"col-sm-12 col-md-6 float-sm-right"f>rtip<"float-sm-right"B>',
-        buttons: [
-            {
-            extend: 'collection',
-            attr: {id: "butn"},
-            text: 'Exportar dados',
-            className: 'btn btn-primary dropdown-toggle',
-            autoClose: true,
-            buttons: [
-                { text: 'CSV',
-                extend: 'csvHtml5',
-                className: 'dropdown-item',
-                tag: "a"},
-
-                { text: 'PDF',
-                extend: 'pdfHtml5',
-                className: 'dropdown-item',
-                tag: "a"},
-
-                { text: 'Excel',
-                extend: 'excelHtml5',
-                className: 'dropdown-item',
-                tag: "a" }
-            ],
-            fade: true,
-            background: false,
-
-        }
-        ],
         language: {
-            url: '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
+                url: '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
         },
-        });
-
+        "columnDefs": [ {
+            "targets": -1,
+            "data": null,
+            "defaultContent": '<div class="btn-group"><button type="button" class="btn btn-primary">Detalhes</button><button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split"data-toggle="dropdown"><span class="caret"></span></button><div class="dropdown-menu"><a class="dropdown-item" href="#">Editar</a><a class="dropdown-item text-danger" href="#">Eliminar fornecedores</a></div></div>'
+        }]
     });
+  });
+
 </script>
 @stop
+
+@section('css')
+  <link rel="stylesheet" href="/css/custom.css">
+  <link href="/css/mfb.css" rel="stylesheet">
+@stop
+
+@section('js')
+  <script src="/js/mfb.js"></script>
+@endsection

@@ -10,7 +10,7 @@
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item active">Entradas / Químicos</li>
+          <li class="breadcrumb-item active">Movimentos / Não químicos</li>
         </ol>
       </div>
     </div>
@@ -23,9 +23,9 @@
 @include('sub-views.export-button')
 
 <div class="card">
-
   <div class="card-body">
-    <div class="input-group">
+    <div class="input-group input-group-sm w-50 float-right">
+    <label class="font-weight-normal">Período de entrada:</label>
       <div class="input-group-prepend">
         <span class="input-group-text">
           <i class="far fa-calendar-alt"></i>
@@ -33,7 +33,8 @@
       </div>
       <input type="text" class="form-control float-right" id="reservation">
     </div>
-    <select id="select2" class="select2" name="subfamilia[]" multiple="multiple" style="width: 200px">
+    <label class="font-weight-normal">Tipo de embalagem:</label>
+    <select id="select2" class="select2 form-control form-control-sm w-25" name="subfamilia[]" multiple="multiple">
       <option value="Vidro">Vidro</option>
       <option value="Plastico">Plastico</option>
       <option value="Metal">Metal</option>
@@ -114,6 +115,8 @@
   </div>
   <!-- /.card-body -->
 </div>
+<br>
+<br>
 <br>
 @stop
 
@@ -199,6 +202,6 @@
 @stop
 
 @section('css')
-<link href="css/mfb.css" rel="stylesheet">
+<link href="../css/mfb.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" rel="stylesheet">
 @endsection

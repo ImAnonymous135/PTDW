@@ -10,7 +10,7 @@
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item active">Entradas / Químicos</li>
+          <li class="breadcrumb-item active">Movimentos / Químicos</li>
         </ol>
       </div>
     </div>
@@ -24,7 +24,8 @@
 
 <div class="card">
   <div class="card-body">
-    <div class="input-group">
+    <div class="input-group input-group-sm w-25 float-right">
+      <label class="font-weight-normal">Período de entrada:</label>
       <div class="input-group-prepend">
         <span class="input-group-text">
           <i class="far fa-calendar-alt"></i>
@@ -118,6 +119,10 @@
 
 @section('js')
 <script src="js/mfb.js"></script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
 <script>
   $(function () {
     $('#table').DataTable({
@@ -140,5 +145,6 @@
 @stop
 
 @section('css')
-<link href="css/mfb.css" rel="stylesheet">
+<link href="../css/mfb.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" rel="stylesheet">
 @endsection

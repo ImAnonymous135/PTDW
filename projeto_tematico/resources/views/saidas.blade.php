@@ -10,7 +10,7 @@
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item active">Saídas</li>
+          <li class="breadcrumb-item active">Movimentos / Saídas</li>
         </ol>
       </div>
     </div>
@@ -102,5 +102,5 @@
 @stop
 
 @section('css')
-<link href="css/mfb.css" rel="stylesheet">
+<link href="../css/mfb.css" rel="stylesheet">
 @endsection

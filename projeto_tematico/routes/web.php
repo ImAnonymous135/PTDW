@@ -24,15 +24,15 @@ Route::get('/produtos', function () {
     return view('lista-produtos');
 });
 
-Route::get('/entrada-quimico', function () {
+Route::get('/movimentos/entrada-quimico', function () {
     return view('entrada-quimico');
 });
 
-Route::get('/entrada-nao-quimico', function () {
+Route::get('/movimentos/entrada-nao-quimico', function () {
     return view('entrada-nao-quimico');
 });
 
-Route::get('/saidas', function () {
+Route::get('/movimentos/saidas', function () {
     return view('saidas');
 });
 
@@ -64,6 +64,6 @@ Route::get('/clientes', function () {
     return view('clientes');
 });
 
-Route::get('/historico', function () {
+Route::get('/movimentos/operadores', function () {
     return view('historico-operadores');
 });

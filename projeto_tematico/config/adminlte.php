@@ -278,24 +278,24 @@ return [
                     'submenu' => [
                         [
                             'text' => 'Químico',
-                            'url'  => '/entrada-quimico',
+                            'url'  => '/movimentos/entrada-quimico',
                             'icon' => 'fas fa-fw fa-flask',
                         ],
                         [
                             'text' => 'Não Químico ',
-                            'url'  => '/entrada-nao-quimico',
+                            'url'  => '/movimentos/entrada-nao-quimico',
                             'icon' => 'fas fa-fw fa-eye-dropper',
                         ]
                     ]
                 ],
                 [
                     'text' => 'Saídas',
-                    'url'  => '/saidas',
+                    'url'  => '/movimentos/saidas',
                     'icon' => 'fas fa-fw fa-minus',
                 ],
                 [
-                    'text' => 'Histórico',
-                    'url'  => '/historico',
+                    'text' => 'Operadores',
+                    'url'  => '/movimentos/operadores',
                     'icon' => 'fas fa-fw fa-history',
                 ]
             ],
