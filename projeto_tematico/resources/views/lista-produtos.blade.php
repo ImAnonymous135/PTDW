@@ -5,12 +5,20 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
+<<<<<<< HEAD
                 <h1 class="m-0 text-dark">Lista de produtos</h1>
+=======
+                <h1 class="m-0 text-dark">Operadores</h1>
+>>>>>>> main
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
+<<<<<<< HEAD
                     <li class="breadcrumb-item active">Produtos</li>
+=======
+                    <li class="breadcrumb-item active">Operadores</li>
+>>>>>>> main
                 </ol>
             </div>
         </div>
@@ -21,6 +29,7 @@
     Adicionar o botao no final para a ação como eliminar ou mudar de cargo ou assim
 -->
 @section('content')
+<<<<<<< HEAD
 
 <ul id="menu" class="mfb-component--br mfb-slidein" data-mfb-toggle="hover">
   <li class="mfb-component__wrap">
@@ -30,6 +39,8 @@
   </li>
 </ul>
 
+=======
+>>>>>>> main
 <div class="card">
     <div class="card-body">
         <table id="table" class="table table-head-fixed">
@@ -86,7 +97,12 @@
                     <td>25g</td>
                     <td>G-3</td>
                     <td>Quimico</td>
+<<<<<<< HEAD
                     <td></td>
+=======
+                    <td>
+                    </td>
+>>>>>>> main
                 </tr>
                 <tr>
                     <td>Hidróxido de sódio</td>
@@ -112,14 +128,22 @@
                     <td>25g</td>
                     <td>G-3</td>
                     <td>Quimico</td>
+<<<<<<< HEAD
                     <td></td>
+=======
+                    <td>
+                    </td>
+>>>>>>> main
                 </tr>
                 </tfoot>
         </table>
     </div>
     <!-- /.card-body -->
 </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 <br>
 @stop
 
@@ -136,11 +160,16 @@
         "columnDefs": [ {
             "targets": -1,
             "data": null,
+<<<<<<< HEAD
             "defaultContent": '<div class="btn-group"><button href="" type="button" class="btn btn-primary">Informação do produto</button></div>'
+=======
+            "defaultContent": '<div class="btn-group"><button type="button" class="btn btn-primary">Detalhes</button><button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split"data-toggle="dropdown"><span class="caret"></span></button><div class="dropdown-menu"><a class="dropdown-item" href="/produtos/info-produto">Informação do produto</a><a class="dropdown-item" href="/produtos/adicionar">Adicionar produto</a></div></div>'
+>>>>>>> main
         }]
     });
   });
 </script>
+<<<<<<< HEAD
 @stop
 
 @section('css')
@@ -151,3 +180,6 @@
 @section('js')
   <script src="/js/mfb.js"></script>
 @endsection
+=======
+@stop
+>>>>>>> main
