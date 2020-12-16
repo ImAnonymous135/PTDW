@@ -24,6 +24,14 @@
 
 <div class="card">
   <div class="card-body">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <i class="far fa-calendar-alt"></i>
+        </span>
+      </div>
+      <input type="text" class="form-control float-right" id="reservation">
+    </div>
     <table id="table" class="table table-bordered table-striped">
       <thead>
         <tr>
@@ -115,6 +123,16 @@
     $('#table').DataTable({
       "responsive": true,
       "autoWidth": false,
+      language: {
+            url: '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
+        },
+    });
+    var daterangepicker = $('#reservation').daterangepicker({
+        autoUpdateInput: false,
+        locale:{
+          format: 'DD/MM/YYYY',
+          cancelLabel: 'Clear'
+        }
     });
   });
 </script>

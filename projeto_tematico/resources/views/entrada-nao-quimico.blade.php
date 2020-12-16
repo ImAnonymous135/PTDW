@@ -23,7 +23,22 @@
 @include('sub-views.export-button')
 
 <div class="card">
+
   <div class="card-body">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <i class="far fa-calendar-alt"></i>
+        </span>
+      </div>
+      <input type="text" class="form-control float-right" id="reservation">
+    </div>
+    <select id="select2" class="select2" name="subfamilia[]" multiple="multiple" style="width: 200px">
+      <option value="Vidro">Vidro</option>
+      <option value="Plastico">Plastico</option>
+      <option value="Metal">Metal</option>
+      <option value="Outros">Outros</option>
+    </select>
     <table id="table" class="table table-bordered table-striped">
       <thead>
         <tr>
@@ -44,7 +59,7 @@
           <td>G-3</td>
           <td>Quimifeira</td>
           <td>Brady</td>
-          <td>Garrafa de Vidro</td>
+          <td>Plastico</td>
           <td>Verde</td>
           <td>500kg</td>
           <td>10/11/2019</td>
@@ -55,7 +70,7 @@
           <td>G-3</td>
           <td>Quimifeira</td>
           <td>Brady</td>
-          <td>Garrafa de Vidro</td>
+          <td>Plastico</td>
           <td>Verde</td>
           <td>500kg</td>
           <td>10/11/2019</td>
@@ -66,7 +81,7 @@
           <td>G-3</td>
           <td>Quimifeira</td>
           <td>Brady</td>
-          <td>Garrafa de Vidro</td>
+          <td>Outros</td>
           <td>Verde</td>
           <td>500kg</td>
           <td>10/11/2019</td>
@@ -77,10 +92,10 @@
           <td>G-3</td>
           <td>Quimifeira</td>
           <td>Brady</td>
-          <td>Garrafa de Vidro</td>
+          <td>Plastico</td>
           <td>Verde</td>
           <td>500kg</td>
-          <td>10/11/2019</td>
+          <td>15/12/2020</td>
           <td>4/12/2019</td>
         </tr>
         <tr>
@@ -88,11 +103,11 @@
           <td>G-3</td>
           <td>Quimifeira</td>
           <td>Brady</td>
-          <td>Garrafa de Vidro</td>
+          <td>Vidro</td>
           <td>Verde</td>
-          <td>500kg</td>
-          <td>10/11/2019</td>
-          <td>4/12/2019</td>
+          <td>400kg</td>
+          <td>16/12/2020</td>
+          <td>4/12/2020</td>
         </tr>
         </tfoot>
     </table>
@@ -103,18 +118,87 @@
 @stop
 
 @section('js')
+
 <script src="js/mfb.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script>
   $(function () {
-    $('#table').DataTable({
-      "responsive": true,
-      "autoWidth": false,
+    $('.select2').select2()
+      var table = $('#table').DataTable({
+        "responsive": true,
+        "autoWidth": false,
+        language: {
+            url: '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
+        },
+      });
+      
+      var daterangepicker = $('#reservation').daterangepicker({
+        autoUpdateInput: false,
+        locale:{
+          format: 'DD/MM/YYYY',
+          cancelLabel: 'Clear'
+        }
     });
+
+      /*$('#reservation').on('apply.daterangepicker ', function(ev, picker) {
+          $(this).val(picker.startDate.format('DD/MM/YYYY') + ' - ' + picker.endDate.format('DD/MM/YYYY'));
+          $.fn.dataTable.ext.search.push(
+          function (oSettings, aData, iDataIndex) {
+              var inicio = new Date(picker.startDate.format('MM/DD/YYYY'));
+              var fim = new Date(picker.endDate.format('MM/DD/YYYY'));
+              var temp = aData[7].split("/");
+
+              var data = new Date(temp[1] +"/"+ temp[0] +"/"+ temp[2]);
+
+              return data > inicio && data < fim;
+            }
+        );
+        console.log("teste");
+          table.draw();
+      });
+
+      $('#reservation').on('cancel.daterangepicker', function(ev, picker) {
+        $(this).val('');
+        $.fn.dataTable.ext.search.push(
+          function (oSettings, aData, iDataIndex) {
+              console.log("entrei");
+              var inicio = new Date(picker.startDate.format('MM/DD/YYYY'));
+              var fim = new Date(picker.endDate.format('MM/DD/YYYY'));
+              var temp = aData[7].split("/");
+
+              var data = new Date(temp[1] +"/"+ temp[0] +"/"+ temp[2]);
+
+              return true;
+            }
+        );
+        table.draw();
+      });*/
+
+
+
+      $('#select2').on('select2:select select2:unselect', function (ev) {
+          $.fn.dataTable.ext.search.push(
+          function (oSettings, aData, iDataIndex) {
+            var values = $('#select2').val();
+            console.log("asd");
+            if(values.length == 0){
+              return true;
+            }else{
+              return values.includes(aData[4]);
+            }
+            }
+        );
+          table.draw();
+      });
+
   });
+  
 </script>
 @include('sub-views.exports')
 @stop
 
 @section('css')
 <link href="css/mfb.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" rel="stylesheet">
 @endsection
