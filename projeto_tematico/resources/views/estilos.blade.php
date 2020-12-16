@@ -144,12 +144,65 @@
 </div>
 <div class="card">
     <div class="card-header">
-        <h4>Tabelas</h4>
+        <h4>Listas</h4>
+        <table id="table" class="table table-head-fixed">
+            <thead>
+                <tr>
+                    <th>Fornecedor</th>
+                    <th>Morada</th>
+                    <th>Localidade</th>
+                    <th>Código Postal</th>
+                    <th>Telefone</th>
+                    <th>NIF</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Quimifeira</td>
+                    <td>Rua Quim Pascal</td>
+                    <td>Águeda</td>
+                    <td>3750-141</td>
+                    <td>912478356</td>
+                    <td>215478543</td>
+                    <td><button type="button" class="btn btn-primary">Detalhes</button></td>
+                </tr>
+                </tfoot>
+        </table>
     </div>
     <div class="card-body">
     </div>
 </div>
 <br>
+<div class="card">
+    <div class="card-header">
+        <h4>Tabela</h4>
+        <table id="table" class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th>Localização</th>
+          <th>Embalagens</th>
+          <th>Solicitante</th>
+          <th>Operador</th>
+          <th>Data</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Água</td>
+          <td>G-3</td>
+          <td>2</td>
+          <td>Carlos Fonseca</td>
+          <td>Ricardo José</td>
+          <td>4/12/2019</td>
+        </tr>
+        </tfoot>
+    </table>
+    </div>
+    <div class="card-body">
+    </div>
+</div>
 @stop
 
 @section('css')
