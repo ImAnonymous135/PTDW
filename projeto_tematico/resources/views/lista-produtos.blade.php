@@ -53,63 +53,63 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Hidróxido de sódio</td>
-                    <td>21</td>
-                    <td>25g</td>
+                    <td>ÁCIDO ANTRANÍLICO</td>
+                    <td>5</td>
+                    <td>30mg</td>
+                    <td>T-3</td>
+                    <td>Quimico</td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Fenantrolina Monohidratada</td>
+                    <td>322</td>
+                    <td>5g</td>
                     <td>G-3</td>
                     <td>Quimico</td>
                     <td>
                     </td>
                 </tr>
                 <tr>
-                    <td>Hidróxido de sódio</td>
-                    <td>21</td>
+                    <td>ERGOMETRINA</td>
+                    <td>30</td>
                     <td>25g</td>
-                    <td>G-3</td>
+                    <td>A-1</td>
                     <td>Quimico</td>
                     <td>
                     </td>
                 </tr>
                 <tr>
-                    <td>Hidróxido de sódio</td>
-                    <td>21</td>
-                    <td>25g</td>
-                    <td>G-3</td>
-                    <td>Quimico</td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Hidróxido de sódio</td>
-                    <td>21</td>
-                    <td>25g</td>
+                    <td>Naftilamina</td>
+                    <td>307</td>
+                    <td>150g</td>
                     <td>G-3</td>
                     <td>Quimico</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>Hidróxido de sódio</td>
-                    <td>21</td>
-                    <td>25g</td>
-                    <td>G-3</td>
+                    <td>Mercaptoetanol</td>
+                    <td>145</td>
+                    <td>250mL + 25mL</td>
+                    <td>A-3</td>
                     <td>Quimico</td>
                     <td>
                     </td>
                 </tr>
                 <tr>
-                    <td>Hidróxido de sódio</td>
-                    <td>21</td>
-                    <td>25g</td>
-                    <td>G-3</td>
+                    <td>Propanol</td>
+                    <td>130</td>
+                    <td>1L + 2.5L</td>
+                    <td>A-2</td>
                     <td>Quimico</td>
                     <td>
                     </td>
                 </tr>
                 <tr>
-                    <td>Hidróxido de sódio</td>
-                    <td>21</td>
-                    <td>25g</td>
-                    <td>G-3</td>
+                    <td>Caldo BHI</td>
+                    <td>39</td>
+                    <td>800g</td>
+                    <td>C-2</td>
                     <td>Quimico</td>
                     <td></td>
                 </tr>
