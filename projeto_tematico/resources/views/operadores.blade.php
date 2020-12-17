@@ -44,7 +44,7 @@
                     <td></td>
                     <td>Observação</td>
                     <td>
-                        
+
                     </td>
                 </tr>
                 <tr>
@@ -55,7 +55,7 @@
                     <td>15/12/2020</td>
                     <td>Observação</td>
                     <td>
-                        
+
                     </td>
                 </tr>
                 <tr>
@@ -66,7 +66,7 @@
                     <td>15/12/2020</td>
                     <td>Observação</td>
                     <td>
-                        
+
                     </td>
                 </tr>
                 <tr>
@@ -77,7 +77,7 @@
                     <td>15/12/2020</td>
                     <td>Observação</td>
                     <td>
-                        
+
                     </td>
                 </tr>
                 <tr>
@@ -159,9 +159,9 @@
                     <td>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et accumsan purus. Vestibulum vel
                         leo.</td>
-                        <td>
-                            
-                        </td>
+                    <td>
+
+                    </td>
                 </tr>
                 <tr>
                     <td>Joaquim Fernandes</td>
@@ -171,7 +171,7 @@
                     <td>15/12/2020</td>
                     <td>Observação</td>
                     <td>
-                        
+
                     </td>
                 </tr>
                 </tfoot>
@@ -180,9 +180,60 @@
     <!-- /.card-body -->
 </div>
 <br>
+
+
+<div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Eliminar</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Pretende eliminar o operador?</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+                <button type="button" class="btn btn-primary toastrDefaultSuccess" data-dismiss="modal">Sim</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="modal-default1" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Editar cargo</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Qual o novo cargo do operador?</p>
+                <select name="" id="" class="custom-select">
+                    <option value="">Fiel de armazém</option>
+                </select>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary toastrDefaultSuccess1" data-dismiss="modal">Guardar</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
 @stop
 
 @section('js')
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
 <script>
     $(function () {
     $('#table').DataTable({
@@ -194,9 +245,20 @@
         "columnDefs": [ {
             "targets": -1,
             "data": null,
-            "defaultContent": '<div class="btn-group"><button type="button" class="btn btn-primary">Detalhes</button><button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split"data-toggle="dropdown"><span class="caret"></span></button><div class="dropdown-menu"><a class="dropdown-item" href="#">Mudar cargo</a><a class="dropdown-item" href="#">Eliminar operador</a></div></div>'
+            "defaultContent": '<div class="btn-group"><button type="button" class="btn btn-primary" >Detalhes</button><button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split"data-toggle="dropdown"><span class="caret"></span></button><div class="dropdown-menu"><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-default1">Mudar cargo</a><a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-default" href="#">Eliminar operador</a></div></div>'
         }]
+    });
+    $('.toastrDefaultSuccess').click(function() {
+      toastr.success('Eliminado com sucesso.')
+    });
+
+    $('.toastrDefaultSuccess1').click(function() {
+      toastr.success('Editado com sucesso.')
     });
   });
 </script>
+@stop
+
+@section('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 @stop
