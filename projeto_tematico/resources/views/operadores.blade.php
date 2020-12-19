@@ -41,7 +41,7 @@
                     <td>JoaquimF@ua.pt</td>
                     <td>Fiel de armazém</td>
                     <td>14/12/2020</td>
-                    <td></td>
+                    <td>15/12/2020</td>
                     <td>Observação</td>
                     <td>
 
