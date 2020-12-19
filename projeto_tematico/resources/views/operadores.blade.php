@@ -21,6 +21,14 @@
     Adicionar o botao no final para a ação como eliminar ou mudar de cargo ou assim
 -->
 @section('content')
+<ul id="menu" class="mfb-component--br mfb-slidein" data-mfb-toggle="hover">
+    <li class="mfb-component__wrap">
+        <a data-mfb-label="Novo fornecedor" class="mfb-component__button--main" href="/operadores/adicionar">
+            <i class="mfb-component__main-icon--resting fas fa-plus" style="font-size: 1.5rem;"></i>
+        </a>
+    </li>
+</ul>
+
 <div class="card">
     <div class="card-body">
         <table id="table" class="table table-head-fixed">
@@ -31,7 +39,6 @@
                     <th>Perfil</th>
                     <th>Data de criação</th>
                     <th>Data de Eliminação</th>
-                    <th>Observações</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -42,7 +49,6 @@
                     <td>Fiel de armazém</td>
                     <td>14/12/2020</td>
                     <td>15/12/2020</td>
-                    <td>Observação</td>
                     <td>
 
                     </td>
@@ -53,7 +59,6 @@
                     <td>Fiel de armazém</td>
                     <td>14/12/2020</td>
                     <td>15/12/2020</td>
-                    <td>Observação</td>
                     <td>
 
                     </td>
@@ -64,7 +69,6 @@
                     <td>Fiel de armazém</td>
                     <td>14/12/2020</td>
                     <td>15/12/2020</td>
-                    <td>Observação</td>
                     <td>
 
                     </td>
@@ -75,7 +79,6 @@
                     <td>Fiel de armazém</td>
                     <td>14/12/2020</td>
                     <td>15/12/2020</td>
-                    <td>Observação</td>
                     <td>
 
                     </td>
@@ -86,67 +89,6 @@
                     <td>Fiel de armazém</td>
                     <td>14/12/2020</td>
                     <td>15/12/2020</td>
-                    <td>Observação</td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Joaquim Fernandes</td>
-                    <td>JoaquimF@ua.pt</td>
-                    <td>Fiel de armazém</td>
-                    <td>14/12/2020</td>
-                    <td>15/12/2020</td>
-                    <td>Observação</td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Joaquim Fernandes</td>
-                    <td>JoaquimF@ua.pt</td>
-                    <td>Fiel de armazém</td>
-                    <td>14/12/2020</td>
-                    <td>15/12/2020</td>
-                    <td>Observação</td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Joaquim Fernandes</td>
-                    <td>JoaquimF@ua.pt</td>
-                    <td>Fiel de armazém</td>
-                    <td>14/12/2020</td>
-                    <td>15/12/2020</td>
-                    <td>Observação</td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Joaquim Fernandes</td>
-                    <td>JoaquimF@ua.pt</td>
-                    <td>Fiel de armazém</td>
-                    <td>14/12/2020</td>
-                    <td>15/12/2020</td>
-                    <td>Observação</td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Joaquim Fernandes</td>
-                    <td>JoaquimF@ua.pt</td>
-                    <td>Fiel de armazém</td>
-                    <td>14/12/2020</td>
-                    <td>15/12/2020</td>
-                    <td>Observação</td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Joaquim Fernandes</td>
-                    <td>JoaquimF@ua.pt</td>
-                    <td>Fiel de armazém</td>
-                    <td>14/12/2020</td>
-                    <td>15/12/2020</td>
-                    <td>Observação</td>
                     <td>
                     </td>
                 </tr>
@@ -157,8 +99,59 @@
                     <td>14/12/2020</td>
                     <td>15/12/2020</td>
                     <td>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et accumsan purus. Vestibulum vel
-                        leo.</td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Joaquim Fernandes</td>
+                    <td>JoaquimF@ua.pt</td>
+                    <td>Fiel de armazém</td>
+                    <td>14/12/2020</td>
+                    <td>15/12/2020</td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Joaquim Fernandes</td>
+                    <td>JoaquimF@ua.pt</td>
+                    <td>Fiel de armazém</td>
+                    <td>14/12/2020</td>
+                    <td>15/12/2020</td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Joaquim Fernandes</td>
+                    <td>JoaquimF@ua.pt</td>
+                    <td>Fiel de armazém</td>
+                    <td>14/12/2020</td>
+                    <td>15/12/2020</td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Joaquim Fernandes</td>
+                    <td>JoaquimF@ua.pt</td>
+                    <td>Fiel de armazém</td>
+                    <td>14/12/2020</td>
+                    <td>15/12/2020</td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Joaquim Fernandes</td>
+                    <td>JoaquimF@ua.pt</td>
+                    <td>Fiel de armazém</td>
+                    <td>14/12/2020</td>
+                    <td>15/12/2020</td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Joaquim Fernandes</td>
+                    <td>JoaquimF@ua.pt</td>
+                    <td>Fiel de armazém</td>
+                    <td>14/12/2020</td>
+                    <td>15/12/2020</td>
                     <td>
 
                     </td>
@@ -169,7 +162,6 @@
                     <td>Fiel de armazém</td>
                     <td>14/12/2020</td>
                     <td>15/12/2020</td>
-                    <td>Observação</td>
                     <td>
 
                     </td>
@@ -221,7 +213,32 @@
             </div>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary toastrDefaultSuccess1" data-dismiss="modal">Guardar</button>
+                <button type="button" class="btn btn-primary toastrDefaultSuccess1"
+                    data-dismiss="modal">Guardar</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="modal-default2" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Informação do operador</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="font-weight-bold">Nome: <span class="font-weight-normal">Joaquim Fernandes</span></p>
+                <p class="font-weight-bold">E-Mail: <span class="font-weight-normal">JoaquimF@ua.pt</span></p>
+                <p class="font-weight-bold">Perfil: <span class="font-weight-normal">Fiel de armazém</span></p>
+                <p class="font-weight-bold">Data de criação: <span class="font-weight-normal">14/12/2020</span></p>
+                <p class="font-weight-bold">Data de eliminação: <span class="font-weight-normal">15/12/2020</span></p>
+                <p class="font-weight-bold">Observações: <span class="font-weight-normal">Lorem ipsum dolor sit amet
+                        consectetur adipisicing elit. Quas nobis earum quia magni repudiandae.</span></p>
             </div>
         </div>
         <!-- /.modal-content -->
@@ -233,7 +250,11 @@
 @section('js')
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
+<script>
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
 <script>
     $(function () {
     $('#table').DataTable({
@@ -245,7 +266,7 @@
         "columnDefs": [ {
             "targets": -1,
             "data": null,
-            "defaultContent": '<div class="btn-group"><button type="button" class="btn btn-primary"><i class="fas fa-eye"></i></button><button type="button" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button><button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></div>',
+            "defaultContent": '<div class="btn-group"><button type="button" class="btn btn-primary" data-toggle="modal" data-toggle="tooltip" title="Detalhes" data-target="#modal-default2"><i class="fas fa-eye"></i></button><button data-toggle="modal" data-toggle="tooltip" title="Editar" data-target="#modal-default1" type="button" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button><button data-toggle="modal" data-toggle="tooltip" title="Eliminar" data-target="#modal-default" type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></div>',
             "orderable": false
         }]
     });
@@ -262,4 +283,6 @@
 
 @section('css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link href="/css/mfb.css" rel="stylesheet">
 @stop

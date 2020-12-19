@@ -24,7 +24,7 @@
 @section('content')
 <ul id="menu" class="mfb-component--br mfb-slidein" data-mfb-toggle="hover">
     <li class="mfb-component__wrap">
-        <a data-mfb-label="Novo fornecedor" class="mfb-component__button--main" href="/produtos/adicionar">
+        <a data-mfb-label="Novo fornecedor" class="mfb-component__button--main" href="/fornecedores/adicionar">
             <i class="mfb-component__main-icon--resting fas fa-plus" style="font-size: 1.5rem;"></i>
         </a>
     </li>
@@ -255,18 +255,39 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
+
+<div class="modal fade" id="modal-default2" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Informação do fornecedor</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="font-weight-bold">Fornecedor: <span class="font-weight-normal">Feira</span></p>
+                <p class="font-weight-bold">Morada: <span class="font-weight-normal">Rua Quim Pascal</span></p>
+                <p class="font-weight-bold">Localidade: <span class="font-weight-normal">Águeda</span></p>
+                <p class="font-weight-bold">Código postal: <span class="font-weight-normal">3750-141</span></p>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
 @stop
 
 @section('js')
 
 <script src="/js/mfb.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
 <script>
-    $('.toastrDefaultSuccess1').click(function() {
-      toastr.success('Editado com sucesso.')
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();
     });
-
+</script>
+<script>
     $(function () {
     $('#table').DataTable({
         "responsive": true,
@@ -277,15 +298,18 @@
         "columnDefs": [ {
             "targets": -1,
             "data": null,
-            "defaultContent": '<div class="btn-group"><button type="button" class="btn btn-primary"><i class="fas fa-eye"></i></button><button type="button" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button><button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></div>',
+            "defaultContent": '<div class="btn-group"><button type="button" class="btn btn-primary" data-toggle="modal" data-toggle="tooltip" title="Detalhes" data-target="#modal-default2"><i class="fas fa-eye"></i></button><button data-toggle="modal" data-toggle="tooltip" title="Editar" data-target="#modal-default1" type="button" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button><button data-toggle="modal" data-toggle="tooltip" title="Eliminar" data-target="#modal-default" type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></div>',
             "orderable": false
         }]
     });
     $('.toastrDefaultSuccess').click(function() {
       toastr.success('Eliminado com sucesso.')
     });
-  });
 
+    $('.toastrDefaultSuccess1').click(function() {
+      toastr.success('Editado com sucesso.')
+    });
+  });
 </script>
 @stop
 

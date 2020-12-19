@@ -56,10 +56,16 @@
 
         </div>
         <div class="row">
-            <div class="col-sm-2">
+            <div class="col-sm-4">
                 <div class="form-group">
-                    <label>Unidade</label>
-                    <input type="text" class="form-control" id="#" placeholder="Digite a unidade...">
+                    <label>Unidades</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="#" placeholder="Digite a quantidade de unidades...">
+                        <select class="form-control input-group-append">
+                            <option>Gramas</option>
+                            <option>Mililitros</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div class="col-sm-2">
@@ -155,7 +161,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <div class="quimico5" style="display:block;">
                     <div class="form-group">
                         <label>Código de recomendação de prudência</label>
