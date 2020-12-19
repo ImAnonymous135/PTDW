@@ -245,7 +245,8 @@
         "columnDefs": [ {
             "targets": -1,
             "data": null,
-            "defaultContent": '<div class="btn-group"><button type="button" class="btn btn-primary" >Detalhes</button><button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split"data-toggle="dropdown"><span class="caret"></span></button><div class="dropdown-menu"><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-default1">Mudar cargo</a><a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-default" href="#">Eliminar operador</a></div></div>'
+            "defaultContent": '<div class="btn-group"><button type="button" class="btn btn-primary"><i class="fas fa-eye"></i></button><button type="button" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button><button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></div>',
+            "orderable": false
         }]
     });
     $('.toastrDefaultSuccess').click(function() {

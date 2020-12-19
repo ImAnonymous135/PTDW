@@ -101,27 +101,27 @@
 
 <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Eliminar</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Eliminar</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Pretende eliminar o fornecedor?</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+                <button type="button" class="btn btn-primary toastrDefaultSuccess" data-dismiss="modal">Sim</button>
+            </div>
         </div>
-        <div class="modal-body">
-          <p>Pretende eliminar o fornecedor?</p>
-        </div>
-        <div class="modal-footer justify-content-between">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-          <button type="button" class="btn btn-primary toastrDefaultSuccess" data-dismiss="modal">Sim</button>
-        </div>
-      </div>
-      <!-- /.modal-content -->
+        <!-- /.modal-content -->
     </div>
     <!-- /.modal-dialog -->
-  </div>
+</div>
 
-  <div class="modal fade" id="modal-default1" style="display: none;" aria-hidden="true">
+<div class="modal fade" id="modal-default1" style="display: none;" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -238,7 +238,8 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Condições especiais</label>
-                            <textarea class="form-control" rows="3" placeholder="Digite as condições especiais.."></textarea>
+                            <textarea class="form-control" rows="3"
+                                placeholder="Digite as condições especiais.."></textarea>
                         </div>
                     </div>
                 </div>
@@ -246,7 +247,8 @@
             </div>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary toastrDefaultSuccess1" data-dismiss="modal">Guardar</button>
+                <button type="button" class="btn btn-primary toastrDefaultSuccess1"
+                    data-dismiss="modal">Guardar</button>
             </div>
         </div>
         <!-- /.modal-content -->
@@ -261,7 +263,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 <script>
-
     $('.toastrDefaultSuccess1').click(function() {
       toastr.success('Editado com sucesso.')
     });
@@ -276,7 +277,8 @@
         "columnDefs": [ {
             "targets": -1,
             "data": null,
-            "defaultContent": '<div class="btn-group"><button type="button" class="btn btn-primary">Detalhes</button><button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split"data-toggle="dropdown"><span class="caret"></span></button><div class="dropdown-menu"><a class="dropdown-item" data-toggle="modal" data-target="#modal-default1" href="#">Editar</a><a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-default" href="#">Eliminar fornecedores</a></div></div>'
+            "defaultContent": '<div class="btn-group"><button type="button" class="btn btn-primary"><i class="fas fa-eye"></i></button><button type="button" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button><button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></div>',
+            "orderable": false
         }]
     });
     $('.toastrDefaultSuccess').click(function() {
