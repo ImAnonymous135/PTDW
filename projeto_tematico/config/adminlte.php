@@ -242,6 +242,11 @@ return [
             'can'  => 'manage-blog',
         ],
         [
+            'text' => 'Home',
+            'url'  => '/',
+            'icon' => 'fas fa-home',
+        ],
+        [
             'text' => 'Produtos',
             'url'  => '/produtos',
             'icon' => 'fas fa-vial',
@@ -268,10 +273,8 @@ return [
             'url'  => '/fornecedores',
             'icon' => 'fas fa-truck',
         ],
-        [
-            'text'    => 'Movimentos',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
+        'Movimentos',
+        
                 [
                     'text' => 'Entradas',
                     'icon' => 'fas fa-fw fa-plus',
@@ -298,8 +301,7 @@ return [
                     'url'  => '/movimentos/operadores',
                     'icon' => 'fas fa-fw fa-history',
                 ]
-            ],
-        ]
+           
     ],
 
     /*
