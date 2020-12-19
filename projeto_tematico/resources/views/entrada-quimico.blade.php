@@ -24,14 +24,22 @@
 
 <div class="card">
   <div class="card-body">
-    <div class="input-group input-group-sm w-25 float-right">
-      <label class="font-weight-normal">Período de entrada:</label>
-      <div class="input-group-prepend">
-        <span class="input-group-text">
-          <i class="far fa-calendar-alt"></i>
-        </span>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label class="font-weight-normal">Período de entrada:</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="far fa-calendar-alt"></i>
+              </span>
+            </div>
+            <input type="text" class="form-control float-right" id="reservation">
+          </div>
+
+        </div>
       </div>
-      <input type="text" class="form-control float-right" id="reservation">
     </div>
     <table id="table" class="table table-bordered table-striped">
       <thead>

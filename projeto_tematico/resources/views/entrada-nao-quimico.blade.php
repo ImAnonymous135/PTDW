@@ -24,22 +24,36 @@
 
 <div class="card">
   <div class="card-body">
-    <div class="input-group input-group-sm w-50 float-right">
-    <label class="font-weight-normal">Período de entrada:</label>
-      <div class="input-group-prepend">
-        <span class="input-group-text">
-          <i class="far fa-calendar-alt"></i>
-        </span>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label class="font-weight-normal">Período de entrada:</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="far fa-calendar-alt"></i>
+              </span>
+            </div>
+            <input type="text" class="form-control float-right" id="reservation">
+          </div>
+        </div>
       </div>
-      <input type="text" class="form-control float-right" id="reservation">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label class="font-weight-normal">Tipo de embalagem:</label>
+          <div class="input-group-prepend">
+            <select id="select2" class="select2 form-control" name="subfamilia[]" multiple="multiple">
+              <option value="Vidro">Vidro</option>
+              <option value="Plastico">Plastico</option>
+              <option value="Metal">Metal</option>
+              <option value="Outros">Outros</option>
+            </select>
+          </div>
+        </div>
+      </div>
     </div>
-    <label class="font-weight-normal">Tipo de embalagem:</label>
-    <select id="select2" class="select2 form-control form-control-sm w-25" name="subfamilia[]" multiple="multiple">
-      <option value="Vidro">Vidro</option>
-      <option value="Plastico">Plastico</option>
-      <option value="Metal">Metal</option>
-      <option value="Outros">Outros</option>
-    </select>
+
     <table id="table" class="table table-bordered table-striped">
       <thead>
         <tr>
