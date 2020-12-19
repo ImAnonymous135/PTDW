@@ -5,7 +5,7 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Nome do produto</h1>
+        <h1 class="m-0 text-dark">Cloreto de potássio</h1>
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
@@ -29,140 +29,117 @@
   </li>
 </ul>
 
-{{-- Mini menu --}}
-
+<div class="row">
+  <div class="col-sm-6">
     <div class="card">
-        <div class="card-body">
-            <div class="row">
-                {{-- Informaçao produto --}}
-                <div class="col-sm-6">
-                    <h3>Informaçao do produto</h3>
-                    {{-- Conteúdo quimico --}}
-                    <div class="margin-top">
-                        <p>Fórmula: <span></span></p>
-                        <p>Peso molecular: <span></span></p>
-                        <p>CAS Nº: <span></span></p>
-                        <p>Condições de armazenamento: <span></span></p>
-                        <p>Armário ventilado: <span></span></p>
-                        <p>Unidades: <span></span></p>
-                        <p>Stock existente: <span></span></p>
-                        <p>Stock minímo: <span></span></p>
-                        <p>Recomendações de prudência: <span></span></p>
-                        <p>Advertências de perigo: <span></span></p>
-                    </div>
-                    {{-- Conteúdo não-quimico --}}
-                    <div>
-
-                    </div>
-                </div>
-                {{-- Armazenamento --}}
-                <div class="col-md-6">
-                    <h3>Armazenamento</h3>
-                    <div class="margin-top">
-                        <div class="card-body table-responsive p-0" style="height: 300px;">
-                            <table class="table table-head-fixed" style=" transform: translateY(-2px)">
-                              <thead>
-                                <tr>
-                                    <th>Embalagem</th>
-                                    <th>Localização</th>
-                                    <th>Ações</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td>219</td>
-                                  <td>G-3</td>
-                                  <td>
-                                    <div class="btn-group">
-                                      <button type="button" class="btn btn-primary">Detalhes</button>
-                                      <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
-                                        <span class="caret"></span>
-                                      </button>
-                                      <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Registar abertura</a>
-                                        <a class="dropdown-item" href="/produtos/saidas">Registar saída</a>
-                                      </div>
-                                    </div>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>218</td>
-                                  <td>G-3</td>
-                                  <td>
-                                    <div class="btn-group">
-                                      <button type="button" class="btn btn-primary">Detalhes</button>
-                                      <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
-                                        <span class="caret"></span>
-                                      </button>
-                                      <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Dar abertura</a>
-                                        <a class="dropdown-item" href="#">Dar Saída</a>
-                                      </div>
-                                    </div>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>217</td>
-                                  <td>G-3</td>
-                                  <td>
-                                    <div class="btn-group">
-                                      <button type="button" class="btn btn-primary">Detalhes</button>
-                                      <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
-                                        <span class="caret"></span>
-                                      </button>
-                                      <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Dar abertura</a>
-                                        <a class="dropdown-item" href="#">Dar Saída</a>
-                                      </div>
-                                    </div>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>216</td>
-                                  <td>G-3</td>
-                                  <td>
-                                    <div class="btn-group">
-                                      <button type="button" class="btn btn-primary">Detalhes</button>
-                                      <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
-                                        <span class="caret"></span>
-                                      </button>
-                                      <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Dar abertura</a>
-                                        <a class="dropdown-item" href="#">Dar Saída</a>
-                                      </div>
-                                    </div>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>215</td>
-                                  <td>G-3</td>
-                                  <td>
-                                    <div class="btn-group">
-                                      <button type="button" class="btn btn-primary">Detalhes</button>
-                                      <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
-                                        <span class="caret"></span>
-                                      </button>
-                                      <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Dar abertura</a>
-                                        <a class="dropdown-item" href="#">Dar Saída</a>
-                                      </div>
-                                    </div>
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                    </div>
-                </div>
-            </div>
+      <div class="card-header">
+        <h3>Informação do produto</h3>
+      </div>
+      <div class="card-body">
+        <div>
+          <p class="font-weight-bold">Fórmula: <span class="font-weight-normal">KCI</span></p>
+          <p class="font-weight-bold">Peso molecular: <span class="font-weight-normal">74,5513 g/mol</span></p>
+          <p class="font-weight-bold">CAS Nº: <span class="font-weight-normal">322211</span></p>
+          <p class="font-weight-bold">Condições de armazenamento: <span class="font-weight-normal">Frio</span></p>
+          <p class="font-weight-bold">Armário ventilado: <span class="font-weight-normal">Sim</span></p>
+          <p class="font-weight-bold">Unidades: <span class="font-weight-normal">Gramas</span></p>
+          <p class="font-weight-bold">Stock existente: <span class="font-weight-normal">5</span></p>
+          <p class="font-weight-bold">Stock minímo: <span class="font-weight-normal">1</span></p>
+          <p class="font-weight-bold">Recomendações de prudência: <span class="font-weight-normal"></span></p>
+          <p class="font-weight-bold">Advertências de perigo: <span class="font-weight-normal"></span></p>
+          <p class="font-weight-bold">Pictogramas:</p>
+          <div>
+            <img id="skull" class="pictogramas" src="https://www.reach-compliance.ch/downloads/GHS06_skull.png" alt=""
+                srcset="" width="100px" height="100px">
+            <img id="danger" class="pictogramas" src="https://www.reach-compliance.ch/downloads/GHS01_explos.png" alt=""
+                srcset="" width="100px" height="100px">
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-header">
+        <h3>Armazenamento</h3>
+      </div>
+      <div class="card-body">
+        <div>
+          <table id="table" class="table table-head-fixed">
+            <thead>
+              <tr>
+                <th>Localização</th>
+                <th>Embalagem</th>
+                <th>Data de abertura</th>
+                <th>Término</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>G-2</td>
+                <td>3</td>
+                <td>10/12/2020</td>
+                <td><button class="btn btn-primary">Registar Saída</button></td>
+              </tr>
+              <tr>
+                <td>G-4</td>
+                <td>2</td>
+                <td><button class="btn btn-primary">Registar Abertura</button></td>
+                <td><button class="btn btn-primary" disabled>Registar Saída</button></td>
+              </tr>
+              <tr>
+                <td>G-2</td>
+                <td>7</td>
+                <td>12/12/2020</td>
+                <td><button class="btn btn-primary">Registar Saída</button></td>
+              </tr>
+              <tr>
+                <td>G-1</td>
+                <td>6</td>
+                <td>11/12/2020</td>
+                <td><button class="btn btn-primary">Registar Saída</button></td>
+              </tr>
+              <tr>
+                <td>G-2</td>
+                <td>4</td>
+                <td><button class="btn btn-primary">Registar Abertura</button></td>
+                <td><button class="btn btn-primary" disabled>Registar Saída</button></td>
+              </tr>
+              </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 @endsection
 
 @section('css')
-  <link href="/css/mfb.css" rel="stylesheet">
+<link href="/css/mfb.css" rel="stylesheet">
 @stop
 
 @section('js')
-  <script src="/js/mfb.js"></script>
+<script src="/js/mfb.js"></script>
+
+<script>
+  $(function () {
+    $('#table').DataTable({
+        "responsive": true,
+        "autoWidth": false,
+        "order": [[ 2, "asc" ]],
+        language: {
+                url: '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
+        }
+        /* "columnDefs": [ {
+            "targets": [2,3],
+            "data": null,
+            "defaultContent": tableCellContent(),
+            "orderable": false
+        }] */
+    });
+  });
+</script>
+
 @endsection
