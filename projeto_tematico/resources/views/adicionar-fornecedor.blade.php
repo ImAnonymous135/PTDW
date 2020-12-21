@@ -11,8 +11,8 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="./">Home</a></li>
-                    <li class="breadcrumb-item "><a href="./fornecedor">Fornecedor</a></li>
+                    <li class="breadcrumb-item"><a href="../">Home</a></li>
+                    <li class="breadcrumb-item "><a href="../fornecedores">Fornecedor</a></li>
                     <li class="breadcrumb-item active">Adicionar</li>
                 </ol>
             </div>
@@ -132,7 +132,7 @@
             <div class="d-flex flex-row justify-content-end">
                 <span class="mr-2">
                     <button type="button" class="btn btn-block btn-outline-primary"
-                        onclick="window.location.href='/produtos'">Cancelar</button>
+                        onclick="window.location.href='../fornecedores'">Cancelar</button>
                 </span>
                 <span class="mr-2">
                     <button type="button" class="btn btn-block btn-primary">Submeter</button>
