@@ -53,7 +53,7 @@
                     <td>3750-141</td>
                     <td>912478356</td>
                     <td>215478543</td>
-                    <td><button type="button" class="btn btn-primary">Detalhes</button></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Quimifeira</td>
@@ -62,7 +62,7 @@
                     <td>3750-141</td>
                     <td>912478356</td>
                     <td>215478543</td>
-                    <td><button type="button" class="btn btn-primary">Detalhes</button></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>João Luis</td>
@@ -71,7 +71,7 @@
                     <td>3750-141</td>
                     <td>912478356</td>
                     <td>215478543</td>
-                    <td><button type="button" class="btn btn-primary">Detalhes</button></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Quimifeira</td>
@@ -80,7 +80,7 @@
                     <td>3750-141</td>
                     <td>912478356</td>
                     <td>215478543</td>
-                    <td><button type="button" class="btn btn-primary">Detalhes</button></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Feira</td>
@@ -89,7 +89,7 @@
                     <td>3750-141</td>
                     <td>912478356</td>
                     <td>215478543</td>
-                    <td><button type="button" class="btn btn-primary">Detalhes</button></td>
+                    <td></td>
                 </tr>
                 </tfoot>
         </table>

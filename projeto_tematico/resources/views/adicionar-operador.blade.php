@@ -60,7 +60,7 @@
             <div class="d-flex flex-row justify-content-end">
                 <span class="mr-2">
                     <button type="button" class="btn btn-block btn-outline-primary"
-                        onclick="window.location.href='../produtos'">Cancelar</button>
+                        onclick="window.location.href='../operadores'">Cancelar</button>
                 </span>
                 <span class="mr-2">
                     <button type="button" class="btn btn-block btn-primary">Submeter</button>
