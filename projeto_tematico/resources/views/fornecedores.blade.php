@@ -65,7 +65,7 @@
                     <td><button type="button" class="btn btn-primary">Detalhes</button></td>
                 </tr>
                 <tr>
-                    <td>Quimifeira</td>
+                    <td>João Luis</td>
                     <td>Rua Quim Pascal</td>
                     <td>Águeda</td>
                     <td>3750-141</td>
@@ -314,6 +314,6 @@
 @stop
 
 @section('css')
-<link href="/css/mfb.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('css/mfb.css') }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 @stop

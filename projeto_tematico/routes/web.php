@@ -56,12 +56,24 @@ Route::get('/fornecedores', function () {
     return view('fornecedores');
 });
 
+Route::get('/fornecedores/adicionar', function () {
+    return view('adicionar-fornecedor');
+});
+
 Route::get('/operadores', function () {
     return view('operadores');
 });
 
+Route::get('/operadores/adicionar', function () {
+    return view('adicionar-operador');
+});
+
 Route::get('/clientes', function () {
     return view('clientes');
+});
+
+Route::get('/clientes/adicionar', function () {
+    return view('adicionar-cliente');
 });
 
 Route::get('/movimentos/operadores', function () {

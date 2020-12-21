@@ -1,7 +1,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
-<script src="../js/tableHTMLExport.js"></script>
-<script src="../js/jquery.table2excel.js"></script>
+<script src="{{ asset('js/tableHTMLExport.js') }}"></script>
+<script src="{{ asset('js/jquery.table2excel.js') }}"></script>
+
 
 <script>
     /* {{-- Excel --}} */

@@ -47,12 +47,6 @@
                     <input type="text" class="form-control" id="#" placeholder="Digite os sinónimos...">
                 </div>
             </div>
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label>Operador</label>
-                    <input type="text" class="form-control" id="#" placeholder="Digite o operador..">
-                </div>
-            </div>
 
         </div>
         <div class="row">
@@ -61,10 +55,6 @@
                     <label>Unidades</label>
                     <div class="input-group">
                         <input type="text" class="form-control" id="#" placeholder="Digite a quantidade de unidades...">
-                        <select class="form-control input-group-append">
-                            <option>Gramas</option>
-                            <option>Mililitros</option>
-                        </select>
                     </div>
                 </div>
             </div>
@@ -183,7 +173,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row quimico9">
             <img id="skull" class="pictogramas" src="https://www.reach-compliance.ch/downloads/GHS06_skull.png" alt=""
                 srcset="" width="100px" height="100px">
             <img id="danger" class="pictogramas" src="https://www.reach-compliance.ch/downloads/GHS01_explos.png" alt=""

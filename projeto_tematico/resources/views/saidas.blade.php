@@ -85,7 +85,7 @@
 @stop
 
 @section('js')
-<script src="js/mfb.js"></script>
+<script src="{{ asset('js/mfb.js') }}"></script>
 {{-- Data table --}}
 <script>
   $(function () {
@@ -102,5 +102,5 @@
 @stop
 
 @section('css')
-<link href="css/mfb.css" rel="stylesheet">
+<link href="{{ asset('css/mfb.css') }}" rel="stylesheet">
 @endsection
