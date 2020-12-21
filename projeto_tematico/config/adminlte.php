@@ -299,7 +299,7 @@ return [
                 [
                     'text' => 'Operadores',
                     'url'  => '/movimentos/operadores',
-                    'icon' => 'fas fa-fw fa-history',
+                    'icon' => 'fas fa-user-clock',
                 ]
            
     ],
