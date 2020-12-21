@@ -124,6 +124,7 @@
 @stop
 
 @section('js')
+<script src="{{ asset('js/mfb.js') }}"></script>
 <script>
     $(function () {
     $('#table').DataTable({
@@ -136,7 +137,7 @@
         "columnDefs": [ {
             "targets": -1,
             "data": null,
-            "defaultContent": '<div class="btn-group"><a href="/produtos/info-produto" type="button" class="btn btn-primary">Detalhes</a></div>'
+            "defaultContent": '<div class="btn-group"><a href="./produtos/info-produto" type="button" class="btn btn-primary">Detalhes</a></div>'
         }]
     });
   });
@@ -144,9 +145,5 @@
 @stop
 
 @section('css')
-<link href="css/mfb.css" rel="stylesheet">
+<link href="{{ asset('css/mfb.css') }}" rel="stylesheet">
 @stop
-
-@section('js')
-<script src="js/mfb.js"></script>
-@endsection

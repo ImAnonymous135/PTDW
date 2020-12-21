@@ -211,8 +211,8 @@
 @stop
 
 @section('js')
-<script src="/js/adicionar.js"></script>
-<script src="/js/jquery.imgcheckbox.js"></script>
+<script src="{{ asset('js/adicionar.js') }}"></script>
+<script src="{{ asset('js/jquery.imgcheckbox.js') }}"></script>
 
 <script>
     $(".pictogramas").imgCheckbox();

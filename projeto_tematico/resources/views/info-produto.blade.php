@@ -118,11 +118,11 @@
 @endsection
 
 @section('css')
-<link href="css/mfb.css" rel="stylesheet">
+<link href="{{ asset('css/mfb.css') }}" rel="stylesheet">
 @stop
 
 @section('js')
-<script src="js/mfb.js"></script>
+<script src="{{ asset('css/mfb.css') }}"></script>
 
 <script>
   $(function () {

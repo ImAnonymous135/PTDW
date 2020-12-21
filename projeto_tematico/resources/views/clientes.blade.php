@@ -295,7 +295,7 @@
 
 
 @section('js')
-<script src="/js/mfb.js"></script>
+<script src="{{ asset('js/mfb.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script>
     $(document).ready(function(){
@@ -331,5 +331,5 @@
 
 @section('css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
-<link href="/css/mfb.css" rel="stylesheet">
+<link href="{{ asset('css/mfb.css') }}" rel="stylesheet">
 @stop
