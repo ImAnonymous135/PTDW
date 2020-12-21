@@ -41,7 +41,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Hidróxido de sódio</td>
+                    <td>Cloreto de potássio</td>
                     <td>21</td>
                     <td>25g</td>
                     <td>G-3</td>

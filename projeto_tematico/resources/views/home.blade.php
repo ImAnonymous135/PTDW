@@ -202,7 +202,7 @@
         "columnDefs": [ {
             "targets": -1,
             "data": null,
-            "defaultContent": '<div class="btn-group"><a href="/produtos/info-produto" type="button" data-toggle="tooltip" title="Detalhes" class="btn btn-primary"><i class="fas fa-eye"></i></a></div>'
+            "defaultContent": '<div class="btn-group"><a href="./produtos/info-produto" type="button" data-toggle="tooltip" title="Detalhes" class="btn btn-primary"><i class="fas fa-eye"></i></a></div>'
         }]
     });
   });
