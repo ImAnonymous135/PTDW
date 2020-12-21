@@ -50,9 +50,9 @@
           <p class="font-weight-bold">Pictogramas:</p>
           <div>
             <img id="skull" class="pictogramas" src="https://www.reach-compliance.ch/downloads/GHS06_skull.png" alt=""
-                srcset="" width="100px" height="100px">
+              srcset="" width="100px" height="100px">
             <img id="danger" class="pictogramas" src="https://www.reach-compliance.ch/downloads/GHS01_explos.png" alt=""
-                srcset="" width="100px" height="100px">
+              srcset="" width="100px" height="100px">
           </div>
         </div>
       </div>
@@ -118,11 +118,11 @@
 @endsection
 
 @section('css')
-<link href="/css/mfb.css" rel="stylesheet">
+<link href="css/mfb.css" rel="stylesheet">
 @stop
 
 @section('js')
-<script src="/js/mfb.js"></script>
+<script src="js/mfb.js"></script>
 
 <script>
   $(function () {

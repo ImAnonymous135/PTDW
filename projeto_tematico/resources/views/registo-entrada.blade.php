@@ -53,7 +53,7 @@
 @stop
 
 @section('js')
-<script src="/js/adicionar.js"></script>
+<script src="js/adicionar.js"></script>
 
 <script>
   $(document).ready(function () {

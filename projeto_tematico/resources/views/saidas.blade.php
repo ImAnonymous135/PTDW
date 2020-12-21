@@ -102,5 +102,5 @@
 @stop
 
 @section('css')
-<link href="../css/mfb.css" rel="stylesheet">
+<link href="css/mfb.css" rel="stylesheet">
 @endsection

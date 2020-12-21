@@ -331,6 +331,5 @@
 
 @section('css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
-<link rel="stylesheet" href="/css/custom.css">
 <link href="/css/mfb.css" rel="stylesheet">
 @stop
