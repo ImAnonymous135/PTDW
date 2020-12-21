@@ -24,7 +24,7 @@
 @section('content')
 <ul id="menu" class="mfb-component--br mfb-slidein" data-mfb-toggle="hover">
     <li class="mfb-component__wrap">
-        <a data-mfb-label="Novo fornecedor" class="mfb-component__button--main" href="/fornecedores/adicionar">
+        <a data-mfb-label="Novo fornecedor" class="mfb-component__button--main" href="./fornecedores/adicionar">
             <i class="mfb-component__main-icon--resting fas fa-plus" style="font-size: 1.5rem;"></i>
         </a>
     </li>
