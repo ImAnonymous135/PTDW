@@ -86,7 +86,7 @@
 @stop
 
 @section('js')
-<script src="js/mfb.js"></script>
+<script src="/js/mfb.js"></script>
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
@@ -113,6 +113,6 @@
 @stop
 
 @section('css')
-<link href="css/mfb.css" rel="stylesheet">
+<link href="/css/mfb.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" rel="stylesheet">
 @endsection
