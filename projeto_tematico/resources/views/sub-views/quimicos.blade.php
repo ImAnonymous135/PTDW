@@ -3,13 +3,13 @@
         <div class="col-sm-4">
             <div class="form-group">
                 <label>Designação</label>
-                <input type="text" class="form-control" id="#" value="Água" disabled>
+                <input type="text" class="form-control" id="#" value="Cloreto de potássio" disabled>
             </div>
         </div>
         <div class="col-sm-2">
             <div class="form-group">
                 <label>Data de entrada</label>
-                <input type="text" class="form-control" id="#" value="05/12/2020" disabled>
+                <input type="text" class="form-control" id="#" value="22/12/2020" disabled>
             </div>
         </div>
         <div class="col-sm-2">
@@ -20,8 +20,8 @@
         </div>
         <div class="col-sm-2">
             <div class="form-group">
-                <label>Quantidade</label>
-                <input type="number" class="form-control" id="#" placeholder="Quantidade...">
+                <label>Quantidade de embalagens</label>
+                <input type="number" class="form-control" id="#" placeholder="Exemplo: 2">
             </div>
         </div>
     </div>
@@ -30,7 +30,7 @@
         <div class="col-sm-3">
             <div class="form-group">
                 <label>Identificação de embalagens</label>
-                <input type="text" class="form-control" id="#" placeholder="Exemplo: 1; 2; 3">
+                <input type="text" class="form-control" id="#" placeholder="Exemplo: 1; 2;">
             </div>
         </div>
         <div class="col-sm-3">
@@ -42,14 +42,14 @@
                 </select>
             </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-2">
             <div class="form-group">
                 <label>Capacidade de embalagens</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" id="#" placeholder="Digite a capacidade de embalagens...">
+                    <input type="text" class="form-control" id="#" placeholder="">
                     <select class="form-control input-group-append">
                         <option>Gramas</option>
-                        <option>Mililitros</option>
+                        <option>Litros</option>
                     </select>
                 </div>
             </div>
@@ -57,29 +57,32 @@
     </div>
 
     <div class="row">
-        <div class="col-sm-2">
+        <div class="col-sm-1">
             <div class="form-group">
                 <label>Sala</label>
-                <input type="text" class="form-control" id="#" placeholder="Digite a sala...">
+                <input type="text" class="form-control" id="#" placeholder="">
             </div>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-1">
             <div class="form-group">
                 <label>Armário</label>
-                <input type="text" class="form-control" id="#" placeholder="Digite o armário...">
+                <input type="text" class="form-control" id="#" placeholder="">
             </div>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-1">
             <div class="form-group">
                 <label>Prateleira</label>
-                <input type="text" class="form-control" id="#" placeholder="Digite a prateleira...">
+                <input type="text" class="form-control" id="#" placeholder="">
             </div>
         </div>
         <div class="col-sm-2">
             <div class="form-group">
                 <label>Peso bruto</label>
                 <div class="input-group">
-                    <input type="number" class="form-control" id="#" placeholder="Digite o peso bruto...">
+                    <input type="number" class="form-control" id="#" placeholder="">
+                    <div class="input-group-append">
+                        <span class="input-group-text">Gramas</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -87,7 +90,7 @@
         <div class="col-sm-3">
             <div class="form-group">
                 <label>Marca</label>
-                <input type="text" class="form-control" id="#" placeholder="Digite a marca...">
+                <input type="text" class="form-control" id="#" placeholder="">
             </div>
         </div>
     </div>
@@ -95,19 +98,29 @@
         <div class="col-sm-3">
             <div class="form-group">
                 <label>Referência</label>
-                <input type="number" class="form-control" id="#" placeholder="Digite a referência...">
+                <input type="number" class="form-control" id="#" placeholder="">
             </div>
         </div>
         <div class="col-sm-2">
             <div class="form-group">
                 <label>Preço</label>
-                <input type="number" class="form-control" id="#" placeholder="Digite o preço...">
+                <div class="input-group">
+                    <input type="number" class="form-control" id="#" placeholder="">
+                    <div class="input-group-append">
+                        <span class="input-group-text">€</span>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-sm-1">
             <div class="form-group">
                 <label>Taxa de iva</label>
-                <input type="number" class="form-control" id="#" placeholder="Digite a taxa de iva...">
+                <div class="input-group">
+                    <input type="number" class="form-control" id="#" placeholder="">
+                    <div class="input-group-append">
+                        <span class="input-group-text">%</span>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-sm-2">
@@ -134,20 +147,19 @@
         <div class="col-sm-6">
             <div class="form-group">
                 <label>Observações</label>
-                <textarea class="form-control" rows="3" maxlength="100"
-                    placeholder="Digite as observações.."></textarea>
+                <textarea class="form-control" rows="3" maxlength="100" placeholder=""></textarea>
             </div>
         </div>
         <div class="col-sm-3">
             <div class="form-group">
                 <label>Fornecedor</label>
-                <input type="text" class="form-control" id="#" placeholder="Digite o fornecedor...">
+                <input type="text" class="form-control" id="#" placeholder="">
             </div>
         </div>
         <div class="col-sm-3">
             <div class="form-group">
                 <label>Operador</label>
-                <input type="text" class="form-control" id="#" placeholder="Digite o operador..">
+                <input type="text" class="form-control" id="#" placeholder="">
             </div>
         </div>
 

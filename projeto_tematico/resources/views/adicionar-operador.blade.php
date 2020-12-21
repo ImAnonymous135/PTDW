@@ -29,15 +29,19 @@
             <div class="col-sm-4">
                 <div class="form-group">
                     <label>Nome</label>
-                    <input type="text" class="form-control" id="#" placeholder="Digite o nome...">
+                    <input type="text" class="form-control" id="#">
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="form-group">
                     <label>E-mail</label>
-                    <input type="text" class="form-control" id="#" placeholder="Digite o e-mail...">
+                    <input type="text" class="form-control" id="#">
                 </div>
             </div>
+
+
+        </div>
+        <div class="row">
             <div class="col-sm-4">
                 <div class="form-group">
                     <label>Perfil</label>
@@ -46,13 +50,12 @@
                     </select>
                 </div>
             </div>
-
         </div>
         <div class="row">
             <div class="col-sm-4">
                 <div class="form-group">
                     <label>Observações</label>
-                    <textarea class="form-control" id="" cols="30" rows="4" maxlength="100" placeholder="Observações"></textarea>
+                    <textarea class="form-control" id="" cols="30" rows="4" maxlength="100"></textarea>
                 </div>
             </div>
         </div>

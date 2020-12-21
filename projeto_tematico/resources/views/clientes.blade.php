@@ -204,14 +204,14 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Designação</label>
-                            <input type="text" class="form-control" id="#" placeholder="Digite a designação...">
+                            <input type="text" class="form-control" id="#" >
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Nome do responsável</label>
                             <input type="text" class="form-control" id="#"
-                                placeholder="Digite o nome do responsável...">
+                                >
                         </div>
                     </div>
                 </div>
@@ -221,14 +221,14 @@
                         <div class="form-group">
                             <label>E-Mail do responsável</label>
                             <input type="text" class="form-control" id="#"
-                                placeholder="Digite o e-mail do responsável...">
+                                >
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Nome do solicitante</label>
                             <input type="text" class="form-control" id="#"
-                                placeholder="Digite o nome do solicitante...">
+                                >
                         </div>
                     </div>
                 </div>
@@ -237,14 +237,14 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Observações</label>
-                            <textarea class="form-control" rows="3" placeholder="Digite as observações.."></textarea>
+                            <textarea class="form-control" rows="3" ></textarea>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>E-Mail do solicitante</label>
                             <input type="text" class="form-control" id="#"
-                                placeholder="Digite o e-mail do solicitante...">
+                                >
                         </div>
                     </div>
                 </div>

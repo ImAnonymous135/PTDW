@@ -29,7 +29,7 @@
             <div class="col-sm-4">
                 <div class="form-group">
                     <label>Designação</label>
-                    <input type="text" class="form-control" id="#" placeholder="Digite a designação...">
+                    <input type="text" class="form-control" id="#" >
                 </div>
             </div>
 
@@ -38,13 +38,13 @@
             <div class="col-sm-3">
                 <div class="form-group">
                     <label>Nome do responsável</label>
-                    <input type="text" class="form-control" id="#" placeholder="Digite o nome do responsável...">
+                    <input type="text" class="form-control" id="#" >
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="form-group">
                     <label>E-mail do responsável</label>
-                    <input type="text" class="form-control" id="#" placeholder="Digite o e-mail do responsável..">
+                    <input type="text" class="form-control" id="#" >
                 </div>
             </div>
         </div>
@@ -52,13 +52,13 @@
             <div class="col-sm-3">
                 <div class="form-group">
                     <label>Nome do solicitante</label>
-                    <input type="text" class="form-control" id="#" placeholder="Digite o nome do solicitante...">
+                    <input type="text" class="form-control" id="#" >
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="form-group">
                     <label>E-mail do solicitante</label>
-                    <input type="text" class="form-control" id="#" placeholder="Digite o e-mail do solicitante...">
+                    <input type="text" class="form-control" id="#" >
                 </div>
             </div>
         </div>
@@ -66,7 +66,7 @@
             <div class="col-sm-4">
                 <div class="form-group">
                     <label>Observações</label>
-                    <textarea class="form-control" id="" cols="30" rows="4" maxlength="100" placeholder="Observações"></textarea>
+                    <textarea class="form-control" id="" cols="30" rows="4" maxlength="100" ></textarea>
                 </div>
             </div>
         </div>

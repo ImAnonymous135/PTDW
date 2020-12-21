@@ -245,6 +245,8 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
+<br>
+<br>
 @stop
 
 @section('js')

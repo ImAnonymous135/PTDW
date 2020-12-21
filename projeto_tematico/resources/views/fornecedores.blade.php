@@ -135,13 +135,13 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Nome</label>
-                            <input type="text" class="form-control" id="#" placeholder="Digite o nome...">
+                            <input type="text" class="form-control" id="#" >
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Morada</label>
-                            <input type="text" class="form-control" id="#" placeholder="Digite a morada...">
+                            <input type="text" class="form-control" id="#" >
                         </div>
                     </div>
                 </div>
@@ -150,13 +150,13 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Localidade</label>
-                            <input type="text" class="form-control" id="#" placeholder="Digite a localidade...">
+                            <input type="text" class="form-control" id="#" >
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Código-postal</label>
-                            <input type="text" class="form-control" id="#" placeholder="Digite o código-postal...">
+                            <input type="text" class="form-control" id="#" >
                         </div>
                     </div>
                 </div>
@@ -165,13 +165,13 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Telefone</label>
-                            <input type="text" class="form-control" id="#" placeholder="Digite o telefone...">
+                            <input type="text" class="form-control" id="#" >
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>NIF</label>
-                            <input type="text" class="form-control" id="#" placeholder="Digite o NIF...">
+                            <input type="text" class="form-control" id="#" >
                         </div>
                     </div>
                 </div>
@@ -180,13 +180,13 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>E-mail</label>
-                            <input type="text" class="form-control" id="#" placeholder="Digite o e-mail...">
+                            <input type="text" class="form-control" id="#" >
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Vendedor 1</label>
-                            <input type="text" class="form-control" id="#" placeholder="Digite o nome do vendedor 1...">
+                            <input type="text" class="form-control" id="#" >
                         </div>
                     </div>
                 </div>
@@ -195,13 +195,13 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Telemovél 1</label>
-                            <input type="text" class="form-control" id="#" placeholder="Digite o telemóvel 1...">
+                            <input type="text" class="form-control" id="#" >
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>E-mail 1</label>
-                            <input type="text" class="form-control" id="#" placeholder="Digite o e-mail 1...">
+                            <input type="text" class="form-control" id="#" >
                         </div>
                     </div>
                 </div>
@@ -210,13 +210,13 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Vendedor 2</label>
-                            <input type="text" class="form-control" id="#" placeholder="Digite o nome vendedor 2...">
+                            <input type="text" class="form-control" id="#" >
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Telemóvel 2</label>
-                            <input type="text" class="form-control" id="#" placeholder="Digite o telemóvel 2...">
+                            <input type="text" class="form-control" id="#" >
                         </div>
                     </div>
                 </div>
@@ -224,7 +224,7 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>E-mail 2</label>
-                            <input type="text" class="form-control" id="#" placeholder="Digite o e-mail 2...">
+                            <input type="text" class="form-control" id="#" >
                         </div>
                     </div>
                 </div>
@@ -232,14 +232,14 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Observações</label>
-                            <textarea class="form-control" rows="3" placeholder="Digite as observações.."></textarea>
+                            <textarea class="form-control" rows="3" ></textarea>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Condições especiais</label>
                             <textarea class="form-control" rows="3"
-                                placeholder="Digite as condições especiais.."></textarea>
+                                ></textarea>
                         </div>
                     </div>
                 </div>
