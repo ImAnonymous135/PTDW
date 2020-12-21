@@ -3,7 +3,7 @@
 
 <head>
 
-    <link rel="stylesheet" href="/css/scroll.css">
+    <link rel="stylesheet" href="./css/scroll.css">
 
     {{-- Base Meta Tags --}}
     <meta charset="utf-8">
