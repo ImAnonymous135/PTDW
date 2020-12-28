@@ -10,8 +10,8 @@
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="../">Home</a></li>
-          <li class="breadcrumb-item"><a href="../produtos">Produtos</a></li>
-          <li class="breadcrumb-item active">Nome do produto</li>
+          <li class="breadcrumb-item"><a href="../produtos">{{ __('text.produtos') }}</a></li>
+          <li class="breadcrumb-item active">{{ __('text.nomeProduto') }}</li>
         </ol>
       </div>
     </div>
@@ -33,21 +33,21 @@
   <div class="col-sm-6">
     <div class="card">
       <div class="card-header">
-        <h3>Informação do produto</h3>
+        <h3>{{ __('text.informacaoProduto') }}</h3>
       </div>
       <div class="card-body">
         <div>
-          <p class="font-weight-bold">Fórmula: <span class="font-weight-normal">KCI</span></p>
-          <p class="font-weight-bold">Peso molecular: <span class="font-weight-normal">74,5513 g/mol</span></p>
+          <p class="font-weight-bold">{{ __('text.formula') }}: <span class="font-weight-normal">KCI</span></p>
+          <p class="font-weight-bold">{{ __('text.pesoMolecular') }}: <span class="font-weight-normal">74,5513 g/mol</span></p>
           <p class="font-weight-bold">CAS Nº: <span class="font-weight-normal">322211</span></p>
-          <p class="font-weight-bold">Condições de armazenamento: <span class="font-weight-normal">Frio</span></p>
-          <p class="font-weight-bold">Armário ventilado: <span class="font-weight-normal">Sim</span></p>
-          <p class="font-weight-bold">Unidades: <span class="font-weight-normal">Gramas</span></p>
-          <p class="font-weight-bold">Stock existente: <span class="font-weight-normal">5</span></p>
-          <p class="font-weight-bold">Stock minímo: <span class="font-weight-normal">1</span></p>
-          <p class="font-weight-bold">Recomendações de prudência: <span class="font-weight-normal"></span></p>
-          <p class="font-weight-bold">Advertências de perigo: <span class="font-weight-normal"></span></p>
-          <p class="font-weight-bold">Pictogramas:</p>
+          <p class="font-weight-bold">{{ __('text.condicoesArmazenamento') }}: <span class="font-weight-normal">Frio</span></p>
+          <p class="font-weight-bold">{{ __('text.armarioVentilado') }}: <span class="font-weight-normal">Sim</span></p>
+          <p class="font-weight-bold">{{ __('text.unidades') }}: <span class="font-weight-normal">Gramas</span></p>
+          <p class="font-weight-bold">{{ __('text.stockExistente') }}: <span class="font-weight-normal">5</span></p>
+          <p class="font-weight-bold">{{ __('text.stockMinimo') }}: <span class="font-weight-normal">1</span></p>
+          <p class="font-weight-bold">{{ __('text.recomendacoesPrudencias') }}: <span class="font-weight-normal"></span></p>
+          <p class="font-weight-bold">{{ __('text.advertenciaPerigos') }}: <span class="font-weight-normal"></span></p>
+          <p class="font-weight-bold">{{ __('text.pictogramas') }}:</p>
           <div>
             <img id="skull" class="pictogramas" src="https://www.reach-compliance.ch/downloads/GHS06_skull.png" alt=""
               srcset="" width="100px" height="100px">
@@ -61,17 +61,17 @@
   <div class="col-sm-6">
     <div class="card">
       <div class="card-header">
-        <h3>Armazenamento</h3>
+        <h3>{{ __('text.armazenamento') }}</h3>
       </div>
       <div class="card-body">
         <div>
           <table id="table" class="table table-head-fixed">
             <thead>
               <tr>
-                <th>Localização</th>
-                <th>Embalagem</th>
-                <th>Data de abertura</th>
-                <th>Término</th>
+                <th>{{ __('text.localizacao') }}</th>
+                <th>{{ __('text.embalagem') }}</th>
+                <th>{{ __('text.dataAbertura') }}</th>
+                <th>{{ __('text.termino') }}</th>
               </tr>
             </thead>
             <tbody>
@@ -79,31 +79,31 @@
                 <td>G-2</td>
                 <td>3</td>
                 <td>10/12/2020</td>
-                <td><button class="btn btn-primary" onclick="window.location.href='../produtos/saidas'">Registar Saída</button></td>
+                <td><button class="btn btn-primary" onclick="window.location.href='../produtos/saidas'">{{ __('text.registarSaida') }}</button></td>
               </tr>
               <tr>
                 <td>G-4</td>
                 <td>2</td>
-                <td><button class="btn btn-primary">Registar Abertura</button></td>
-                <td><button class="btn btn-primary" disabled>Registar Saída</button></td>
+                <td><button class="btn btn-primary">{{ __('text.registarAbertura') }}</button></td>
+                <td><button class="btn btn-primary" disabled>{{ __('text.registarSaida') }}</button></td>
               </tr>
               <tr>
                 <td>G-2</td>
                 <td>7</td>
                 <td>12/12/2020</td>
-                <td><button class="btn btn-primary" onclick="window.location.href='../produtos/saidas'">Registar Saída</button></td>
+                <td><button class="btn btn-primary" onclick="window.location.href='../produtos/saidas'">{{ __('text.registarSaida') }}</button></td>
               </tr>
               <tr>
                 <td>G-1</td>
                 <td>6</td>
                 <td>11/12/2020</td>
-                <td><button class="btn btn-primary" onclick="window.location.href='../produtos/saidas'">Registar Saída</button></td>
+                <td><button class="btn btn-primary" onclick="window.location.href='../produtos/saidas'">{{ __('text.registarSaida') }}</button></td>
               </tr>
               <tr>
                 <td>G-2</td>
                 <td>4</td>
-                <td><button class="btn btn-primary">Registar Abertura</button></td>
-                <td><button class="btn btn-primary" disabled>Registar Saída</button></td>
+                <td><button class="btn btn-primary">{{ __('text.registarAbertura') }}</button></td>
+                <td><button class="btn btn-primary" disabled>{{ __('text.registarSaida') }}</button></td>
               </tr>
               </tfoot>
           </table>

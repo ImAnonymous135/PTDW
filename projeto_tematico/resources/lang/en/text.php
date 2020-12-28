@@ -6,8 +6,8 @@ return[
 'add'=>'Add',
 'nomeResponsavel' =>'Name of the person in charge',
 'emailResponsavel' => 'E-mail of the person in charge',
-'nomeSocilitante' => 'Solicitants name',
-'emailSolicitante' => 'Solicitants E-mail',
+'nomeSolicitante' => 'Requesters name',
+'emailSolicitante' => 'Requesters E-mail',
 'observacoes'=>'Observations',
 'cancelar'=>'Cancel',
 'submeter'=>'Submit',
@@ -25,7 +25,7 @@ return[
 'perfil'=>'Profile',
 //adicionar-produto
 'adicionarProduto'=>'Add Product',
-'sinonimos'=>'Synonyms', //not sure about this 1
+'sinonimos'=>'Alias',
 'unidades'=>'Units',
 'stockMinimo'=>'Minimum Stock',
 'pesoMolecular'=> 'Molecular weight',
@@ -37,11 +37,41 @@ return[
 'ventilado'=>'Ventilated',
 'pictogramas'=>'Pictograms',
 //clientes
+'eliminar'=>'Delete',
+'confirmarEliminarCliente'=>'Do you intend to delete the client?',
+'nao'=>'No',
+'sim'=>'Yes',
+'editarCliente'=> 'Edit Client',
+'guardar'=>'Save',
+'informacaoCliente'=>'Clients information',
+'eliminadoSucesso'=>'Deleted successfully.',
+'editadoSucesso'=>'Edited successfully.',
 //entrada-não-quimica
+'entradas'=>'Entries',
+'movimentosNaoQuimicos'=>'Movements / Not Chemical',
+'periodoEntrada' => 'Entry period',
+'tipoEmbalagem' => 'Type of packaging',
+'vidro' => 'glass',
+'plastico'=>'plastic',
+'metal'=>'metal',
+'outros'=>'others',
+'pesoBruto'=>'Gross weight', //nao tenho a certeza deste
+'cor'=>'Color',
+'dataEntrada'=>'Entry date',
+'dataValidade'=>'Validation date',
+'marca'=>'Brand',
 //entrada-quimica
-//estilos
+'movimentosQuimicos'=>'Movements / Chemical',
+'texturaOuViscosidade'=>'Texture or viscosity',
 //fornecedores
+'confirmarEliminarFornecedor'=>'Do you pretend to delete the supplier?',
+'editarFornecedor'=>'Edit supplier',
+'informacaoFornecedor'=>'Suppliers information',
 //historico-operadores
+'operadores'=>'Operators',
+'movimentoOperadores'=>'Movements / Operators',
+'operacao'=>'Operation',
+'nomeAdmin'=>'Name of Administrator',
 //home
 'produtos' => 'Products',
 'clientes' => 'Clients',
@@ -59,9 +89,33 @@ return[
     'operador' => 'Operator',
     'data' => 'Date',
 //info-produto
+'nomeProduto'=>'Product name',
+'informacaoProduto'=>'Product information',
+'armarioVentilado'=>'Ventilated cabinet',
+'stockExistente'=>'Existing Stock',
+'recomendacoesPrudencias'=>'Prudence recommendations',
+'advertenciaPerigos'=>'Hazard warnings',
+'armazenamento'=>'Storage',
+'dataAbertura'=>'Opening date',
+'termino'=>'Terminate',
+'registarAbertura'=>'Register Opening',
+'registarSaida'=>'Check out',
 //lista-produtos
+'listaProdutos'=>'Product list',
+'detalhes'=>'Details',
 //operadores
+'dataEliminacao'=>'Deleted Date',
+'dataCriacao'=>'Created Date',
+'confirmarEliminarOperador'=>'Do you intend to delete the operator?',
+'editarCargo'=>'Edit position',
+'novoCargoOperador'=>'What is the operator new position?',
+'fielArmazem'=>'Storage Responsible', //não sei bem
+'informacaoOperador'=>'Operators information',
 //registo-entrada
+'entrada'=>'Entry',
+'registarEntrada'=>'Check In',
 //registo-saida
+'solicitante'=>'Requester',
 //saidas
+'movimentosSaida'=>'Movements / Check Out',
 ];

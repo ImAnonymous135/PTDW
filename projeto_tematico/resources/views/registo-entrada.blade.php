@@ -6,14 +6,14 @@
     <div class="row mb-2">
       <div class="col-sm-6">
         <h1 class="m-0 text-dark">
-          Registar Entrada
+            {{ __('text.registarEntrada') }}
         </h1>
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="../">Home</a></li>
-          <li class="breadcrumb-item "><a href="../produtos">Produtos</a></li>
-          <li class="breadcrumb-item active">Entrada</li>
+          <li class="breadcrumb-item "><a href="../produtos">{{ __('text.produtos') }}</a></li>
+          <li class="breadcrumb-item active">{{ __('text.entrada') }}</li>
         </ol>
       </div>
     </div>
@@ -40,10 +40,10 @@
       <div class="d-flex flex-row justify-content-end">
         <span class="mr-2">
           <button type="button" class="btn btn-block btn-outline-primary"
-            onclick="window.location.href='../produtos/info-produto'">Cancelar</button>
+            onclick="window.location.href='../produtos/info-produto'">{{ __('text.cancelar') }}</button>
         </span>
         <span class="mr-2">
-          <button type="button" href="#" class="btn btn-block btn-primary">Submeter</button>
+          <button type="button" href="#" class="btn btn-block btn-primary">{{ __('text.submeters') }}</button>
         </span>
       </div>
     </div>

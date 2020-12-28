@@ -5,12 +5,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Clientes</h1>
+                <h1 class="m-0 text-dark">{{ __('text.clientes') }}</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="./">Home</a></li>
-                    <li class="breadcrumb-item active">Clientes</li>
+                    <li class="breadcrumb-item active">{{ __('text.clientes') }}</li>
                 </ol>
             </div>
         </div>
@@ -34,13 +34,13 @@
         <table id="table" class="table table-head-fixed">
             <thead>
                 <tr>
-                    <th>Designação</th>
-                    <th>Nome do responsável</th>
-                    <th>E-mail do responsável</th>
-                    <th>Nome do solicitante</th>
-                    <th>E-mail do socilitante</th>
-                    <th>Observações</th>
-                    <th>Ações</th>
+                    <th>{{ __('text.designacao') }}</th>
+                    <th>{{ __('text.nomeResponsavel') }}</th>
+                    <th>{{ __('text.emailResponsavel') }}</th>
+                    <th>{{ __('text.nomeSolicitante') }}</th>
+                    <th>{{ __('text.emailSolicitante') }}</th>
+                    <th>{{ __('text.observacoes') }}</th>
+                    <th>{{ __('text.acoes') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -172,17 +172,17 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Eliminar</h4>
+                <h4 class="modal-title">{{ __('text.eliminar') }}</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
             <div class="modal-body">
-                <p>Pretende eliminar o cliente?</p>
+                <p>{{ __('text.confirmarEliminarCliente') }}</p>
             </div>
             <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-                <button type="button" class="btn btn-primary toastrDefaultSuccess" data-dismiss="modal">Sim</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('text.nao') }}</button>
+                <button type="button" class="btn btn-primary toastrDefaultSuccess" data-dismiss="modal">{{ __('text.sim') }}</button>
             </div>
         </div>
         <!-- /.modal-content -->
@@ -194,7 +194,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Editar cliente</h4>
+                <h4 class="modal-title">{{ __('text.editarCliente') }}</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -203,13 +203,13 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Designação</label>
+                            <label>{{ __('text.designacao') }}</label>
                             <input type="text" class="form-control" id="#" >
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Nome do responsável</label>
+                            <label>{{ __('text.nomeResponsavel') }}</label>
                             <input type="text" class="form-control" id="#"
                                 >
                         </div>
@@ -219,14 +219,14 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>E-Mail do responsável</label>
+                            <label>{{ __('text.emailResponsavel') }}</label>
                             <input type="text" class="form-control" id="#"
                                 >
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Nome do solicitante</label>
+                            <label>{{ __('text.nomeSolicitante') }}</label>
                             <input type="text" class="form-control" id="#"
                                 >
                         </div>
@@ -236,13 +236,13 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Observações</label>
+                            <label>{{ __('text.observacoes') }}</label>
                             <textarea class="form-control" rows="3" ></textarea>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>E-Mail do solicitante</label>
+                            <label>{{ __('text.emailSolicitante') }}</label>
                             <input type="text" class="form-control" id="#"
                                 >
                         </div>
@@ -251,9 +251,9 @@
 
             </div>
             <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('text.cancelar') }}</button>
                 <button type="button" class="btn btn-primary toastrDefaultSuccess1"
-                    data-dismiss="modal">Guardar</button>
+                    data-dismiss="modal">{{ __('text.guardar') }}</button>
             </div>
         </div>
         <!-- /.modal-content -->
@@ -265,22 +265,22 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Informação do cliente</h4>
+                <h4 class="modal-title">{{ __('text.informacaoCliente') }}</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
             <div class="modal-body">
-                <p class="font-weight-bold">Designação: <span class="font-weight-normal">Sala 16.7</span></p>
-                <p class="font-weight-bold">Nome do responsável: <span class="font-weight-normal">Joaquim
+                <p class="font-weight-bold">{{ __('text.designacao') }}: <span class="font-weight-normal">Sala 16.7</span></p>
+                <p class="font-weight-bold">{{ __('text.nomeResponsavel') }}: <span class="font-weight-normal">Joaquim
                         Ferreira</span></p>
-                <p class="font-weight-bold">E-Mail do responsável:: <span class="font-weight-normal">j.quim@ua.pt</span>
+                <p class="font-weight-bold">{{ __('text.emailResponsavel') }}: <span class="font-weight-normal">j.quim@ua.pt</span>
                 </p>
-                <p class="font-weight-bold">Nome do solicitante: <span class="font-weight-normal">Méci Tabuleiro</span>
+                <p class="font-weight-bold">{{ __('text.nomeSolicitante') }}: <span class="font-weight-normal">Méci Tabuleiro</span>
                 </p>
-                <p class="font-weight-bold">E-Mail do solicitante:: <span class="font-weight-normal">Mci@ua.pt</span>
+                <p class="font-weight-bold">{{ __('text.emailSolicitante') }}: <span class="font-weight-normal">Mci@ua.pt</span>
                 </p>
-                <p class="font-weight-bold">Observações: <span class="font-weight-normal">Lorem ipsum dolor sit amet
+                <p class="font-weight-bold">{{ __('text.observacoes') }}: <span class="font-weight-normal">Lorem ipsum dolor sit amet
                         consectetur adipisicing elit. Quas nobis earum quia magni repudiandae.</span></p>
             </div>
         </div>
@@ -318,11 +318,11 @@
         }]
     });
     $('.toastrDefaultSuccess').click(function() {
-      toastr.success('Eliminado com sucesso.')
+      toastr.success('{{__('text.eliminadoSucesso')}}')
     });
 
     $('.toastrDefaultSuccess1').click(function() {
-      toastr.success('Editado com sucesso.')
+      toastr.success('{{ __('text.editadoSucesso') }}')
     });
   });
 </script>

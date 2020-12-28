@@ -5,12 +5,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Fornecedores</h1>
+                <h1 class="m-0 text-dark">{{ __('text.fornecedores') }}</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="./">Home</a></li>
-                    <li class="breadcrumb-item active">Fornecedores</li>
+                    <li class="breadcrumb-item active">{{ __('text.fornecedores') }}</li>
                 </ol>
             </div>
         </div>
@@ -36,13 +36,13 @@
         <table id="table" class="table table-head-fixed">
             <thead>
                 <tr>
-                    <th>Fornecedor</th>
-                    <th>Morada</th>
-                    <th>Localidade</th>
-                    <th>Código Postal</th>
-                    <th>Telefone</th>
+                    <th>{{ __('text.fornecedores') }}</th>
+                    <th>{{ __('text.morada') }}</th>
+                    <th>{{ __('text.localizacao') }}</th>
+                    <th>{{ __('text.codigoPostal') }}</th>
+                    <th>{{ __('text.telefone') }}</th>
                     <th>NIF</th>
-                    <th>Ações</th>
+                    <th>{{ __('text.acoes') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -103,17 +103,17 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Eliminar</h4>
+                <h4 class="modal-title">{{ __('text.eliminar') }}</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
             <div class="modal-body">
-                <p>Pretende eliminar o fornecedor?</p>
+                <p>{{ __('text.confirmarEliminarFornecedor') }}</p>
             </div>
             <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-                <button type="button" class="btn btn-primary toastrDefaultSuccess" data-dismiss="modal">Sim</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('text.nao') }}</button>
+                <button type="button" class="btn btn-primary toastrDefaultSuccess" data-dismiss="modal">{{ __('text.sim') }}</button>
             </div>
         </div>
         <!-- /.modal-content -->
@@ -125,7 +125,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Editar fornecedor</h4>
+                <h4 class="modal-title">{{ __('text.editarFornecedor') }}</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -134,28 +134,13 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Nome</label>
+                            <label>{{ __('text.nome') }}</label>
                             <input type="text" class="form-control" id="#" >
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Morada</label>
-                            <input type="text" class="form-control" id="#" >
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label>Localidade</label>
-                            <input type="text" class="form-control" id="#" >
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label>Código-postal</label>
+                            <label>{{ __('text.morada') }}</label>
                             <input type="text" class="form-control" id="#" >
                         </div>
                     </div>
@@ -164,7 +149,22 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Telefone</label>
+                            <label>{{ __('text.localizacao') }}</label>
+                            <input type="text" class="form-control" id="#" >
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>{{ __('text.codigoPostal') }}</label>
+                            <input type="text" class="form-control" id="#" >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>{{ __('text.telefone') }}</label>
                             <input type="text" class="form-control" id="#" >
                         </div>
                     </div>
@@ -185,7 +185,7 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Vendedor 1</label>
+                            <label>{{ __('text.vendedor') }} 1</label>
                             <input type="text" class="form-control" id="#" >
                         </div>
                     </div>
@@ -194,7 +194,7 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Telemovél 1</label>
+                            <label>{{ __('text.telefone') }} 1</label>
                             <input type="text" class="form-control" id="#" >
                         </div>
                     </div>
@@ -209,13 +209,13 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Vendedor 2</label>
+                            <label>{{ __('text.vendedor') }} 2</label>
                             <input type="text" class="form-control" id="#" >
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Telemóvel 2</label>
+                            <label>{{ __('text.telefone') }} 2</label>
                             <input type="text" class="form-control" id="#" >
                         </div>
                     </div>
@@ -231,13 +231,13 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Observações</label>
+                            <label>{{ __('text.observacoes') }}</label>
                             <textarea class="form-control" rows="3" ></textarea>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Condições especiais</label>
+                            <label>{{ __('text.condicoesEspeciais') }}</label>
                             <textarea class="form-control" rows="3"
                                 ></textarea>
                         </div>
@@ -246,9 +246,9 @@
 
             </div>
             <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('text.cancelar') }}</button>
                 <button type="button" class="btn btn-primary toastrDefaultSuccess1"
-                    data-dismiss="modal">Guardar</button>
+                    data-dismiss="modal">{{ __('text.guardar') }}</button>
             </div>
         </div>
         <!-- /.modal-content -->
@@ -260,16 +260,16 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Informação do fornecedor</h4>
+                <h4 class="modal-title">{{ __('text.informacaoFornecedor') }}</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
             <div class="modal-body">
-                <p class="font-weight-bold">Fornecedor: <span class="font-weight-normal">Feira</span></p>
-                <p class="font-weight-bold">Morada: <span class="font-weight-normal">Rua Quim Pascal</span></p>
-                <p class="font-weight-bold">Localidade: <span class="font-weight-normal">Águeda</span></p>
-                <p class="font-weight-bold">Código postal: <span class="font-weight-normal">3750-141</span></p>
+                <p class="font-weight-bold">{{ __('text.fornecedor') }}: <span class="font-weight-normal">Feira</span></p>
+                <p class="font-weight-bold">{{ __('text.morada') }}: <span class="font-weight-normal">Rua Quim Pascal</span></p>
+                <p class="font-weight-bold">{{ __('text.localizacao') }}: <span class="font-weight-normal">Águeda</span></p>
+                <p class="font-weight-bold">{{ __('text.codigoPostal') }}: <span class="font-weight-normal">3750-141</span></p>
             </div>
         </div>
         <!-- /.modal-content -->
@@ -303,11 +303,11 @@
         }]
     });
     $('.toastrDefaultSuccess').click(function() {
-      toastr.success('Eliminado com sucesso.')
+      toastr.success('{{ __('text.eliminadoSucesso') }}')
     });
 
     $('.toastrDefaultSuccess1').click(function() {
-      toastr.success('Editado com sucesso.')
+      toastr.success('{{ __('text.editadoSucesso') }}')
     });
   });
 </script>

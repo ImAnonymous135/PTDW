@@ -5,12 +5,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Lista de produtos</h1>
+                <h1 class="m-0 text-dark">{{ __('text.listaProdutos') }}</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="./">Home</a></li>
-                    <li class="breadcrumb-item active">Produtos</li>
+                    <li class="breadcrumb-item active">{{ __('text.produtos') }}</li>
                 </ol>
             </div>
         </div>
@@ -31,12 +31,12 @@
         <table id="table" class="table table-head-fixed">
             <thead>
                 <tr>
-                    <th>Designação</th>
-                    <th>Inventário</th>
-                    <th>Embalagem</th>
-                    <th>Localização</th>
-                    <th>Tipo</th>
-                    <th>Ações</th>
+                    <th>{{ __('text.designacao') }}</th>
+                    <th>{{ __('text.inventario') }}</th>
+                    <th>{{ __('text.embalagem') }}</th>
+                    <th>{{ __('text.localizacao') }}</th>
+                    <th>{{ __('text.tipo') }}</th>
+                    <th>{{ __('text.acoes') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -134,7 +134,7 @@
         "columnDefs": [ {
             "targets": -1,
             "data": null,
-            "defaultContent": '<div class="btn-group"><a href="./produtos/info-produto" type="button" data-toggle="tooltip" title="Detalhes" class="btn btn-primary"><i class="fas fa-eye"></i></a></div>'
+            "defaultContent": '<div class="btn-group"><a href="./produtos/info-produto" type="button" data-toggle="tooltip" title="{{ __('text.details') }}" class="btn btn-primary"><i class="fas fa-eye"></i></a></div>'
         }]
     });
   });

@@ -5,12 +5,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Operadores</h1>
+        <h1 class="m-0 text-dark">{{ __('text.operadores') }}</h1>
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="../">Home</a></li>
-          <li class="breadcrumb-item active">Movimentos / Operadores</li>
+          <li class="breadcrumb-item active">{{ __('text.movimentoOperadores') }}</li>
         </ol>
       </div>
     </div>
@@ -27,11 +27,11 @@
     <table id="table" class="table table-bordered table-striped">
       <thead>
       <tr>
-        <th>Nome do administrador</th>
-        <th>Operador</th>
-        <th>Data</th>
-        <th>Operação</th>
-        <th>Observações</th>
+        <th>{{ __('text.nomeAdmin') }}</th>
+        <th>{{ __('text.operador') }}</th>
+        <th>{{ __('text.data') }}</th>
+        <th>{{ __('text.operacao') }}</th>
+        <th>{{ __('text.observacoes') }}</th>
       </tr>
       </thead>
       <tbody>

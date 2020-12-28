@@ -51,7 +51,7 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="form-group">
-                    <label>{{ __('text.nomeSocilitante') }}</label>
+                    <label>{{ __('text.nomeSolicitante') }}</label>
                     <input type="text" class="form-control" id="#" >
                 </div>
             </div>

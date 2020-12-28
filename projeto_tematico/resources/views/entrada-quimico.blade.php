@@ -5,12 +5,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Entradas</h1>
+        <h1 class="m-0 text-dark">{{ __('text.entradas') }}</h1>
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="../">Home</a></li>
-          <li class="breadcrumb-item active">Movimentos / Químicos</li>
+          <li class="breadcrumb-item active">{{ __('text.movimentosQuimicos') }}</li>
         </ol>
       </div>
     </div>
@@ -28,7 +28,7 @@
     <div class="row">
       <div class="col-sm-6">
         <div class="form-group">
-          <label class="font-weight-normal">Período de entrada:</label>
+          <label class="font-weight-normal">{{ __('text.pediodoEntrada') }}:</label>
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text">
@@ -44,16 +44,16 @@
     <table id="table" class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th>Produto</th>
-          <th>Localização</th>
-          <th>Fornecedor</th>
-          <th>Marca</th>
-          <th>Tipo de Embalagem</th>
-          <th>Cor</th>
-          <th>Textura ou Viscosidade</th>
-          <th>Peso Bruto</th>
-          <th>Data de Entrada</th>
-          <th>Data de Validade</th>
+          <th>{{ __('text.produto') }}</th>
+          <th>{{ __('text.localizacao') }}</th>
+          <th>{{ __('text.fornecedor') }}</th>
+          <th>{{ __('text.marca') }}</th>
+          <th>{{ __('text.tipoEmbalagem') }}</th>
+          <th>{{ __('text.cor') }}</th>
+          <th>{{ __('text.texturaOuViscosidade') }}</th>
+          <th>{{ __('text.pesoBruto') }}</th>
+          <th>{{ __('text.dataEntrada') }}</th>
+          <th>{{ __('text.dataValidade') }}</th>
         </tr>
       </thead>
       <tbody>

@@ -5,12 +5,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Operadores</h1>
+                <h1 class="m-0 text-dark">{{ __('text.operadores') }}</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="./">Home</a></li>
-                    <li class="breadcrumb-item active">Operadores</li>
+                    <li class="breadcrumb-item active">{{ __('text.operadores') }}</li>
                 </ol>
             </div>
         </div>
@@ -34,12 +34,12 @@
         <table id="table" class="table table-head-fixed">
             <thead>
                 <tr>
-                    <th>Nome</th>
+                    <th>{{ __('text.nome') }}</th>
                     <th>E-Mail</th>
-                    <th>Perfil</th>
-                    <th>Data de criação</th>
-                    <th>Data de Eliminação</th>
-                    <th>Ações</th>
+                    <th>{{ __('text.perfil') }}</th>
+                    <th>{{ __('text.dataCriacao') }}</th>
+                    <th>{{ __('text.dataEliminacao') }}</th>
+                    <th>{{ __('text.acoes') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -178,17 +178,17 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Eliminar</h4>
+                <h4 class="modal-title">{{ __('text.eliminar') }}</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
             <div class="modal-body">
-                <p>Pretende eliminar o operador?</p>
+                <p>{{ __('text.confirmarEliminarOperador') }}</p>
             </div>
             <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-                <button type="button" class="btn btn-primary toastrDefaultSuccess" data-dismiss="modal">Sim</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('text.nao') }}</button>
+                <button type="button" class="btn btn-primary toastrDefaultSuccess" data-dismiss="modal">{{ __('text.sim') }}</button>
             </div>
         </div>
         <!-- /.modal-content -->
@@ -200,21 +200,21 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Editar cargo</h4>
+                <h4 class="modal-title">{{ __('text.editarCargo') }}</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
             <div class="modal-body">
-                <p>Qual o novo cargo do operador?</p>
+                <p>{{ __('text.novoCargoOperador') }}</p>
                 <select name="" id="" class="custom-select">
-                    <option value="">Fiel de armazém</option>
+                    <option value="">{{ __('text.fielArmazem') }}</option>
                 </select>
             </div>
             <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('text.cancelar') }}</button>
                 <button type="button" class="btn btn-primary toastrDefaultSuccess1"
-                    data-dismiss="modal">Guardar</button>
+                    data-dismiss="modal">{{ __('text.guardar') }}</button>
             </div>
         </div>
         <!-- /.modal-content -->
@@ -226,18 +226,18 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Informação do operador</h4>
+                <h4 class="modal-title">{{ __('text.informacaoOperador') }}</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
             <div class="modal-body">
-                <p class="font-weight-bold">Nome: <span class="font-weight-normal">Joaquim Fernandes</span></p>
+                <p class="font-weight-bold">{{ __('text.nome') }}: <span class="font-weight-normal">Joaquim Fernandes</span></p>
                 <p class="font-weight-bold">E-Mail: <span class="font-weight-normal">JoaquimF@ua.pt</span></p>
-                <p class="font-weight-bold">Perfil: <span class="font-weight-normal">Fiel de armazém</span></p>
-                <p class="font-weight-bold">Data de criação: <span class="font-weight-normal">14/12/2020</span></p>
-                <p class="font-weight-bold">Data de eliminação: <span class="font-weight-normal">15/12/2020</span></p>
-                <p class="font-weight-bold">Observações: <span class="font-weight-normal">Lorem ipsum dolor sit amet
+                <p class="font-weight-bold">{{ __('text.perfil') }}: <span class="font-weight-normal">Fiel de armazém</span></p>
+                <p class="font-weight-bold">D{{ __('text.dataCriacao') }}: <span class="font-weight-normal">14/12/2020</span></p>
+                <p class="font-weight-bold">{{ __('text.dataEliminacao') }}: <span class="font-weight-normal">15/12/2020</span></p>
+                <p class="font-weight-bold">{{ __('text.observacoes') }}: <span class="font-weight-normal">Lorem ipsum dolor sit amet
                         consectetur adipisicing elit. Quas nobis earum quia magni repudiandae.</span></p>
             </div>
         </div>
@@ -268,16 +268,16 @@
         "columnDefs": [ {
             "targets": -1,
             "data": null,
-            "defaultContent": '<div class="btn-group"><button type="button" class="btn btn-primary" data-toggle="modal" data-toggle="tooltip" title="Detalhes" data-target="#modal-default2"><i class="fas fa-eye"></i></button><button data-toggle="modal" data-toggle="tooltip" title="Editar" data-target="#modal-default1" type="button" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button><button data-toggle="modal" data-toggle="tooltip" title="Eliminar" data-target="#modal-default" type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></div>',
+            "defaultContent": '<div class="btn-group"><button type="button" class="btn btn-primary" data-toggle="modal" data-toggle="tooltip" title="{{ __('text.detalhes') }}" data-target="#modal-default2"><i class="fas fa-eye"></i></button><button data-toggle="modal" data-toggle="tooltip" title="Editar" data-target="#modal-default1" type="button" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button><button data-toggle="modal" data-toggle="tooltip" title="Eliminar" data-target="#modal-default" type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></div>',
             "orderable": false
         }]
     });
     $('.toastrDefaultSuccess').click(function() {
-      toastr.success('Eliminado com sucesso.')
+      toastr.success('{{ __('text.eliminadoSucesso') }}')
     });
 
     $('.toastrDefaultSuccess1').click(function() {
-      toastr.success('Editado com sucesso.')
+      toastr.success('{{ __('text.editadoSucesso') }}')
     });
   });
 </script>
