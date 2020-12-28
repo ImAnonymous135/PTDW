@@ -6,14 +6,14 @@
         <div class="row mb-2">
             <div class="col-sm-6">
                 <h1 class="m-0 text-dark">
-                    Adicionar produto
+                    {{ __('text.adicionarProduto') }}
                 </h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="../">Home</a></li>
-                    <li class="breadcrumb-item "><a href="../produtos">Produtos</a></li>
-                    <li class="breadcrumb-item active">Adicionar</li>
+                    <li class="breadcrumb-item "><a href="../produtos">{{ __('text.produtos') }}</a></li>
+                    <li class="breadcrumb-item active">{{ __('text.add') }}</li>
                 </ol>
             </div>
         </div>
@@ -28,7 +28,7 @@
         <div class="row">
             <div class="col-sm-2">
                 <div class="form-group">
-                    <label>Tipo</label>
+                    <label>{{ __('text.tipo') }}</label>
                     <select class="form-control" id="selectTipo">
                         <option selected="selected" value="0">Químico</option>
                         <option value="1">Não Químico</option>
@@ -37,13 +37,13 @@
             </div>
             <div class="col-sm-4">
                 <div class="form-group">
-                    <label>Designação</label>
+                    <label>{{ __('text.designacao') }}</label>
                     <input type="text" class="form-control" id="#" >
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="form-group">
-                    <label>Sinónimos</label>
+                    <label>{{ __('text.sinonimos') }}</label>
                     <input type="text" class="form-control" id="#" >
                 </div>
             </div>
@@ -52,7 +52,7 @@
         <div class="row">
             <div class="col-sm-2">
                 <div class="form-group">
-                    <label>Unidades</label>
+                    <label>{{ __('text.unidades') }}</label>
                     <div class="input-group">
                         <input type="text" class="form-control" id="#" >
                     </div>
@@ -60,7 +60,7 @@
             </div>
             <div class="col-sm-2">
                 <div class="form-group">
-                    <label>Stock minimo</label>
+                    <label>{{ __('text.stockMinimo') }}</label>
                     <input type="text" class="form-control" id="#" >
                 </div>
             </div>
@@ -69,7 +69,7 @@
             <div class="col-sm-2">
                 <div class="quimico" style="display:block;">
                     <div class="form-group">
-                        <label>Peso Molecular</label>
+                        <label>{{ __('text.pesoMolecular') }}</label>
                         <input type="text" class="form-control" id="#" >
                     </div>
                 </div>
@@ -84,7 +84,7 @@
             <div class="col-sm-4">
                 <div class="quimico1" style="display:block;">
                     <div class="form-group">
-                        <label>Condição de armazenamento</label>
+                        <label>{{ __('text.condicoesArmazenamento') }}</label>
                         <input type="text" class="form-control" id="#"
                             >
                     </div>
@@ -110,7 +110,7 @@
             <div class="col-sm-2">
                 <div class="quimico2" style="display:block;">
                     <div class="form-group">
-                        <label>Fórmula</label>
+                        <label>{{ __('text.formula') }}</label>
                         <input type="text" class="form-control" id="#" >
                     </div>
 
@@ -130,7 +130,7 @@
             <div class="col-sm-2">
                 <div class="quimico4" style="display:block;">
                     <div class="form-group">
-                        <label>Anexos SDS</label>
+                        <label>{{ __('text.anexo') }} SDS</label>
                         <div class="input-group">
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="exampleInputFile">
@@ -145,7 +145,7 @@
             <div class="col-sm-3">
                 <div class="quimico7" style="display:block;">
                     <div class="form-group">
-                        <label>Código de advertência de perigo</label>
+                        <label>{{ __('text.codigoPerigo') }}</label>
                         <input type="text" class="form-control" id="" >
                     </div>
                 </div>
@@ -153,7 +153,7 @@
             <div class="col-sm-4">
                 <div class="quimico5" style="display:block;">
                     <div class="form-group">
-                        <label>Código de recomendação de prudência</label>
+                        <label>{{ __('text.codigoPrudencia') }}</label>
                         <input type="text" class="form-control" id="" >
                     </div>
 
@@ -166,15 +166,15 @@
                     <div class="form-group">
                         <div class="form-check align-middle">
                             <input type="checkbox" class="form-check-input" id="ventilado">
-                            <label for="ventilado">Ventilado</label>
+                            <label for="ventilado">{{ __('text.ventilado') }}</label>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <label>Pictogramas</label>
+        <label>{{ __('text.pictogramas') }}</label>
         <div class="row quimico9">
-            
+
             <img id="skull" class="pictogramas" src="https://www.reach-compliance.ch/downloads/GHS06_skull.png" alt=""
                 srcset="" width="100px" height="100px">
             <img id="danger" class="pictogramas" src="https://www.reach-compliance.ch/downloads/GHS01_explos.png" alt=""
@@ -199,10 +199,10 @@
             <div class="d-flex flex-row justify-content-end">
                 <span class="mr-2">
                     <button type="button" class="btn btn-block btn-outline-primary"
-                        onclick="window.location.href='../produtos'">Cancelar</button>
+                        onclick="window.location.href='../produtos'">{{ __('text.cancelar') }}</button>
                 </span>
                 <span class="mr-2">
-                    <button type="button" class="btn btn-block btn-primary">Submeter</button>
+                    <button type="button" class="btn btn-block btn-primary">{{ __('text.submeter') }}</button>
                 </span>
             </div>
         </div>

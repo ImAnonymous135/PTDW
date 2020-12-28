@@ -18,7 +18,7 @@
         <div class="small-box bg-success">
             <div class="inner">
                 <h3>580</h3>
-                <p>Produtos</p>
+                <p>{{__('text.produtos')}}</p>
             </div>
             <div class="icon">
                 <i class="fas fa-vials"></i>
@@ -29,7 +29,7 @@
         <div class="small-box bg-info">
             <div class="inner">
                 <h3>10</h3>
-                <p>Clientes</p>
+                <p>{{__('text.clientes')}}</p>
             </div>
             <div class="icon">
                 <i class="fas fa-microscope"></i>
@@ -40,7 +40,7 @@
         <div class="small-box bg-warning">
             <div class="inner">
                 <h3>230</h3>
-                <p>Utilizadores</p>
+                <p>{{__('text.utilizadores')}}</p>
             </div>
             <div class="icon">
                 <i class="fas fa-user"></i>
@@ -51,7 +51,7 @@
         <div class="small-box bg-danger">
             <div class="inner">
                 <h3>10</h3>
-                <p>Fornecedores</p>
+                <p>{{__('text.fornecedores')}}</p>
             </div>
             <div class="icon">
                 <i class="fas fa-truck"></i>
@@ -63,18 +63,18 @@
     <div class="col-sm-6">
         <div class="card">
             <div class="card-header">
-                <h3>Produtos com pouco stock</h3>
+                <h3>{{__('text.produtosStock')}}</h3>
             </div>
             <div class="card-body">
                 <table id="table2" class="table table-head-fixed">
                     <thead>
                         <tr>
-                            <th>Designação</th>
-                            <th>Inventário</th>
-                            <th>Embalagem</th>
-                            <th>Localização</th>
-                            <th>Tipo</th>
-                            <th>Ações</th>
+                            <th>{{__('text.designacao')}}</th>
+                            <th>{{__('text.inventario')}}</th>
+                            <th>{{__('text.embalagem')}}</th>
+                            <th>{{__('text.localizacao')}}</th>
+                            <th>{{__('text.tipo')}}</th>
+                            <th>{{__('text.acoes')}}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -121,17 +121,17 @@
     <div class="col-sm-6">
         <div class="card">
             <div class="card-header">
-                <h3>Os meu movimentos recentes</h3>
+                <h3>{{__('text.movimentosRecentes')}}</h3>
             </div>
             <div class="card-body">
                 <table id="table" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>Produto</th>
-                            <th>Localização</th>
-                            <th>Embalagens</th>
-                            <th>Operador</th>
-                            <th>Data</th>
+                            <th>{{ __('text.produto') }}</th>
+                            <th>{{ __('text.localizacao') }}</th>
+                            <th>{{ __('text.embalagem') }}</th>
+                            <th>{{ __('text.operador') }}</th>
+                            <th>{{ __('text.data') }}</th>
                         </tr>
                     </thead>
                     <tbody>

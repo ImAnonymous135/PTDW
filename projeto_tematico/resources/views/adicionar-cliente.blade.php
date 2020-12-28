@@ -6,14 +6,14 @@
         <div class="row mb-2">
             <div class="col-sm-6">
                 <h1 class="m-0 text-dark">
-                    Adicionar cliente
+                    {{ __('text.adicionarCliente') }}
                 </h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="../">Home</a></li>
-                    <li class="breadcrumb-item "><a href="../clientes">Clientes</a></li>
-                    <li class="breadcrumb-item active">Adicionar</li>
+                    <li class="breadcrumb-item "><a href="../clientes">{{ __('text.clientes') }}</a></li>
+                    <li class="breadcrumb-item active">{{ __('text.add') }}</li>
                 </ol>
             </div>
         </div>
@@ -28,7 +28,7 @@
         <div class="row">
             <div class="col-sm-4">
                 <div class="form-group">
-                    <label>Designação</label>
+                    <label>{{ __('text.designacao') }}</label>
                     <input type="text" class="form-control" id="#" >
                 </div>
             </div>
@@ -37,13 +37,13 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="form-group">
-                    <label>Nome do responsável</label>
+                    <label>{{ __('text.nomeResponsavel') }}</label>
                     <input type="text" class="form-control" id="#" >
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="form-group">
-                    <label>E-mail do responsável</label>
+                    <label>{{ __('text.emailResponsavel') }}</label>
                     <input type="text" class="form-control" id="#" >
                 </div>
             </div>
@@ -51,13 +51,13 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="form-group">
-                    <label>Nome do solicitante</label>
+                    <label>{{ __('text.nomeSocilitante') }}</label>
                     <input type="text" class="form-control" id="#" >
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="form-group">
-                    <label>E-mail do solicitante</label>
+                    <label>{{ __('text.emailSolicitante') }}</label>
                     <input type="text" class="form-control" id="#" >
                 </div>
             </div>
@@ -65,7 +65,7 @@
         <div class="row">
             <div class="col-sm-4">
                 <div class="form-group">
-                    <label>Observações</label>
+                    <label>{{ __('text.observacoes') }}</label>
                     <textarea class="form-control" id="" cols="30" rows="4" maxlength="100" ></textarea>
                 </div>
             </div>
@@ -74,10 +74,10 @@
             <div class="d-flex flex-row justify-content-end">
                 <span class="mr-2">
                     <button type="button" class="btn btn-block btn-outline-primary"
-                        onclick="window.location.href='../clientes'">Cancelar</button>
+                        onclick="window.location.href='../clientes'">{{ __('text.cancelar') }}</button>
                 </span>
                 <span class="mr-2">
-                    <button type="button" class="btn btn-block btn-primary">Submeter</button>
+                    <button type="button" class="btn btn-block btn-primary">{{ __('text.submeter') }}</button>
                 </span>
             </div>
         </div>

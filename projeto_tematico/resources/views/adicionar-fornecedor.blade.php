@@ -6,14 +6,14 @@
         <div class="row mb-2">
             <div class="col-sm-6">
                 <h1 class="m-0 text-dark">
-                    Adicionar fornecedor
+                    {{ __('text.adicionarFornecedor') }}
                 </h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="../">Home</a></li>
-                    <li class="breadcrumb-item "><a href="../fornecedores">Fornecedor</a></li>
-                    <li class="breadcrumb-item active">Adicionar</li>
+                    <li class="breadcrumb-item "><a href="../fornecedores">{{ __('text.fornecedor') }}</a></li>
+                    <li class="breadcrumb-item active">{{ __('text.add') }}</li>
                 </ol>
             </div>
         </div>
@@ -28,19 +28,19 @@
         <div class="row">
             <div class="col-sm-4">
                 <div class="form-group">
-                    <label>Designação</label>
+                    <label>{{ __('text.designacao') }}</label>
                     <input type="text" class="form-control" id="#" >
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="form-group">
-                    <label>Morada</label>
+                    <label>{{ __('text.morada') }}</label>
                     <input type="text" class="form-control" id="#" >
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="form-group">
-                    <label>Localidade</label>
+                    <label>{{ __('text.localizacao') }}</label>
                     <input type="text" class="form-control" id="#" >
                 </div>
             </div>
@@ -48,13 +48,13 @@
         <div class="row">
             <div class="col-sm-2">
                 <div class="form-group">
-                    <label>Código Postal</label>
+                    <label>{{ __('text.codigoPostal') }}</label>
                     <input type="text" class="form-control" id="#" >
                 </div>
             </div>
             <div class="col-sm-2">
                 <div class="form-group">
-                    <label>Telefone</label>
+                    <label>{{ __('text.telefone') }}</label>
                     <input type="text" class="form-control" id="#" >
                 </div>
             </div>
@@ -74,13 +74,13 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="form-group">
-                    <label>Vendedor 1</label>
+                    <label>{{ __('text.vendedor') }} 1</label>
                     <input type="text" class="form-control" id="#" >
                 </div>
             </div>
             <div class="col-sm-2">
                 <div class="form-group">
-                    <label>Telemóvel 1</label>
+                    <label>{{ __('text.telefone') }} 1</label>
                     <input type="text" class="form-control" id="#" >
                 </div>
             </div>
@@ -94,13 +94,13 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="form-group">
-                    <label>Vendedor 2</label>
+                    <label>{{ __('text.vendedor') }} 2</label>
                     <input type="text" class="form-control" id="#" >
                 </div>
             </div>
             <div class="col-sm-2">
                 <div class="form-group">
-                    <label>Telemóvel 2</label>
+                    <label>{{ __('text.telefone') }} 2</label>
                     <input type="text" class="form-control" id="#" >
                 </div>
             </div>
@@ -114,7 +114,7 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="form-group">
-                    <label>Condições especiais</label>
+                    <label>{{ __('text.condicoesEspeciais') }}</label>
                     <input type="text" class="form-control" id="#" >
                 </div>
             </div>
@@ -122,20 +122,20 @@
         <div class="row">
             <div class="col-sm-4">
                 <div class="form-group">
-                    <label>Observações</label>
+                    <label>{{ __('text.observacoes') }}</label>
                     <textarea class="form-control" id="" cols="30" rows="4" maxlength="100" ></textarea>
                 </div>
             </div>
         </div>
-       
+
         <div>
             <div class="d-flex flex-row justify-content-end">
                 <span class="mr-2">
                     <button type="button" class="btn btn-block btn-outline-primary"
-                        onclick="window.location.href='../fornecedores'">Cancelar</button>
+                        onclick="window.location.href='../fornecedores'">{{ __('text.cancelar') }}</button>
                 </span>
                 <span class="mr-2">
-                    <button type="button" class="btn btn-block btn-primary">Submeter</button>
+                    <button type="button" class="btn btn-block btn-primary">{{ __('text.submeter') }}</button>
                 </span>
             </div>
         </div>
