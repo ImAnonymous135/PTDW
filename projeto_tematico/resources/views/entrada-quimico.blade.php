@@ -28,7 +28,7 @@
     <div class="row">
       <div class="col-sm-6">
         <div class="form-group">
-          <label class="font-weight-normal">{{ __('text.pediodoEntrada') }}:</label>
+          <label class="font-weight-normal">{{ __('text.periodoEntrada') }}:</label>
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text">

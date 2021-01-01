@@ -235,7 +235,7 @@
                 <p class="font-weight-bold">{{ __('text.nome') }}: <span class="font-weight-normal">Joaquim Fernandes</span></p>
                 <p class="font-weight-bold">E-Mail: <span class="font-weight-normal">JoaquimF@ua.pt</span></p>
                 <p class="font-weight-bold">{{ __('text.perfil') }}: <span class="font-weight-normal">Fiel de armazém</span></p>
-                <p class="font-weight-bold">D{{ __('text.dataCriacao') }}: <span class="font-weight-normal">14/12/2020</span></p>
+                <p class="font-weight-bold">{{ __('text.dataCriacao') }}: <span class="font-weight-normal">14/12/2020</span></p>
                 <p class="font-weight-bold">{{ __('text.dataEliminacao') }}: <span class="font-weight-normal">15/12/2020</span></p>
                 <p class="font-weight-bold">{{ __('text.observacoes') }}: <span class="font-weight-normal">Lorem ipsum dolor sit amet
                         consectetur adipisicing elit. Quas nobis earum quia magni repudiandae.</span></p>

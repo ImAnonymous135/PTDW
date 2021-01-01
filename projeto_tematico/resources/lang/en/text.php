@@ -118,4 +118,29 @@ return[
 'solicitante'=>'Requester',
 //saidas
 'movimentosSaida'=>'Movements / Check Out',
+//
+//SUB-VIEWS
+//
+//export-button
+'exportar'=>'Export',
+'exportarPara'=>'Export to',
+//exports
+//nao-quimicos
+'quantidade'=>'Quantity',
+'identificacaoEmbalagem'=>'Package identification',
+'capacidadeEmbalagem'=>'Package capacity',
+'gramas'=>'Grams',
+'mililitros'=>'Milliliters',
+'sala'=>'Room',
+'armario'=>'Cabinet',
+'prateleira'=>'Shelf',
+'preco'=>'Price',
+'taxa'=>'Tax from',
+'referencia'=>'Reference',
+//quimicos
+'litros'=>'Liters',
+'estadoFisico'=>'Physical state',
+'solido'=>'Solid',
+'quimico'=>'Chemical',
+
 ];

@@ -43,7 +43,7 @@
             onclick="window.location.href='../produtos/info-produto'">{{ __('text.cancelar') }}</button>
         </span>
         <span class="mr-2">
-          <button type="button" href="#" class="btn btn-block btn-primary">{{ __('text.submeters') }}</button>
+          <button type="button" href="#" class="btn btn-block btn-primary">{{ __('text.submeter') }}</button>
         </span>
       </div>
     </div>
