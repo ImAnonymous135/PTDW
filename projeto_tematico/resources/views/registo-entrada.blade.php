@@ -6,7 +6,7 @@
     <div class="row mb-2">
       <div class="col-sm-6">
         <h1 class="m-0 text-dark">
-            {{ __('text.registarEntrada') }}
+          {{ __('text.registarEntrada') }}
         </h1>
       </div>
       <div class="col-sm-6">
@@ -26,7 +26,7 @@
   <div class="card-header">
     <div class="row">
       <div class="card-body">
-        @if (true)
+        @if ({{$isChemical}})
         {{-- Quimicos --}}
         @include('sub-views.quimicos')
         @else
@@ -54,13 +54,17 @@
 
 @section('js')
 <script src="{{ asset('js/adicionar.js') }}"></script>
-
+<script src="{{ asset('js/registo_entrada.js') }}"></script>
 <script>
   $(document).ready(function () {
             $('.select2').select2({
                 placeholder:"Selecione os pictogramas..."
             });
         });
+
+$(document).ready(function() {
+  $('.select-search').select2();
+});
 </script>
 
 @stop

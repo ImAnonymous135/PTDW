@@ -3,7 +3,10 @@
         <div class="col-sm-4">
             <div class="form-group">
                 <label>{{ __('text.designacao') }}</label>
-                <input type="text" class="form-control" id="#" value="Cloreto de potássio" disabled>
+                <select class="select-search form-control" name="state">
+                    <option value="AL">Alabama</option>
+                    <option value="WY">Wyoming</option>
+                </select>
             </div>
         </div>
         <div class="col-sm-2">
@@ -21,7 +24,7 @@
         <div class="col-sm-2">
             <div class="form-group">
                 <label>{{ __('text.capacidadeEmbalagem') }}</label>
-                <input type="number" class="form-control" id="#" placeholder="Exemplo: 2">
+                <input type="number" class="form-control" id="#">
             </div>
         </div>
     </div>
@@ -30,7 +33,7 @@
         <div class="col-sm-3">
             <div class="form-group">
                 <label>{{ __('text.identificacaoEmbalagem') }}</label>
-                <input type="text" class="form-control" id="#" placeholder="Exemplo: 1; 2;">
+                <input type="text" class="form-control" id="#">
             </div>
         </div>
         <div class="col-sm-3">

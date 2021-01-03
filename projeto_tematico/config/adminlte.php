@@ -273,7 +273,7 @@ return [
             'url'  => '/fornecedores',
             'icon' => 'fas fa-truck',
         ],
-        'Movimentos',
+        'Histórico de Movimentos',
         
                 [
                     'text' => 'Entradas',
@@ -300,8 +300,23 @@ return [
                     'text' => 'Operadores',
                     'url'  => '/movimentos/operadores',
                     'icon' => 'fas fa-user-clock',
-                ]
-           
+                ],
+        'Registos',
+        [
+            'text' => 'Registo de Entrada',
+            'url'  => '/produtos/entradas',
+            'icon' => 'fas fa-plus',
+        ],
+        [
+            'text' => 'Registo de Saída',
+            'url'  => '/produtos/saidas',
+            'icon' => 'fas fa-minus',
+        ],
+        [
+            'text' => 'Novo produto',
+            'url'  => '/produtos/adicionar',
+            'icon' => 'fas fa-vial',
+        ]
     ],
 
     /*
