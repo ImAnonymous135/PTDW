@@ -46,6 +46,8 @@ return[
 'informacaoCliente'=>'Clients information',
 'eliminadoSucesso'=>'Deleted successfully.',
 'editadoSucesso'=>'Edited successfully.',
+'editar'=>'Edit',
+'novoCliente'=>'New Client',
 //entrada-não-quimica
 'entradas'=>'Entries',
 'movimentosNaoQuimicos'=>'Movements / Not Chemical',
@@ -67,6 +69,7 @@ return[
 'confirmarEliminarFornecedor'=>'Do you pretend to delete the supplier?',
 'editarFornecedor'=>'Edit supplier',
 'informacaoFornecedor'=>'Suppliers information',
+'novoFornecedor'=>'New Supplier',
 //historico-operadores
 'operadores'=>'Operators',
 'movimentoOperadores'=>'Movements / Operators',
@@ -103,6 +106,8 @@ return[
 //lista-produtos
 'listaProdutos'=>'Product list',
 'detalhes'=>'Details',
+'novaEntrada'=>'New Entry',
+'novoProduto'=>'New Product',
 //operadores
 'dataEliminacao'=>'Deleted Date',
 'dataCriacao'=>'Created Date',
@@ -111,6 +116,7 @@ return[
 'novoCargoOperador'=>'What is the operator new position?',
 'fielArmazem'=>'Storage Responsible', //não sei bem
 'informacaoOperador'=>'Operators information',
+'novoOperador'=>'New Operator',
 //registo-entrada
 'entrada'=>'Entry',
 'registarEntrada'=>'Check In',
@@ -142,5 +148,6 @@ return[
 'estadoFisico'=>'Physical state',
 'solido'=>'Solid',
 'quimico'=>'Chemical',
-
+//page
+'terminarSessao'=>'Log out',
 ];

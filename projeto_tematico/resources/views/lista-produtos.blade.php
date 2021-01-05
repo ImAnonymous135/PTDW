@@ -20,7 +20,7 @@
 @section('content')
 <ul id="menu" class="mfb-component--br mfb-slidein" data-mfb-toggle="hover">
     <li class="mfb-component__wrap">
-        <a data-mfb-label="Novo produto" class="mfb-component__button--main" href="./produtos/adicionar">
+        <a data-mfb-label= "{{ __('text.novoProduto') }}" class="mfb-component__button--main" href="./produtos/adicionar">
             <i class="mfb-component__main-icon--resting fas fa-plus" style="font-size: 1.5rem;"></i>
         </a>
     </li>
@@ -134,7 +134,7 @@
         "columnDefs": [ {
             "targets": -1,
             "data": null,
-            "defaultContent": '<div class="btn-group"><a href="./produtos/info-produto" type="button" data-toggle="tooltip" title="{{ __('text.details') }}" class="btn btn-primary"><i class="fas fa-eye"></i></a><a href="./produtos/entradas" type="button" data-toggle="tooltip" title="{{ __('text.details') }}" class="btn btn-success"><i class="fas fa-plus"></i></a></div>'
+            "defaultContent": '<div class="btn-group"><a href="./produtos/info-produto" type="button" data-toggle="tooltip" title="{{ __('text.detalhes') }}" class="btn btn-primary"><i class="fas fa-eye"></i></a><a href="./produtos/entradas" type="button" data-toggle="tooltip" title="{{ __('text.novaEntrada') }}" class="btn btn-success"><i class="fas fa-plus"></i></a></div>'
         }]
     });
   });

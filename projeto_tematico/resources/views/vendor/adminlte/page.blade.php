@@ -4,7 +4,7 @@
     <div class="dropdown" style="margin-right: 15px">
         <a type="button" class="dropdown-toggle" data-toggle="dropdown">João Moleirinho</a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Terminar Sessão</a>
+          <a class="dropdown-item" href="#">{{ __('text.terminarSessao') }}</a>
         </div>
       </div>
 @endsection

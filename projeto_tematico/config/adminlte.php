@@ -247,6 +247,7 @@ return [
             'icon' => 'fas fa-home',
         ],
         [
+
             'text' => 'Produtos',
             'url'  => '/produtos',
             'icon' => 'fas fa-vial',
@@ -274,7 +275,7 @@ return [
             'icon' => 'fas fa-truck',
         ],
         'Histórico de Movimentos',
-        
+
                 [
                     'text' => 'Entradas',
                     'icon' => 'fas fa-fw fa-plus',
@@ -474,7 +475,7 @@ return [
                 ],
             ],
         ],
-        
+
     ],
 
     /*

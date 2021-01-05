@@ -23,7 +23,7 @@
 @section('content')
 <ul id="menu" class="mfb-component--br mfb-slidein" data-mfb-toggle="hover">
     <li class="mfb-component__wrap">
-        <a data-mfb-label="Novo operador" class="mfb-component__button--main" href="./operadores/adicionar">
+        <a data-mfb-label="{{ __('text.novoOperador') }}" class="mfb-component__button--main" href="./operadores/adicionar">
             <i class="mfb-component__main-icon--resting fas fa-plus" style="font-size: 1.5rem;"></i>
         </a>
     </li>
@@ -268,7 +268,7 @@
         "columnDefs": [ {
             "targets": -1,
             "data": null,
-            "defaultContent": '<div class="btn-group"><button type="button" class="btn btn-primary" data-toggle="modal" data-toggle="tooltip" title="{{ __('text.detalhes') }}" data-target="#modal-default2"><i class="fas fa-eye"></i></button><button data-toggle="modal" data-toggle="tooltip" title="Editar" data-target="#modal-default1" type="button" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button><button data-toggle="modal" data-toggle="tooltip" title="Eliminar" data-target="#modal-default" type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></div>',
+            "defaultContent": '<div class="btn-group"><button type="button" class="btn btn-primary" data-toggle="modal" data-toggle="tooltip" title="{{ __('text.detalhes') }}" data-target="#modal-default2"><i class="fas fa-eye"></i></button><button data-toggle="modal" data-toggle="tooltip" title="{{ __('text.editar') }}" data-target="#modal-default1" type="button" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button><button data-toggle="modal" data-toggle="tooltip" title="{{ __('text.eliminar') }}" data-target="#modal-default" type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></div>',
             "orderable": false
         }]
     });
