@@ -17,14 +17,11 @@
     </div>
 </div>
 @stop
-<!--
-    Adicionar o botão em baixo a direita como o tem na pagina de produto no registo para adicionar um novo fornecedor
-    Como ainda ha muita informaçao para por é melhor por um botao com mais informaçoes ou algo do genero
--->
 @section('content')
 <ul id="menu" class="mfb-component--br mfb-slidein" data-mfb-toggle="hover">
     <li class="mfb-component__wrap">
-        <a data-mfb-label="{{ __('text.novoFornecedor') }}" class="mfb-component__button--main" href="./fornecedores/adicionar">
+        <a data-mfb-label="{{ __('text.novoFornecedor') }}" class="mfb-component__button--main"
+            href="./fornecedores/adicionar">
             <i class="mfb-component__main-icon--resting fas fa-plus" style="font-size: 1.5rem;"></i>
         </a>
     </li>
@@ -46,56 +43,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Quimifeira</td>
-                    <td>Rua Quim Pascal</td>
-                    <td>Águeda</td>
-                    <td>3750-141</td>
-                    <td>912478356</td>
-                    <td>215478543</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Quimifeira</td>
-                    <td>Rua Quim Pascal</td>
-                    <td>Águeda</td>
-                    <td>3750-141</td>
-                    <td>912478356</td>
-                    <td>215478543</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>João Luis</td>
-                    <td>Rua Quim Pascal</td>
-                    <td>Águeda</td>
-                    <td>3750-141</td>
-                    <td>912478356</td>
-                    <td>215478543</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Quimifeira</td>
-                    <td>Rua Quim Pascal</td>
-                    <td>Águeda</td>
-                    <td>3750-141</td>
-                    <td>912478356</td>
-                    <td>215478543</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Feira</td>
-                    <td>Rua Quim Pascal</td>
-                    <td>Águeda</td>
-                    <td>3750-141</td>
-                    <td>912478356</td>
-                    <td>215478543</td>
-                    <td></td>
-                </tr>
+
                 </tfoot>
         </table>
         <br>
     </div>
-    <!-- /.card-body -->
 </div>
 <br>
 
@@ -113,12 +65,11 @@
             </div>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('text.nao') }}</button>
-                <button type="button" class="btn btn-primary toastrDefaultSuccess" data-dismiss="modal">{{ __('text.sim') }}</button>
+                <button type="button" class="btn btn-primary toastrDefaultSuccess"
+                    data-dismiss="modal">{{ __('text.sim') }}</button>
             </div>
         </div>
-        <!-- /.modal-content -->
     </div>
-    <!-- /.modal-dialog -->
 </div>
 
 <div class="modal fade" id="modal-default1" style="display: none;" aria-hidden="true">
@@ -135,13 +86,13 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>{{ __('text.nome') }}</label>
-                            <input type="text" class="form-control" id="#" >
+                            <input type="text" class="form-control" id="#">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>{{ __('text.morada') }}</label>
-                            <input type="text" class="form-control" id="#" >
+                            <input type="text" class="form-control" id="#">
                         </div>
                     </div>
                 </div>
@@ -150,13 +101,13 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>{{ __('text.localizacao') }}</label>
-                            <input type="text" class="form-control" id="#" >
+                            <input type="text" class="form-control" id="#">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>{{ __('text.codigoPostal') }}</label>
-                            <input type="text" class="form-control" id="#" >
+                            <input type="text" class="form-control" id="#">
                         </div>
                     </div>
                 </div>
@@ -165,13 +116,13 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>{{ __('text.telefone') }}</label>
-                            <input type="text" class="form-control" id="#" >
+                            <input type="text" class="form-control" id="#">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>NIF</label>
-                            <input type="text" class="form-control" id="#" >
+                            <input type="text" class="form-control" id="#">
                         </div>
                     </div>
                 </div>
@@ -180,13 +131,13 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>E-mail</label>
-                            <input type="text" class="form-control" id="#" >
+                            <input type="text" class="form-control" id="#">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>{{ __('text.vendedor') }} 1</label>
-                            <input type="text" class="form-control" id="#" >
+                            <input type="text" class="form-control" id="#">
                         </div>
                     </div>
                 </div>
@@ -195,13 +146,13 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>{{ __('text.telefone') }} 1</label>
-                            <input type="text" class="form-control" id="#" >
+                            <input type="text" class="form-control" id="#">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>E-mail 1</label>
-                            <input type="text" class="form-control" id="#" >
+                            <input type="text" class="form-control" id="#">
                         </div>
                     </div>
                 </div>
@@ -210,13 +161,13 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>{{ __('text.vendedor') }} 2</label>
-                            <input type="text" class="form-control" id="#" >
+                            <input type="text" class="form-control" id="#">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>{{ __('text.telefone') }} 2</label>
-                            <input type="text" class="form-control" id="#" >
+                            <input type="text" class="form-control" id="#">
                         </div>
                     </div>
                 </div>
@@ -224,7 +175,7 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>E-mail 2</label>
-                            <input type="text" class="form-control" id="#" >
+                            <input type="text" class="form-control" id="#">
                         </div>
                     </div>
                 </div>
@@ -232,14 +183,13 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>{{ __('text.observacoes') }}</label>
-                            <textarea class="form-control" rows="3" ></textarea>
+                            <textarea class="form-control" rows="3"></textarea>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>{{ __('text.condicoesEspeciais') }}</label>
-                            <textarea class="form-control" rows="3"
-                                ></textarea>
+                            <textarea class="form-control" rows="3"></textarea>
                         </div>
                     </div>
                 </div>
@@ -251,9 +201,7 @@
                     data-dismiss="modal">{{ __('text.guardar') }}</button>
             </div>
         </div>
-        <!-- /.modal-content -->
     </div>
-    <!-- /.modal-dialog -->
 </div>
 
 <div class="modal fade" id="modal-default2" style="display: none;" aria-hidden="true">
@@ -266,15 +214,17 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p class="font-weight-bold">{{ __('text.fornecedor') }}: <span class="font-weight-normal">Feira</span></p>
-                <p class="font-weight-bold">{{ __('text.morada') }}: <span class="font-weight-normal">Rua Quim Pascal</span></p>
-                <p class="font-weight-bold">{{ __('text.localizacao') }}: <span class="font-weight-normal">Águeda</span></p>
-                <p class="font-weight-bold">{{ __('text.codigoPostal') }}: <span class="font-weight-normal">3750-141</span></p>
+                <p class="font-weight-bold">{{ __('text.fornecedor') }}: <span class="font-weight-normal">Feira</span>
+                </p>
+                <p class="font-weight-bold">{{ __('text.morada') }}: <span class="font-weight-normal">Rua Quim
+                        Pascal</span></p>
+                <p class="font-weight-bold">{{ __('text.localizacao') }}: <span class="font-weight-normal">Águeda</span>
+                </p>
+                <p class="font-weight-bold">{{ __('text.codigoPostal') }}: <span
+                        class="font-weight-normal">@if(isset($fornecedor)){{$fornecedor}}@endif</span></p>
             </div>
         </div>
-        <!-- /.modal-content -->
     </div>
-    <!-- /.modal-dialog -->
 </div>
 @stop
 
@@ -288,8 +238,13 @@
     });
 </script>
 <script>
+    dataSet=[];
+    @foreach( $fornecedores as $fornecedor)
+   dataSet.push(["{{$fornecedor->designacao}}","{{$fornecedor->morada}}","{{$fornecedor->localidade}}","{{$fornecedor->codigo_postal}}","{{$fornecedor->telefone}}","{{$fornecedor->nif}}",'<div class="btn-group"><button type="button" class="btn btn-primary" data-toggle="modal" data-toggle="tooltip" title="{{ __('text.detalhes') }}" data-target="#modal-default2-{{$fornecedor}}"><i class="fas fa-eye"></i></button><button data-toggle="modal" data-toggle="tooltip" title="{{ __('text.editar') }}" data-target="#modal-default1" type="button" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button><button data-toggle="modal" data-toggle="tooltip" title="{{ __('text.eliminar') }}" data-target="#modal-default" type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></div>']);
+   @endforeach
     $(function () {
     $('#table').DataTable({
+        data:dataSet,
         "responsive": true,
         "autoWidth": false,
         language: {
@@ -297,8 +252,6 @@
         },
         "columnDefs": [ {
             "targets": -1,
-            "data": null,
-            "defaultContent": '<div class="btn-group"><button type="button" class="btn btn-primary" data-toggle="modal" data-toggle="tooltip" title="{{ __('text.detalhes') }}" data-target="#modal-default2"><i class="fas fa-eye"></i></button><button data-toggle="modal" data-toggle="tooltip" title="{{ __('text.editar') }}" data-target="#modal-default1" type="button" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button><button data-toggle="modal" data-toggle="tooltip" title="{{ __('text.eliminar') }}" data-target="#modal-default" type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></div>',
             "orderable": false
         }]
     });

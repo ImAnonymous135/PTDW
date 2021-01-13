@@ -48,13 +48,6 @@ Route::get('/produtos/saidas', function () {
     return view('registo-saida');
 });
 
-Route::get('/fornecedores', function () {
-    return view('fornecedores');
-});
-
-Route::get('/fornecedores/adicionar', function () {
-    return view('adicionar-fornecedor');
-});
 
 Route::get('/operadores', function () {
     return view('operadores');
@@ -63,6 +56,7 @@ Route::get('/operadores', function () {
 Route::get('/operadores/adicionar', function () {
     return view('adicionar-operador');
 });
+
 Route::get('/clientes','App\Http\Controllers\ListaCliente@show');
 
 
@@ -70,12 +64,14 @@ Route::get('/clientes/adicionar', function () {
     return view('adicionar-cliente');
 });
 
-//Movimentos
+//fornecedores
+Route::get('/fornecedores','App\Http\Controllers\Fornecedores@show');
+Route::get('/fornecedores/adicionar','App\Http\Controllers\Fornecedores@create');
+Route::post('/fornecedores/adicionar','App\Http\Controllers\Fornecedores@store');
+Route::put('/fornecedores/adicionar','App\Http\Controllers\Fornecedores@update');
 
+//movimentos
 Route::get('/movimentos/entrada-quimico','App\Http\Controllers\EntradaQuimicoHistorico@show');
-
 Route::get('/movimentos/entrada-nao-quimico','App\Http\Controllers\EntradaNaoQuimicoHistorico@show');
-
 Route::get('/movimentos/saidas','App\Http\Controllers\historicoSaidas@show');
-
 Route::get('/movimentos/operadores','App\Http\Controllers\OperadoresHistorico@show');

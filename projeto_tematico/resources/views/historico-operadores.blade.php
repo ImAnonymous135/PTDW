@@ -21,7 +21,6 @@
 @section('content')
 
 @include('sub-views.export-button')
-<h1>{{$operadores}}</h1>
 <div class="card">
   <div class="card-body">
     <table id="table" class="table table-bordered table-striped">
