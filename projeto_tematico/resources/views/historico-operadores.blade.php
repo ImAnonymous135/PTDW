@@ -21,68 +21,28 @@
 @section('content')
 
 @include('sub-views.export-button')
-
+<h1>{{$operadores}}</h1>
 <div class="card">
   <div class="card-body">
     <table id="table" class="table table-bordered table-striped">
       <thead>
-      <tr>
-        <th>{{ __('text.nomeAdmin') }}</th>
-        <th>{{ __('text.operador') }}</th>
-        <th>{{ __('text.data') }}</th>
-        <th>{{ __('text.operacao') }}</th>
-        <th>{{ __('text.observacoes') }}</th>
-      </tr>
+        <tr>
+          <th>{{ __('text.nomeAdmin') }}</th>
+          <th>{{ __('text.operador') }}</th>
+          <th>{{ __('text.data') }}</th>
+          <th>{{ __('text.operacao') }}</th>
+          <th>{{ __('text.observacoes') }}</th>
+        </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>Rafael</td>
-        <td>Luis</td>
-        <td>4/12/2019</td>
-        <td>Adicionar químico</td>
-        <td>Adicionei H2O</td>
-      </tr>
-      <tr>
-        <td>Rafael</td>
-        <td>Luis</td>
-        <td>4/12/2019</td>
-        <td>Adicionar químico</td>
-        <td>Adicionei H2O</td>
-      </tr>
-      <tr>
-        <td>Rafael</td>
-        <td>Luis</td>
-        <td>4/12/2019</td>
-        <td>Adicionar químico</td>
-        <td>Adicionei H2O</td>
-      </tr>
-      <tr>
-        <td>Rafael</td>
-        <td>Luis</td>
-        <td>4/12/2019</td>
-        <td>Adicionar químico</td>
-        <td>Adicionei H2O</td>
-      </tr>
-      <tr>
-        <td>Rafael</td>
-        <td>Luis</td>
-        <td>4/12/2019</td>
-        <td>Adicionar químico</td>
-        <td>Adicionei H2O</td>
-      </tr>
-      <tr>
-        <td>Rafael</td>
-        <td>Luis</td>
-        <td>4/12/2019</td>
-        <td>Adicionar químico</td>
-        <td>Adicionei H2O</td>
-      </tr>
-      </tfoot>
+
+        </tfoot>
     </table>
   </div>
   <!-- /.card-body -->
 </div>
 <br>
+
 @stop
 
 @section('js')
@@ -92,8 +52,13 @@
 <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
 <script>
+  var dataSet = [];
+  @foreach( $operadores as $operador)
+   dataSet.push(["{{$operador->nome_administrador}}","{{$operador->operador}}","{{$operador->data}}","{{$operador->operacao}}","{{$operador->observacoes}}"]);
+   @endforeach
   $(function () {
     $('#table').DataTable({
+      data:dataSet,
       "responsive": true,
       "autoWidth": false,
       language: {

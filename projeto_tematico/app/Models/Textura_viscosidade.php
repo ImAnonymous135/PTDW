@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Textura_viscosidade extends Model
 {
     use HasFactory;
+    protected $table = "textura_viscosidade";
 }

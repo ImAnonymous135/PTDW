@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Embalagem extends Model
 {
+    protected $table = 'embalagem';
     use HasFactory;
+
+    public function produto(){
+        return $this->belongsTo(Produtos::class,'id_produtos');
+    }
 }
