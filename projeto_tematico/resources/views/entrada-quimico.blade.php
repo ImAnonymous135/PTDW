@@ -57,66 +57,6 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Água</td>
-          <td>G-3</td>
-          <td>Quimifeira</td>
-          <td>Brady</td>
-          <td>Garrafa de Vidro</td>
-          <td>Verde</td>
-          <td>Viscoso</td>
-          <td>500kg</td>
-          <td>10/11/2019</td>
-          <td>4/12/2019</td>
-        </tr>
-        <tr>
-          <td>Água</td>
-          <td>G-3</td>
-          <td>Quimifeira</td>
-          <td>Brady</td>
-          <td>Garrafa de Vidro</td>
-          <td>Verde</td>
-          <td>Viscoso</td>
-          <td>500kg</td>
-          <td>10/11/2019</td>
-          <td>4/12/2019</td>
-        </tr>
-        <tr>
-          <td>Água</td>
-          <td>G-3</td>
-          <td>Quimifeira</td>
-          <td>Brady</td>
-          <td>Garrafa de Vidro</td>
-          <td>Verde</td>
-          <td>Viscoso</td>
-          <td>500kg</td>
-          <td>10/11/2019</td>
-          <td>4/12/2019</td>
-        </tr>
-        <tr>
-          <td>Água</td>
-          <td>G-3</td>
-          <td>Quimifeira</td>
-          <td>Brady</td>
-          <td>Garrafa de Vidro</td>
-          <td>Verde</td>
-          <td>Viscoso</td>
-          <td>500kg</td>
-          <td>10/11/2019</td>
-          <td>4/12/2019</td>
-        </tr>
-        <tr>
-          <td>Água</td>
-          <td>G-3</td>
-          <td>Quimifeira</td>
-          <td>Brady</td>
-          <td>Garrafa de Vidro</td>
-          <td>Verde</td>
-          <td>Viscoso</td>
-          <td>500kg</td>
-          <td>10/11/2019</td>
-          <td>4/12/2019</td>
-        </tr>
         </tfoot>
     </table>
   </div>
@@ -132,8 +72,13 @@
 <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
 <script>
+  var dataSet = [];
+  @foreach( $produtos as $produto)
+  dataSet.push(["{{$produto->movimento->embalagem->produto->designacao}}","{{$produto->movimento->embalagem->localizacao}}","{{$produto->movimento->fornecedor->designacao}}","{{$produto->movimento->marca}}","","{{$produto->estado_fisico->estado_fisico}}","{{$produto->textura_viscosidade->textura_viscosidade}}","{{$produto->movimento->peso_bruto}}","{{$produto->movimento->data_abertura}}","{{$produto->movimento->data_validade}}"]);
+  @endforeach
   $(function () {
     $('#table').DataTable({
+      data:dataSet,
       "responsive": true,
       "autoWidth": false,
       language: {

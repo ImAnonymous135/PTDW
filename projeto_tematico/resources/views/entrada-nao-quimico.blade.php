@@ -22,9 +22,9 @@
 
 @include('sub-views.export-button')
 
+
 <div class="card">
   <div class="card-body">
-
     <div class="row">
       <div class="col-sm-6">
         <div class="form-group">
@@ -69,65 +69,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Água</td>
-          <td>G-3</td>
-          <td>Quimifeira</td>
-          <td>Brady</td>
-          <td>Plastico</td>
-          <td>Verde</td>
-          <td>500kg</td>
-          <td>10/11/2019</td>
-          <td>4/12/2019</td>
-        </tr>
-        <tr>
-          <td>Água</td>
-          <td>G-3</td>
-          <td>Quimifeira</td>
-          <td>Brady</td>
-          <td>Plastico</td>
-          <td>Verde</td>
-          <td>500kg</td>
-          <td>10/11/2019</td>
-          <td>4/12/2019</td>
-        </tr>
-        <tr>
-          <td>Água</td>
-          <td>G-3</td>
-          <td>Quimifeira</td>
-          <td>Brady</td>
-          <td>Outros</td>
-          <td>Verde</td>
-          <td>500kg</td>
-          <td>10/11/2019</td>
-          <td>4/12/2019</td>
-        </tr>
-        <tr>
-          <td>Água</td>
-          <td>G-3</td>
-          <td>Quimifeira</td>
-          <td>Brady</td>
-          <td>Plastico</td>
-          <td>Verde</td>
-          <td>500kg</td>
-          <td>15/12/2020</td>
-          <td>4/12/2019</td>
-        </tr>
-        <tr>
-          <td>Água</td>
-          <td>G-3</td>
-          <td>Quimifeira</td>
-          <td>Brady</td>
-          <td>Vidro</td>
-          <td>Verde</td>
-          <td>400kg</td>
-          <td>16/12/2020</td>
-          <td>4/12/2020</td>
-        </tr>
         </tfoot>
     </table>
   </div>
-  <!-- /.card-body -->
 </div>
 <br>
 <br>
@@ -135,14 +79,18 @@
 @stop
 
 @section('js')
-
 <script src="{{ asset('js/mfb.js') }}"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script>
+  var dataSet = [];
+  @foreach( $produtos as $produto)
+  dataSet.push(["{{$produto->movimento->embalagem->produto->designacao}}","{{$produto->movimento->embalagem->localizacao}}","{{$produto->movimento->fornecedor->designacao}}","{{$produto->movimento->marca}}","{{$produto->tipo_embalagem->tipo_embalagem}}","{{$produto->cor->cor}}","{{$produto->movimento->peso_bruto}}","{{$produto->movimento->data_abertura}}","{{$produto->movimento->data_validade}}"]);
+  @endforeach
   $(function () {
     $('.select2').select2()
       var table = $('#table').DataTable({
+        data: dataSet,
         "responsive": true,
         "autoWidth": false,
         language: {
@@ -192,8 +140,6 @@
         table.draw();
       });*/
 
-
-
       $('#select2').on('select2:select select2:unselect', function (ev) {
           $.fn.dataTable.ext.search.push(
           function (oSettings, aData, iDataIndex) {
@@ -208,6 +154,8 @@
         );
           table.draw();
       });
+
+
 
   });
 

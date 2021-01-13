@@ -24,18 +24,6 @@ Route::get('/produtos', function () {
     return view('lista-produtos');
 });
 
-Route::get('/movimentos/entrada-quimico', function () {
-    return view('entrada-quimico');
-});
-
-Route::get('/movimentos/entrada-nao-quimico', function () {
-    return view('entrada-nao-quimico');
-});
-
-Route::get('/movimentos/saidas', function () {
-    return view('saidas');
-});
-
 Route::get('/produtos/adicionar', function () {
     return view('adicionar-produto');
 });
@@ -76,6 +64,12 @@ Route::get('/clientes/adicionar', function () {
     return view('adicionar-cliente');
 });
 
-Route::get('/movimentos/operadores', function () {
-    return view('historico-operadores');
-});
+//Movimentos
+
+Route::get('/movimentos/entrada-quimico','App\Http\Controllers\EntradaQuimicoHistorico@show');
+
+Route::get('/movimentos/entrada-nao-quimico','App\Http\Controllers\EntradaNaoQuimicoHistorico@show');
+
+Route::get('/movimentos/saidas','App\Http\Controllers\SaidaHistorico@show');
+
+Route::get('/movimentos/operadores','App\Http\Controllers\OperadoresHistorico@show');

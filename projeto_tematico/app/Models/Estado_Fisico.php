@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Estado_Fisico extends Model
 {
     use HasFactory;
+    protected $table = "estado_fisico";
 }
