@@ -24,6 +24,19 @@ Route::get('/produtos', function () {
     return view('lista-produtos');
 });
 
+<<<<<<< Updated upstream
+=======
+Route::get('/movimentos/entrada-quimico', function () {
+    return view('entrada-quimico');
+});
+
+Route::get('/movimentos/entrada-nao-quimico', function () {
+    return view('entrada-nao-quimico');
+});
+
+Route::get('/movimentos/saidas','App\Http\Controllers\historicoSaidas@show');
+
+>>>>>>> Stashed changes
 Route::get('/produtos/adicionar', function () {
     return view('adicionar-produto');
 });
@@ -55,10 +68,8 @@ Route::get('/operadores', function () {
 Route::get('/operadores/adicionar', function () {
     return view('adicionar-operador');
 });
+Route::get('/clientes','App\Http\Controllers\ListaCliente@show');
 
-Route::get('/clientes', function () {
-    return view('clientes');
-});
 
 Route::get('/clientes/adicionar', function () {
     return view('adicionar-cliente');

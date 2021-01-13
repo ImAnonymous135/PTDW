@@ -35,48 +35,6 @@
           <th>{{ __('text.data') }}</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>Água</td>
-          <td>G-3</td>
-          <td>2</td>
-          <td>Carlos Fonseca</td>
-          <td>Ricardo José</td>
-          <td>4/12/2019</td>
-        </tr>
-        <tr>
-          <td>Água</td>
-          <td>G-3</td>
-          <td>2</td>
-          <td>João Carlos</td>
-          <td>Ricardo José</td>
-          <td>4/12/2019</td>
-        </tr>
-        <tr>
-          <td>Água</td>
-          <td>G-3</td>
-          <td>2</td>
-          <td>João Carlos</td>
-          <td>Ricardo José</td>
-          <td>4/12/2019</td>
-        </tr>
-        <tr>
-          <td>Água</td>
-          <td>G-3</td>
-          <td>2</td>
-          <td>João Carlos</td>
-          <td>Ricardo José</td>
-          <td>4/12/2019</td>
-        </tr>
-        <tr>
-          <td>Água</td>
-          <td>G-3</td>
-          <td>1</td>
-          <td>João Carlos</td>
-          <td>Ricardo José</td>
-          <td>4/12/2019</td>
-        </tr>
-        </tfoot>
     </table>
   </div>
   <!-- /.card-body -->
@@ -88,8 +46,13 @@
 <script src="{{ asset('js/mfb.js') }}"></script>
 {{-- Data table --}}
 <script>
+  dataSet= [];
+  @foreach( $registo_saidas as $registo_saidas)
+   dataSet.push(["{{$registo_saidas->produto->designacao}}","","","{{$registo_saidas->fornecedor->designacao}}","{{$registo_saidas->operadores->nome}}","{{$registo_saidas->data}}"]);
+   @endforeach
   $(function () {
     $('#table').DataTable({
+      data:dataSet,
       "responsive": true,
       "autoWidth": false,
       language: {

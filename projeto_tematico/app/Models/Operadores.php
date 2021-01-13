@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Operadores extends Model
 {
-    use HasFactory;
+    protected $table = 'operadores';
+
+    public function cliente(){
+        return $this->hasMany(Cliente::class,'id');
+    }
+
+    public function registoSaidas(){
+        return $this->hasMany(Registo_Saidas::class,'id');
+    }
 }

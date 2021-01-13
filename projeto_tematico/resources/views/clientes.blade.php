@@ -43,126 +43,6 @@
                     <th>{{ __('text.acoes') }}</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>Sala 16.7</td>
-                    <td>Joaquim Ferreira</td>
-                    <td>j.quim@ua.pt</td>
-                    <td>Méci Tabuleiro</td>
-                    <td>Mci@ua.pt</td>
-                    <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Sala 16.7</td>
-                    <td>Joaquim Ferreira</td>
-                    <td>j.quim@ua.pt</td>
-                    <td>Méci Tabuleiro</td>
-                    <td>Mci@ua.pt</td>
-                    <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Sala 16.7</td>
-                    <td>Joaquim Ferreira</td>
-                    <td>j.quim@ua.pt</td>
-                    <td>Méci Tabuleiro</td>
-                    <td>Mci@ua.pt</td>
-                    <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Sala 16.7</td>
-                    <td>Joaquim Ferreira</td>
-                    <td>j.quim@ua.pt</td>
-                    <td>Méci Tabuleiro</td>
-                    <td>Mci@ua.pt</td>
-                    <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Sala 16.7</td>
-                    <td>Joaquim Ferreira</td>
-                    <td>j.quim@ua.pt</td>
-                    <td>Méci Tabuleiro</td>
-                    <td>Mci@ua.pt</td>
-                    <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Sala 16.7</td>
-                    <td>Joaquim Ferreira</td>
-                    <td>j.quim@ua.pt</td>
-                    <td>Méci Tabuleiro</td>
-                    <td>Mci@ua.pt</td>
-                    <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Sala 16.7</td>
-                    <td>Joaquim Ferreira</td>
-                    <td>j.quim@ua.pt</td>
-                    <td>Méci Tabuleiro</td>
-                    <td>Mci@ua.pt</td>
-                    <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Sala 16.7</td>
-                    <td>Joaquim Ferreira</td>
-                    <td>j.quim@ua.pt</td>
-                    <td>Méci Tabuleiro</td>
-                    <td>Mci@ua.pt</td>
-                    <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Sala 16.7</td>
-                    <td>Joaquim Ferreira</td>
-                    <td>j.quim@ua.pt</td>
-                    <td>Méci Tabuleiro</td>
-                    <td>Mci@ua.pt</td>
-                    <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Sala 16.7</td>
-                    <td>Joaquim Ferreira</td>
-                    <td>j.quim@ua.pt</td>
-                    <td>Méci Tabuleiro</td>
-                    <td>Mci@ua.pt</td>
-                    <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Sala 16.7</td>
-                    <td>Joaquim Ferreira</td>
-                    <td>j.quim@ua.pt</td>
-                    <td>Méci Tabuleiro</td>
-                    <td>Mci@ua.pt</td>
-                    <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Sala 16.7</td>
-                    <td>Joaquim Ferreira</td>
-                    <td>j.quim@ua.pt</td>
-                    <td>Méci Tabuleiro</td>
-                    <td>Mci@ua.pt</td>
-                    <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Sala 16.7</td>
-                    <td>Joaquim Ferreira</td>
-                    <td>j.quim@ua.pt</td>
-                    <td>Méci Tabuleiro</td>
-                    <td>Mci@ua.pt</td>
-                    <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
-                    <td></td>
-                </tr>
-
-                </tfoot>
         </table>
     </div>
     <!-- /.card-body -->
@@ -271,7 +151,8 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p class="font-weight-bold">{{ __('text.designacao') }}: <span class="font-weight-normal">Sala 16.7</span></p>
+            
+                <p class="font-weight-bold">{{ __('text.designacao') }}: <span class="font-weight-normal"></span></p>
                 <p class="font-weight-bold">{{ __('text.nomeResponsavel') }}: <span class="font-weight-normal">Joaquim
                         Ferreira</span></p>
                 <p class="font-weight-bold">{{ __('text.emailResponsavel') }}: <span class="font-weight-normal">j.quim@ua.pt</span>
@@ -282,6 +163,7 @@
                 </p>
                 <p class="font-weight-bold">{{ __('text.observacoes') }}: <span class="font-weight-normal">Lorem ipsum dolor sit amet
                         consectetur adipisicing elit. Quas nobis earum quia magni repudiandae.</span></p>
+            
             </div>
         </div>
         <!-- /.modal-content -->
@@ -302,9 +184,16 @@
       $('[data-toggle="tooltip"]').tooltip();
     });
 </script>
+
 <script>
+
+var dataSet = [];
+  @foreach( $cliente as $cliente)
+   dataSet.push(["{{$cliente->designacao}}","{{$cliente->operador->nome}}","{{$cliente->operador->email}}","","","{{$cliente->observacoes}}"]);
+   @endforeach
     $(function () {
     $('#table').DataTable({
+        data:dataSet,
         "responsive": true,
         "autoWidth": false,
         language: {
