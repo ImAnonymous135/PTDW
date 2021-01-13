@@ -13,7 +13,7 @@ class CreateFamiliasTable extends Migration
      */
     public function up()
     {
-        Schema::create('familias', function (Blueprint $table) {
+        Schema::create('familia', function (Blueprint $table) {
             $table->id();
             $table->string('designacao');
         });

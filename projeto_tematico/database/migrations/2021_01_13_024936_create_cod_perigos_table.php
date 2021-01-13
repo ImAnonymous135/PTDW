@@ -13,7 +13,7 @@ class CreateCodPerigosTable extends Migration
      */
     public function up()
     {
-        Schema::create('codPerigos', function (Blueprint $table) {
+        Schema::create('codPerigo', function (Blueprint $table) {
             $table->id();
             $table->string('descricao');
         });

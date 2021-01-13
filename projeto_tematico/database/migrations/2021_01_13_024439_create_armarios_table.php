@@ -13,7 +13,7 @@ class CreateArmariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('armarios', function (Blueprint $table) {
+        Schema::create('armario', function (Blueprint $table) {
             $table->id();
             $table->string('designacao');
             $table->integer('id_cliente');

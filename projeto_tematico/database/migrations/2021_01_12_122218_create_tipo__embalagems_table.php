@@ -13,7 +13,7 @@ class CreateTipoEmbalagemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipo_embalagems', function (Blueprint $table) {
+        Schema::create('tipo_embalagem', function (Blueprint $table) {
             $table->id();
             $table->string('tipo_embalagem');
         });
