@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Armario extends Model
 {
-    use HasFactory;
+    protected $table = 'armario';
+
+    public function cliente(){
+        return $this->belongsTo(Cliente::class,'id_cliente');
+    }
 }

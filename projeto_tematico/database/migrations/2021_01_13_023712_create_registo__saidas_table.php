@@ -15,7 +15,7 @@ class CreateRegistoSaidasTable extends Migration
     {
         Schema::create('registo_saidas', function (Blueprint $table) {
             $table->id('n_ordem');
-            $table->integer('id_produto');
+            $table->integer('id_embalagem');
             $table->integer('id_cliente');
             $table->date('data');
             $table->integer('id_solicitante');
