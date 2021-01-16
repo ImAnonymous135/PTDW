@@ -22,20 +22,31 @@
 @stop
 
 @section('content')
-
+<form method="POST" action="/operadores/adicionar">
+    @csrf
 <div class="card">
     <div class="card-body">
         <div class="row">
             <div class="col-sm-4">
                 <div class="form-group">
                     <label>{{ __('text.nome') }}</label>
-                    <input type="text" class="form-control" id="#">
+                    <input type="text" class="form-control @error('nome') is-invalid @enderror" id="nome" name="nome" value={{old('nome')}}>
+                    @error('nome')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="form-group">
                     <label>E-mail</label>
-                    <input type="text" class="form-control" id="#">
+                    <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value={{old('email')}}>
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
             </div>
 
@@ -45,9 +56,14 @@
             <div class="col-sm-4">
                 <div class="form-group">
                     <label>{{ __('text.perfil') }}</label>
-                    <select class="form-control" name="" id="">
-                        <option value="">Fiel de armazém</option>
+                    <select class="form-control @error('perfil') is-invalid @enderror" name="perfil" id="perfil" value={{old('perfil')}}>
+                        <option value="1">Fiel de armazém</option>
                     </select>
+                    @error('perfil')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -55,7 +71,7 @@
             <div class="col-sm-4">
                 <div class="form-group">
                     <label>{{ __('text.observacoes') }}</label>
-                    <textarea class="form-control" id="" cols="30" rows="4" maxlength="100"></textarea>
+                    <textarea class="form-control" id="observacoes" name="observacoes" cols="30" rows="4" maxlength="100">{{old('observacoes')}}</textarea>
                 </div>
             </div>
         </div>
@@ -66,13 +82,14 @@
                         onclick="window.location.href='../operadores'">{{ __('text.cancelar') }}</button>
                 </span>
                 <span class="mr-2">
-                    <button type="button" class="btn btn-block btn-primary">{{ __('text.submeter') }}</button>
+                    <button type="submit" class="btn btn-block btn-primary">{{ __('text.submeter') }}</button>
                 </span>
             </div>
         </div>
     </div>
 </div>
 <br>
+</form>
 @stop
 
 @section('js')

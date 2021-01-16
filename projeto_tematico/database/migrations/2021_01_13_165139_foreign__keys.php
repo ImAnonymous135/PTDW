@@ -15,10 +15,6 @@ class ForeignKeys extends Migration
     {
         Schema::table('operadores', function (Blueprint $table) {
             $table->foreign('solicitante_sala')->references('id')->on('cliente')->onDelete('cascade')->primary();
-        });
-
-        Schema::table('operadores_perfil', function (Blueprint $table) {
-            $table->foreign('id_operador')->references('id')->on('operadores')->onDelete('cascade')->primary();
             $table->foreign('id_perfil')->references('id')->on('perfil')->onDelete('cascade');
         });
 

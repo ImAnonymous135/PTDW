@@ -25,11 +25,18 @@
 
 <div class="card">
     <div class="card-body">
+    <form method="POST" action="/clientes/adicionar">
+    @csrf
         <div class="row">
             <div class="col-sm-4">
                 <div class="form-group">
                     <label>{{ __('text.designacao') }}</label>
-                    <input type="text" class="form-control" id="#" >
+                    <input type="text"  class="form-control @error('designacao') is-invalid @enderror" id="designacao" name="designacao" value={{old('designacao')}}>
+                    @error('designacao')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                 </div>
             </div>
 
@@ -38,13 +45,23 @@
             <div class="col-sm-3">
                 <div class="form-group">
                     <label>{{ __('text.nomeResponsavel') }}</label>
-                    <input type="text" class="form-control" id="#" >
+                    <input type="text"  class="form-control @error('nomeResponsavel') is-invalid @enderror" id="nomeResponsavel" name="nomeResponsavel" value={{old('nomeResponsavel')}}>
+                    @error('nomeResponsavel')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="form-group">
                     <label>{{ __('text.emailResponsavel') }}</label>
-                    <input type="text" class="form-control" id="#" >
+                    <input  type="text" class="form-control @error('emailResponsavel') is-invalid @enderror" id="emailResponsavel" name="emailResponsavel" value={{old('emailResponsavel')}}>
+                    @error('emailResponsavel')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                 </div>
             </div>
         </div>
@@ -52,13 +69,18 @@
             <div class="col-sm-3">
                 <div class="form-group">
                     <label>{{ __('text.nomeSolicitante') }}</label>
-                    <input type="text" class="form-control" id="#" >
+                    <input type="text"  class="form-control" id="nomeSolicitante" name="nomeSolicitante" value={{old('nomeSolicitante')}}>
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="form-group">
                     <label>{{ __('text.emailSolicitante') }}</label>
-                    <input type="text" class="form-control" id="#" >
+                    <input type="text"   class="form-control @error('emailSolicitante') is-invalid @enderror" id="emailSolicitante" name="emailSolicitante" value={{old('emailSolicitante')}}> 
+                    @error('emailSolicitante')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                 </div>
             </div>
         </div>
@@ -66,7 +88,7 @@
             <div class="col-sm-4">
                 <div class="form-group">
                     <label>{{ __('text.observacoes') }}</label>
-                    <textarea class="form-control" id="" cols="30" rows="4" maxlength="100" ></textarea>
+                    <textarea class="form-control" id="observacoes" name="observacoes" cols="30" rows="4" maxlength="100" >{{old('observacoes')}}</textarea>
                 </div>
             </div>
         </div>
@@ -77,11 +99,13 @@
                         onclick="window.location.href='../clientes'">{{ __('text.cancelar') }}</button>
                 </span>
                 <span class="mr-2">
-                    <button type="button" class="btn btn-block btn-primary">{{ __('text.submeter') }}</button>
+                    <button type="submit" class="btn btn-block btn-primary">{{ __('text.submeter') }}</button>
                 </span>
             </div>
         </div>
+        </form>
     </div>
+    
 </div>
 <br>
 @stop

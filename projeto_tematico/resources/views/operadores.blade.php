@@ -42,131 +42,6 @@
                     <th>{{ __('text.acoes') }}</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>Joaquim Fernandes</td>
-                    <td>JoaquimF@ua.pt</td>
-                    <td>Fiel de armazém</td>
-                    <td>14/12/2020</td>
-                    <td>15/12/2020</td>
-                    <td>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td>Joaquim Fernandes</td>
-                    <td>JoaquimF@ua.pt</td>
-                    <td>Fiel de armazém</td>
-                    <td>14/12/2020</td>
-                    <td>15/12/2020</td>
-                    <td>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td>Joaquim Fernandes</td>
-                    <td>JoaquimF@ua.pt</td>
-                    <td>Fiel de armazém</td>
-                    <td>14/12/2020</td>
-                    <td>15/12/2020</td>
-                    <td>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td>Joaquim Fernandes</td>
-                    <td>JoaquimF@ua.pt</td>
-                    <td>Fiel de armazém</td>
-                    <td>14/12/2020</td>
-                    <td>15/12/2020</td>
-                    <td>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td>Joaquim Fernandes</td>
-                    <td>JoaquimF@ua.pt</td>
-                    <td>Fiel de armazém</td>
-                    <td>14/12/2020</td>
-                    <td>15/12/2020</td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Joaquim Fernandes</td>
-                    <td>JoaquimF@ua.pt</td>
-                    <td>Fiel de armazém</td>
-                    <td>14/12/2020</td>
-                    <td>15/12/2020</td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Joaquim Fernandes</td>
-                    <td>JoaquimF@ua.pt</td>
-                    <td>Fiel de armazém</td>
-                    <td>14/12/2020</td>
-                    <td>15/12/2020</td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Joaquim Fernandes</td>
-                    <td>JoaquimF@ua.pt</td>
-                    <td>Fiel de armazém</td>
-                    <td>14/12/2020</td>
-                    <td>15/12/2020</td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Joaquim Fernandes</td>
-                    <td>JoaquimF@ua.pt</td>
-                    <td>Fiel de armazém</td>
-                    <td>14/12/2020</td>
-                    <td>15/12/2020</td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Joaquim Fernandes</td>
-                    <td>JoaquimF@ua.pt</td>
-                    <td>Fiel de armazém</td>
-                    <td>14/12/2020</td>
-                    <td>15/12/2020</td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Joaquim Fernandes</td>
-                    <td>JoaquimF@ua.pt</td>
-                    <td>Fiel de armazém</td>
-                    <td>14/12/2020</td>
-                    <td>15/12/2020</td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Joaquim Fernandes</td>
-                    <td>JoaquimF@ua.pt</td>
-                    <td>Fiel de armazém</td>
-                    <td>14/12/2020</td>
-                    <td>15/12/2020</td>
-                    <td>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td>Joaquim Fernandes</td>
-                    <td>JoaquimF@ua.pt</td>
-                    <td>Fiel de armazém</td>
-                    <td>14/12/2020</td>
-                    <td>15/12/2020</td>
-                    <td>
-
-                    </td>
-                </tr>
-                </tfoot>
         </table>
     </div>
     <!-- /.card-body -->
@@ -258,8 +133,14 @@
     });
 </script>
 <script>
+
+dataSet= [];
+  @foreach( $operadores as $operadores)
+   dataSet.push(["{{$operadores->nome}}","{{$operadores->email}}","{{$operadores->perfil->perfil}}","{{$operadores->data_criação}}","{{$operadores->data_eliminação}}"]);
+   @endforeach
     $(function () {
     $('#table').DataTable({
+        data:dataSet,
         "responsive": true,
         "autoWidth": false,
         language: {

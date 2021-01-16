@@ -16,6 +16,7 @@ class CreateOperadoresTable extends Migration
         Schema::create('operadores', function (Blueprint $table) {
             $table->id();
             $table->integer("solicitante_sala")->nullable(true);
+            $table->integer("id_perfil");
             $table->string('nome');
             $table->string('email');
             $table->string('observacoes')->nullable(true);
