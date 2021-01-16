@@ -48,7 +48,7 @@
           <th>{{ __('text.localizacao') }}</th>
           <th>{{ __('text.fornecedor') }}</th>
           <th>{{ __('text.marca') }}</th>
-          <th>{{ __('text.tipoEmbalagem') }}</th>
+          <th>{{ __('text.pictogramas') }}</th>
           <th>{{ __('text.cor') }}</th>
           <th>{{ __('text.texturaOuViscosidade') }}</th>
           <th>{{ __('text.pesoBruto') }}</th>
@@ -74,7 +74,16 @@
 <script>
   var dataSet = [];
   @foreach( $produtos as $produto)
-  dataSet.push(["{{$produto->movimento->embalagem->produto->designacao}}","{{$produto->movimento->embalagem->localizacao}}","{{$produto->movimento->fornecedor->designacao}}","{{$produto->movimento->marca}}","","{{$produto->estado_fisico->estado_fisico}}","{{$produto->textura_viscosidade->textura_viscosidade}}","{{$produto->movimento->peso_bruto}}","{{$produto->movimento->data_abertura}}","{{$produto->movimento->data_validade}}"]);
+  dataSet.push(["{{$produto->movimento->embalagem->produto->designacao}}",
+  "{{$produto->movimento->embalagem->prateleira}}",
+  "{{$produto->movimento->fornecedor->designacao}}",
+  "{{$produto->movimento->marca}}",
+  "",
+  "{{$produto->estado_fisico->estado_fisico}}",
+  "{{$produto->textura_viscosidade->textura_viscosidade}}",
+  "{{$produto->movimento->peso_bruto}}",
+  "{{$produto->movimento->data_abertura}}",
+  "{{$produto->movimento->data_validade}}"]);
   @endforeach
   $(function () {
     $('#table').DataTable({

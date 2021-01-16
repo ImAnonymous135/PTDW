@@ -12,7 +12,4 @@ class Prateleira extends Model
     public function armario(){
         return $this->belongsTo(Armario::class,'id_armario');
     }
-
-    
-
 }

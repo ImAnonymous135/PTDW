@@ -24,8 +24,14 @@ class Fornecedores extends Controller
         $fornecedor = new Fornecedor(request(['designacao','morada','localidade','codigo_postal','telefone','nif','email','vendedor_1','telemovel_1','email_1','vendedor_2','telemovel_2','email_2','condicoes_especiais','observacoes']));
         $fornecedor->save();
         
+        
 
         return redirect('/fornecedores');    
+    }
+
+    public function index($id){
+        $fornecedor = Fornecedor::find($id);
+        return redirect('/fornecedores');
     }
 
     public function edit()
@@ -44,7 +50,11 @@ class Fornecedores extends Controller
             'localidade' => 'required',
             'codigo_postal' => 'required',
             'telefone' => 'required',
-            'nif' => 'required'
+            'nif' => 'required',
+            'email' => 'nullable|email',
+            'email_1' => 'nullable|email',
+            'email_2' => 'nullable|email'
         ]);
+        
     }
 }

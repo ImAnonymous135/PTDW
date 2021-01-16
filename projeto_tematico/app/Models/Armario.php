@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Armario extends Model
 {
-    protected $table = 'armario';
+    use HasFactory;
 
     public function cliente(){
-        return $this->belongsTo(Cliente::class,'id_cliente');
+        return $this->belongsTo(Produtos::class,'id_cliente');
     }
 }
