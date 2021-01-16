@@ -5,7 +5,7 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Cloreto de potássio</h1>
+        <h1 class="m-0 text-dark">{{$produto->designacao}}</h1>
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
@@ -37,14 +37,27 @@
       </div>
       <div class="card-body">
         <div>
-          <p class="font-weight-bold">{{ __('text.formula') }}: <span class="font-weight-normal">KCI</span></p>
-          <p class="font-weight-bold">{{ __('text.pesoMolecular') }}: <span class="font-weight-normal">74,5513 g/mol</span></p>
-          <p class="font-weight-bold">CAS Nº: <span class="font-weight-normal">322211</span></p>
-          <p class="font-weight-bold">{{ __('text.condicoesArmazenamento') }}: <span class="font-weight-normal">Frio</span></p>
-          <p class="font-weight-bold">{{ __('text.armarioVentilado') }}: <span class="font-weight-normal">Sim</span></p>
-          <p class="font-weight-bold">{{ __('text.unidades') }}: <span class="font-weight-normal">Gramas</span></p>
-          <p class="font-weight-bold">{{ __('text.stockExistente') }}: <span class="font-weight-normal">5</span></p>
-          <p class="font-weight-bold">{{ __('text.stockMinimo') }}: <span class="font-weight-normal">1</span></p>
+          @if ($produto->is_quimico)
+          <p class="font-weight-bold">{{ __('text.formula') }}: <span class="font-weight-normal">{{$produto->quimico->formula}}</span></p>
+          <p class="font-weight-bold">{{ __('text.pesoMolecular') }}: <span class="font-weight-normal">{{$produto->quimico->pMolecular}} g/mol</span></p>
+          <p class="font-weight-bold">CAS Nº: <span class="font-weight-normal">{{$produto->quimico->casN}}</span></p>
+          <p class="font-weight-bold">{{ __('text.condicoesArmazenamento') }}: <span class="font-weight-normal">{{$produto->quimico->condicaoArmazenamento}}</span></p>
+          <p class="font-weight-bold">{{ __('text.armarioVentilado') }}: <span class="font-weight-normal">
+          @if ($produto->quimico->ventilado)
+          {{ __('text.sim') }}
+          @else
+          {{ __('text.nao') }}
+          @endif  
+          
+          </span></p>
+          @endif
+          
+
+          <p class="font-weight-bold">{{ __('text.unidades') }}: <span class="font-weight-normal">{{$produto->unidades->desginacao}}</span></p>
+          <p class="font-weight-bold">{{ __('text.stockExistente') }}: <span class="font-weight-normal">{{$produto->stock_existente}}</span></p>
+          <p class="font-weight-bold">{{ __('text.stockMinimo') }}: <span class="font-weight-normal">{{$produto->stock_minimo}}</span></p>
+
+          @if ($produto->is_quimico)
           <p class="font-weight-bold">{{ __('text.recomendacoesPrudencias') }}: <span class="font-weight-normal"></span></p>
           <p class="font-weight-bold">{{ __('text.advertenciaPerigos') }}: <span class="font-weight-normal"></span></p>
           <p class="font-weight-bold">{{ __('text.pictogramas') }}:</p>
@@ -54,6 +67,10 @@
             <img id="danger" class="pictogramas" src="https://www.reach-compliance.ch/downloads/GHS01_explos.png" alt=""
               srcset="" width="100px" height="100px">
           </div>
+          @else
+            <p class="font-weight-bold">{{ __('text.familia') }}: <span class="font-weight-normal">{{$produto->nao_quimico->familia->designacao}}</span></p>
+          @endif
+          
         </div>
       </div>
     </div>

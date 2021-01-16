@@ -19,6 +19,7 @@ class CreateProdutosTable extends Migration
             $table->integer('stock_existente');
             $table->integer('stock_minimo');
             $table->integer('id_unidades');
+            $table->boolean('is_quimico');
         });
     }
 
