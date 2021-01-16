@@ -16,6 +16,10 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/login', function () {
+    return view('auth/login');
+});
+
 Route::get('/e', function () {
     return view('estilos');
 });
@@ -36,13 +40,12 @@ Route::get('/produtos/adicionar', function () {
     return view('adicionar-produto');
 });
 
-Route::get('/produtos/info-produto', function () {
-    return view('info-produto');
-});
+Route::get('/produtos/{id}','App\Http\Controllers\ProdutoController@show');
 
 Route::get('/produtos/entradas', function () {
     return view('registo-entrada');
 });
+
 
 Route::get('/produtos/saidas', function () {
     return view('registo-saida');

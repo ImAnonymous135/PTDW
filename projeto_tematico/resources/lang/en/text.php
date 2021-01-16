@@ -103,6 +103,7 @@ return[
 'termino'=>'Terminate',
 'registarAbertura'=>'Register Opening',
 'registarSaida'=>'Check out',
+'familia'=>'Type',
 //lista-produtos
 'listaProdutos'=>'Product list',
 'detalhes'=>'Details',
