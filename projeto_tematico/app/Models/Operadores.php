@@ -10,10 +10,11 @@ class Operadores extends Model
     protected $table = 'operadores';
 
     public function cliente(){
-        return $this->hasMany(Cliente::class,'id');
+        return $this->hasOney(Cliente::class,'id');
     }
 
     public function registoSaidas(){
         return $this->hasMany(Registo_Saidas::class,'id');
     }
+    
 }

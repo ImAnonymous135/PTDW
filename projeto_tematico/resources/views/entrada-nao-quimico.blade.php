@@ -44,10 +44,9 @@
           <label class="font-weight-normal">{{ __('text.tipoEmbalagem') }}:</label>
           <div class="input-group-prepend">
             <select id="select2" class="select2 form-control" name="subfamilia[]" multiple="multiple">
-              <option value="Vidro">{{ __('text.vidro') }}</option>
-              <option value="Plastico">{{ __('text.plastico') }}</option>
-              <option value="Metal">{{ __('text.metal') }}</option>
-              <option value="Outros">{{ __('text.outros') }}</option>
+              @foreach($tipos as $tipo)
+              <option value="{{$tipo->tipo_embalagem}}">{{$tipo->tipo_embalagem}}</option>
+              @endforeach
             </select>
           </div>
         </div>
@@ -85,7 +84,7 @@
 <script>
   var dataSet = [];
   @foreach( $produtos as $produto)
-  dataSet.push(["{{$produto->movimento->embalagem->produto->designacao}}","{{$produto->movimento->embalagem->localizacao}}","{{$produto->movimento->fornecedor->designacao}}","{{$produto->movimento->marca}}","{{$produto->tipo_embalagem->tipo_embalagem}}","{{$produto->cor->cor}}","{{$produto->movimento->peso_bruto}}","{{$produto->movimento->data_abertura}}","{{$produto->movimento->data_validade}}"]);
+  dataSet.push(["{{$produto->movimento->embalagem->produto->designacao}}","{{$produto->movimento->embalagem->localizacao}}","{{$produto->movimento->fornecedor->designacao}}","{{$produto->movimento->marca}}","{{$produto->tipo_embalagem->tipo_embalagem}}","{{$produto->cor->cor}}","{{$produto->movimento->peso_bruto}}","{{$produto->movimento->data_entrada}}","{{$produto->movimento->data_validade}}"]);
   @endforeach
   $(function () {
     $('.select2').select2()
@@ -106,45 +105,11 @@
         }
     });
 
-      /*$('#reservation').on('apply.daterangepicker ', function(ev, picker) {
-          $(this).val(picker.startDate.format('DD/MM/YYYY') + ' - ' + picker.endDate.format('DD/MM/YYYY'));
-          $.fn.dataTable.ext.search.push(
-          function (oSettings, aData, iDataIndex) {
-              var inicio = new Date(picker.startDate.format('MM/DD/YYYY'));
-              var fim = new Date(picker.endDate.format('MM/DD/YYYY'));
-              var temp = aData[7].split("/");
-
-              var data = new Date(temp[1] +"/"+ temp[0] +"/"+ temp[2]);
-
-              return data > inicio && data < fim;
-            }
-        );
-        console.log("teste");
-          table.draw();
-      });
-
-      $('#reservation').on('cancel.daterangepicker', function(ev, picker) {
-        $(this).val('');
+    $('#select2').on('select2:select select2:unselect', function (ev) {
+        console.log(ev.type);  
         $.fn.dataTable.ext.search.push(
           function (oSettings, aData, iDataIndex) {
-              console.log("entrei");
-              var inicio = new Date(picker.startDate.format('MM/DD/YYYY'));
-              var fim = new Date(picker.endDate.format('MM/DD/YYYY'));
-              var temp = aData[7].split("/");
-
-              var data = new Date(temp[1] +"/"+ temp[0] +"/"+ temp[2]);
-
-              return true;
-            }
-        );
-        table.draw();
-      });*/
-
-      $('#select2').on('select2:select select2:unselect', function (ev) {
-          $.fn.dataTable.ext.search.push(
-          function (oSettings, aData, iDataIndex) {
             var values = $('#select2').val();
-            console.log("asd");
             if(values.length == 0){
               return true;
             }else{
@@ -152,11 +117,37 @@
             }
             }
         );
+        table.draw();
+      });
+    
+      $('#reservation').on('cancel.daterangepicker apply.daterangepicker', function(ev, picker) { 
+        var texto;
+        if(ev.type=="cancel"){  
+            texto=$(this).val();
+            $(this).val('');
+            console.log($(this).val());
+          }else{
+          $(this).val(picker.startDate.format('DD/MM/YYYY') + ' - ' + picker.endDate.format('DD/MM/YYYY'));
+        }
+      
+          $.fn.dataTable.ext.search.push(
+            function (oSettings, aData, iDataIndex) {
+              var inicio = new Date(picker.startDate.format('MM/DD/YYYY'));
+              var fim = new Date(picker.endDate.format('MM/DD/YYYY'));
+              var data = new Date(aData[7]);
+              console.log(ev.type);
+              if(texto == ''){
+                return true;
+              }else{
+                return data>inicio && data<fim;
+              }
+              
+            }
+         );
           table.draw();
       });
 
-
-
+      
   });
 
 </script>

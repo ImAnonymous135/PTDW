@@ -71,7 +71,8 @@ Route::get('/clientes/adicionar', function () {
 Route::get('/fornecedores','App\Http\Controllers\Fornecedores@show');
 Route::get('/fornecedores/adicionar','App\Http\Controllers\Fornecedores@create');
 Route::post('/fornecedores/adicionar','App\Http\Controllers\Fornecedores@store');
-Route::put('/fornecedores/adicionar','App\Http\Controllers\Fornecedores@update');
+Route::get('/fornecedores/{id}','App\Http\Controllers\Fornecedores@index');
+Route::put('/fornecedores/{id}','App\Http\Controllers\Fornecedores@update');
 
 //movimentos
 Route::get('/movimentos/entrada-quimico','App\Http\Controllers\EntradaQuimicoHistorico@show');

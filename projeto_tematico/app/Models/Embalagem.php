@@ -13,4 +13,8 @@ class Embalagem extends Model
     public function produto(){
         return $this->belongsTo(Produtos::class,'id_produtos');
     }
+    public function prateleira(){
+        return $this->belongsTo(Prateleira::class,'localizacao');
+    }
+    
 }

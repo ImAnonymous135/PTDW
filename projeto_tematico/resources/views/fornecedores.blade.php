@@ -240,11 +240,17 @@
 <script>
     dataSet=[];
     @foreach( $fornecedores as $fornecedor)
-   dataSet.push(["{{$fornecedor->designacao}}","{{$fornecedor->morada}}","{{$fornecedor->localidade}}","{{$fornecedor->codigo_postal}}","{{$fornecedor->telefone}}","{{$fornecedor->nif}}",'<div class="btn-group"><button type="button" class="btn btn-primary" data-toggle="modal" data-toggle="tooltip" title="{{ __('text.detalhes') }}" data-target="#modal-default2-{{$fornecedor}}"><i class="fas fa-eye"></i></button><button data-toggle="modal" data-toggle="tooltip" title="{{ __('text.editar') }}" data-target="#modal-default1" type="button" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button><button data-toggle="modal" data-toggle="tooltip" title="{{ __('text.eliminar') }}" data-target="#modal-default" type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></div>']);
+   dataSet.push(["{{$fornecedor->designacao}}",
+   "{{$fornecedor->morada}}",
+   "{{$fornecedor->localidade}}",
+   "{{$fornecedor->codigo_postal}}",
+   "{{$fornecedor->telefone}}",
+   "{{$fornecedor->nif}}",
+   '<div class="btn-group"><button type="button" class="btn btn-primary" data-toggle="modal" data-toggle="tooltip" title="{{ __('text.detalhes') }}" data-target="#modal-default2"  }}"><i class="fas fa-eye"></i></button>  <button data-toggle="modal" data-toggle="tooltip" title="{{ __('text.editar') }}" data-target="#modal-default1" type="button" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>  <button data-toggle="modal" data-toggle="tooltip" title="{{ __('text.eliminar') }}" data-target="#modal-default" type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></div>']);
    @endforeach
     $(function () {
     $('#table').DataTable({
-        data:dataSet,
+        data: dataSet,
         "responsive": true,
         "autoWidth": false,
         language: {

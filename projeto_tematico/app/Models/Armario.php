@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Armario extends Model
 {
     use HasFactory;
+
+    public function cliente(){
+        return $this->belongsTo(Produtos::class,'id_cliente');
+    }
 }

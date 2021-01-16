@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Prateleira extends Model
 {
-    use HasFactory;
+    protected $table = "prateleiras";
+
+    public function armario(){
+        return $this->belongsTo(Armario::class,'id_armario');
+    }
 }
