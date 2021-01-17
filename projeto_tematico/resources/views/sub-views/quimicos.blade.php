@@ -3,7 +3,10 @@
         <div class="col-sm-4">
             <div class="form-group">
                 <label>{{ __('text.designacao') }}</label>
-                <select class="select-search form-control" name="state">
+                <select class="select-search form-control" name="state" @if (isset($produto)) disabled @endif>
+                    @if (isset($produto))
+                    <option value="{{$produto->id}}">{{$produto->designacao}}</option>
+                    @endif
                     <option value="AL">Alabama</option>
                     <option value="WY">Wyoming</option>
                 </select>

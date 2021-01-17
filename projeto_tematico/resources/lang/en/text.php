@@ -103,7 +103,7 @@ return[
 'termino'=>'Terminate',
 'registarAbertura'=>'Register Opening',
 'registarSaida'=>'Check out',
-'familia'=>'Type',
+'familia'=>'Family',
 //lista-produtos
 'listaProdutos'=>'Product list',
 'detalhes'=>'Details',
@@ -147,7 +147,7 @@ return[
 //quimicos
 'litros'=>'Liters',
 'estadoFisico'=>'Physical state',
-'solido'=>'Solid',
+'solido'=>'Non-Chemical',
 'quimico'=>'Chemical',
 //page
 'terminarSessao'=>'Log out',

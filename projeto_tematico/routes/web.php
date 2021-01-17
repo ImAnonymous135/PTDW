@@ -24,9 +24,7 @@ Route::get('/e', function () {
     return view('estilos');
 });
 
-Route::get('/produtos', function () {
-    return view('lista-produtos');
-});
+Route::get('/produtos','App\Http\Controllers\ProdutosController@show');
 
 Route::get('/movimentos/entrada-quimico', function () {
     return view('entrada-quimico');
@@ -42,10 +40,11 @@ Route::get('/produtos/adicionar', function () {
 
 Route::get('/produtos/{id}','App\Http\Controllers\ProdutoController@show');
 
-Route::get('/produtos/entradas', function () {
+//Registo de entradas
+Route::get('/entradas', function () {
     return view('registo-entrada');
 });
-
+Route::get('/entradas/{id}','App\Http\Controllers\EntradaController@show');
 
 Route::get('/produtos/saidas', function () {
     return view('registo-saida');
