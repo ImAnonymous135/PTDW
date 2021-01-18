@@ -66,11 +66,11 @@ Route::get('/clientes/adicionar', function () {
 });
 
 //fornecedores
+Route::delete('/fornecedores/{id}','App\Http\Controllers\Fornecedores@destroy');
 Route::get('/fornecedores','App\Http\Controllers\Fornecedores@show');
 Route::get('/fornecedores/adicionar','App\Http\Controllers\Fornecedores@create');
 Route::post('/fornecedores/adicionar','App\Http\Controllers\Fornecedores@store');
-Route::get('/fornecedores/{id}','App\Http\Controllers\Fornecedores@index');
-Route::put('/fornecedores/{id}','App\Http\Controllers\Fornecedores@update');
+ 
 
 
 //movimentos

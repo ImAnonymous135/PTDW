@@ -9,12 +9,15 @@ class Fornecedores extends Controller
 {
     public function show()
     {
+        
+        
         $fornecedores = Fornecedor::all();
-        return view('fornecedores',['fornecedores'=>$fornecedores]);
+        return view('fornecedores',['fornecedores'=>$fornecedores],['fornecedorInfo'=>[]]);
     }
 
     public function create()
     {
+        
         return view('adicionar-fornecedor');
     }
 
@@ -22,27 +25,29 @@ class Fornecedores extends Controller
     {
         $this->validateFornecedor();
         $fornecedor = new Fornecedor(request(['designacao','morada','localidade','codigo_postal','telefone','nif','email','vendedor_1','telemovel_1','email_1','vendedor_2','telemovel_2','email_2','condicoes_especiais','observacoes']));
+        $fornecedor->timestamps=false;
         $fornecedor->save();
-        
-        
 
         return redirect('/fornecedores');    
     }
 
-    public function index($id){
+    public function update($id)
+    {
+        request()->validateFornecedor();
         $fornecedor = Fornecedor::find($id);
+        $fornecedor = new Fornecedor(request(['designacao','morada','localidade','codigo_postal','telefone','nif','email','vendedor_1','telemovel_1','email_1','vendedor_2','telemovel_2','email_2','condicoes_especiais','observacoes']));
+        $fornecedor->timestamps=false;
+        $fornecedor->save();
+
+        return redirect('/fornecedores'); 
+    }
+
+    public function destroy($id)
+    {
+        Fornecedor::find($id)->delete();
         return redirect('/fornecedores');
     }
 
-    public function edit()
-    {
-
-    }
-
-    public function update()
-    {
-        
-    }
     public function validateFornecedor(){
         request()->validate([
             'designacao' => 'required',

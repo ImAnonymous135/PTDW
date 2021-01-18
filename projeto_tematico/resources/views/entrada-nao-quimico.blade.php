@@ -84,7 +84,15 @@
 <script>
   var dataSet = [];
   @foreach( $produtos as $produto)
-  dataSet.push(["{{$produto->movimento->embalagem->produto->designacao}}","{{$produto->movimento->embalagem->localizacao}}","{{$produto->movimento->fornecedor->designacao}}","{{$produto->movimento->marca}}","{{$produto->tipo_embalagem->tipo_embalagem}}","{{$produto->cor->cor}}","{{$produto->movimento->peso_bruto}}","{{$produto->movimento->data_entrada}}","{{$produto->movimento->data_validade}}"]);
+  dataSet.push(["{{$produto->movimento->embalagem->produto->designacao}}",
+  "{{$produto->movimento->embalagem->localizacao}}",
+  "{{$produto->movimento->fornecedor->designacao}}",
+  "{{$produto->movimento->marca}}",
+  "{{$produto->tipo_embalagem->tipo_embalagem}}",
+  "{{$produto->cor->cor}}",
+  "{{$produto->movimento->peso_bruto}}",
+  "{{$produto->movimento->data_entrada}}",
+  "{{$produto->movimento->data_validade}}"]);
   @endforeach
   $(function () {
     $('.select2').select2()
@@ -105,7 +113,7 @@
         }
     });
 
-    $('#select2').on('select2:select select2:unselect', function (ev) {
+      $('#select2').on('select2:select select2:unselect', function (ev) {
         console.log(ev.type);  
         $.fn.dataTable.ext.search.push(
           function (oSettings, aData, iDataIndex) {
@@ -123,8 +131,11 @@
       $('#reservation').on('cancel.daterangepicker apply.daterangepicker', function(ev, picker) { 
         var texto;
         if(ev.type=="cancel"){  
+            $('#reservation').val('');
+            $('#reservation').data('daterangepicker').setStartDate('01/01/2020');
+            $('#reservation').data('daterangepicker').setEndDate('01/01/2020');
+            //$('#reservation').clearDate(this);
             texto=$(this).val();
-            $(this).val('');
             console.log($(this).val());
           }else{
           $(this).val(picker.startDate.format('DD/MM/YYYY') + ' - ' + picker.endDate.format('DD/MM/YYYY'));
@@ -146,6 +157,8 @@
          );
           table.draw();
       });
+
+
 
       
   });
