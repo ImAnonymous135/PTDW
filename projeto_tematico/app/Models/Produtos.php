@@ -9,7 +9,6 @@ class Produtos extends Model
 {
     use HasFactory;
 
-<<<<<<< HEAD
     public function registoSaidas(){
         return $this->hasMany(Registo_Saidas::class,'id');
     }
@@ -26,7 +25,4 @@ class Produtos extends Model
         return $this->hasOne(Produtos_Nao_Quimicos::class,'id_produto');
     }
 }
-=======
-    
-}
->>>>>>> main
+

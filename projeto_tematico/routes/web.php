@@ -36,9 +36,13 @@ Route::get('/movimentos/entrada-nao-quimico', function () {
     return view('entrada-nao-quimico');
 });
 
+//Adicionar produtos
 Route::get('/produtos/adicionar', function () {
     return view('adicionar-produto');
 });
+
+Route::post('/produtos/adicionar', 'App\Http\Controllers\NovoProduto@store');
+//FIM
 
 Route::get('/produtos/{id}','App\Http\Controllers\ProdutoController@show');
 

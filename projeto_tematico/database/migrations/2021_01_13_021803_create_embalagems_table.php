@@ -15,6 +15,7 @@ class CreateEmbalagemsTable extends Migration
     {
         Schema::create('embalagem', function (Blueprint $table) {
             $table->id();
+            $table->integer('designacao');
             $table->integer('id_produtos');
             $table->integer('id_tipo_embalagem');
             $table->integer('localizacao');

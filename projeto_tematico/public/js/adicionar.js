@@ -11,6 +11,7 @@ selectTipo.addEventListener("change", function (event) {
     let quimico7 = document.querySelector(".quimico7");
     let quimico8 = document.querySelector(".quimico8");
     let quimico9 = document.querySelector(".quimico9");
+    let quimico10 = document.querySelector(".quimico10");
 
     let naoQuimico = document.querySelector(".naoQuimico");
     let naoQuimico1 = document.querySelector(".naoQuimico1");
@@ -25,9 +26,11 @@ selectTipo.addEventListener("change", function (event) {
         quimico7.style.display = "block";
         quimico8.style.display = "block";
         quimico9.style.display = "block";
+        quimico10.style.display = "block";
 
         naoQuimico.style.display = "none";
         naoQuimico1.style.display = "none";
+
     } else {
         quimico.style.display = "none";
         quimico1.style.display = "none";
@@ -38,9 +41,11 @@ selectTipo.addEventListener("change", function (event) {
         quimico7.style.display = "none";
         quimico8.style.display = "none";
         quimico9.style.display = "none";
+        quimico10.style.display = "none";
 
         naoQuimico.style.display = "block";
         naoQuimico1.style.display = "block";
+
     }
 
 })
