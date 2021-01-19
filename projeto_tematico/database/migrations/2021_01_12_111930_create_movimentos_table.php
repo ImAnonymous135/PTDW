@@ -22,7 +22,6 @@ class CreateMovimentosTable extends Migration
             $table->string('referencia');
             $table->double('preço');
             $table->double('taxa_IVA');
-            $table->integer('capacidade_embalagem');
             $table->double('peso_bruto');
             $table->date("data_entrada");
             $table->date("data_abertura");

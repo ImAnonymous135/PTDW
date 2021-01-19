@@ -16,7 +16,7 @@ class CreatePictogramasTable extends Migration
         Schema::create('pictogramas', function (Blueprint $table) {
             $table->id();
             $table->string('designacao');
-            $table->binary('imagem');
+            $table->string('imagem');
         });
     }
 
