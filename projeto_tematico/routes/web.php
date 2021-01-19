@@ -24,9 +24,7 @@ Route::get('/e', function () {
     return view('estilos');
 });
 
-Route::get('/produtos', function () {
-    return view('lista-produtos');
-});
+Route::get('/produtos','App\Http\Controllers\ProdutosController@show');
 
 Route::get('/movimentos/entrada-quimico', function () {
     return view('entrada-quimico');
@@ -46,10 +44,11 @@ Route::post('/produtos/adicionar', 'App\Http\Controllers\NovoProduto@store');
 
 Route::get('/produtos/{id}','App\Http\Controllers\ProdutoController@show');
 
-Route::get('/produtos/entradas', function () {
+//Registo de entradas
+Route::get('/entradas', function () {
     return view('registo-entrada');
 });
-
+Route::get('/entradas/{id}','App\Http\Controllers\EntradaController@show');
 
 Route::get('/produtos/saidas', function () {
     return view('registo-saida');
@@ -71,11 +70,11 @@ Route::get('/clientes/adicionar', function () {
 });
 
 //fornecedores
+Route::delete('/fornecedores/{id}','App\Http\Controllers\Fornecedores@destroy');
 Route::get('/fornecedores','App\Http\Controllers\Fornecedores@show');
 Route::get('/fornecedores/adicionar','App\Http\Controllers\Fornecedores@create');
 Route::post('/fornecedores/adicionar','App\Http\Controllers\Fornecedores@store');
-Route::get('/fornecedores/{id}','App\Http\Controllers\Fornecedores@index');
-Route::put('/fornecedores/{id}','App\Http\Controllers\Fornecedores@update');
+ 
 
 
 //movimentos

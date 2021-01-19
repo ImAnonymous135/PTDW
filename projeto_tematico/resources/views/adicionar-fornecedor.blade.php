@@ -29,7 +29,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="form-group">
-                        <label>{{ __('text.designacao') }}</label>
+                        <label>{{ __('text.nome') }}</label>
                         <input type="text" class="form-control @error('designacao') is-invalid @enderror"
                             name="designacao" id="designacao" value={{old('designacao')}}>
                         @error('designacao')
@@ -172,7 +172,8 @@
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label>{{ __('text.condicoesEspeciais') }}</label>
-                        <input type="text" class="form-control" name="condicoes_especiais" id="condicoes_especiais" value={{old('condicoes_especiais')}}>
+                        <textarea class="form-control" name="condicoes_especiais" id="condicoes_especiais" cols="30" rows="4"
+                            maxlength="100">{{old('observacoes')}}</textarea>
                     </div>
                 </div>
             </div>

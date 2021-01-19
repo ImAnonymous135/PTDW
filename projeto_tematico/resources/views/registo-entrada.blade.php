@@ -12,7 +12,9 @@
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="../">Home</a></li>
+          @if (isset($produto))
           <li class="breadcrumb-item "><a href="../produtos">{{ __('text.produtos') }}</a></li>
+          @endif
           <li class="breadcrumb-item active">{{ __('text.entrada') }}</li>
         </ol>
       </div>
@@ -26,7 +28,7 @@
   <div class="card-header">
     <div class="row">
       <div class="card-body">
-        @if ({{$isChemical}})
+        @if (true)
         {{-- Quimicos --}}
         @include('sub-views.quimicos')
         @else
@@ -38,10 +40,13 @@
 
     <div class="">
       <div class="d-flex flex-row justify-content-end">
+        @if (isset($produto))
         <span class="mr-2">
           <button type="button" class="btn btn-block btn-outline-primary"
-            onclick="window.location.href='../produtos/info-produto'">{{ __('text.cancelar') }}</button>
+            onclick="window.history.back()">{{ __('text.cancelar') }}</button>
         </span>
+        @endif
+        
         <span class="mr-2">
           <button type="button" href="#" class="btn btn-block btn-primary">{{ __('text.submeter') }}</button>
         </span>
