@@ -17,6 +17,7 @@ class CreateMovimentosProdutosQuimicosTable extends Migration
             $table->integer('movimentos_n_ordem');
             $table->integer('id_estado_fisico');
             $table->integer('id_textura_viscosidade');
+            $table->integer('id_cor');
         });
     }
 

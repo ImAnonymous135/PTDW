@@ -22,6 +22,7 @@ class CreateOperadoresTable extends Migration
             $table->string('observacoes')->nullable(true);
             $table->date('data_criação');
             $table->date('data_eliminação')->nullable(true);
+            $table->date('deleted_at')->nullable(true);
         });
     }
 

@@ -24,9 +24,9 @@ class CreateMovimentosTable extends Migration
             $table->double('taxa_IVA');
             $table->double('peso_bruto');
             $table->date("data_entrada");
-            $table->date("data_abertura");
+            $table->date("data_abertura")->nullable(true);
             $table->date("data_validade");
-            $table->date("data_termino");
+            $table->date("data_termino")->nullable(true);
             $table->string("observacoes")->nullable(true);
 
         });

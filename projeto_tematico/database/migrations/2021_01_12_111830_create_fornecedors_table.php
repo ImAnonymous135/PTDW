@@ -30,6 +30,7 @@ class CreateFornecedorsTable extends Migration
             $table->string('email_2')->nullable(true);
             $table->string('condicoes_especiais')->nullable(true);
             $table->string('observacoes')->nullable(true);
+            $table->date('deleted_at')->nullable(true);
         });
     }
 

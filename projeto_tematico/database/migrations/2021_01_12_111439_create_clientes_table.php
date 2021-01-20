@@ -18,6 +18,7 @@ class CreateClientesTable extends Migration
             $table->string('designacao');
             $table->integer('id_responsavel');
             $table->string('observacoes')->nullable(true);
+            $table->date('deleted_at')->nullable(true);
         });
     }
 
