@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Operadores;
-use App\Models\Operadores_Perfil;
+use App\Models\Perfil;
 
 class ListaOperadores extends Controller{
     
@@ -20,12 +20,15 @@ class ListaOperadores extends Controller{
     public function store(Request $request)
     {
         $this->validateOperadores();
-        $operadores = new Operadores(request(['nome','perfil','email','observacoes']));
-        dd($operadoresPerfil);
+        
+        $operadores = new Operadores(request(['id_perfil','nome','email','observacoes']));
+        $operadores->id_perfil=$request->perfil;
+        //['solicitante_sala','id_perfil','nome','email','observacoes','data_criação','data_eliminação']
+        $perfil = new Perfil(request([$operadores->id_perfil,'perfil']));
         $operadores->data_criação = date("d-m-Y");
         $operadores->timestamps=false;
         $operadores->save();
-        $operadoresPerfil->save();
+        $perfil->save();
         
         return redirect('/operadores');    
     }

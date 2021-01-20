@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Armario extends Model
 {
-    protected $table = 'armario
+    protected $table = 'armario';
+    
     public function cliente(){
         return $this->belongsTo(Produtos::class,'id_cliente');
     }

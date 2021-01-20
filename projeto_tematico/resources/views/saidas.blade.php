@@ -49,7 +49,7 @@
 
   dataSet= [];
   @foreach( $registo_saidas as $registo_saidas)
-   dataSet.push(["{{$registo_saidas->embalagem->produto->designacao}}","{{$registo_saidas->embalagem->prateleira->designacao}},{{$registo_saidas->embalagem->prateleira->armario->designacao}},{{$registo_saidas->embalagem->prateleira->armario->cliente->designacao}}","","{{$registo_saidas->solicitante->nome}}","{{$registo_saidas->operadores->nome}}","{{$registo_saidas->data}}"]);
+   dataSet.push(["{{$registo_saidas->embalagem->produto->designacao}}","{{$registo_saidas->embalagem->prateleira->designacao}},{{$registo_saidas->embalagem->prateleira->armario->designacao}},{{$registo_saidas->embalagem->prateleira->armario->cliente->designacao}}","{{$registo_saidas->embalagem->designacao}}","{{$registo_saidas->solicitante->nome}}","{{$registo_saidas->operadores->nome}}","{{$registo_saidas->data}}"]);
    @endforeach
   $(function () {
     $('#table').DataTable({

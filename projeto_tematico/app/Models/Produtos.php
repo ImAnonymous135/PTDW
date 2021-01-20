@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Produtos extends Model
 {
     use HasFactory;
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
     public function registoSaidas(){
         return $this->hasMany(Registo_Saidas::class,'id');
     }
@@ -24,3 +29,10 @@ class Produtos extends Model
         return $this->hasOne(Produtos_Nao_Quimicos::class,'id_produto');
     }
 }
+<<<<<<< Updated upstream
+=======
+
+    
+
+
+>>>>>>> Stashed changes

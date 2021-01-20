@@ -57,7 +57,7 @@
                 <div class="form-group">
                     <label>{{ __('text.perfil') }}</label>
                     <select class="form-control @error('perfil') is-invalid @enderror" name="perfil" id="perfil" value={{old('perfil')}}>
-                        <option value="1">Fiel de armazém</option>
+                        <option value="1" selected>Fiel de armazém</option>
                     </select>
                     @error('perfil')
                         <span class="invalid-feedback" role="alert">

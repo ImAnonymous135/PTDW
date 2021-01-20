@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Perfil extends Model
 {
     protected $table = 'perfil';
+    protected $fillable = ['id','perfil'];
+    public $timestamps = false;
+
 }
