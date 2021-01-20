@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
+//movimentos
+Route::get('/entradaNaoQuimicos','App\Http\Controllers\APIController@entradaNaoQuimico')->name("APIEntradaNaoQuimicos");
+Route::get('/entradaQuimicos','App\Http\Controllers\APIController@entradaQuimico')->name("APIEntradaQuimicos");
+Route::get('/operadores','App\Http\Controllers\APIController@operadores')->name("APIOperadores");
+
+//fornecedores
+Route::get('/fornecedores','App\Http\Controllers\APIController@fornecedores')->name("APIFornecedores");
+Route::get('/fornecedor/{id}','App\Http\Controllers\APIController@fornecedor')->name("APIFornecedor");

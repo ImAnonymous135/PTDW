@@ -11,8 +11,4 @@ class Cor extends Model
 
     protected $table = 'cor';
 
-    public function movimento()
-    {
-        return $this->hasMany('App\Model\Movimentos_Produtos_Nao_Quimicos');
-    }
 }

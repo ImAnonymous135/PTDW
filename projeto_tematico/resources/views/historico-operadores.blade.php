@@ -23,22 +23,32 @@
 @include('sub-views.export-button')
 <div class="card">
   <div class="card-body">
+    <div class="col-sm-6">
+      <div class="form-group">
+          <label class="font-weight-normal">{{ __('text.tipoEmbalagem') }}:</label>
+          <div class="input-group-prepend">
+              <select id="pesquisa" class="select form-control" name="pesquisa">
+                  <option value="nome_administrador">Administrador</option>
+                  <option value="operador">Operador</option>
+                  <option value="operacao">Operacao</option>
+              </select>
+          </div>
+      </div>
+  </div>
     <table id="table" class="table table-bordered table-striped">
       <thead>
-        <tr>
-          <th>{{ __('text.nomeAdmin') }}</th>
-          <th>{{ __('text.operador') }}</th>
-          <th>{{ __('text.data') }}</th>
-          <th>{{ __('text.operacao') }}</th>
-          <th>{{ __('text.observacoes') }}</th>
-        </tr>
+          <tr>
+            <th>{{ __('text.nomeAdmin') }}</th>
+            <th>{{ __('text.operador') }}</th>
+            <th>{{ __('text.data') }}</th>
+            <th>{{ __('text.operacao') }}</th>
+            <th>{{ __('text.observacoes') }}</th>
+          </tr>
       </thead>
       <tbody>
-
-        </tfoot>
-    </table>
+      </tbody>
+  </table>
   </div>
-  <!-- /.card-body -->
 </div>
 <br>
 
@@ -51,27 +61,33 @@
 <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
 <script>
-  var dataSet = [];
-  @foreach( $operadores as $operador)
-   dataSet.push(["{{$operador->nome_administrador}}","{{$operador->operador}}","{{$operador->data}}","{{$operador->operacao}}","{{$operador->observacoes}}"]);
-   @endforeach
   $(function () {
-    $('#table').DataTable({
-      data:dataSet,
-      "responsive": true,
-      "autoWidth": false,
-      language: {
-            url: '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
-        },
+        var table = $('#table').DataTable({
+            "responsive": true,
+            "autoWidth": false,
+            language: {
+                url: '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
+            },
+            "processing": true,
+            "serverSide": true,
+            "ajax": "{{ route('APIOperadores')}}",
+            "columns": [
+                { "data": 'administrador' },
+                { "data": 'operador' },
+                { "data": 'data' },
+                { "data": 'operacao' },
+                { "data": 'observacoes' }
+            ]
+        });
+
+        table.on('preXhr.dt', function (e, settings, data) {
+            data.pesquisa = $('#pesquisa').val();
+        });
+
+        $('#pesquisa').on('change', function () {
+          table.draw();
+        });
     });
-    var daterangepicker = $('#reservation').daterangepicker({
-        autoUpdateInput: false,
-        locale:{
-          format: 'DD/MM/YYYY',
-          cancelLabel: 'Clear'
-        }
-    });
-  });
 </script>
 @include('sub-views.exports')
 @stop
