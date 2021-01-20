@@ -70,6 +70,7 @@ Route::get('/clientes/adicionar', function () {
 });
 
 //fornecedores
+Route::put('/fornecedores/{id}','App\Http\Controllers\Fornecedores@update');
 Route::delete('/fornecedores/{id}','App\Http\Controllers\Fornecedores@destroy');
 Route::get('/fornecedores','App\Http\Controllers\Fornecedores@show');
 Route::get('/fornecedores/adicionar','App\Http\Controllers\Fornecedores@create');

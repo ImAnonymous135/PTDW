@@ -68,7 +68,7 @@
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('text.nao') }}</button>
-                    <button type="submit" class="btn btn-primary toastrDefaultSuccess">{{
+                    <button id="deleteButton" type="submit" class="btn btn-primary toastrDefaultSuccess">{{
                     __('text.sim') }}</button>
                 </div>
             </form>
@@ -267,7 +267,7 @@
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('text.cancelar')
                         }}</button>
-                    <button type="submit" class="btn btn-primary toastrDefaultSuccess1" data-dismiss="modal">{{
+                    <button type="submit" class="btn btn-primary toastrDefaultSuccess1" >{{
                         __('text.guardar') }}</button>
                 </div>
             </form>
@@ -322,34 +322,32 @@
 <script src="/js/mfb.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script>
-    $(document).ready(function () {
-        $('[data-toggle="tooltip"]').tooltip();
-    });
-</script>
-<script>
-    dataSet = [];
-    @foreach($fornecedores as $fornecedor)
-    dataSet.push(["{{$fornecedor->designacao}}",
-        "{{$fornecedor->morada}}",
-        "{{$fornecedor->localidade}}",
-        "{{$fornecedor->codigo_postal}}",
-        "{{$fornecedor->telefone}}",
-        "{{$fornecedor->nif}}",
-        '<div class="btn-group"><button type="button" class="btn btn-primary" data-toggle="tooltip" title="{{ __('text.detalhes') }}" onclick="info({{$fornecedor}},true)" }}"><i class="fas fa-eye"></i></button>  <button data-toggle="tooltip" title="{{ __('text.editar') }}"  type="button" onclick="info({{$fornecedor}},false)" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>  <button data-toggle="tooltip" title="{{ __('text.eliminar') }}" type="button" onclick="elim({{$fornecedor->id}})"  class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></div>']);
-    @endforeach
     $(function () {
-        $('#table').DataTable({
-            data: dataSet,
+        $('[data-toggle="tooltip"]').tooltip();
+        var table = $('#table').DataTable({
             "responsive": true,
             "autoWidth": false,
             language: {
                 url: '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
             },
-            "columnDefs": [{
-                "targets": -1,
-                "orderable": false
-            }]
+            "processing": true,
+            "serverSide": true,
+            "columnDefs": [ {
+            "targets": -1,
+            "orderable": false
+            }],
+            "ajax": "{{ route('APIFornecedores')}}",
+            "columns": [
+                { "data": 'designacao' },
+                { "data": 'morada' },
+                { "data": 'localidade' },
+                { "data": 'codigo_postal' },
+                { "data": 'telefone' },
+                { "data": 'nif' },
+                { "data": 'buttons' }
+            ]
         });
+
         $('.toastrDefaultSuccess').click(function () {
             toastr.success('{{ __('text.eliminadoSucesso') }}')
         });
@@ -357,14 +355,18 @@
         $('.toastrDefaultSuccess1').click(function () {
             toastr.success('{{ __('text.editadoSucesso') }}')
         });
-    });
-
-    function elim(id){
+        function elim(id){
         $('#eliminar').attr('action', '/fornecedores/'+id);
         $('#modal-default').modal('show');
-    }
+    } 
+    });
 
-    function info(info,modal) {
+    function info(id,modal) {
+        $.ajax({
+               type:'GET',
+               url:'api/fornecedor/'+id,
+               success: function(info) {
+                info = JSON.parse(info);
             if(modal){
                 $('#modal-default2').modal('show');
                 $('#nomeSpan').text(info.designacao);
@@ -401,13 +403,15 @@
                 $('#observacoes').val(info.observacoes);
                 $('#condicoes_especiais').val(info.condicoes_especiais);
             }
-        console.dir(modal);
+        }
+        });
+    }
+    function elim(id){
+        $('#eliminar').attr('action', '/fornecedores/'+id);
+        $('#modal-default').modal('show');
     }
 
-    function putInfo(info,nome,morada,telefone,local,cod,nif,mail,vendedor1,tel1,mail1,vendedor2,tel2,mail2,obs,con){      
-            
-    }
-
+   
 </script>
 @stop
 
