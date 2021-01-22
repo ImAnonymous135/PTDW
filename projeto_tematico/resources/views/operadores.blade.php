@@ -52,6 +52,9 @@
 <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
+        <form method="POST" id="eliminar">
+                @method('delete')
+                @csrf
             <div class="modal-header">
                 <h4 class="modal-title">{{ __('text.eliminar') }}</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -63,12 +66,11 @@
             </div>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('text.nao') }}</button>
-                <button type="button" class="btn btn-primary toastrDefaultSuccess" data-dismiss="modal">{{ __('text.sim') }}</button>
+                <button type="submit" class="btn btn-primary toastrDefaultSuccess">{{ __('text.sim') }}</button>
             </div>
+            </form>
         </div>
-        <!-- /.modal-content -->
     </div>
-    <!-- /.modal-dialog -->
 </div>
 
 <div class="modal fade" id="modal-default1" style="display: none;" aria-hidden="true">
@@ -80,17 +82,22 @@
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
+            <form method="POST" id="edit">
+                @csrf
+                @method('PUT')
             <div class="modal-body">
                 <p>{{ __('text.novoCargoOperador') }}</p>
-                <select name="" id="" class="custom-select">
-                    <option value="">{{ __('text.fielArmazem') }}</option>
+                <select name="novoCargoOperador" id="novoCargoOperador" class="custom-select">
+                    @foreach($perfil as $perfil)
+                        <option value="{{$perfil->id}}">{{$perfil->perfil}}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('text.cancelar') }}</button>
-                <button type="button" class="btn btn-primary toastrDefaultSuccess1"
-                    data-dismiss="modal">{{ __('text.guardar') }}</button>
+                <button type="submit" class="btn btn-primary toastrDefaultSuccess1">{{ __('text.guardar') }}</button>
             </div>
+            </form>
         </div>
         <!-- /.modal-content -->
     </div>
@@ -107,13 +114,12 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p class="font-weight-bold">{{ __('text.nome') }}: <span class="font-weight-normal">Joaquim Fernandes</span></p>
-                <p class="font-weight-bold">E-Mail: <span class="font-weight-normal">JoaquimF@ua.pt</span></p>
-                <p class="font-weight-bold">{{ __('text.perfil') }}: <span class="font-weight-normal">Fiel de armazém</span></p>
-                <p class="font-weight-bold">{{ __('text.dataCriacao') }}: <span class="font-weight-normal">14/12/2020</span></p>
-                <p class="font-weight-bold">{{ __('text.dataEliminacao') }}: <span class="font-weight-normal">15/12/2020</span></p>
-                <p class="font-weight-bold">{{ __('text.observacoes') }}: <span class="font-weight-normal">Lorem ipsum dolor sit amet
-                        consectetur adipisicing elit. Quas nobis earum quia magni repudiandae.</span></p>
+                <p class="font-weight-bold">{{ __('text.nome') }}: <span class="font-weight-normal" id="nome"></span></p>
+                <p class="font-weight-bold">E-Mail: <span class="font-weight-normal" id="email"></span></p>
+                <p class="font-weight-bold">{{ __('text.perfil') }}: <span class="font-weight-normal" id="perfil"></span></p>
+                <p class="font-weight-bold">{{ __('text.dataCriacao') }}: <span class="font-weight-normal" id="dataCriacao"></span></p>
+                <p class="font-weight-bold">{{ __('text.dataEliminacao') }}: <span class="font-weight-normal" id="dataEliminacao"></span></p>
+                <p class="font-weight-bold">{{ __('text.observacoes') }}: <span class="font-weight-normal" id="observacoes"></span></p>
             </div>
         </div>
         <!-- /.modal-content -->
@@ -136,7 +142,14 @@
 
 dataSet= [];
   @foreach( $operadores as $operadores)
-   dataSet.push(["{{$operadores->nome}}","{{$operadores->email}}","{{$operadores->perfil->perfil}}","{{$operadores->data_criação}}","{{$operadores->data_eliminação}}"]);
+   dataSet.push([
+       "{{$operadores->nome}}",
+        "{{$operadores->email}}",
+        "{{$operadores->perfil->perfil}}",
+        "{{$operadores->data_criação}}",
+        "{{$operadores->data_eliminação}}",
+        '<div class="btn-group"><button type="button" class="btn btn-primary" data-toggle="tooltip" title="{{ __('text.detalhes') }}" onclick="info({{$operadores}},true)" }}"><i class="fas fa-eye"></i></button>  <button data-toggle="tooltip" title="{{ __('text.editar') }}"  type="button" onclick="info({{$operadores}},false)" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>  <button data-toggle="tooltip" title="{{ __('text.eliminar') }}" type="button" onclick="elim({{$operadores->id}})"  class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></div>'
+        ]);
    @endforeach
     $(function () {
     $('#table').DataTable({
@@ -148,8 +161,6 @@ dataSet= [];
         },
         "columnDefs": [ {
             "targets": -1,
-            "data": null,
-            "defaultContent": '<div class="btn-group"><button type="button" class="btn btn-primary" data-toggle="modal" data-toggle="tooltip" title="{{ __('text.detalhes') }}" data-target="#modal-default2"><i class="fas fa-eye"></i></button><button data-toggle="modal" data-toggle="tooltip" title="{{ __('text.editar') }}" data-target="#modal-default1" type="button" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button><button data-toggle="modal" data-toggle="tooltip" title="{{ __('text.eliminar') }}" data-target="#modal-default" type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></div>',
             "orderable": false
         }]
     });
@@ -161,6 +172,29 @@ dataSet= [];
       toastr.success('{{ __('text.editadoSucesso') }}')
     });
   });
+  function elim(id){
+        $('#eliminar').attr('action', '/operadores/'+id);
+        $('#modal-default').modal('show');
+    }
+
+    function info(info,modal) {
+        if(modal){
+            $('#modal-default2').modal('show');
+            $('#nome').text(info.nome);
+            $('#email').text(info.email);
+            $('#perfil').text(info.perfil.perfil);
+            $('#dataCriacao').text(info.data_criação);
+            $('#dataEliminacao').text(info.data_eliminação);
+            $('#observacoes').text(info.observacoes);
+        }else{
+            $('#edit').attr('action', '/operadores/'+info.id);
+            $('#modal-default1').modal('show');
+            $('#novoCargoOperador').val(info.perfil.perfil);
+        }
+        console.dir(info);
+        console.dir(modal);
+    }
+
 </script>
 @stop
 

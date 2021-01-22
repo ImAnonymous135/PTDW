@@ -55,12 +55,15 @@ Route::get('/produtos/saidas', function () {
 });
 
 //operadores
+Route::put('/operadores/{id}','App\Http\Controllers\ListaOperadores@update');
+Route::delete('/operadores/{id}','App\Http\Controllers\ListaOperadores@destroy');
 Route::get('/operadores','App\Http\Controllers\ListaOperadores@show');
 Route::get('/operadores/adicionar','App\Http\Controllers\ListaOperadores@create');
 Route::post('/operadores/adicionar','App\Http\Controllers\ListaOperadores@store');
 
 
 //clientes
+Route::delete('/clientes/{id}','App\Http\Controllers\ListaCliente@destroy');
 Route::get('/clientes','App\Http\Controllers\ListaCliente@show');
 Route::get('/clientes/adicionar','App\Http\Controllers\ListaCliente@create');
 Route::post('/clientes/adicionar','App\Http\Controllers\ListaCliente@store');

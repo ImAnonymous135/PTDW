@@ -57,7 +57,9 @@
                 <div class="form-group">
                     <label>{{ __('text.perfil') }}</label>
                     <select class="form-control @error('perfil') is-invalid @enderror" name="perfil" id="perfil" value={{old('perfil')}}>
-                        <option value="1" selected>Fiel de armazém</option>
+                        @foreach($perfil as $perfil)
+                            <option value="{{$perfil->id}}">{{$perfil->perfil}}</option>
+                        @endforeach
                     </select>
                     @error('perfil')
                         <span class="invalid-feedback" role="alert">

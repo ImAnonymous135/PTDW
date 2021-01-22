@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 
 //movimentos
+Route::get('/saidas','App\Http\Controllers\APIController@registoSaida')->name("APISaidas");
 Route::get('/entradaNaoQuimicos','App\Http\Controllers\APIController@entradaNaoQuimico')->name("APIEntradaNaoQuimicos");
 Route::get('/entradaQuimicos','App\Http\Controllers\APIController@entradaQuimico')->name("APIEntradaQuimicos");
 Route::get('/operadores','App\Http\Controllers\APIController@operadores')->name("APIOperadores");

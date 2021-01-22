@@ -4,12 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Operadores extends Model
 {
+    public $timestamps=false;
     protected $table = 'operadores';
     protected $fillable = ['solicitante_sala','id_perfil','nome','email','observacoes','data_criação','data_eliminação'];
 
+    use SoftDeletes;
 
     public function cliente(){
         return $this->belongsTo(Cliente::class,'solicitante_sala');

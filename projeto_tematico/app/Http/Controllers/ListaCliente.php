@@ -64,7 +64,34 @@ class ListaCliente extends Controller{
 
     public function update(){ }
     
+    public function destroy($id)
+    {
+        Cliente::find($id)->delete();
+        return redirect('/clientes');
+    }
 
+    public function update($id)
+    {
+        $this->validateFornecedor();
+        $cliente = Cliente::find($id);
+        $fornecedor->designacao = request()->designacao;
+        $fornecedor->morada = request()->morada;
+        $fornecedor->localidade = request()->localidade;
+        $fornecedor->codigo_postal = request()->codigo_postal;
+        $fornecedor->telefone = request()->telefone;
+        $fornecedor->nif = request()->nif;
+        $fornecedor->email = request()->email;
+        $fornecedor->vendedor_1 = request()->vendedor_1;
+        $fornecedor->telemovel_1 = request()->telemovel_1;
+        $fornecedor->email_1 = request()->email_1;
+        $fornecedor->vendedor_2 = request()->vendedor_2;
+        $fornecedor->telemovel_2 = request()->telemovel_2;
+        $fornecedor->email_2 = request()->email_2;
+        $fornecedor->condicoes_especiais = request()->condicoes_especiais;
+        $fornecedor->observacoes = request()->observacoes;
+        $fornecedor->save();
+
+        return redirec
 
 
     

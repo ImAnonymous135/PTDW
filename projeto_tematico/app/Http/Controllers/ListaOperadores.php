@@ -10,11 +10,14 @@ class ListaOperadores extends Controller{
     
     public function show(){
         $operadores = Operadores::all();
-        return view('operadores',['operadores'=>$operadores]);
+        $perfil = Perfil::all();
+
+        return view('operadores',['operadores'=>$operadores,'perfil'=>$perfil]);
     }
 
     public function create(){
-        return view('adicionar-operador');
+        $perfil = Perfil::all();
+        return view('adicionar-operador',['perfil'=>$perfil]);
     }
 
     public function store(Request $request)
@@ -24,13 +27,20 @@ class ListaOperadores extends Controller{
         $operadores = new Operadores(request(['id_perfil','nome','email','observacoes']));
         $operadores->id_perfil=$request->perfil;
         //['solicitante_sala','id_perfil','nome','email','observacoes','data_criação','data_eliminação']
-        $perfil = new Perfil(request([$operadores->id_perfil,'perfil']));
         $operadores->data_criação = date("d-m-Y");
         $operadores->timestamps=false;
         $operadores->save();
-        $perfil->save();
         
         return redirect('/operadores');    
+    }
+
+    public function update($id){
+
+        $operadores = Operadores::find($id);
+        $operadores->id_perfil = request()->novoCargoOperador;
+        $operadores->save();
+        
+        return redirect('/operadores'); 
     }
 
 
@@ -42,8 +52,10 @@ class ListaOperadores extends Controller{
         ]);
     }
 
-    public function edit(){ }
+    public function destroy($id){
+        Operadores::find($id)->delete();
+        return redirect('/operadores');
+    }
 
-    public function update(){ }
 
 }
