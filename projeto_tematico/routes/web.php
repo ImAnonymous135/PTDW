@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('home');
-});
+
+//Home
+Route::get('/','App\Http\Controllers\HomeController@show');
 
 Route::get('/login', function () {
     return view('auth/login');
@@ -23,8 +23,6 @@ Route::get('/login', function () {
 Route::get('/e', function () {
     return view('estilos');
 });
-
-Route::get('/produtos','App\Http\Controllers\ProdutosController@show');
 
 Route::get('/movimentos/entrada-quimico', function () {
     return view('entrada-quimico');
@@ -42,6 +40,9 @@ Route::get('/produtos/adicionar', function () {
 Route::post('/produtos/adicionar', 'App\Http\Controllers\NovoProduto@store');
 //FIM
 
+//Produtos
+Route::get('/produtos','App\Http\Controllers\ProdutosController@show');
+//Info Produto
 Route::get('/produtos/{id}','App\Http\Controllers\ProdutoController@show');
 
 //Registo de entradas
