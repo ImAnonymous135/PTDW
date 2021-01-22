@@ -38,29 +38,37 @@
       <div class="card-body">
         <div>
           @if ($produto->is_quimico)
-          <p class="font-weight-bold">{{ __('text.formula') }}: <span class="font-weight-normal">{{$produto->quimico->formula}}</span></p>
-          <p class="font-weight-bold">{{ __('text.pesoMolecular') }}: <span class="font-weight-normal">{{$produto->quimico->pMolecular}} g/mol</span></p>
-          <p class="font-weight-bold">CAS Nº: <span class="font-weight-normal">{{$produto->quimico->casN}}</span></p>
-          <p class="font-weight-bold">{{ __('text.condicoesArmazenamento') }}: <span class="font-weight-normal">{{$produto->quimico->condicaoArmazenamento}}</span></p>
-          <p class="font-weight-bold">{{ __('text.armarioVentilado') }}: <span class="font-weight-normal">
-          @if ($produto->quimico->ventilado)
-          {{ __('text.sim') }}
-          @else
-          {{ __('text.nao') }}
-          @endif  
-          
-          </span></p>
-          @endif
-          
+          <p class="font-weight-bold mb-0">{{ __('text.formula') }}: <span
+              class="font-weight-normal">{{$produto->quimico->formula}}</span></p>
+          <p class="font-weight-bold mb-0">{{ __('text.pesoMolecular') }}: <span
+              class="font-weight-normal">{{$produto->quimico->pMolecular}} g/mol</span></p>
+          <p class="font-weight-bold mb-0">CAS Nº: <span class="font-weight-normal">{{$produto->quimico->casN}}</span>
+          </p>
+          <p class="font-weight-bold mb-0">{{ __('text.condicoesArmazenamento') }}: <span
+              class="font-weight-normal">{{$produto->quimico->condicaoArmazenamento}}</span></p>
+          <p class="font-weight-bold mb-0">{{ __('text.armarioVentilado') }}: <span class="font-weight-normal">
+              @if ($produto->quimico->ventilado)
+              {{ __('text.sim') }}
+              @else
+              {{ __('text.nao') }}
+              @endif
 
-          <p class="font-weight-bold">{{ __('text.unidades') }}: <span class="font-weight-normal">{{$produto->unidades->desginacao}}</span></p>
-          <p class="font-weight-bold">{{ __('text.stockExistente') }}: <span class="font-weight-normal">{{$produto->stock_existente}}</span></p>
-          <p class="font-weight-bold">{{ __('text.stockMinimo') }}: <span class="font-weight-normal">{{$produto->stock_minimo}}</span></p>
+            </span></p>
+          @endif
+
+          <p class="font-weight-bold mb-0">{{ __('text.unidades') }}: <span
+              class="font-weight-normal">{{$produto->unidades->desginacao}}</span></p>
+          <p class="font-weight-bold mb-0">{{ __('text.stockExistente') }}: <span
+              class="font-weight-normal">{{$produto->stock_existente}}</span></p>
+          <p class="font-weight-bold mb-0">{{ __('text.stockMinimo') }}: <span
+              class="font-weight-normal">{{$produto->stock_minimo}}</span></p>
 
           @if ($produto->is_quimico)
-          <p class="font-weight-bold">{{ __('text.recomendacoesPrudencias') }}: <span class="font-weight-normal"></span></p>
-          <p class="font-weight-bold">{{ __('text.advertenciaPerigos') }}: <span class="font-weight-normal"></span></p>
-          <p class="font-weight-bold">{{ __('text.pictogramas') }}:</p>
+          <p class="font-weight-bold mb-0">{{ __('text.recomendacoesPrudencias') }}: <span
+              class="font-weight-normal"></span></p>
+          <p class="font-weight-bold mb-0">{{ __('text.advertenciaPerigos') }}: <span class="font-weight-normal"></span>
+          </p>
+          <p class="font-weight-bold mb-3">{{ __('text.pictogramas') }}:</p>
           <div>
             <img id="skull" class="pictogramas" src="https://www.reach-compliance.ch/downloads/GHS06_skull.png" alt=""
               srcset="" width="100px" height="100px">
@@ -68,9 +76,9 @@
               srcset="" width="100px" height="100px">
           </div>
           @else
-            <p class="font-weight-bold">{{ __('text.familia') }}: <span class="font-weight-normal">{{$produto->nao_quimico->familia->designacao}}</span></p>
+          <p class="font-weight-bold mb-0">{{ __('text.familia') }}: <span
+              class="font-weight-normal">{{$produto->nao_quimico->familia->designacao}}</span></p>
           @endif
-          
         </div>
       </div>
     </div>
@@ -86,42 +94,12 @@
             <thead>
               <tr>
                 <th>{{ __('text.localizacao') }}</th>
-                <th>{{ __('text.embalagem') }}</th>
+                <th>{{ __('text.capacidadeEmbalagem') }}</th>
                 <th>{{ __('text.dataAbertura') }}</th>
                 <th>{{ __('text.termino') }}</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>G-2</td>
-                <td>3</td>
-                <td>10/12/2020</td>
-                <td><button class="btn btn-primary" onclick="window.location.href='../produtos/saidas'">{{ __('text.registarSaida') }}</button></td>
-              </tr>
-              <tr>
-                <td>G-4</td>
-                <td>2</td>
-                <td><button class="btn btn-primary">{{ __('text.registarAbertura') }}</button></td>
-                <td><button class="btn btn-primary" disabled>{{ __('text.registarSaida') }}</button></td>
-              </tr>
-              <tr>
-                <td>G-2</td>
-                <td>7</td>
-                <td>12/12/2020</td>
-                <td><button class="btn btn-primary" onclick="window.location.href='../produtos/saidas'">{{ __('text.registarSaida') }}</button></td>
-              </tr>
-              <tr>
-                <td>G-1</td>
-                <td>6</td>
-                <td>11/12/2020</td>
-                <td><button class="btn btn-primary" onclick="window.location.href='../produtos/saidas'">{{ __('text.registarSaida') }}</button></td>
-              </tr>
-              <tr>
-                <td>G-2</td>
-                <td>4</td>
-                <td><button class="btn btn-primary">{{ __('text.registarAbertura') }}</button></td>
-                <td><button class="btn btn-primary" disabled>{{ __('text.registarSaida') }}</button></td>
-              </tr>
               </tfoot>
           </table>
         </div>
@@ -142,20 +120,44 @@
 <script src="{{ asset('css/mfb.css') }}"></script>
 
 <script>
+  json = JSON.parse('<?php echo $embalagens ?>');  
+
+  dataSet = [];
+
+  function dataAbertura(data) {
+    if (data == null) {
+      return '<a href="#" type="button" data-toggle="tooltip" class="btn btn-primary">{{ __('text.registarAbertura') }}</a>';
+    }
+    return data;
+  }
+
+  function terminar(data) {
+    if (data == null) {
+      return '<button type="button" data-toggle="tooltip" class="btn btn-primary" disabled>{{ __('text.termino') }}</button>';
+    }
+    return '<a href="#" type="button" data-toggle="tooltip" class="btn btn-primary">{{ __('text.termino') }}</a>';
+  }
+
+  json.forEach(e => {
+    dataSet.push([
+      e.cliente+"-"+e.armario+"-"+e.prateleira,
+      e.capacidade+" "+"{{$produto->unidades->desginacao}}",
+      dataAbertura(e.data_abertura),
+      terminar(e.data_abertura)
+    ]);
+  });
+
+  console.log(dataSet);
+
   $(function () {
     $('#table').DataTable({
+      data: dataSet,
         "responsive": true,
         "autoWidth": false,
         "order": [[ 2, "asc" ]],
         language: {
                 url: '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
         }
-        /* "columnDefs": [ {
-            "targets": [2,3],
-            "data": null,
-            "defaultContent": tableCellContent(),
-            "orderable": false
-        }] */
     });
   });
 </script>
