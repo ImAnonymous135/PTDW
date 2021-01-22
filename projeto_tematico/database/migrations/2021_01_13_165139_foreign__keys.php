@@ -32,6 +32,7 @@ class ForeignKeys extends Migration
             $table->foreign('movimentos_n_ordem')->references('n_ordem')->on('movimentos')->onDelete('cascade')->primary();
             $table->foreign('id_estado_fisico')->references('id')->on('estado_fisico')->onDelete('cascade');
             $table->foreign('id_textura_viscosidade')->references('id')->on('textura_viscosidade')->onDelete('cascade');
+            $table->foreign('id_cor')->references('id')->on('cor')->onDelete('cascade');
         });
 
         Schema::table('movimentos_produtos_nao_quimicos', function (Blueprint $table) {
