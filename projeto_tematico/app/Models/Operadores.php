@@ -4,15 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Operadores extends Model
 {
+    public $timestamps=false;
     protected $table = 'operadores';
-    protected $fillable = ['solicitante_sala','nome','email','observacoes','data_criação','data_eliminação'];
+    protected $fillable = ['solicitante_sala','id_perfil','nome','email','observacoes','data_criação','data_eliminação'];
 
+    use SoftDeletes;
 
     public function cliente(){
-        return $this->hasOney(Cliente::class,'id');
+        return $this->belongsTo(Cliente::class,'solicitante_sala');
     }
 
     public function registoSaidas(){
@@ -22,5 +25,6 @@ class Operadores extends Model
     public function perfil(){
         return $this->hasOne(Perfil::class,'id','id_perfil');
     }
+
     
 }

@@ -24,7 +24,11 @@ class Produtos extends Model
     public function nao_quimico(){
         return $this->hasOne(Produtos_Nao_Quimicos::class,'id_produto');
     }
+<<<<<<< HEAD
 }
 
 
 
+=======
+}
+>>>>>>> main

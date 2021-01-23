@@ -23,7 +23,7 @@
 @section('content')
 <ul id="menu" class="mfb-component--br mfb-slidein" data-mfb-toggle="hover">
     <li class="mfb-component__wrap">
-        <a data-mfb-label="{{ __('text.novoCliente') }}" class="mfb-component__button--main" href="./clientes/adicionar">
+        <a data-mfb-label="{{ __('text.novoCliente') }}" class="mfb-component__button--main" href="../clientes/adicionar">
             <i class="mfb-component__main-icon--resting fas fa-plus" style="font-size: 1.5rem;"></i>
         </a>
     </li>
@@ -51,19 +51,23 @@
 <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">{{ __('text.eliminar') }}</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>{{ __('text.confirmarEliminarCliente') }}</p>
-            </div>
-            <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('text.nao') }}</button>
-                <button type="button" class="btn btn-primary toastrDefaultSuccess" data-dismiss="modal">{{ __('text.sim') }}</button>
-            </div>
+            <form method="POST" id="eliminar">
+                @method('delete')
+                @csrf
+                <div class="modal-header">
+                    <h4 class="modal-title">{{ __('text.eliminar') }}</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>{{ __('text.confirmarEliminarCliente') }}</p>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('text.nao') }}</button>
+                    <button type="submit" class="btn btn-primary toastrDefaultSuccess" >{{ __('text.sim') }}</button>
+                </div>
+            </form>
         </div>
         <!-- /.modal-content -->
     </div>
@@ -79,36 +83,52 @@
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body w-200">
+            <form method="POST" id="edit">
+                @csrf
+                @method('PUT')
+                <div class="modal-body w-200">
                 <div class="row">
                     <div class="col-sm-6">
-                        <div class="form-group">
-                            <label>{{ __('text.designacao') }}</label>
-                            <input type="text" class="form-control" id="#" >
-                        </div>
+                    <div class="form-group">
+                    <label>{{ __('text.designacao') }}</label>
+                    <input type="text"  class="form-control @error('designacao') is-invalid @enderror" id="designacao" name="designacao" value={{old('designacao')}}>
+                    @error('designacao')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                </div>
                     </div>
                     <div class="col-sm-6">
-                        <div class="form-group">
-                            <label>{{ __('text.nomeResponsavel') }}</label>
-                            <input type="text" class="form-control" id="#"
-                                >
-                        </div>
+                    <div class="form-group">
+                    <label>{{ __('text.nomeResponsavel') }}</label>
+                    <input type="text"  class="form-control @error('nomeResponsavel') is-invalid @enderror" id="nomeResponsavel" name="nomeResponsavel" value={{old('nomeResponsavel')}}>
+                    @error('nomeResponsavel')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-sm-6">
-                        <div class="form-group">
-                            <label>{{ __('text.emailResponsavel') }}</label>
-                            <input type="text" class="form-control" id="#"
-                                >
-                        </div>
+                    <div class="form-group">
+                    <label>{{ __('text.emailResponsavel') }}</label>
+                    <input  type="text" class="form-control @error('emailResponsavel') is-invalid @enderror" id="emailResponsavel" name="emailResponsavel" value={{old('emailResponsavel')}}>
+                    @error('emailResponsavel')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>{{ __('text.nomeSolicitante') }}</label>
-                            <input type="text" class="form-control" id="#"
-                                >
+                            <input type="text" class="form-control " name="nomeSolicitante" id="nomeSolicitante"
+                                    value={{old('nomeSolicitante')}}>
                         </div>
                     </div>
                 </div>
@@ -117,24 +137,30 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>{{ __('text.observacoes') }}</label>
-                            <textarea class="form-control" rows="3" ></textarea>
+                            <textarea class="form-control" name="observacoes" id="observacoes" cols="30" rows="3"
+                                    maxlength="100">{{old('observacoes')}}</textarea>
                         </div>
                     </div>
                     <div class="col-sm-6">
-                        <div class="form-group">
-                            <label>{{ __('text.emailSolicitante') }}</label>
-                            <input type="text" class="form-control" id="#"
-                                >
-                        </div>
+                    <div class="form-group">
+                    <label>{{ __('text.emailSolicitante') }}</label>
+                    <input type="text"   class="form-control @error('emailSolicitante') is-invalid @enderror" id="emailSolicitante" name="emailSolicitante" value={{old('emailSolicitante')}}> 
+                    @error('emailSolicitante')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                </div>
                     </div>
                 </div>
 
-            </div>
+                </div>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('text.cancelar') }}</button>
                 <button type="button" class="btn btn-primary toastrDefaultSuccess1"
                     data-dismiss="modal">{{ __('text.guardar') }}</button>
             </div>
+            </form>
         </div>
         <!-- /.modal-content -->
     </div>
@@ -152,17 +178,15 @@
             </div>
             <div class="modal-body">
             
-                <p class="font-weight-bold">{{ __('text.designacao') }}: <span class="font-weight-normal"></span></p>
-                <p class="font-weight-bold">{{ __('text.nomeResponsavel') }}: <span class="font-weight-normal">Joaquim
-                        Ferreira</span></p>
-                <p class="font-weight-bold">{{ __('text.emailResponsavel') }}: <span class="font-weight-normal">j.quim@ua.pt</span>
+                <p class="font-weight-bold">{{ __('text.designacao') }}: <span class="font-weight-normal" id="designacaoSpan"></span></p>
+                <p class="font-weight-bold">{{ __('text.nomeResponsavel') }}: <span class="font-weight-normal" id="nomeRspan"></span></p>
+                <p class="font-weight-bold">{{ __('text.emailResponsavel') }}: <span class="font-weight-normal" id="emailRsapn"></span>
                 </p>
-                <p class="font-weight-bold">{{ __('text.nomeSolicitante') }}: <span class="font-weight-normal">Méci Tabuleiro</span>
+                <p class="font-weight-bold">{{ __('text.nomeSolicitante') }}: <span class="font-weight-normal" id="nomeSspan"></span>
                 </p>
-                <p class="font-weight-bold">{{ __('text.emailSolicitante') }}: <span class="font-weight-normal">Mci@ua.pt</span>
+                <p class="font-weight-bold">{{ __('text.emailSolicitante') }}: <span class="font-weight-normal" id="emailSspan"></span>
                 </p>
-                <p class="font-weight-bold">{{ __('text.observacoes') }}: <span class="font-weight-normal">Lorem ipsum dolor sit amet
-                        consectetur adipisicing elit. Quas nobis earum quia magni repudiandae.</span></p>
+                <p class="font-weight-bold">{{ __('text.observacoes') }}: <span class="font-weight-normal" id="observacoes1"></span></p>
             
             </div>
         </div>
@@ -189,7 +213,15 @@
 
 var dataSet = [];
   @foreach( $cliente as $cliente)
-   dataSet.push(["{{$cliente->designacao}}","{{$cliente->operador->nome}}","{{$cliente->operador->email}}","","","{{$cliente->observacoes}}"]);
+   dataSet.push([
+       "{{$cliente->designacao}}",
+       "{{$cliente->operador->nome}}",
+       "{{$cliente->operador->email}}",
+       "",
+       "",
+       "{{$cliente->observacoes}}",
+       '<div class="btn-group"><button type="button" class="btn btn-primary" data-toggle="tooltip" title="{{ __('text.detalhes') }}" onclick="info({{$cliente}},true)" }}"><i class="fas fa-eye"></i></button>  <button data-toggle="tooltip" title="{{ __('text.editar') }}"  type="button" onclick="info({{$cliente}},false)" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>  <button data-toggle="tooltip" title="{{ __('text.eliminar') }}" type="button" onclick="elim({{$cliente->id}})"  class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></div>'
+        ]);
    @endforeach
     $(function () {
     $('#table').DataTable({
@@ -201,8 +233,6 @@ var dataSet = [];
         },
         "columnDefs": [ {
             "targets": -1,
-            "data": null,
-            "defaultContent": '<div class="btn-group"><button type="button" class="btn btn-primary" data-toggle="modal" data-toggle="tooltip" title={{ __('text.detalhes') }} data-target="#modal-default2"><i class="fas fa-eye"></i></button><button data-toggle="modal" data-toggle="tooltip" title={{ __('text.editar') }} data-target="#modal-default1" type="button" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button><button data-toggle="modal" data-toggle="tooltip" title={{ __('text.eliminar') }} data-target="#modal-default" type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></div>',
             "orderable": false
         }]
     });
@@ -214,6 +244,36 @@ var dataSet = [];
       toastr.success('{{ __('text.editadoSucesso') }}')
     });
   });
+
+  function elim(id){
+        $('#eliminar').attr('action', '/clientes/'+id);
+        $('#modal-default').modal('show');
+    }
+
+    function info(info,modal) {
+            if(modal){
+                $('#modal-default2').modal('show');
+                $('#designacaoSpan').text(info.designacao);
+                $('#nomeRspan').text(info.operador.nome);
+                $('#emailRsapn').text(info.operador.email);
+                $('#nomeSspan').text(info.nomeSolicitante);
+                $('#emailSspan').text(info.emailSolicitante);
+                $('#observacoes1').text(info.observacoes);
+            }else{
+                $('#edit').attr('action', '/clientes/'+info.id);
+                $('#modal-default1').modal('show');
+                $('#designacao').val(info.designacao);
+                $('#nomeResponsavel').val(info.operador.nome);
+                $('#emailResponsavel').val(info.operador.email);
+                $('#nomeSolicitante').val(info.nomeSolicitante);
+                $('#observacoes').val(info.observacoes);
+                $('#emailSolicitante').val(info.emailSolicitante);
+                
+            }
+        console.dir(info);
+        console.dir(modal);
+    }
+
 </script>
 @include('sub-views.exports')
 @stop

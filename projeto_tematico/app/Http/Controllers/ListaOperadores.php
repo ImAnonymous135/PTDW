@@ -4,30 +4,49 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Operadores;
-use App\Models\Operadores_Perfil;
+use App\Models\Perfil;
 
 class ListaOperadores extends Controller{
 
     public function show(){
         $operadores = Operadores::all();
-        return view('operadores',['operadores'=>$operadores]);
+        $perfil = Perfil::all();
+
+        return view('operadores',['operadores'=>$operadores,'perfil'=>$perfil]);
     }
 
     public function create(){
-        return view('adicionar-operador');
+        $perfil = Perfil::all();
+        return view('adicionar-operador',['perfil'=>$perfil]);
     }
 
     public function store(Request $request)
     {
         $this->validateOperadores();
-        $operadores = new Operadores(request(['nome','perfil','email','observacoes']));
-        dd($operadoresPerfil);
+        
+        $operadores = new Operadores(request(['id_perfil','nome','email','observacoes']));
+        $operadores->id_perfil=$request->perfil;
+        //['solicitante_sala','id_perfil','nome','email','observacoes','data_criação','data_eliminação']
         $operadores->data_criação = date("d-m-Y");
         $operadores->timestamps=false;
         $operadores->save();
+<<<<<<< HEAD
         $operadoresPerfil->save();
 
         return redirect('/operadores');
+=======
+        
+        return redirect('/operadores');    
+>>>>>>> main
+    }
+
+    public function update($id){
+
+        $operadores = Operadores::find($id);
+        $operadores->id_perfil = request()->novoCargoOperador;
+        $operadores->save();
+        
+        return redirect('/operadores'); 
     }
 
 
@@ -39,8 +58,10 @@ class ListaOperadores extends Controller{
         ]);
     }
 
-    public function edit(){ }
+    public function destroy($id){
+        Operadores::find($id)->delete();
+        return redirect('/operadores');
+    }
 
-    public function update(){ }
 
 }

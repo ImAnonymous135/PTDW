@@ -17,7 +17,7 @@
     <div class="col-sm-3">
         <div class="small-box bg-success">
             <div class="inner">
-                <h3>580</h3>
+                <h3>{{$cards['produtos']}}</h3>
                 <p>{{__('text.produtos')}}</p>
             </div>
             <div class="icon">
@@ -28,7 +28,7 @@
     <div class="col-sm-3">
         <div class="small-box bg-info">
             <div class="inner">
-                <h3>10</h3>
+                <h3>{{$cards['clientes']}}</h3>
                 <p>{{__('text.clientes')}}</p>
             </div>
             <div class="icon">
@@ -39,7 +39,7 @@
     <div class="col-sm-3">
         <div class="small-box bg-warning">
             <div class="inner">
-                <h3>230</h3>
+                <h3>{{$cards['operadores']}}</h3>
                 <p>{{__('text.utilizadores')}}</p>
             </div>
             <div class="icon">
@@ -50,7 +50,7 @@
     <div class="col-sm-3">
         <div class="small-box bg-danger">
             <div class="inner">
-                <h3>10</h3>
+                <h3>{{$cards['fornecedores']}}</h3>
                 <p>{{__('text.fornecedores')}}</p>
             </div>
             <div class="icon">
@@ -69,50 +69,14 @@
                 <table id="table2" class="table table-head-fixed">
                     <thead>
                         <tr>
-                            <th>{{__('text.designacao')}}</th>
-                            <th>{{__('text.inventario')}}</th>
-                            <th>{{__('text.embalagem')}}</th>
-                            <th>{{__('text.localizacao')}}</th>
-                            <th>{{__('text.tipo')}}</th>
-                            <th>{{__('text.acoes')}}</th>
+                            <th>{{ __('text.produto') }}</th>
+                            <th>{{ __('text.stockExistente') }}</th>
+                            <th>{{ __('text.tipo') }}</th>
+                            <th>{{ __('text.acoes') }}</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>ÁCIDO ANTRANÍLICO</td>
-                            <td>5</td>
-                            <td>30mg</td>
-                            <td>T-3</td>
-                            <td>Quimico</td>
-                            <td>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>ERGOMETRINA</td>
-                            <td>7</td>
-                            <td>25g</td>
-                            <td>A-1</td>
-                            <td>Quimico</td>
-                            <td>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Propanol</td>
-                            <td>13</td>
-                            <td>1L + 2.5L</td>
-                            <td>A-2</td>
-                            <td>Quimico</td>
-                            <td>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Caldo BHI</td>
-                            <td>10</td>
-                            <td>800g</td>
-                            <td>C-2</td>
-                            <td>Quimico</td>
-                            <td></td>
-                        </tr>
+                        
                         </tfoot>
                 </table>
             </div>
@@ -129,47 +93,12 @@
                         <tr>
                             <th>{{ __('text.produto') }}</th>
                             <th>{{ __('text.localizacao') }}</th>
-                            <th>{{ __('text.embalagem') }}</th>
-                            <th>{{ __('text.operador') }}</th>
+                            <th>{{ __('text.capacidadeEmbalagem') }}</th>
                             <th>{{ __('text.data') }}</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Água</td>
-                            <td>G-3</td>
-                            <td>2</td>
-                            <td>Ricardo José</td>
-                            <td>4/12/2019</td>
-                        </tr>
-                        <tr>
-                            <td>Água</td>
-                            <td>G-3</td>
-                            <td>2</td>
-                            <td>Ricardo José</td>
-                            <td>4/12/2019</td>
-                        </tr>
-                        <tr>
-                            <td>Água</td>
-                            <td>G-3</td>
-                            <td>2</td>
-                            <td>Ricardo José</td>
-                            <td>4/12/2019</td>
-                        </tr>
-                        <tr>
-                            <td>Água</td>
-                            <td>G-3</td>
-                            <td>2</td>
-                            <td>Ricardo José</td>
-                            <td>4/12/2019</td>
-                        </tr>
-                        <tr>
-                            <td>Água</td>
-                            <td>G-3</td>
-                            <td>1</td>
-                            <td>Ricardo José</td>
-                            <td>4/12/2019</td>
-                        </tr>
+                        
                         </tfoot>
                 </table>
             </div>
@@ -181,30 +110,56 @@
 
 @section('js')
 <script>
-    $(function () {
-      $('#table').DataTable({
-        "responsive": true,
-        "autoWidth": false,
-        language: {
-              url: '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
-          },
-      });
+
+    //produtos
+    produtosData = [];
+    json = JSON.parse('<?php echo $produtos ?>');  
+
+    json.forEach(e => {
+        produtosData.push([
+            e.designacao,
+            e.stock_existente,
+            e.is_quimico ? "<?php echo __('text.quimico') ?>" : "<?php echo __('text.solido') ?>",
+            '<div class="btn-group"><a href="./produtos/'+e.id+'" type="button" data-toggle="tooltip" title="{{ __('text.detalhes') }}" class="btn btn-primary"><i class="fas fa-eye"></i></a><a href="./entradas/'+e.id+'" type="button" data-toggle="tooltip" title="{{ __('text.novaEntrada') }}" class="btn btn-success"><i class="fas fa-plus"></i></a></div>'
+        ]);
     });
+
     $(function () {
     $('#table2').DataTable({
+        data: produtosData,
         "responsive": true,
         "autoWidth": false,
         "ordering": false,
         "order": [[ 1, "asc" ]],
         language: {
                 url: '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
-        },
-        "columnDefs": [ {
-            "targets": -1,
-            "data": null,
-            "defaultContent": '<div class="btn-group"><a href="./produtos/info-produto" type="button" data-toggle="tooltip" title="{{ __('text.details') }}" class="btn btn-primary"><i class="fas fa-eye"></i></a><a href="./produtos/entradas" type="button" data-toggle="tooltip" title="{{ __('text.details') }}" class="btn btn-success"><i class="fas fa-plus"></i></a></div>'
-        }]
+        }
     });
   });
+    //saidas
+    movimentosData = [];
+    json = JSON.parse('<?php echo $movimentos ?>');  
+    console.log(json);
+
+    json.forEach(e => {
+        movimentosData.push([
+            e.produto,
+            e.capacidade,
+            e.sala+'-'+e.armario+'-'+e.prateleira,
+            e.data
+        ]);
+    });
+    
+    $(function () {
+      $('#table').DataTable({
+          data: movimentosData,
+          "responsive": true,
+          "autoWidth": false,
+          language: {
+              url: '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
+            },
+        });
+    });
+   
 </script>
 @endsection
