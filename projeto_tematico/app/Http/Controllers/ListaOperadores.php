@@ -7,7 +7,7 @@ use App\Models\Operadores;
 use App\Models\Operadores_Perfil;
 
 class ListaOperadores extends Controller{
-    
+
     public function show(){
         $operadores = Operadores::all();
         return view('operadores',['operadores'=>$operadores]);
@@ -26,8 +26,8 @@ class ListaOperadores extends Controller{
         $operadores->timestamps=false;
         $operadores->save();
         $operadoresPerfil->save();
-        
-        return redirect('/operadores');    
+
+        return redirect('/operadores');
     }
 
 

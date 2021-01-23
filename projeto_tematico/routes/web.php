@@ -54,6 +54,8 @@ Route::get('/produtos/saidas', function () {
     return view('registo-saida');
 });
 
+Route::post('/entradas/adicionar','App\Http\Controllers\RegistarEntradaController@store');
+
 //operadores
 Route::get('/operadores','App\Http\Controllers\ListaOperadores@show');
 Route::get('/operadores/adicionar','App\Http\Controllers\ListaOperadores@create');
@@ -75,7 +77,7 @@ Route::delete('/fornecedores/{id}','App\Http\Controllers\Fornecedores@destroy');
 Route::get('/fornecedores','App\Http\Controllers\Fornecedores@show');
 Route::get('/fornecedores/adicionar','App\Http\Controllers\Fornecedores@create');
 Route::post('/fornecedores/adicionar','App\Http\Controllers\Fornecedores@store');
- 
+
 
 
 //movimentos

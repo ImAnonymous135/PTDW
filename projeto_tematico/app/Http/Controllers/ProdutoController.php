@@ -12,11 +12,10 @@ class ProdutoController extends Controller
         $produto = Produtos::find($id);
 
         if ($produto->is_quimico) {
-
-            return view('info-produto',['produto' => $produto]);
+            return view('info-produto', ['produto' => $produto]);
         } else {
-            
-            return view('info-produto',['produto' => $produto]);
+
+            return view('info-produto', ['produto' => $produto]);
         }
     }
 }
