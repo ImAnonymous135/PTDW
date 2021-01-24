@@ -56,6 +56,8 @@ Route::get('/produtos/saidas', function () {
 
 Route::post('/entradas/adicionar','App\Http\Controllers\RegistarEntradaController@store');
 
+//Registo Saida
+Route::get('/saidas','App\Http\Controllers\RegistoSaidaController@load');
 
 //operadores
 Route::put('/operadores/{id}','App\Http\Controllers\ListaOperadores@update');

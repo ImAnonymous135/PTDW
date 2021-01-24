@@ -84,7 +84,7 @@
             <div class="col-sm-3">
                 <div class="form-group">
                     <label>{{ __('text.tipoEmbalagem') }}</label>
-                    <select class="form-control input-group-append", id="tipoEmbalagem", name="tipoEmbalagem">
+                    <select class="form-control input-group-append" id="tipoEmbalagem" name="tipoEmbalagem">
                         @foreach ($tipoEmbalagem as $item)
                             <option value="{{ $item->id }}">{{ $item->tipo_embalagem }}</option>
                         @endforeach

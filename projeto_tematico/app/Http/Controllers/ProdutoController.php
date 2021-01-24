@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Produtos;
 use App\Models\Embalagem;
@@ -17,15 +17,6 @@ class ProdutoController extends Controller
         $embalagens = $this->embalagens($id);
         //dd($produto);
         if ($produto->is_quimico) {
-<<<<<<< HEAD
-            return view('info-produto', ['produto' => $produto]);
-        } else {
-
-            return view('info-produto', ['produto' => $produto]);
-        }
-    }
-}
-=======
 
             return view('info-produto',['produto' => $produto, 'embalagens' => $embalagens]);
         } else {
@@ -48,4 +39,3 @@ class ProdutoController extends Controller
         return $movimentos;
     }
 }
->>>>>>> main

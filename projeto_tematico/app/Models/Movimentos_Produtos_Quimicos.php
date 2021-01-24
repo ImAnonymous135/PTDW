@@ -9,7 +9,8 @@ use App\Models\Movimentos;
 class Movimentos_Produtos_Quimicos extends Model
 {
     protected $table = 'movimentos_produtos_quimicos';
-    
+    protected $primaryKey = false;
+
     use HasFactory;
 
     public function movimento(){
