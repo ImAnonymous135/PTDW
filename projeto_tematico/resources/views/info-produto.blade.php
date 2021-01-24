@@ -70,10 +70,10 @@
           </p>
           <p class="font-weight-bold mb-3">{{ __('text.pictogramas') }}:</p>
           <div>
-            <img id="skull" class="pictogramas" src="https://www.reach-compliance.ch/downloads/GHS06_skull.png" alt=""
-              srcset="" width="100px" height="100px">
-            <img id="danger" class="pictogramas" src="https://www.reach-compliance.ch/downloads/GHS01_explos.png" alt=""
-              srcset="" width="100px" height="100px">
+            @foreach ($produto->quimico->quimico_pictogramas as $pictograma)
+            <img class="pictogramas" src="{{$pictograma->pictogramas->imagem}}" alt=""
+            srcset="" width="100px" height="100px">
+            @endforeach
           </div>
           @else
           <p class="font-weight-bold mb-0">{{ __('text.familia') }}: <span

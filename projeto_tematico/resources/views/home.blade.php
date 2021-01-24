@@ -144,8 +144,8 @@
     json.forEach(e => {
         movimentosData.push([
             e.produto,
-            e.capacidade,
             e.sala+'-'+e.armario+'-'+e.prateleira,
+            e.capacidade,
             e.data
         ]);
     });
