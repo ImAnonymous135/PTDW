@@ -84,7 +84,7 @@
             <div class="col-sm-3">
                 <div class="form-group">
                     <label>{{ __('text.tipoEmbalagem') }}</label>
-                    <select class="form-control input-group-append">
+                    <select class="form-control input-group-append", id="tipoEmbalagem", name="tipoEmbalagem">
                         @foreach ($tipoEmbalagem as $item)
                             <option value="{{ $item->id }}">{{ $item->tipo_embalagem }}</option>
                         @endforeach
@@ -186,7 +186,7 @@
             <div class="col-sm-2">
                 <div class="form-group">
                     <label>{{ __('text.texturaOuViscosidade') }}</label>
-                    <select class="form-control" id="texturaViscosidade">
+                    <select class="form-control" id="texturaViscosidade", name="texturaViscosidade">
                         @foreach ($textura as $item)
                             <option value="{{ $item->id }}">{{ $item->textura_viscosidade }}</option>
                         @endforeach

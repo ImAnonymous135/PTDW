@@ -11,7 +11,7 @@ use App\Models\Movimentos;
 class ProdutoController extends Controller
 {
     public function show($id)
-    {   
+    {
         $produto = Produtos::find($id);
 
         $embalagens = $this->embalagens($id);
@@ -29,7 +29,7 @@ class ProdutoController extends Controller
 
             return view('info-produto',['produto' => $produto, 'embalagens' => $embalagens]);
         } else {
-            
+
             return view('info-produto',['produto' => $produto, 'embalagens' => $embalagens]);
         }
     }
@@ -44,7 +44,7 @@ class ProdutoController extends Controller
         join('armario', 'prateleiras.id_armario', '=', 'armario.id')->
         join('cliente', 'armario.id_cliente', '=', 'cliente.id')->
         get();
-        
+
         return $movimentos;
     }
 }
