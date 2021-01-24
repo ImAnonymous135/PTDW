@@ -9,7 +9,7 @@ class Tipo_Embalagem extends Model
 {
     use HasFactory;
     
-    protected $table = 'tipo_embalagems';
+    protected $table = 'tipo_embalagem';
     
     public function movimentos()
     {

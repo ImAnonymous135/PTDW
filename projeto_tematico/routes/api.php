@@ -17,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 //movimentos
 Route::get('/saidas','App\Http\Controllers\APIController@registoSaida')->name("APISaidas");
-Route::get('/entradaNaoQuimicos','App\Http\Controllers\APIController@entradaNaoQuimico')->name("APIEntradaNaoQuimicos");
-Route::get('/entradaQuimicos','App\Http\Controllers\APIController@entradaQuimico')->name("APIEntradaQuimicos");
-Route::get('/operadores','App\Http\Controllers\APIController@operadores')->name("APIOperadores");
+Route::get('/entradaNaoQuimicos','App\Http\Controllers\EntradaNaoQuimicoHistorico@getEntNaoQuimico')->name("APIEntradaNaoQuimicos");
+Route::get('/entradaQuimicos','App\Http\Controllers\EntradaQuimicoHistorico@getEntQuimico')->name("APIEntradaQuimicos");
+Route::get('/operadores','App\Http\Controllers\OperadoresHistorico@getOperadores')->name("APIOperadores");
 
 //fornecedores
-Route::get('/fornecedores','App\Http\Controllers\APIController@fornecedores')->name("APIFornecedores");
-Route::get('/fornecedor/{id}','App\Http\Controllers\APIController@fornecedor')->name("APIFornecedor");
+Route::get('/fornecedores','App\Http\Controllers\Fornecedores@getFornecedores')->name("APIFornecedores");
+Route::get('/fornecedor/{id}','App\Http\Controllers\Fornecedores@getFornecedor')->name("APIFornecedor");
