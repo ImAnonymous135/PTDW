@@ -7,21 +7,35 @@ use App\Models\Movimentos;
 use App\Models\Operadores;
 use App\Models\Embalagem;
 use App\Models\Fornecedor;
+use App\Models\Textura_viscosidade;
+use App\Models\Familia;
+use App\Models\Estado_Fisico;
+use App\Models\Tipo_Embalagem;
+use Carbon\Carbon;
 
 class RegistarEntradaController extends Controller
 {
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
 
         $guardar = new Movimentos();
-    $operadores = Operadores::find(/*nome*/);
-        dd($request);
+        $operadores = Operadores::where('nome', $request->operador)->first();
+        //dd($operadores->id);
     }
 
     public function load()
     {
-        $users = DB::table('users')->get();
+        $textura = Textura_viscosidade::all();
+        $familia = Familia::all();
+        $estadoFisico = Estado_Fisico::all();
+        $tipoEmbalagem = Tipo_Embalagem::all();
 
-        return view('user.index', ['users' => $users]);
+        $date = Carbon::now();
+
+        //dd($textura, $familia, $estadoFisico, $tipoEmbalagem);
+        //dd($date);
+
+        return view('registo-entrada', ["date" => $date, "familia" => $familia, "estadoFisico" => $estadoFisico, "tipoEmbalagem" => $tipoEmbalagem, "textura" => $textura]);
     }
 }

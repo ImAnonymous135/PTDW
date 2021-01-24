@@ -46,9 +46,8 @@ Route::get('/produtos','App\Http\Controllers\ProdutosController@show');
 Route::get('/produtos/{id}','App\Http\Controllers\ProdutoController@show');
 
 //Registo de entradas
-Route::get('/entradas', function () {
-    return view('registo-entrada');
-});
+Route::get('/entradas','App\Http\Controllers\RegistarEntradaController@load');
+
 Route::get('/entradas/{id}','App\Http\Controllers\EntradaController@show');
 
 Route::get('/produtos/saidas', function () {
@@ -56,6 +55,7 @@ Route::get('/produtos/saidas', function () {
 });
 
 Route::post('/entradas/adicionar','App\Http\Controllers\RegistarEntradaController@store');
+
 
 //operadores
 Route::put('/operadores/{id}','App\Http\Controllers\ListaOperadores@update');

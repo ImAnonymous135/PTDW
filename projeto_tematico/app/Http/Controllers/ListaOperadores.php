@@ -23,7 +23,7 @@ class ListaOperadores extends Controller{
     public function store(Request $request)
     {
         $this->validateOperadores();
-        
+
         $operadores = new Operadores(request(['id_perfil','nome','email','observacoes']));
         $operadores->id_perfil=$request->perfil;
         //['solicitante_sala','id_perfil','nome','email','observacoes','data_criação','data_eliminação']
@@ -31,9 +31,9 @@ class ListaOperadores extends Controller{
         $operadores->timestamps=false;
         $operadores->save();
 
-        $operadoresPerfil->save();
-          
-        return redirect('/operadores')->with(['toast'=>'addSuccess']);    
+        $operadores->save();
+
+        return redirect('/operadores')->with(['toast'=>'addSuccess']);
     }
 
     public function update($id){
@@ -41,7 +41,7 @@ class ListaOperadores extends Controller{
         $operadores = Operadores::find($id);
         $operadores->id_perfil = request()->novoCargoOperador;
         $operadores->save();
-        
+
         return redirect('/operadores')->with(['toast'=>'editSuccess']);
     }
 
