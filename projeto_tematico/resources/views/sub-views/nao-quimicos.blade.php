@@ -7,6 +7,7 @@
                 <select class="select-search form-control" name="state">
                     <option value="AL">Alabama</option>
                     <option value="WY">Wyoming</option>
+                    <option value="test">test</option>
                   </select>
             </div>
         </div>

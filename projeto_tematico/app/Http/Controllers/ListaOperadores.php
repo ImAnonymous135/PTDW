@@ -7,7 +7,7 @@ use App\Models\Operadores;
 use App\Models\Perfil;
 
 class ListaOperadores extends Controller{
-    
+
     public function show(){
         $operadores = Operadores::all();
         $perfil = Perfil::all();
@@ -30,7 +30,9 @@ class ListaOperadores extends Controller{
         $operadores->data_criação = date("d-m-Y");
         $operadores->timestamps=false;
         $operadores->save();
-        
+
+        $operadoresPerfil->save();
+          
         return redirect('/operadores')->with(['toast'=>'addSuccess']);    
     }
 

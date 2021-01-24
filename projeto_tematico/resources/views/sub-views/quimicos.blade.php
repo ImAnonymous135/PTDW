@@ -1,3 +1,5 @@
+<form method="POST" action="/entradas/adicionar">
+    @csrf
 <div id="quimicos">
     <div class="row">
         <div class="col-sm-4">
@@ -15,19 +17,19 @@
         <div class="col-sm-2">
             <div class="form-group">
                 <label>{{ __('text.dataEntrada') }}</label>
-                <input type="text" class="form-control" id="#" value="22/12/2020" disabled>
+                <input type="text" class="form-control" id="dataEntrada" value="22/12/2020" disabled name="dataEntrada">
             </div>
         </div>
         <div class="col-sm-2">
             <div class="form-group">
                 <label>{{ __('text.dataValidade') }}</label>
-                <input type="date" class="form-control" id="#" value="05/12/2020">
+                <input type="date" class="form-control" id="dataValidade" value="05/12/2020" name="dataValidade">
             </div>
         </div>
         <div class="col-sm-2">
             <div class="form-group">
-                <label>{{ __('text.capacidadeEmbalagem') }}</label>
-                <input type="number" class="form-control" id="#">
+                <label>{{ __('text.capacidadeEmbalagem')}} </label>
+                <input type="number" class="form-control" id="capacidadeEmbalagem" name="capacidadeEmbalagem">
             </div>
         </div>
     </div>
@@ -36,15 +38,15 @@
         <div class="col-sm-3">
             <div class="form-group">
                 <label>{{ __('text.identificacaoEmbalagem') }}</label>
-                <input type="text" class="form-control" id="#">
+                <input type="text" class="form-control" id="identificacaoEmbalagem" name="identificacaoEmbalagem">
             </div>
         </div>
         <div class="col-sm-3">
             <div class="form-group">
                 <label>{{ __('text.tipoEmbalagem') }}</label>
                 <select class="form-control input-group-append">
-                    <option>{{ __('text.plastico') }}</option>
-                    <option>{{ __('text.vidro') }}</option>
+                    <option value="plastico">{{ __('text.plastico') }}</option>
+                    <option value="vidro">{{ __('text.vidro') }}</option>
                 </select>
             </div>
         </div>
@@ -171,3 +173,9 @@
 
     </div>
 </div>
+<div class="d-flex flex-row justify-content-end">
+<span class="mr-2">
+    <button type="submit" href="#" class="btn btn-block btn-primary">{{ __('text.submeter') }}</button>
+  </span>
+</div>
+</form>
