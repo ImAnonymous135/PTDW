@@ -21,6 +21,7 @@
     Adicionar o botao no final para a ação como eliminar ou mudar de cargo ou assim
 -->
 @section('content')
+
 <ul id="menu" class="mfb-component--br mfb-slidein" data-mfb-toggle="hover">
     <li class="mfb-component__wrap">
         <a data-mfb-label="{{ __('text.novoCliente') }}" class="mfb-component__button--main" href="../clientes/adicionar">
@@ -157,8 +158,8 @@
                 </div>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('text.cancelar') }}</button>
-                <button type="button" class="btn btn-primary toastrDefaultSuccess1"
-                    data-dismiss="modal">{{ __('text.guardar') }}</button>
+                <button type="submit" class="btn btn-primary toastrDefaultSuccess1"
+                    >{{ __('text.guardar') }}</button>
             </div>
             </form>
         </div>
@@ -210,38 +211,35 @@
 </script>
 
 <script>
+@if(null !== session()->get( 'toast' ))
+        @if(session()->get( 'toast' )== 'editSuccess')
+            toastr.success('{{ __('text.editadoSucesso') }}')
+        @elseif(session()->get( 'toast' ) == 'deleteSuccess')
+            toastr.success('{{ __('text.eliminadoSucesso') }}')
+        @elseif(session()->get( 'toast' ) == 'error')
+            toastr.error('erro')
+        @endif
+    @endif
 
-var dataSet = [];
-  @foreach( $cliente as $cliente)
-   dataSet.push([
-       "{{$cliente->designacao}}",
-       "{{$cliente->operador->nome}}",
-       "{{$cliente->operador->email}}",
-       "",
-       "",
-       "{{$cliente->observacoes}}",
-       '<div class="btn-group"><button type="button" class="btn btn-primary" data-toggle="tooltip" title="{{ __('text.detalhes') }}" onclick="info({{$cliente}},true)" }}"><i class="fas fa-eye"></i></button>  <button data-toggle="tooltip" title="{{ __('text.editar') }}"  type="button" onclick="info({{$cliente}},false)" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>  <button data-toggle="tooltip" title="{{ __('text.eliminar') }}" type="button" onclick="elim({{$cliente->id}})"  class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></div>'
-        ]);
-   @endforeach
     $(function () {
     $('#table').DataTable({
-        data:dataSet,
         "responsive": true,
         "autoWidth": false,
         language: {
                 url: '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
         },
-        "columnDefs": [ {
-            "targets": -1,
-            "orderable": false
-        }]
-    });
-    $('.toastrDefaultSuccess').click(function() {
-      toastr.success('{{__('text.eliminadoSucesso')}}')
-    });
-
-    $('.toastrDefaultSuccess1').click(function() {
-      toastr.success('{{ __('text.editadoSucesso') }}')
+        "processing": true,
+            "serverSide": true,
+            "ajax": "{{ route('APIlistaClientes')}}",
+            "columns": [
+                { "data": 'designacao' },
+                { "data": 'nomeOperadores' },
+                { "data": 'emailOperadores' },
+                { "data": 'nomeSolicitante' },
+                { "data": 'emailSolicitante'},
+                { "data": 'observacoes'},
+                { "data": 'buttons'}
+            ]
     });
   });
 
@@ -250,26 +248,34 @@ var dataSet = [];
         $('#modal-default').modal('show');
     }
 
-    function info(info,modal) {
+    function info(id,modal) {
+        console.log(id);
+        $.ajax({
+               type:'GET',
+               url:'api/clientes/'+id,
+               success: function(info) {
+                info = JSON.parse(info);
+                console.dir(info);
             if(modal){
                 $('#modal-default2').modal('show');
-                $('#designacaoSpan').text(info.designacao);
-                $('#nomeRspan').text(info.operador.nome);
-                $('#emailRsapn').text(info.operador.email);
-                $('#nomeSspan').text(info.nomeSolicitante);
-                $('#emailSspan').text(info.emailSolicitante);
-                $('#observacoes1').text(info.observacoes);
+                $('#designacaoSpan').text(info[0].designacao);
+                $('#nomeRspan').text(info[0].nomeOperadores);
+                $('#emailRsapn').text(info[0].emailOperadores);
+                $('#nomeSspan').text(info[0].nomeSolicitante);
+                $('#emailSspan').text(info[0].emailSolicitante);
+                $('#observacoes1').text(info[0].observacoes);
             }else{
-                $('#edit').attr('action', '/clientes/'+info.id);
+                $('#edit').attr('action', '/clientes/'+id);
                 $('#modal-default1').modal('show');
-                $('#designacao').val(info.designacao);
-                $('#nomeResponsavel').val(info.operador.nome);
-                $('#emailResponsavel').val(info.operador.email);
-                $('#nomeSolicitante').val(info.nomeSolicitante);
-                $('#observacoes').val(info.observacoes);
-                $('#emailSolicitante').val(info.emailSolicitante);
-                
+                $('#designacao').val(info[0].designacao);
+                $('#nomeResponsavel').val(info[0].nomeOperadores);
+                $('#emailResponsavel').val(info[0].emailOperadores);
+                $('#nomeSolicitante').val(info[0].nomeSolicitante);
+                $('#observacoes').val(info[0].observacoes);
+                $('#emailSolicitante').val(info[0].emailSolicitante);
             }
+        }
+        });
         console.dir(info);
         console.dir(modal);
     }

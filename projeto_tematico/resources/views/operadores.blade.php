@@ -21,6 +21,7 @@
     Adicionar o botao no final para a ação como eliminar ou mudar de cargo ou assim
 -->
 @section('content')
+
 <ul id="menu" class="mfb-component--br mfb-slidein" data-mfb-toggle="hover">
     <li class="mfb-component__wrap">
         <a data-mfb-label="{{ __('text.novoOperador') }}" class="mfb-component__button--main" href="../operadores/adicionar">
@@ -134,63 +135,69 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script>
+@if(null !== session()->get( 'toast' ))
+        @if(session()->get( 'toast' )== 'editSuccess')
+            toastr.success('{{ __('text.editadoSucesso') }}')
+        @elseif(session()->get( 'toast' ) == 'deleteSuccess')
+            toastr.success('{{ __('text.eliminadoSucesso') }}')
+        @elseif(session()->get( 'toast' ) == 'error')
+            toastr.error('erro')
+        @endif
+    @endif
+    
     $(document).ready(function(){
       $('[data-toggle="tooltip"]').tooltip();
     });
 </script>
 <script>
-
-dataSet= [];
-  @foreach( $operadores as $operadores)
-   dataSet.push([
-       "{{$operadores->nome}}",
-        "{{$operadores->email}}",
-        "{{$operadores->perfil->perfil}}",
-        "{{$operadores->data_criação}}",
-        "{{$operadores->data_eliminação}}",
-        '<div class="btn-group"><button type="button" class="btn btn-primary" data-toggle="tooltip" title="{{ __('text.detalhes') }}" onclick="info({{$operadores}},true)" }}"><i class="fas fa-eye"></i></button>  <button data-toggle="tooltip" title="{{ __('text.editar') }}"  type="button" onclick="info({{$operadores}},false)" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>  <button data-toggle="tooltip" title="{{ __('text.eliminar') }}" type="button" onclick="elim({{$operadores->id}})"  class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></div>'
-        ]);
-   @endforeach
     $(function () {
     $('#table').DataTable({
-        data:dataSet,
         "responsive": true,
         "autoWidth": false,
         language: {
                 url: '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
         },
-        "columnDefs": [ {
-            "targets": -1,
-            "orderable": false
-        }]
+        "processing": true,
+            "serverSide": true,
+            "ajax": "{{ route('APIlistaOperadores')}}",
+            "columns": [
+                { "data": 'nome' },
+                { "data": 'email' },
+                { "data": 'perfil' },
+                { "data": 'data_criação' },
+                { "data": 'data_eliminação'},
+                {"data" : 'buttons'}
+            ]
     });
-    $('.toastrDefaultSuccess').click(function() {
-      toastr.success('{{ __('text.eliminadoSucesso') }}')
-    });
-
-    $('.toastrDefaultSuccess1').click(function() {
-      toastr.success('{{ __('text.editadoSucesso') }}')
-    });
+  
   });
   function elim(id){
         $('#eliminar').attr('action', '/operadores/'+id);
         $('#modal-default').modal('show');
     }
 
-    function info(info,modal) {
-        if(modal){
-            $('#modal-default2').modal('show');
-            $('#nome').text(info.nome);
-            $('#email').text(info.email);
-            $('#perfil').text(info.perfil.perfil);
-            $('#dataCriacao').text(info.data_criação);
-            $('#dataEliminacao').text(info.data_eliminação);
-            $('#observacoes').text(info.observacoes);
-        }else{
-            $('#edit').attr('action', '/operadores/'+info.id);
-            $('#modal-default1').modal('show');
-            $('#novoCargoOperador').val(info.perfil.perfil);
+    function info(id,modal) {
+        $.ajax({
+               type:'GET',
+               url:'api/operadores/'+id,
+               success: function(info) {
+                info = JSON.parse(info);
+            if(modal){
+                console.dir(info);
+                $('#modal-default2').modal('show');
+                $('#nome').text(info[0].nome);
+                $('#email').text(info[0].email);
+                $('#perfil').text(info[0].perfil);
+                $('#dataCriacao').text(info[0].data_criação);
+                $('#dataEliminacao').text(info[0].data_eliminação);
+                $('#observacoes').text(info[0].observacoes);
+            }else{
+                $('#edit').attr('action', '/operadores/'+id);
+                $('#modal-default1').modal('show');
+                $('#novoCargoOperador').val(info[0].perfil);
+            }
         }
+        });
         console.dir(info);
         console.dir(modal);
     }

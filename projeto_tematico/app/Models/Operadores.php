@@ -15,7 +15,7 @@ class Operadores extends Model
     use SoftDeletes;
 
     public function cliente(){
-        return $this->belongsTo(Cliente::class,'solicitante_sala');
+        return $this->hasMany(Cliente::class,'id');
     }
 
     public function registoSaidas(){

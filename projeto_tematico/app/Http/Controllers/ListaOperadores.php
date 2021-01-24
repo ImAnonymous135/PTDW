@@ -31,7 +31,7 @@ class ListaOperadores extends Controller{
         $operadores->timestamps=false;
         $operadores->save();
         
-        return redirect('/operadores');    
+        return redirect('/operadores')->with(['toast'=>'addSuccess']);    
     }
 
     public function update($id){
@@ -40,7 +40,7 @@ class ListaOperadores extends Controller{
         $operadores->id_perfil = request()->novoCargoOperador;
         $operadores->save();
         
-        return redirect('/operadores'); 
+        return redirect('/operadores')->with(['toast'=>'editSuccess']);
     }
 
 
@@ -54,7 +54,7 @@ class ListaOperadores extends Controller{
 
     public function destroy($id){
         Operadores::find($id)->delete();
-        return redirect('/operadores');
+        return redirect('/operadores')->with(['toast'=>'deleteSuccess']);;
     }
 
 

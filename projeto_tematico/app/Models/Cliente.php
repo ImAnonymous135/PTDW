@@ -21,6 +21,6 @@ class Cliente extends Model
         return $this->hasMany(Registo_Saidas::class,'id');
     }
     public function solicitantes(){
-        return $this->hasMany(Operadores::class,'solicitante_sala');
+        return $this->belongsTo(Operadores::class,'solicitante_sala','id');
     }
 }

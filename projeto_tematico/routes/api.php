@@ -24,3 +24,13 @@ Route::get('/operadores','App\Http\Controllers\APIController@operadores')->name(
 //fornecedores
 Route::get('/fornecedores','App\Http\Controllers\APIController@fornecedores')->name("APIFornecedores");
 Route::get('/fornecedor/{id}','App\Http\Controllers\APIController@fornecedor')->name("APIFornecedor");
+
+//operadores
+Route::get('/operadores','App\Http\Controllers\APIController@listaOperadores')->name("APIlistaOperadores");
+Route::get('/operadores/{id}','App\Http\Controllers\APIController@getOperador')->name("APIgetOperador");
+
+//clientes
+Route::get('/clientes','App\Http\Controllers\APIController@listaClientes')->name("APIlistaClientes");
+Route::get('/clientes/{id}','App\Http\Controllers\APIController@getCliente')->name("APIgetCliente");
+
+

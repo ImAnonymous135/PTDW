@@ -64,6 +64,7 @@ Route::post('/operadores/adicionar','App\Http\Controllers\ListaOperadores@store'
 
 
 //clientes
+Route::put('/clientes/{id}','App\Http\Controllers\ListaCliente@update');
 Route::delete('/clientes/{id}','App\Http\Controllers\ListaCliente@destroy');
 Route::get('/clientes','App\Http\Controllers\ListaCliente@show');
 Route::get('/clientes/adicionar','App\Http\Controllers\ListaCliente@create');
