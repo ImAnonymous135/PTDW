@@ -15,14 +15,8 @@ class ProdutoController extends Controller
         $produto = Produtos::find($id);
 
         $embalagens = $this->embalagens($id);
-        //dd($produto->quimico->quimico_pictogramas[0]->pictogramas);
-        if ($produto->is_quimico) {
-
-            return view('info-produto',['produto' => $produto, 'embalagens' => $embalagens]);
-        } else {
-
-            return view('info-produto',['produto' => $produto, 'embalagens' => $embalagens]);
-        }
+        
+        return view('info-produto',['produto' => $produto, 'embalagens' => $embalagens]);
     }
 
     private function embalagens($id)

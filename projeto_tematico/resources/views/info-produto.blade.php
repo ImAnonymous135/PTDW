@@ -121,7 +121,6 @@
 
 <script>
   json = JSON.parse('<?php echo $embalagens ?>');  
-
   dataSet = [];
 
   function dataAbertura(data) {
