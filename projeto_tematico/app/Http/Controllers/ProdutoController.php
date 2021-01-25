@@ -16,6 +16,7 @@ class ProdutoController extends Controller
 
         $embalagens = $this->embalagens($id);
 
+        //dd('produto', $produto, 'embalagem', $embalagens);
         return view('info-produto',['produto' => $produto, 'embalagens' => $embalagens]);
     }
 

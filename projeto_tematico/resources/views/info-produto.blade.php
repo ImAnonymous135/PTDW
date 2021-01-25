@@ -120,7 +120,7 @@
 <script src="{{ asset('css/mfb.css') }}"></script>
 
 <script>
-  json = JSON.parse('<?php echo $embalagens ?>');  
+  json = JSON.parse('<?php echo $embalagens ?>');
   dataSet = [];
 
   function dataAbertura(data) {
@@ -134,7 +134,7 @@
     if (data == null) {
       return '<button type="button" data-toggle="tooltip" class="btn btn-primary" disabled>{{ __('text.termino') }}</button>';
     }
-    return '<a href="#" type="button" data-toggle="tooltip" class="btn btn-primary">{{ __('text.termino') }}</a>';
+    return '<a href="./saidas/{{$produto->designacao}}/{{$embalagens[0]->embalagemid}}" type="button" data-toggle="tooltip" class="btn btn-primary">{{ __('text.termino') }}</a>';
   }
 
   json.forEach(e => {

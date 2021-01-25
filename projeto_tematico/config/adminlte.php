@@ -310,7 +310,7 @@ return [
         ],
         [
             'text' => 'Registo de Saída',
-            'url'  => '/saidas',
+            'url'  => '/saidas/null/null',
             'icon' => 'fas fa-minus',
         ],
         [

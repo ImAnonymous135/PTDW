@@ -14,7 +14,7 @@ class Produtos extends Model
     }
 
     public function unidades(){
-        return $this->belongsTo(Unidades::class, 'id', 'id_unidades');
+        return $this->belongsTo(Unidades::class, 'id_unidades', 'id');
     }
 
     public function quimico(){

@@ -55,10 +55,17 @@ class RegistoSaidaController extends Controller
 
        return redirect('/saidas');
     }
-    public function load()
+    public function load($produto_designacao, $embalagem_designacao)
     {
+        //dd('cheguei');
+        if($produto_designacao == 'null')
+        {
+            $produto_designacao = "";
+            $embalagem_designacao = "";
+        }
+
         $date = Carbon::now()->format('d-m-Y');
-        return view('registo-saida', ['data'=> $date]);
+        return view('registo-saida', ['data'=> $date, 'produtoDesignacao'=>$produto_designacao, 'embalagemDesignacao' => $embalagem_designacao]);
     }
 
     //le a request e devolve os dados relevantes
@@ -70,7 +77,7 @@ class RegistoSaidaController extends Controller
 
         $data = array (
             "start" => $request->get("start"),
-            "length" => $request->get("length"), 
+            "length" => $request->get("length"),
             "search" => $search_arr['value'],
             "column" => $columnName_arr[$columnIndex]['data'],
             "order" => $columnIndex_arr[0]['dir']
@@ -92,7 +99,7 @@ class RegistoSaidaController extends Controller
         ->join('armario', 'prateleiras.id_armario', '=', 'armario.id')
         ->where("produtos.designacao", 'ilike', '%' . $data["search"] . '%')
         ->count();
-        
+
         $total = Registo_Saidas::select('count(*) as allcount')->count();
 
         $result = Registo_Saidas::orderBy($data["column"], $data["order"])
