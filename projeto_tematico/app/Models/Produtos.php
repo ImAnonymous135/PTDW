@@ -25,6 +25,3 @@ class Produtos extends Model
         return $this->hasOne(Produtos_Nao_Quimicos::class,'id_produto');
     }
 }
-
-
-
