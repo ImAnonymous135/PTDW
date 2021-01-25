@@ -253,12 +253,6 @@
             $('.select2').select2({
                 placeholder: "Selecione os pictogramas..."
             });
-
-            $("#state").on('change', function() {
-                if ($(this).val() != 'selectionKey') {
-                    console.log($(this).val());
-                }
-            });
         });
 
         $(document).ready(function() {
