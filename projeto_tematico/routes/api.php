@@ -16,18 +16,18 @@ use Illuminate\Support\Facades\Route;
 
 
 //movimentos
-Route::get('/saidas','App\Http\Controllers\APIController@registoSaida')->name("APISaidas");
+Route::get('/saidas','App\Http\Controllers\RegistoSaidaController@registoSaida')->name("APISaidas");
 Route::get('/entradaNaoQuimicos','App\Http\Controllers\EntradaNaoQuimicoHistorico@getEntNaoQuimico')->name("APIEntradaNaoQuimicos");
 Route::get('/entradaQuimicos','App\Http\Controllers\EntradaQuimicoHistorico@getEntQuimico')->name("APIEntradaQuimicos");
-Route::get('/operadores','App\Http\Controllers\OperadoresHistorico@getOperadores')->name("APIOperadores");
+Route::get('/operadoresHistorico','App\Http\Controllers\OperadoresHistorico@getOperadores')->name("APIOperadoresHistorico");
 
 //operadores
-Route::get('/operadores','App\Http\Controllers\APIController@listaOperadores')->name("APIlistaOperadores");
-Route::get('/operadores/{id}','App\Http\Controllers\APIController@getOperador')->name("APIgetOperador");
+Route::get('/operadores','App\Http\Controllers\ListaOperadores@listaOperadores')->name("APIlistaOperadores");
+Route::get('/operadores/{id}','App\Http\Controllers\ListaOperadores@getOperador')->name("APIgetOperador");
 
 //clientes
-Route::get('/clientes','App\Http\Controllers\APIController@listaClientes')->name("APIlistaClientes");
-Route::get('/clientes/{id}','App\Http\Controllers\APIController@getCliente')->name("APIgetCliente");
+Route::get('/clientes','App\Http\Controllers\ListaCliente@listaClientes')->name("APIlistaClientes");
+Route::get('/clientes/{id}','App\Http\Controllers\ListaCliente@getCliente')->name("APIgetCliente");
 
 //fornecedores
 Route::get('/fornecedores','App\Http\Controllers\Fornecedores@getFornecedores')->name("APIFornecedores");

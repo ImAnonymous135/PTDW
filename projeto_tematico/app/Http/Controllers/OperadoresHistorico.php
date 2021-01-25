@@ -37,7 +37,6 @@ class OperadoresHistorico extends Controller
             "iTotalDisplayRecords" => $count,
             "aaData" => $operadores
         );
-
         return json_encode($response);
     }
 }

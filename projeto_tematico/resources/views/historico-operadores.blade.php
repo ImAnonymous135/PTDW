@@ -70,7 +70,7 @@
             },
             "processing": true,
             "serverSide": true,
-            "ajax": "{{ route('APIOperadores')}}",
+            "ajax": "{{ route('APIOperadoresHistorico')}}",
             "columns": [
                 { "data": 'administrador' },
                 { "data": 'operador' },
