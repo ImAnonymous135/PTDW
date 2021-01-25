@@ -305,7 +305,7 @@ return [
         'Registos',
         [
             'text' => 'Registo de Entrada',
-            'url'  => '/entradas',
+            'url'  => '/entradas/null',
             'icon' => 'fas fa-plus',
         ],
         [

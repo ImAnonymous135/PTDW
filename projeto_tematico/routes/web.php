@@ -48,7 +48,7 @@ Route::get('/produtos/{id}','App\Http\Controllers\ProdutoController@show');
 //Registo de entradas
 Route::get('/entradas','App\Http\Controllers\RegistarEntradaController@load');
 
-Route::get('/entradas/{id}','App\Http\Controllers\EntradaController@show');
+Route::get('/entradas/{id}','App\Http\Controllers\RegistarEntradaController@load');
 
 Route::get('/produtos/saidas', function () {
     return view('registo-saida');

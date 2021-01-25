@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Movimentos;
 use App\Models\Movimentos_Produtos_Quimicos;
 use App\Models\Movimentos_Produtos_Nao_Quimicos;
@@ -184,18 +185,23 @@ class RegistarEntradaController extends Controller
         return redirect('/entradas');
     }
 
-    public function load()
+    public function load($id)
     {
+        //dd($id);
+        if($id == 'null')
+        {
+           //dd('is null');
+            $produto = Produtos::select('*')->join('unidades', 'unidades.id', '=', 'produtos.id_unidades')->get();
+            $embalagens = null;
+        }
+        else{
+            //dd('is not null');
+            $produto[0] = Produtos::find($id);
+
+            $embalagens = $this->embalagens($id);
+        }
+        //dd('produto',$produto, 'id',$id, $id == 'null');
         $textura = Textura_viscosidade::all();
-
-        $produto = Produtos::select('*')->join('unidades', 'unidades.id', '=', 'produtos.id_unidades')->get();
-        $estadoFisico = Estado_Fisico::all();
-        $tipoEmbalagem = Tipo_Embalagem::all();
-        $unidades = Unidades::all();
-        //dd($produto);
-        //dd($unidades);
-
-        $produto = Produtos::select('*')->join('unidades', 'unidades.id', '=', 'produtos.id_unidades')->get();
         $estadoFisico = Estado_Fisico::all();
         $tipoEmbalagem = Tipo_Embalagem::all();
         $unidades = Unidades::all();
@@ -204,6 +210,21 @@ class RegistarEntradaController extends Controller
         //dd($textura, $familia, $estadoFisico, $tipoEmbalagem);
         //dd($date);
 
-        return view('registo-entrada', ['unidades' => $unidades, "date" => $date, "familia" => $produto, "estadoFisico" => $estadoFisico, "tipoEmbalagem" => $tipoEmbalagem, "textura" => $textura]);
+        return view('registo-entrada', ['embalagens'=> $embalagens, 'unidades' => $unidades, "date" => $date, "produto" => $produto, "estadoFisico" => $estadoFisico, "tipoEmbalagem" => $tipoEmbalagem, "textura" => $textura]);
+    }
+
+    private function embalagens($id)
+    {
+        //dd($id);
+        $movimentos = DB::table('embalagem')->
+        select('movimentos.*','embalagem.capacidade_embalagem AS capacidade', 'prateleiras.designacao AS prateleira', 'armario.designacao AS armario', 'cliente.designacao AS cliente')->
+        where('id_produtos', $id)->
+        join('movimentos', 'embalagem.id', '=', 'embalagemid')->
+        join('prateleiras', 'embalagem.localizacao', '=', 'prateleiras.id')->
+        join('armario', 'prateleiras.id_armario', '=', 'armario.id')->
+        join('cliente', 'armario.id_cliente', '=', 'cliente.id')->
+        get();
+
+        return $movimentos;
     }
 }
