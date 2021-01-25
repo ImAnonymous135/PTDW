@@ -182,7 +182,7 @@ class RegistarEntradaController extends Controller
         //dd($movimentos);
 
         //$produto->save();
-        return redirect('/entradas');
+        return redirect('/entradas/null');
     }
 
     public function load($id)
