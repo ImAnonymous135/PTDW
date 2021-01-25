@@ -14,6 +14,9 @@ use App\Models\Produtos;
 use App\Models\Estado_Fisico;
 use App\Models\Tipo_Embalagem;
 use App\Models\Unidades;
+use App\Models\Prateleira;
+use App\Models\Cliente;
+use App\Models\Armario;
 use Carbon\Carbon;
 
 class RegistarEntradaController extends Controller
@@ -22,36 +25,106 @@ class RegistarEntradaController extends Controller
     public function store(Request $request)
     {
 
+        $tempArray = explode('.', $request->state);
+
+        $produto = Produtos::where('designacao', $tempArray[1])->first();
+        //dd($produto);
         //dd($request);
         $operadores = Operadores::where('nome', $request->operador)->first();
 
         $query = Embalagem::query();
-        $myArray = explode(',', $request->identificacaoEmbalagens);
-        foreach ($myArray as $item) {
-            $query->orWhere('designacao', $item);
-        }
-        $embalagens = $query->get();
 
-        if($request->numeroEmbalagens !=count($myArray))
-        {
-            echo "<script>alert('Number of Packages must be the same as values in Package Identification!');</script>";
+        $fornecedor = Fornecedor::where('designacao', $request->fornecedor)->first();
+
+        //////////////////////////////
+        $room = Cliente::where('designacao', $request->sala)->first();
+
+        if (!$room) {
+            echo "<script type='text/javascript'>alert('Cliente não existe');</script>";
             exit();
         }
 
-        $fornecedor = Fornecedor::where('designacao', $request->fornecedor)->first();
+        $armario = Armario::where('designacao', $request->armario)->where('id_cliente', $room->id)->first();
+
+        if (!$armario) {
+            $armario = new Armario();
+            $armario->designacao = $request->armario;
+            $armario->id_cliente = $room->id;
+            $armario->timestamps = false;
+            $armario->save();
+        }
+
+        $prateleira = Prateleira::where('designacao', $request->prateleira)->where('id_armario', $armario->id)->first();
+       // dd( $request->prateleira, $armario->id, $prateleira, !$prateleira);
+        if (!$prateleira) {
+            $prateleira = new Prateleira();
+            $prateleira->designacao = $request->prateleira;
+            $prateleira->id_armario = $armario->id;
+            $prateleira->timestamps = false;
+            $prateleira->save();
+        }
+
+
+
+        $embalagens = Embalagem::where('id_produtos', $produto->id)->latest('designacao')->first();
+        if ($embalagens) {
+            $e = ($embalagens->designacao);
+            for ($i = 1; $i <= $request->numeroEmbalagens; $i++) {
+                $novaEmbalagem = new Embalagem();
+                $novaEmbalagem->designacao = ($e + $i);
+                $novaEmbalagem->id_produtos = $produto->id;
+                $novaEmbalagem->id_tipo_embalagem = $request->tipoEmbalagem;
+                $novaEmbalagem->localizacao = $prateleira->id;
+                $novaEmbalagem->capacidade_embalagem = $request->capacidadeEmbalagem . '.' . $request->tipo;
+                $novaEmbalagem->timestamps = false;
+                $novaEmbalagem->save();
+                $embalagensFinais[$i - 1] = $novaEmbalagem;
+
+
+                /* $embalagens[$i - 1] =  Embalagem::insert([
+                    'designacao' => ($e + $i),
+                    'id_produtos' => $produto->id,
+                    'id_tipo_embalagem' => $request->tipoEmbalagem,
+                    'localizacao' => $prateleira->id,
+                    'capacidade_embalagem' => $request->capacidadeEmbalagem . '.' . $request->tipo,
+                ]);*/
+            }
+        } else {
+            for ($i = 1; $i <= $request->numeroEmbalagens; $i++) {
+                $novaEmbalagem = new Embalagem();
+                $novaEmbalagem->designacao = ($i);
+                $novaEmbalagem->id_produtos = $produto->id;
+                $novaEmbalagem->id_tipo_embalagem = $request->tipoEmbalagem;
+                $novaEmbalagem->localizacao = $prateleira->id;
+                $novaEmbalagem->capacidade_embalagem = $request->capacidadeEmbalagem . '.' . $request->tipo;
+                $novaEmbalagem->timestamps = false;
+                $novaEmbalagem->save();
+                $embalagensFinais[$i - 1] = $novaEmbalagem;
+
+                /*$embalagens[$i - 1] =  Embalagem::insert([
+                    'designacao' => $i,
+                    'id_produtos' => $produto->id,
+                    'id_tipo_embalagem' => $request->tipoEmbalagem,
+                    'localizacao' => $prateleira->id,
+                    'capacidade_embalagem' => $request->capacidadeEmbalagem . '.' . $request->tipo,
+                ]);*/
+            }
+        }
+        //dd($embalagensFinais, $embalagensFinais[0], $embalagensFinais[1]);
 
         //dd($fornecedor->id);
         //dd($embalagens[1]);
         //dd($operadores->id);
 
-        $isQuimico = Produtos::where('id', $request->state)->first()->value('is_quimico');
+        //$isQuimico = Produtos::where('id', $tempArray[1])->first()->value('is_quimico');
+        $isQuimico = $produto->is_quimico;
         //dd($isQuimico);
 
 
 
 
         //dd($movimentos);
-        foreach ($embalagens as $item) {
+        foreach ($embalagensFinais as $item) {
             $movimentos = new Movimentos();
 
             $movimentos->operadorid = $operadores->id;
@@ -80,7 +153,7 @@ class RegistarEntradaController extends Controller
                 Movimentos_Produtos_Quimicos::insert([
                     'movimentos_n_ordem' => $movimentos->n_ordem,
                     'id_estado_fisico' => $request->estadoFisico,
-                    'id_textura_viscosidade' => $movimentos->texturaViscosidade,
+                    'id_textura_viscosidade' => $request->texturaViscosidade,
                     'id_cor' => 1,
                 ]);
 
@@ -114,17 +187,23 @@ class RegistarEntradaController extends Controller
     public function load()
     {
         $textura = Textura_viscosidade::all();
+
         $produto = Produtos::select('*')->join('unidades', 'unidades.id', '=', 'produtos.id_unidades')->get();
         $estadoFisico = Estado_Fisico::all();
         $tipoEmbalagem = Tipo_Embalagem::all();
         $unidades = Unidades::all();
+        //dd($produto);
+        //dd($unidades);
 
-
+        $produto = Produtos::select('*')->join('unidades', 'unidades.id', '=', 'produtos.id_unidades')->get();
+        $estadoFisico = Estado_Fisico::all();
+        $tipoEmbalagem = Tipo_Embalagem::all();
+        $unidades = Unidades::all();
         $date = Carbon::now();
 
         //dd($textura, $familia, $estadoFisico, $tipoEmbalagem);
         //dd($date);
 
-        return view('registo-entrada', ["date" => $date, "familia" => $produto, "estadoFisico" => $estadoFisico, "tipoEmbalagem" => $tipoEmbalagem, "textura" => $textura, 'unidades' => $unidades]);
+        return view('registo-entrada', ['unidades' => $unidades, "date" => $date, "familia" => $produto, "estadoFisico" => $estadoFisico, "tipoEmbalagem" => $tipoEmbalagem, "textura" => $textura]);
     }
 }

@@ -49,7 +49,7 @@
                                 <option value="{{ $produto->id }}">{{ $produto->designacao }}</option>
                             @endif
                             @foreach ($familia as $item)
-                                <option value="{{ $item->id }}">{{ $item->designacao }}</option>
+                                <option value="{{ $item->id }}.{{ $item->designacao }}">{{ $item->designacao }}</option>
                             @endforeach
                         </select>
                 </div>
@@ -78,7 +78,7 @@
             <div class="col-sm-3">
                 <div class="form-group">
                     <label>{{ __('text.identificacaoEmbalagem') }}</label>
-                    <input type="text" class="form-control" id="identificacaoEmbalagens" name="identificacaoEmbalagens">
+                    <input type="text" class="form-control" id="identificacaoEmbalagens" name="identificacaoEmbalagens" readonly>
                 </div>
             </div>
             <div class="col-sm-3">
@@ -258,7 +258,8 @@
         $(document).ready(function() {
             $('.select-search').select2();
             $('#state').change(function(){
-                $('#tipo').val($(this).val());
+                var arraySplit = $(this).val().split(".");
+                $('#tipo').val(arraySplit[0]);
             });
         });
 
