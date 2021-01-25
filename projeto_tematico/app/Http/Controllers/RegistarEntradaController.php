@@ -13,6 +13,7 @@ use App\Models\Textura_viscosidade;
 use App\Models\Produtos;
 use App\Models\Estado_Fisico;
 use App\Models\Tipo_Embalagem;
+use App\Models\Unidades;
 use Carbon\Carbon;
 
 class RegistarEntradaController extends Controller
@@ -113,15 +114,16 @@ class RegistarEntradaController extends Controller
     public function load()
     {
         $textura = Textura_viscosidade::all();
-        $familia = Produtos::all();
+        $produto = Produtos::select('*')->join('unidades', 'unidades.id', '=', 'produtos.id_unidades')->get();
         $estadoFisico = Estado_Fisico::all();
         $tipoEmbalagem = Tipo_Embalagem::all();
+        $unidades = Unidades::all();
 
         $date = Carbon::now();
 
         //dd($textura, $familia, $estadoFisico, $tipoEmbalagem);
         //dd($date);
 
-        return view('registo-entrada', ["date" => $date, "familia" => $familia, "estadoFisico" => $estadoFisico, "tipoEmbalagem" => $tipoEmbalagem, "textura" => $textura]);
+        return view('registo-entrada', ["date" => $date, "familia" => $produto, "estadoFisico" => $estadoFisico, "tipoEmbalagem" => $tipoEmbalagem, "textura" => $textura, 'unidades' => $unidades]);
     }
 }

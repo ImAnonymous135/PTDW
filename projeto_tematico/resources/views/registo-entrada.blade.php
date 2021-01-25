@@ -44,7 +44,7 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label>{{ __('text.designacao') }}</label>
-                        <select class="select-search form-control" name="state" @if (isset($produto)) disabled @endif>
+                        <select class="select-search form-control" id="state" name="state" @if (isset($produto)) disabled @endif>
                             @if (isset($produto))
                                 <option value="{{ $produto->id }}">{{ $produto->designacao }}</option>
                             @endif
@@ -97,9 +97,10 @@
                     <div class="input-group">
                         <input type="text" class="form-control" id="capacidadeEmbalagem" placeholder=""
                             name="capacidadeEmbalagem">
-                        <select class="form-control input-group-append" id="tipo" name="tipo">
-                            <option>{{ __('text.gramas') }}</option>
-                            <option>{{ __('text.litros') }}</option>
+                        <select class="form-control input-group-append" id="tipo" name="tipo" disabled>
+                            @foreach ($unidades as $item)
+                            <option value="{{ $item->id }}">{{ $item->desginacao }}</option>
+                        @endforeach
                         </select>
                     </div>
                 </div>
@@ -256,6 +257,9 @@
 
         $(document).ready(function() {
             $('.select-search').select2();
+            $('#state').change(function(){
+                $('#tipo').val($(this).val());
+            });
         });
 
     </script>
