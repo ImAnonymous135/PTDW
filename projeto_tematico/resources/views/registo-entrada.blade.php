@@ -44,11 +44,8 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label>{{ __('text.designacao') }}</label>
-                        <select class="select-search form-control" id="state" name="state" @if (isset($produto)) disabled @endif>
-                            @if (isset($produto))
-                                <option value="{{ $produto->id }}">{{ $produto->designacao }}</option>
-                            @endif
-                            @foreach ($familia as $item)
+                        <select class="select-search form-control" id="state" name="state">
+                            @foreach ($produto as $item)
                                 <option value="{{ $item->id }}.{{ $item->designacao }}">{{ $item->designacao }}</option>
                             @endforeach
                         </select>
