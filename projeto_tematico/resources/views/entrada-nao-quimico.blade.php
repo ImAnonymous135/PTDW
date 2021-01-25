@@ -58,6 +58,9 @@
                 <div class="input-group-prepend">
                     <select id="pesquisa" class="select form-control" name="pesquisa">
                         <option value="produto">Produto</option>
+                        <option value="prateleira">Prateleira</option>
+                        <option value="armario">Armario</option>
+                        <option value="cliente">Cliente</option>
                         <option value="fornecedor">Fornecedor</option>
                         <option value="marca">Marca</option>
                         <option value="tipo">Tipo de Embalagem</option>
@@ -100,7 +103,7 @@
 <script>
     $(function () {
         $('#familia').select2();
-
+        var  asd= "t";
         var table = $('#table').DataTable({
             "responsive": true,
             "autoWidth": false,
@@ -112,7 +115,7 @@
             "ajax": "{{ route('APIEntradaNaoQuimicos')}}",
             "columns": [
                 { "data": 'designacao' },
-                { "data": 'localizacao' },
+                { "data": 'localizacao'},
                 { "data": 'fornecedor' },
                 { "data": 'marca' },
                 { "data": 'familia' },

@@ -33,6 +33,12 @@ class EntradaQuimicoHistorico extends Controller
             $table = "textura_viscosidade.textura_viscosidade";
         }else if($request->get("pesquisa")== "peso"){
             $table = "movimentos.peso_bruto";
+        }else if($request->get("pesquisa")== "prateleira"){
+            $table = "prateleiras.designacao";
+        }else if($request->get("pesquisa")== "armario"){
+            $table = "armario.designacao";
+        }else if($request->get("pesquisa")== "cliente"){
+            $table = "cliente.designacao";
         }
 
         if($request->get("start_date") == $request->get("end_date")){
@@ -52,6 +58,9 @@ class EntradaQuimicoHistorico extends Controller
         ->join('produtos', 'embalagem.id_produtos', '=', 'produtos.id')
         ->join('tipo_embalagem', 'embalagem.id_tipo_embalagem', '=', 'tipo_embalagem.id')
         ->join('cor', 'movimentos_produtos_quimicos.id_cor', '=', 'cor.id')
+        ->join('prateleiras', 'embalagem.localizacao', '=', 'prateleiras.id')
+        ->join('armario', 'prateleiras.id_armario', '=', 'armario.id')
+        ->join('cliente', 'armario.id_cliente', '=', 'cliente.id')
         ->where($table, 'ilike', '%' . $request->get('search')['value'] . '%')
         ->where("movimentos.data_entrada",'>', $startDate)
         ->where("movimentos.data_entrada",'<', $endDate)
@@ -59,7 +68,7 @@ class EntradaQuimicoHistorico extends Controller
         
         $total = Movimentos_Produtos_Quimicos::select('count(*) as allcount')->count();
 
-        $produtos = Movimentos_Produtos_Quimicos::orderBy($request->get('columns')[$request->get('order')[0]['column']]['data'], $request->get('order')[0]['dir'])
+        $movements = Movimentos_Produtos_Quimicos::orderBy($request->get('columns')[$request->get('order')[0]['column']]['data'], $request->get('order')[0]['dir'])
         ->join('movimentos', 'movimentos_produtos_quimicos.movimentos_n_ordem', '=', 'movimentos.n_ordem')
         ->join('textura_viscosidade', 'movimentos_produtos_quimicos.id_textura_viscosidade', '=', 'textura_viscosidade.id')
         ->join('estado_fisico', 'movimentos_produtos_quimicos.id_estado_fisico', '=', 'estado_fisico.id')
@@ -68,19 +77,48 @@ class EntradaQuimicoHistorico extends Controller
         ->join('produtos', 'embalagem.id_produtos', '=', 'produtos.id')
         ->join('tipo_embalagem', 'embalagem.id_tipo_embalagem', '=', 'tipo_embalagem.id')
         ->join('cor', 'movimentos_produtos_quimicos.id_cor', '=', 'cor.id')
+        ->join('prateleiras', 'embalagem.localizacao', '=', 'prateleiras.id')
+        ->join('armario', 'prateleiras.id_armario', '=', 'armario.id')
+        ->join('cliente', 'armario.id_cliente', '=', 'cliente.id')
         ->where($table, 'ilike', '%' . $request->get('search')['value'] . '%')
         ->where("movimentos.data_entrada",'>', $startDate)
         ->where("movimentos.data_entrada",'<', $endDate)
-        ->select('produtos.designacao as designacao','embalagem.localizacao as localizacao','fornecedor.designacao as fornecedor' ,'movimentos.marca as marca','tipo_embalagem.tipo_embalagem as tipo_embalagem', 'cor.cor', 'estado_fisico.estado_fisico','textura_viscosidade.textura_viscosidade','movimentos.peso_bruto as peso','movimentos.data_entrada as data_entrada','movimentos.data_validade as data_validade')
+        ->select('produtos.designacao as designacao',
+        'fornecedor.designacao as fornecedor' ,'movimentos.marca as marca',
+        'tipo_embalagem.tipo_embalagem as tipo_embalagem', 'cor.cor', 
+        'estado_fisico.estado_fisico','textura_viscosidade.textura_viscosidade',
+        'movimentos.peso_bruto as peso','movimentos.data_entrada as data_entrada',
+        'movimentos.data_validade as data_validade','prateleiras.designacao as prateleria',
+        'armario.designacao as armario','cliente.designacao as cliente')
         ->skip($request->get("start"))
         ->take($request->get("length"))
         ->get();
+
+        if(count($movements)>0){
+            foreach($movements as $movement){
+                $result[] = array(
+                    "designacao" => $movement->designacao,
+                    "fornecedor" => $movement->fornecedor,
+                    "marca" => $movement->marca,
+                    "estado_fisico" => $movement->estado_fisico,
+                    "tipo_embalagem" => $movement->tipo_embalagem,
+                    "textura_viscosidade" => $movement->textura_viscosidade,
+                    "cor" => $movement->cor,
+                    "peso" => $movement->peso,
+                    "data_entrada" => $movement->data_entrada,
+                    "data_validade" => $movement->data_validade,
+                    "localizacao" => $movement->cliente."-".$movement->armario."-".$movement->prateleria
+                );
+            }
+        }else{
+            $result=[];
+        }
         
         $response = array(
             "draw" => intval($request->get('draw')),
             "iTotalRecords" => $total,
             "iTotalDisplayRecords" => $count,
-            "aaData" => $produtos
+            "aaData" => $result
         );
 
         return json_encode($response);

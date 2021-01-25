@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/saidas','App\Http\Controllers\APIController@registoSaida')->name("APISaidas");
 Route::get('/entradaNaoQuimicos','App\Http\Controllers\EntradaNaoQuimicoHistorico@getEntNaoQuimico')->name("APIEntradaNaoQuimicos");
 Route::get('/entradaQuimicos','App\Http\Controllers\EntradaQuimicoHistorico@getEntQuimico')->name("APIEntradaQuimicos");
-Route::get('/operadores','App\Http\Controllers\OperadoresHistorico@getOperadores')->name("APIOperadores");
+Route::get('/operadoresHistorico','App\Http\Controllers\OperadoresHistorico@getOperadores')->name("APIOperadoresHistorico");
 
 //operadores
 Route::get('/operadores','App\Http\Controllers\APIController@listaOperadores')->name("APIlistaOperadores");
