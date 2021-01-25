@@ -274,35 +274,38 @@ return [
             'url'  => '/fornecedores',
             'icon' => 'fas fa-truck',
         ],
-        'Histórico de Movimentos',
-
+        [
+            'header' => 'Histórico de Movimentos',
+        ],
+        [
+            'text' => 'Entradas',
+            'icon' => 'fas fa-fw fa-plus',
+            'submenu' => [
                 [
-                    'text' => 'Entradas',
-                    'icon' => 'fas fa-fw fa-plus',
-                    'submenu' => [
-                        [
-                            'text' => 'Químico',
-                            'url'  => '/movimentos/entrada-quimico',
-                            'icon' => 'fas fa-fw fa-flask',
-                        ],
-                        [
-                            'text' => 'Não Químico ',
-                            'url'  => '/movimentos/entrada-nao-quimico',
-                            'icon' => 'fas fa-fw fa-eye-dropper',
-                        ]
-                    ]
+                    'text' => 'Químico',
+                    'url'  => '/movimentos/entrada-quimico',
+                    'icon' => 'fas fa-fw fa-flask',
                 ],
                 [
-                    'text' => 'Saídas',
-                    'url'  => '/movimentos/saidas',
-                    'icon' => 'fas fa-fw fa-minus',
-                ],
-                [
-                    'text' => 'Operadores',
-                    'url'  => '/movimentos/operadores',
-                    'icon' => 'fas fa-user-clock',
-                ],
-        'Registos',
+                    'text' => 'Não Químico',
+                    'url'  => '/movimentos/entrada-nao-quimico',
+                    'icon' => 'fas fa-fw fa-eye-dropper',
+                ]
+            ]
+        ],
+        [
+            'text' => 'Saídas',
+            'url'  => '/movimentos/saidas',
+            'icon' => 'fas fa-fw fa-minus',
+        ],
+        [
+            'text' => 'Operadores historico',
+            'url'  => '/movimentos/operadores',
+            'icon' => 'fas fa-user-clock',
+        ],
+        [
+            'header' => 'Registos',
+        ],
         [
             'text' => 'Registo de Entrada',
             'url'  => '/entradas/null',

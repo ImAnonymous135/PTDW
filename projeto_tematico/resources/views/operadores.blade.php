@@ -91,7 +91,7 @@
                 @csrf
                 @method('PUT')
             <div class="modal-body">
-                <p>{{ __('text.novoCargoOperador') }}</p>
+                <label>{{ __('text.novoCargoOperador') }}</label>
                 <select name="novoCargoOperador" id="novoCargoOperador" class="custom-select">
                     @foreach($perfil as $perfil)
                         <option value="{{$perfil->id}}">{{$perfil->perfil}}</option>
