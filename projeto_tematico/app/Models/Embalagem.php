@@ -16,5 +16,6 @@ class Embalagem extends Model
     public function prateleira(){
         return $this->belongsTo(Prateleira::class,'localizacao');
     }
-    
+
+
 }
