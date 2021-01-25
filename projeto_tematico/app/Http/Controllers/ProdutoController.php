@@ -34,4 +34,19 @@ class ProdutoController extends Controller
 
         return $movimentos;
     }
+
+    public function update($id){
+
+        $movimento = Movimentos::where('embalagemid', '=', $id)->get();
+
+        $movimento[0]->data_abertura = date("d-m-Y");
+        $movimento[0]->timestamps = false;
+
+        $movimento[0]->save();
+
+        $embalagem = Embalagem::where('id', '=', $id)->get();
+
+        return redirect('/produtos/'.$embalagem[0]->id_produtos);
+
+    }
 }

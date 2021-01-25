@@ -45,6 +45,9 @@ Route::get('/produtos','App\Http\Controllers\ProdutosController@show');
 //Info Produto
 Route::get('/produtos/{id}','App\Http\Controllers\ProdutoController@show');
 
+//Registo de abertura
+Route::get('/produtos/abertura/{id}','App\Http\Controllers\ProdutoController@update');
+
 //Registo de entradas
 Route::get('/entradas','App\Http\Controllers\RegistarEntradaController@load');
 

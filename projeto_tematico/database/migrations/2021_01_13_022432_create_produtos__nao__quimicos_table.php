@@ -15,7 +15,7 @@ class CreateProdutosNaoQuimicosTable extends Migration
     {
         Schema::create('produtos_nao_quimicos', function (Blueprint $table) {
             $table->integer('id_produto');
-            $table->binary('foto');
+            $table->string('foto')->nullable(true);
             $table->integer('id_familia');
         });
     }

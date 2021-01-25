@@ -97,7 +97,7 @@ class RegistarEntradaController extends Controller
                 $novaEmbalagem->id_produtos = $produto->id;
                 $novaEmbalagem->id_tipo_embalagem = $request->tipoEmbalagem;
                 $novaEmbalagem->localizacao = $prateleira->id;
-                $novaEmbalagem->capacidade_embalagem = $request->capacidadeEmbalagem . '.' . $request->tipo;
+                $novaEmbalagem->capacidade_embalagem = $request->capacidadeEmbalagem;
                 $novaEmbalagem->timestamps = false;
                 $novaEmbalagem->save();
                 $embalagensFinais[$i - 1] = $novaEmbalagem;

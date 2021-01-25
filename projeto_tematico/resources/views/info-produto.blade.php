@@ -23,7 +23,7 @@
 
 <ul id="menu" class="mfb-component--br mfb-slidein" data-mfb-toggle="hover">
   <li class="mfb-component__wrap">
-    <a href="../produtos/entradas" data-mfb-label="Nova entrada" class="mfb-component__button--main">
+    <a href="../entradas/{{$produto->id}}" data-mfb-label="Nova entrada" class="mfb-component__button--main">
       <i class="mfb-component__main-icon--resting fas fa-plus" style="font-size: 1.5rem;"></i>
     </a>
   </li>
@@ -123,9 +123,9 @@
   json = JSON.parse('<?php echo $embalagens ?>');
   dataSet = [];
 
-  function dataAbertura(data) {
+  function dataAbertura(data, eID) {
     if (data == null) {
-      return '<a href="#" type="button" data-toggle="tooltip" class="btn btn-primary">{{ __('text.registarAbertura') }}</a>';
+      return '<a href="/produtos/abertura/' + eID + '" type="button" data-toggle="tooltip" class="btn btn-primary">{{ __('text.registarAbertura') }}</a>';
     }
     return data;
   }
@@ -141,7 +141,7 @@
     dataSet.push([
       e.cliente+"-"+e.armario+"-"+e.prateleira,
       e.capacidade+" "+"{{$produto->unidades->desginacao}}",
-      dataAbertura(e.data_abertura),
+      dataAbertura(e.data_abertura, e.embalagemid),
       terminar(e.data_abertura)
     ]);
   });

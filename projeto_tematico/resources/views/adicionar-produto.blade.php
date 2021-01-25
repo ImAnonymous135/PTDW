@@ -50,7 +50,7 @@
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label>{{ __('text.sinonimos') }}</label>
-                        <input type="text" class="form-control" id="sinonimos" name="sinonimos" >
+                        <input disabled type="text" class="form-control" id="sinonimos" name="sinonimos" >
                     </div>
                 </div>
 
@@ -178,7 +178,7 @@
                             <label>{{ __('text.anexo') }} SDS</label>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input @error('anexo') is-invalid @enderror" id="anexo" name="anexo">
+                                    <input disabled type="file" class="custom-file-input @error('anexo') is-invalid @enderror" id="anexo" name="anexo">
                                     <label class="custom-file-label" for="exampleInputFile"></label>
                                 </div>
                             </div>
