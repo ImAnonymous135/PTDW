@@ -94,6 +94,10 @@ class ForeignKeys extends Migration
             $table->foreign('id_codPrudencia')->references('id')->on('codPrudencia')->onDelete('cascade')->primary();
             $table->foreign('id_pictogramas')->references('id')->on('pictogramas')->onDelete('cascade');
         });
+
+        Schema::table('alerta_stock', function (Blueprint $table) {
+            $table->foreign('id_produto')->references('id')->on('produtos')->onDelete('cascade');
+        });
     }
 
     /**
