@@ -1,6 +1,7 @@
-
-
 let selectTipo = document.getElementById("selectTipo");
+
+    $("#familia").val("place");
+
 selectTipo.addEventListener("change", function (event) {
     let quimico = document.querySelector(".quimico");
     let quimico1 = document.querySelector(".quimico1");
@@ -27,9 +28,16 @@ selectTipo.addEventListener("change", function (event) {
         quimico8.style.display = "block";
         quimico9.style.display = "block";
         quimico10.style.display = "block";
+        $("#pesoMolecular").val(null);
+        $("#condicoesArmazenamento").val(null);
+        $("#formula").val(null);
+        $("#nCas").val(null);
+        
+        
 
         naoQuimico.style.display = "none";
         naoQuimico1.style.display = "none";
+        $("#familia").val("place");
 
     } else {
         quimico.style.display = "none";
@@ -42,9 +50,15 @@ selectTipo.addEventListener("change", function (event) {
         quimico8.style.display = "none";
         quimico9.style.display = "none";
         quimico10.style.display = "none";
+        $("#pesoMolecular").val("place");
+        $("#condicoesArmazenamento").val("place");
+        $("#formula").val("place");
+        $("#nCas").val("place");
+        
 
         naoQuimico.style.display = "block";
         naoQuimico1.style.display = "block";
+        $("#familia").val(null);
 
     }
 

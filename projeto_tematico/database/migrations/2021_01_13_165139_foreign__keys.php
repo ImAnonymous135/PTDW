@@ -44,7 +44,7 @@ class ForeignKeys extends Migration
         Schema::table('embalagem', function (Blueprint $table) {
             $table->foreign('id_produtos')->references('id')->on('produtos')->onDelete('cascade')->primary();
             $table->foreign('id_tipo_embalagem')->references('id')->on('tipo_embalagem')->onDelete('cascade');
-            $table->foreign('localizacao')->references('id')->on('cor')->onDelete('cascade');
+            $table->foreign('localizacao')->references('id')->on('prateleiras')->onDelete('cascade');
         });
 
         Schema::table('produtos', function (Blueprint $table) {

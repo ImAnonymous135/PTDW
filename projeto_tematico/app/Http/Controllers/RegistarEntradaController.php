@@ -114,12 +114,10 @@ class RegistarEntradaController extends Controller
     public function load()
     {
         $textura = Textura_viscosidade::all();
-        $produto = Produtos::select('*')->join('unidades', 'unidades.id', '=', 'produtos.id_unidades' )->get();
+        $produto = Produtos::select('*')->join('unidades', 'unidades.id', '=', 'produtos.id_unidades')->get();
         $estadoFisico = Estado_Fisico::all();
         $tipoEmbalagem = Tipo_Embalagem::all();
         $unidades = Unidades::all();
-        //dd($produto);
-        //dd($unidades);
 
 
         $date = Carbon::now();
@@ -127,6 +125,6 @@ class RegistarEntradaController extends Controller
         //dd($textura, $familia, $estadoFisico, $tipoEmbalagem);
         //dd($date);
 
-        return view('registo-entrada', ['unidades' => $unidades, "date" => $date, "familia" => $produto, "estadoFisico" => $estadoFisico, "tipoEmbalagem" => $tipoEmbalagem, "textura" => $textura]);
+        return view('registo-entrada', ["date" => $date, "familia" => $produto, "estadoFisico" => $estadoFisico, "tipoEmbalagem" => $tipoEmbalagem, "textura" => $textura, 'unidades' => $unidades]);
     }
 }

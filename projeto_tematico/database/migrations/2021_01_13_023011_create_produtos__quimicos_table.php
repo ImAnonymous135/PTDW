@@ -14,13 +14,13 @@ class CreateProdutosQuimicosTable extends Migration
     public function up()
     {
         Schema::create('produtos_quimicos', function (Blueprint $table) {
-            $table->integer('id_produto')->primary();
+            $table->integer('id')->primary();
             $table->string('formula');
             $table->float('pMolecular');
             $table->string('casN');
             $table->string('condicaoArmazenamento');
             $table->boolean('ventilado');
-            $table->binary('anexosSDS');
+            $table->binary('anexosSDS')->nullable(true);
         });
     }
 
