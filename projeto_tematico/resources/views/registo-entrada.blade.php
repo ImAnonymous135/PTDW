@@ -35,16 +35,16 @@
                         {{-- @include('sub-views.quimicos')
                         @else
                         {{-- nao quimicos --}}
-              {{--   @include('sub-views.nao-quimicos')
-                @endif--}}
-                <form method="POST" action="/entradas/adicionar">
-                    @csrf
-                <div id="quimicos">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <label>{{ __('text.designacao') }}</label>
-                        <select class="select-search form-control" name="state" @if (isset($produto)) disabled @endif>
+                                              {{--   @include('sub-views.nao-quimicos')
+                                                @endif--}}
+                                                <form method="POST" action="/entradas/adicionar">
+                                                    @csrf
+                                                <div id="quimicos">
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <div class="form-group">
+                                                                <label>{{ __('text.designacao') }}</label>
+                        <select class="select-search form-control" name="state" id="state" @if (isset($produto)) disabled @endif>
                             @if (isset($produto))
                                 <option value="{{ $produto->id }}">{{ $produto->designacao }}</option>
                             @endif
@@ -98,8 +98,9 @@
                         <input type="text" class="form-control" id="capacidadeEmbalagem" placeholder=""
                             name="capacidadeEmbalagem">
                         <select class="form-control input-group-append" id="tipo" name="tipo">
-                            <option>{{ __('text.gramas') }}</option>
-                            <option>{{ __('text.litros') }}</option>
+                            @foreach ($unidades as $item)
+                                <option value="{{ $item->id }}">{{ $item->desginacao }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -178,15 +179,15 @@
                     <label>{{ __('text.estadoFisico') }}</label>
                     <select class="form-control" id="estadoFisico" name="estadoFisico">
                         @foreach ($estadoFisico as $item)
-                        <option value="{{ $item->id }}">{{ $item->estado_fisico }}</option>
-                    @endforeach
+                            <option value="{{ $item->id }}">{{ $item->estado_fisico }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
             <div class="col-sm-2">
                 <div class="form-group">
                     <label>{{ __('text.texturaOuViscosidade') }}</label>
-                    <select class="form-control" id="texturaViscosidade", name="texturaViscosidade">
+                    <select class="form-control" id="texturaViscosidade" , name="texturaViscosidade">
                         @foreach ($textura as $item)
                             <option value="{{ $item->id }}">{{ $item->textura_viscosidade }}</option>
                         @endforeach
@@ -252,6 +253,12 @@
             $('.select2').select2({
                 placeholder: "Selecione os pictogramas..."
             });
+
+            $("#state").on('change', function() {
+                if ($(this).val() != 'selectionKey') {
+                    console.log($(this).val());
+                }
+            });
         });
 
         $(document).ready(function() {
@@ -259,5 +266,8 @@
         });
 
     </script>
+
+
+
 
 @stop
