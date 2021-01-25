@@ -64,7 +64,11 @@
             </div>
             <div class="modal-body">
                 <p>{{ __('text.confirmarEliminarOperador') }}</p>
-            </div>
+            <div class="form-group">
+                    <label>{{ __('text.observacoes') }}</label>
+                    <textarea class="form-control" id="observacoes" name="observacoes" cols="30" rows="4" maxlength="100">{{old('observacoes')}}</textarea>
+                </div>
+                </div>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('text.nao') }}</button>
                 <button type="submit" class="btn btn-primary toastrDefaultSuccess">{{ __('text.sim') }}</button>
@@ -93,7 +97,12 @@
                         <option value="{{$perfil->id}}">{{$perfil->perfil}}</option>
                     @endforeach
                 </select>
+                <div class="form-group">
+                    <label>{{ __('text.observacoes') }}</label>
+                    <textarea class="form-control" id="observacoes" name="observacoes" cols="30" rows="4" maxlength="100">{{old('observacoes')}}</textarea>
+                </div>
             </div>
+            
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('text.cancelar') }}</button>
                 <button type="submit" class="btn btn-primary toastrDefaultSuccess1">{{ __('text.guardar') }}</button>
@@ -151,7 +160,7 @@
 </script>
 <script>
     $(function () {
-    $('#table').DataTable({
+        $('#table').DataTable({
         "responsive": true,
         "autoWidth": false,
         language: {

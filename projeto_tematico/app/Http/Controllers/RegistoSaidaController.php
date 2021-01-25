@@ -89,6 +89,22 @@ class RegistoSaidaController extends Controller
     public function registoSaida(Request $request){
         $data = $this->dadosRequest($request);
 
+        if($request->get("pesquisa") == "produto"){
+            $table = "produtos.designacao";
+        }else if($request->get("pesquisa")== "embalagem"){
+            $table = "embalagem.designacao";
+        }else if($request->get("pesquisa")== "solicitante"){ 
+            $table = "solicitantes.nome";
+        }else if($request->get("pesquisa")== "operador"){ 
+            $table = "operadores.nome";
+        }else if($request->get("pesquisa")== "prateleira"){
+            $table = "prateleiras.designacao";
+        }else if($request->get("pesquisa")== "armario"){
+            $table = "armario.designacao";
+        }else if($request->get("pesquisa")== "cliente"){
+            $table = "cliente.designacao";
+        }
+
         $count = Registo_Saidas::select('count(*)')
         ->join('embalagem', 'registo_saidas.id_embalagem', '=', 'embalagem.id')
         ->join('produtos', 'embalagem.id_produtos', '=', 'produtos.id')
@@ -97,12 +113,12 @@ class RegistoSaidaController extends Controller
         ->join('operadores', 'registo_saidas.id_operador', '=', 'operadores.id')
         ->join('prateleiras', 'embalagem.localizacao', '=', 'prateleiras.id')
         ->join('armario', 'prateleiras.id_armario', '=', 'armario.id')
-        ->where("produtos.designacao", 'ilike', '%' . $data["search"] . '%')
+        ->where($table, 'ilike', '%' . $data["search"] . '%')
         ->count();
 
         $total = Registo_Saidas::select('count(*) as allcount')->count();
 
-        $result = Registo_Saidas::orderBy($data["column"], $data["order"])
+        $movements = Registo_Saidas::orderBy($data["column"], $data["order"])
         ->join('embalagem', 'registo_saidas.id_embalagem', '=', 'embalagem.id')
         ->join('produtos', 'embalagem.id_produtos', '=', 'produtos.id')
         ->join('cliente', 'registo_saidas.id_cliente', '=', 'cliente.id')
@@ -110,12 +126,33 @@ class RegistoSaidaController extends Controller
         ->join('operadores', 'registo_saidas.id_operador', '=', 'operadores.id')
         ->join('prateleiras', 'embalagem.localizacao', '=', 'prateleiras.id')
         ->join('armario', 'prateleiras.id_armario', '=', 'armario.id')
-        ->where("produtos.designacao", 'ilike', '%' . $data["search"] . '%')
-        ->select('produtos.designacao as designacao','prateleiras.designacao as prateleira','embalagem.designacao as embalagem','solicitantes.nome as solicitante','operadores.nome as operador','registo_saidas.data as data')
+        ->where($table, 'ilike', '%' . $data["search"] . '%')
+        ->select('produtos.designacao as designacao',
+            'prateleiras.designacao as prateleira',
+            'embalagem.designacao as embalagem',
+            'solicitantes.nome as solicitante',
+            'operadores.nome as operador',
+            'registo_saidas.data as data',
+            'armario.designacao as armario',
+            'cliente.designacao as cliente')
         ->skip($data["start"])
         ->take($data["length"])
         ->get();
 
+        if(count($movements)>0){
+            foreach($movements as $movement){
+                $result[] = array(
+                    "designacao" => $movement->designacao,
+                    "localizacao" => $movement->cliente."-".$movement->armario."-".$movement->prateleira,
+                    "embalagem" => $movement->embalagem,
+                    "solicitante" => $movement->solicitante,
+                    "operador" => $movement->operador,
+                    "data" => $movement->data
+                );
+            }
+        }else{
+            $result=[];
+        }
 
         $response = array(
             "draw" => intval($request->get('draw')),
@@ -126,5 +163,6 @@ class RegistoSaidaController extends Controller
 
         return json_encode($response);
     }
+
 
 }
