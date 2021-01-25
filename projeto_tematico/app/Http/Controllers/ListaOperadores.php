@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Operadores;
 use App\Models\Perfil;
+use App\Models\Operadores_Historico;
 
 class ListaOperadores extends Controller{
 
@@ -29,11 +30,20 @@ class ListaOperadores extends Controller{
         //['solicitante_sala','id_perfil','nome','email','observacoes','data_criação','data_eliminação']
         $operadores->data_criação = date("d-m-Y");
         $operadores->timestamps=false;
-        $operadores->save();
+
+//'nome_administrador','operador','data','operacao','observacoes']
+        $operadoresHistorico = new Operadores_Historico();
+        $operadoresHistorico->nome_administrador = 'admin';
+        $operadoresHistorico->operador = $operadores->nome;
+        $operadoresHistorico->data = date("d-m-Y");
+        $operadoresHistorico->operacao="Operador criado";
+        $operadoresHistorico->observacoes="";
+        $operadoresHistorico->timestamps=false;
+        $operadoresHistorico->save();
 
         $operadores->save();
 
-        return redirect('/operadores')->with(['toast'=>'addSuccess']);
+        return redirect('/movimentos/operadores')->with(['toast'=>'addSuccess']);
     }
 
     public function update($id){
@@ -42,7 +52,16 @@ class ListaOperadores extends Controller{
         $operadores->id_perfil = request()->novoCargoOperador;
         $operadores->save();
 
-        return redirect('/operadores')->with(['toast'=>'editSuccess']);
+        $operadoresHistorico = new Operadores_Historico();
+        $operadoresHistorico->nome_administrador = 'admin';
+        $operadoresHistorico->operador = $operadores->nome;
+        $operadoresHistorico->data = date("d-m-Y");
+        $operadoresHistorico->operacao="Operador alterado";
+        $operadoresHistorico->observacoes=request()->observacoes;
+        $operadoresHistorico->timestamps=false;
+        $operadoresHistorico->save();
+
+        return redirect('/movimentos/operadores')->with(['toast'=>'editSuccess']);
     }
 
 
@@ -55,7 +74,19 @@ class ListaOperadores extends Controller{
     }
 
     public function destroy($id){
+        $operadores = Operadores::find($id);
+
+        $operadoresHistorico = new Operadores_Historico();
+        $operadoresHistorico->nome_administrador = 'admin';
+        $operadoresHistorico->operador = $operadores->nome;
+        $operadoresHistorico->data = date("d-m-Y");
+        $operadoresHistorico->operacao="Operador eliminado";
+        $operadoresHistorico->observacoes=request()->observacoes;
+        $operadoresHistorico->timestamps=false;
+        $operadoresHistorico->save();
+
         Operadores::find($id)->delete();
+
         return redirect('/operadores')->with(['toast'=>'deleteSuccess']);;
     }
 
