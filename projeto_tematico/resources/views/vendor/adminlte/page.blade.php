@@ -1,25 +1,32 @@
 @extends('adminlte::master')
 
 @section('content_top_nav_right')
-    <div class="dropdown" style="margin-right: 15px">
-        <a type="button" class="dropdown-toggle" data-toggle="dropdown">João Moleirinho</a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">{{ __('text.terminarSessao') }}</a>
-        </div>
-      </div>
+
+@if (app()->getLocale() == 'pt')
+<a href="/setLang/en" class="mr-2" id="lang">EN</a>
+@else
+<a href="/setLang/pt" class="mr-2" id="lang">PT</a>
+@endif
+
+<div class="dropdown" style="margin-right: 15px">
+    <a type="button" class="dropdown-toggle" data-toggle="dropdown">João Moleirinho</a>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">{{ __('text.terminarSessao') }}</a>
+    </div>
+</div>
 @endsection
 
 @inject('layoutHelper', \JeroenNoten\LaravelAdminLte\Helpers\LayoutHelper)
 
 @if($layoutHelper->isLayoutTopnavEnabled())
-    @php( $def_container_class = 'container' )
+@php( $def_container_class = 'container' )
 @else
-    @php( $def_container_class = 'container-fluid' )
+@php( $def_container_class = 'container-fluid' )
 @endif
 
 @section('adminlte_css')
-    @stack('css')
-    @yield('css')
+@stack('css')
+@yield('css')
 @stop
 
 @section('classes_body', $layoutHelper->makeBodyClasses())
@@ -27,53 +34,53 @@
 @section('body_data', $layoutHelper->makeBodyData())
 
 @section('body')
-    <div class="wrapper">
+<div class="wrapper">
 
-        {{-- Top Navbar --}}
-        @if($layoutHelper->isLayoutTopnavEnabled())
-            @include('adminlte::partials.navbar.navbar-layout-topnav')
-        @else
-            @include('adminlte::partials.navbar.navbar')
-        @endif
+    {{-- Top Navbar --}}
+    @if($layoutHelper->isLayoutTopnavEnabled())
+    @include('adminlte::partials.navbar.navbar-layout-topnav')
+    @else
+    @include('adminlte::partials.navbar.navbar')
+    @endif
 
-        {{-- Left Main Sidebar --}}
-        @if(!$layoutHelper->isLayoutTopnavEnabled())
-            @include('adminlte::partials.sidebar.left-sidebar')
-        @endif
+    {{-- Left Main Sidebar --}}
+    @if(!$layoutHelper->isLayoutTopnavEnabled())
+    @include('adminlte::partials.sidebar.left-sidebar')
+    @endif
 
-        {{-- Content Wrapper --}}
-        <div class="content-wrapper {{ config('adminlte.classes_content_wrapper') ?? '' }}">
+    {{-- Content Wrapper --}}
+    <div class="content-wrapper {{ config('adminlte.classes_content_wrapper') ?? '' }}">
 
-            {{-- Content Header --}}
-            <div class="content-header">
-                <div class="{{ config('adminlte.classes_content_header') ?: $def_container_class }}">
-                    @yield('content_header')
-                </div>
+        {{-- Content Header --}}
+        <div class="content-header">
+            <div class="{{ config('adminlte.classes_content_header') ?: $def_container_class }}">
+                @yield('content_header')
             </div>
-
-            {{-- Main Content --}}
-            <div class="content">
-                <div class="{{ config('adminlte.classes_content') ?: $def_container_class }}">
-                    @yield('content')
-                </div>
-            </div>
-
         </div>
 
-        {{-- Footer --}}
-        @hasSection('footer')
-            @include('adminlte::partials.footer.footer')
-        @endif
-
-        {{-- Right Control Sidebar --}}
-        @if(config('adminlte.right_sidebar'))
-            @include('adminlte::partials.sidebar.right-sidebar')
-        @endif
+        {{-- Main Content --}}
+        <div class="content">
+            <div class="{{ config('adminlte.classes_content') ?: $def_container_class }}">
+                @yield('content')
+            </div>
+        </div>
 
     </div>
+
+    {{-- Footer --}}
+    @hasSection('footer')
+    @include('adminlte::partials.footer.footer')
+    @endif
+
+    {{-- Right Control Sidebar --}}
+    @if(config('adminlte.right_sidebar'))
+    @include('adminlte::partials.sidebar.right-sidebar')
+    @endif
+
+</div>
 @stop
 
 @section('adminlte_js')
-    @stack('js')
-    @yield('js')
+@stack('js')
+@yield('js')
 @stop

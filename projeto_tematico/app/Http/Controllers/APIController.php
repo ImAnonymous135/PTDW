@@ -9,6 +9,7 @@ use App\Models\Operadores;
 use App\Models\Cliente;
 use App\Models\Registo_Saidas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class APIController extends Controller{ 
     
@@ -35,6 +36,4 @@ class APIController extends Controller{
         );
         return $data;
     }
-
-    
 }

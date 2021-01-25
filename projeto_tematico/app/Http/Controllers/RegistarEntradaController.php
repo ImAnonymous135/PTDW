@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Movimentos;
@@ -185,8 +186,9 @@ class RegistarEntradaController extends Controller
         return redirect('/entradas/null');
     }
 
-    public function load($id)
+    public function load($id, Request $request)
     {
+        App::setLocale($request->session()->get('lang'));
         //dd($id);
         if($id == 'null')
         {

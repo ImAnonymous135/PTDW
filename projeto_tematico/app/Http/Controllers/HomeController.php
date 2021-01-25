@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\App;
 use DB;
 use Illuminate\Http\Request;
 use App\Models\Produtos;
@@ -12,11 +13,10 @@ use App\Models\Registo_Saidas;
 
 class HomeController extends Controller
 {
-    public function show() {
-
+    public function show(Request $request) {
+        
+        App::setLocale($request->session()->get('lang'));
         return view('home', ['cards' => $this->getCards(), 'produtos' => $this->getLowStockProducts(), 'movimentos' => $this->getUserTransactions(1)]);
-        
-        
     }
     
     public function getCards()
