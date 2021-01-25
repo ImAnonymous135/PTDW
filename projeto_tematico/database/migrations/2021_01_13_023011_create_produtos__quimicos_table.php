@@ -20,7 +20,7 @@ class CreateProdutosQuimicosTable extends Migration
             $table->string('casN');
             $table->string('condicaoArmazenamento');
             $table->boolean('ventilado');
-            $table->binary('anexosSDS');
+            $table->binary('anexosSDS')->nullable(true);
         });
     }
 
