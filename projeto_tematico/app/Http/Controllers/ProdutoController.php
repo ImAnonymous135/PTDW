@@ -15,12 +15,13 @@ class ProdutoController extends Controller
         $produto = Produtos::find($id);
 
         $embalagens = $this->embalagens($id);
-        
+
         return view('info-produto',['produto' => $produto, 'embalagens' => $embalagens]);
     }
 
     private function embalagens($id)
     {
+        //dd($id);
         $movimentos = DB::table('embalagem')->
         select('movimentos.*','embalagem.capacidade_embalagem AS capacidade', 'prateleiras.designacao AS prateleira', 'armario.designacao AS armario', 'cliente.designacao AS cliente')->
         where('id_produtos', $id)->
