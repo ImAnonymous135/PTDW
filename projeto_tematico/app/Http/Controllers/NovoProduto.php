@@ -53,40 +53,39 @@ class NovoProduto extends Controller
         $produto->save();
 
         if($produto->is_quimico){
-            $produtoQ = new Produtos_Quimicos();
-            $produtoQ->timestamps=false;
-            $produtoQ->id = $produto->id;
-            $produtoQ->formula = $request->formula;
-            $produtoQ->pMolecular = $request->pesoMolecular;
-            $produtoQ->casN = $request->nCas;
-            $produtoQ->condicaoArmazenamento = $request->condicoesArmazenamento;
             if(isset($request->ventilado)){
                 $ventilado = true;
             }else{
                 $ventilado = false;
             }
-            Produtos_Quimicos()::insert([
-                
-            ])
-        }else {
-            $produtoNQ = new Produtos_Nao_Quimicos();
-            $produtoNQ->timestamps=false;
-            $produtoNQ->id = $produto->id; 
+            Produtos_Quimicos::insert([
+                'id_produto' => $produto->id,
+                'formula' => $request->formula,
+                'pMolecular' => $request->pesoMolecular,
+                'casN' => $request->nCas,
+                'condicaoArmazenamento' => $request->condicoesArmazenamento,
+                'ventilado' => $ventilado,
+            ]);
+        }else { 
 
             $familias = Familia::where('designacao', '=', $request->familia)->get();
 
             if(sizeof($familias) > 0){
-                $produtoNQ->id_familia = $familias[0]->id;
+                Produtos_Nao_Quimicos::insert([
+                    'id_produto' => $produto->id,
+                    'id_familia' => $familias[0]->id
+                ]);
             } else {
                 $familia = new Familia();
                 $familia->timestamps=false;
                 $familia->designacao = $request->familia;
                 $familia->save();
 
-                $produtoNQ->id_familia = $familia->id;
+                Produtos_Nao_Quimicos::insert([
+                    'id_produto' => $produto->id,
+                    'id_familia' => $familia->id
+                ]);
             }
-
-            $produtoNQ->save();
         }
 
         return redirect('/produtos');
