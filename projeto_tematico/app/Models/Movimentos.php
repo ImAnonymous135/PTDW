@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Movimentos extends Model
 {
     use HasFactory;
-
+    protected $primaryKey = 'n_ordem';
     public function movimentos(){
         return $this->hasMany(Movimentos_Produtos_Nao_Quimicos::class,'n_ordem');
     }

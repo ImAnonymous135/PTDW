@@ -19,7 +19,7 @@ class CreateEmbalagemsTable extends Migration
             $table->integer('id_produtos');
             $table->integer('id_tipo_embalagem');
             $table->integer('localizacao');
-            $table->integer('capacidade_embalagem');
+            $table->string('capacidade_embalagem');
 
         });
     }

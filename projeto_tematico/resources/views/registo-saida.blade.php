@@ -24,6 +24,8 @@
 
 
 @section('content')
+<form method="POST" action="/saidas/adicionar">
+    @csrf
 <div class="card">
     <div class="card-header">
         <div class="row">
@@ -32,19 +34,19 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>{{ __('text.produto') }}</label>
-                            <input type="text" class="form-control" id="#" value="água" disabled >
+                            <input type="text" class="form-control" id="produto" value="" name="produto">
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="form-group">
                             <label>{{ __('text.embalagem') }}</label>
-                            <input type="text" class="form-control" id="#" value="219" disabled >
+                            <input type="text" class="form-control" id="embalagem" value="" name="embalagem">
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="form-group">
                             <label>{{ __('text.data') }}</label>
-                            <input type="text" class="form-control" id="#" value="05/12/2020" disabled >
+                            <input type="text" class="form-control" id="data" value={{ $data }}  name="data" readonly>
                         </div>
                     </div>
                 </div>
@@ -53,19 +55,19 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>{{ __('text.observacoes') }}</label>
-                            <textarea class="form-control" rows="3" maxlength="100" placeholder="Digite as observações.."></textarea>
+                            <textarea class="form-control" rows="3" id="observacoes" name="observacoes" maxlength="100" placeholder="Digite as observações.."></textarea>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="form-group">
                             <label>{{ __('text.solicitante') }}</label>
-                            <input type="text" class="form-control" id="#" placeholder="Digite o solicitante..">
+                            <input type="text" class="form-control" id="solicitante" name="solicitante" placeholder="Digite o solicitante..">
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="form-group">
                             <label>{{ __('text.operador') }}</label>
-                            <input type="text" class="form-control" id="#" placeholder="Digite o operador..">
+                            <input type="text" class="form-control" id="operador" name="operador" placeholder="Digite o operador..">
                         </div>
                     </div>
                 </div>
@@ -78,12 +80,13 @@
                         onclick="window.location.href='../produtos/info-produto'">{{ __('text.cancelar') }}</button>
                 </span>
                 <span class="mr-2">
-                    <button type="button" href="#" class="btn btn-block btn-primary">{{ __('text.submeter') }}</button>
+                    <button type="submit" class="btn btn-block btn-primary">{{ __('text.submeter') }}</button>
                 </span>
             </div>
         </div>
     </div>
 </div>
+</form>
 <br>
 @stop
 

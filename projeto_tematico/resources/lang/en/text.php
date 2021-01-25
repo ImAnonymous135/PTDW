@@ -63,6 +63,7 @@ return[
 'dataValidade'=>'Validation date',
 'marca'=>'Brand',
 //entrada-quimica
+'numeroDeEmbalagens'=>'Number of Packages',
 'movimentosQuimicos'=>'Movements / Chemical',
 'texturaOuViscosidade'=>'Texture or viscosity',
 //fornecedores

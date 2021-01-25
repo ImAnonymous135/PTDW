@@ -55,6 +55,10 @@
 
     dataSet = [];
 
+    var json = JSON.parse('<?php echo $produtos?>');
+
+    console.log(json[0].designacao);
+
     function isQuimicoTexto(isQuimico) {
         if (isQuimico == 1) {
             return "<?php echo __('text.quimico') ?>";

@@ -7,9 +7,10 @@ use App\Models\Produtos;
 
 class ProdutosController extends Controller
 {
+    
     public function show()
     {
-        $produtos = Produtos::all();;
+        $produtos = Produtos::all();
 
         return view('lista-produtos', ['produtos' => $produtos]);
     }

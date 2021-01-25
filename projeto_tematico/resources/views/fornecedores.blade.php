@@ -27,7 +27,6 @@
     </li>
 </ul>
 
-
 <div class="card">
     <div class="card-body">
         <table id="table" class="table table-head-fixed">
@@ -348,19 +347,20 @@
             ]
         });
 
-        $('.toastrDefaultSuccess').click(function () {
-            toastr.success('{{ __('text.eliminadoSucesso') }}')
-        });
-
-        $('.toastrDefaultSuccess1').click(function () {
-            toastr.success('{{ __('text.editadoSucesso') }}')
-        });
         function elim(id){
         $('#eliminar').attr('action', '/fornecedores/'+id);
         $('#modal-default').modal('show');
     } 
     });
-
+    
+    @if(null !== session()->get( 'toast' ))
+        @if(session()->get( 'toast' )== 'editSuccess')
+            toastr.success('{{ __('text.editadoSucesso') }}')
+        @elseif(session()->get( 'toast' ) == 'elimSucess')
+            toastr.success('{{ __('text.eliminadoSucesso') }}')
+        @endif
+    @endif
+    
     function info(id,modal) {
         $.ajax({
                type:'GET',
@@ -410,7 +410,6 @@
         $('#eliminar').attr('action', '/fornecedores/'+id);
         $('#modal-default').modal('show');
     }
-
    
 </script>
 @stop

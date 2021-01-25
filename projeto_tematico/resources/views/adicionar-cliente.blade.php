@@ -23,6 +23,45 @@
 
 @section('content')
 
+<style>
+        #alert-box{
+  /*display:block;*/
+   position:fixed;
+   width:300px;
+   padding:5px 20px 20px;
+   background:#ddd;
+   border:1px solid #999;
+   text-align:center;
+   transform:translate(-50%,-50%);
+   top:50%;
+   left:50%;
+   z-index:99999;
+   -webkit-box-shadow: 0px 0px 33px -6px rgba(0,0,0,0.59);
+   -moz-box-shadow: 0px 0px 33px -6px rgba(0,0,0,0.59);
+   box-shadow: 0px 0px 33px -6px rgba(0,0,0,0.59);
+}
+
+</style>
+@if(\Session::has('msg'))
+        
+        
+<script>
+let msg_alerta = '<div id="alert-box" style="display:block;">'
++'<h1>Aviso</h1>'
++'<p>{!! \Session::get("msg") !!}</p>'
++'<input style="padding:5px 10px;" type="button" value="OK" onClick="togglePopup();" />'
++'</div>';
+document.write(msg_alerta);
+
+
+function togglePopup() {
+    if (document.getElementById('alert-box').style.display == 'block') {
+        document.getElementById('alert-box').style.display = 'none';
+    }
+}
+
+</script>
+@endif
 <div class="card">
     <div class="card-body">
     <form method="POST" action="/clientes/adicionar">

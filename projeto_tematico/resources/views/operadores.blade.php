@@ -21,9 +21,10 @@
     Adicionar o botao no final para a ação como eliminar ou mudar de cargo ou assim
 -->
 @section('content')
+
 <ul id="menu" class="mfb-component--br mfb-slidein" data-mfb-toggle="hover">
     <li class="mfb-component__wrap">
-        <a data-mfb-label="{{ __('text.novoOperador') }}" class="mfb-component__button--main" href="./operadores/adicionar">
+        <a data-mfb-label="{{ __('text.novoOperador') }}" class="mfb-component__button--main" href="../operadores/adicionar">
             <i class="mfb-component__main-icon--resting fas fa-plus" style="font-size: 1.5rem;"></i>
         </a>
     </li>
@@ -52,6 +53,9 @@
 <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
+        <form method="POST" id="eliminar">
+                @method('delete')
+                @csrf
             <div class="modal-header">
                 <h4 class="modal-title">{{ __('text.eliminar') }}</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -63,12 +67,11 @@
             </div>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('text.nao') }}</button>
-                <button type="button" class="btn btn-primary toastrDefaultSuccess" data-dismiss="modal">{{ __('text.sim') }}</button>
+                <button type="submit" class="btn btn-primary toastrDefaultSuccess">{{ __('text.sim') }}</button>
             </div>
+            </form>
         </div>
-        <!-- /.modal-content -->
     </div>
-    <!-- /.modal-dialog -->
 </div>
 
 <div class="modal fade" id="modal-default1" style="display: none;" aria-hidden="true">
@@ -80,17 +83,22 @@
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
+            <form method="POST" id="edit">
+                @csrf
+                @method('PUT')
             <div class="modal-body">
                 <p>{{ __('text.novoCargoOperador') }}</p>
-                <select name="" id="" class="custom-select">
-                    <option value="">{{ __('text.fielArmazem') }}</option>
+                <select name="novoCargoOperador" id="novoCargoOperador" class="custom-select">
+                    @foreach($perfil as $perfil)
+                        <option value="{{$perfil->id}}">{{$perfil->perfil}}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('text.cancelar') }}</button>
-                <button type="button" class="btn btn-primary toastrDefaultSuccess1"
-                    data-dismiss="modal">{{ __('text.guardar') }}</button>
+                <button type="submit" class="btn btn-primary toastrDefaultSuccess1">{{ __('text.guardar') }}</button>
             </div>
+            </form>
         </div>
         <!-- /.modal-content -->
     </div>
@@ -107,13 +115,12 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p class="font-weight-bold">{{ __('text.nome') }}: <span class="font-weight-normal">Joaquim Fernandes</span></p>
-                <p class="font-weight-bold">E-Mail: <span class="font-weight-normal">JoaquimF@ua.pt</span></p>
-                <p class="font-weight-bold">{{ __('text.perfil') }}: <span class="font-weight-normal">Fiel de armazém</span></p>
-                <p class="font-weight-bold">{{ __('text.dataCriacao') }}: <span class="font-weight-normal">14/12/2020</span></p>
-                <p class="font-weight-bold">{{ __('text.dataEliminacao') }}: <span class="font-weight-normal">15/12/2020</span></p>
-                <p class="font-weight-bold">{{ __('text.observacoes') }}: <span class="font-weight-normal">Lorem ipsum dolor sit amet
-                        consectetur adipisicing elit. Quas nobis earum quia magni repudiandae.</span></p>
+                <p class="font-weight-bold">{{ __('text.nome') }}: <span class="font-weight-normal" id="nome"></span></p>
+                <p class="font-weight-bold">E-Mail: <span class="font-weight-normal" id="email"></span></p>
+                <p class="font-weight-bold">{{ __('text.perfil') }}: <span class="font-weight-normal" id="perfil"></span></p>
+                <p class="font-weight-bold">{{ __('text.dataCriacao') }}: <span class="font-weight-normal" id="dataCriacao"></span></p>
+                <p class="font-weight-bold">{{ __('text.dataEliminacao') }}: <span class="font-weight-normal" id="dataEliminacao"></span></p>
+                <p class="font-weight-bold">{{ __('text.observacoes') }}: <span class="font-weight-normal" id="observacoes"></span></p>
             </div>
         </div>
         <!-- /.modal-content -->
@@ -128,39 +135,73 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script>
+@if(null !== session()->get( 'toast' ))
+        @if(session()->get( 'toast' )== 'editSuccess')
+            toastr.success('{{ __('text.editadoSucesso') }}')
+        @elseif(session()->get( 'toast' ) == 'deleteSuccess')
+            toastr.success('{{ __('text.eliminadoSucesso') }}')
+        @elseif(session()->get( 'toast' ) == 'error')
+            toastr.error('erro')
+        @endif
+    @endif
+    
     $(document).ready(function(){
       $('[data-toggle="tooltip"]').tooltip();
     });
 </script>
 <script>
-
-dataSet= [];
-  @foreach( $operadores as $operadores)
-   dataSet.push(["{{$operadores->nome}}","{{$operadores->email}}","{{$operadores->perfil->perfil}}","{{$operadores->data_criação}}","{{$operadores->data_eliminação}}"]);
-   @endforeach
     $(function () {
     $('#table').DataTable({
-        data:dataSet,
         "responsive": true,
         "autoWidth": false,
         language: {
                 url: '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
         },
-        "columnDefs": [ {
-            "targets": -1,
-            "data": null,
-            "defaultContent": '<div class="btn-group"><button type="button" class="btn btn-primary" data-toggle="modal" data-toggle="tooltip" title="{{ __('text.detalhes') }}" data-target="#modal-default2"><i class="fas fa-eye"></i></button><button data-toggle="modal" data-toggle="tooltip" title="{{ __('text.editar') }}" data-target="#modal-default1" type="button" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button><button data-toggle="modal" data-toggle="tooltip" title="{{ __('text.eliminar') }}" data-target="#modal-default" type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></div>',
-            "orderable": false
-        }]
+        "processing": true,
+            "serverSide": true,
+            "ajax": "{{ route('APIlistaOperadores')}}",
+            "columns": [
+                { "data": 'nome' },
+                { "data": 'email' },
+                { "data": 'perfil' },
+                { "data": 'data_criação' },
+                { "data": 'data_eliminação'},
+                {"data" : 'buttons'}
+            ]
     });
-    $('.toastrDefaultSuccess').click(function() {
-      toastr.success('{{ __('text.eliminadoSucesso') }}')
-    });
-
-    $('.toastrDefaultSuccess1').click(function() {
-      toastr.success('{{ __('text.editadoSucesso') }}')
-    });
+  
   });
+  function elim(id){
+        $('#eliminar').attr('action', '/operadores/'+id);
+        $('#modal-default').modal('show');
+    }
+
+    function info(id,modal) {
+        $.ajax({
+               type:'GET',
+               url:'api/operadores/'+id,
+               success: function(info) {
+                info = JSON.parse(info);
+            if(modal){
+                console.dir(info);
+                $('#modal-default2').modal('show');
+                $('#nome').text(info[0].nome);
+                $('#email').text(info[0].email);
+                $('#perfil').text(info[0].perfil);
+                $('#dataCriacao').text(info[0].data_criação);
+                $('#dataEliminacao').text(info[0].data_eliminação);
+                $('#observacoes').text(info[0].observacoes);
+            }else{
+                $('#edit').attr('action', '/operadores/'+id);
+                $('#modal-default1').modal('show');
+                $('#novoCargoOperador').val(info[0].perfil);
+            }
+        }
+        });
+        console.dir(info);
+        console.dir(modal);
+    }
+
 </script>
 @stop
 

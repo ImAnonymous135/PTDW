@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Pictogramas extends Model
 {
     use HasFactory;
+    
+    protected $table = 'pictogramas';
 }

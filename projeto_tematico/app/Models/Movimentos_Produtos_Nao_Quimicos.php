@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Movimentos_Produtos_Nao_Quimicos extends Model
 {
     protected $table = 'movimentos_produtos_nao_quimicos';
- 
+    protected $primaryKey = false;
+
     use HasFactory;
-    
+
     public function movimento(){
         return $this->belongsTo(Movimentos::class,'movimentos_n_ordem','n_ordem');
     }
