@@ -38,7 +38,7 @@
                 </tr>
             </thead>
             <tbody>
-                
+
             </tfoot>
         </table>
     </div>
@@ -66,9 +66,10 @@
         return "<?php echo __('text.solido') ?>";
     }
 
-    
+
 
     @foreach ($produtos as $produto ) {
+        //dd($produto);
         dataSet.push([
             "{{$produto->designacao}}",
             "{{$produto->stock_existente}}",

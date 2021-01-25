@@ -113,15 +113,17 @@ class RegistarEntradaController extends Controller
     public function load()
     {
         $textura = Textura_viscosidade::all();
-        $familia = Produtos::all();
+        $produto = Produtos::all()->unidades();
         $estadoFisico = Estado_Fisico::all();
         $tipoEmbalagem = Tipo_Embalagem::all();
+        dd($produto);
+
 
         $date = Carbon::now();
 
         //dd($textura, $familia, $estadoFisico, $tipoEmbalagem);
         //dd($date);
 
-        return view('registo-entrada', ["date" => $date, "familia" => $familia, "estadoFisico" => $estadoFisico, "tipoEmbalagem" => $tipoEmbalagem, "textura" => $textura]);
+        return view('registo-entrada', ["date" => $date, "familia" => $produto, "estadoFisico" => $estadoFisico, "tipoEmbalagem" => $tipoEmbalagem, "textura" => $textura]);
     }
 }
