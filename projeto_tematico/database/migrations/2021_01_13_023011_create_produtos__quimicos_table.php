@@ -14,7 +14,7 @@ class CreateProdutosQuimicosTable extends Migration
     public function up()
     {
         Schema::create('produtos_quimicos', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->integer('id_produto')->primary();
             $table->string('formula');
             $table->float('pMolecular');
             $table->string('casN');
