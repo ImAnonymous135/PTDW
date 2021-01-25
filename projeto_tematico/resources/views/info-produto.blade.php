@@ -130,11 +130,11 @@
     return data;
   }
 
-  function terminar(data) {
-    if (data == null) {
+  function terminar(dataAbertura, dataTermino, produto, embalagem) {
+    if (dataAbertura == null || dataTermino != null )  {
       return '<button type="button" data-toggle="tooltip" class="btn btn-primary" disabled>{{ __('text.termino') }}</button>';
     }
-    return '<a href="./saidas/{{$produto->designacao}}/{{$embalagens[0]->embalagemid}}" type="button" data-toggle="tooltip" class="btn btn-primary">{{ __('text.termino') }}</a>';
+    return '<a href="/saidas/'+produto+'/'+embalagem+'" type="button" data-toggle="tooltip" class="btn btn-primary">{{ __('text.termino') }}</a>';
   }
 
   json.forEach(e => {
@@ -142,7 +142,7 @@
       e.cliente+"-"+e.armario+"-"+e.prateleira,
       e.capacidade+" "+"{{$produto->unidades->desginacao}}",
       dataAbertura(e.data_abertura, e.embalagemid),
-      terminar(e.data_abertura)
+      terminar(e.data_abertura, e.data_termino, "{{ $produto->designacao }}", e.embalagem)
     ]);
   });
 

@@ -24,7 +24,7 @@ class ProdutoController extends Controller
     {
         //dd($id);
         $movimentos = DB::table('embalagem')->
-        select('movimentos.*','embalagem.capacidade_embalagem AS capacidade', 'prateleiras.designacao AS prateleira', 'armario.designacao AS armario', 'cliente.designacao AS cliente')->
+        select('movimentos.*','embalagem.capacidade_embalagem AS capacidade','embalagem.designacao AS embalagem', 'prateleiras.designacao AS prateleira', 'armario.designacao AS armario', 'cliente.designacao AS cliente')->
         where('id_produtos', $id)->
         join('movimentos', 'embalagem.id', '=', 'embalagemid')->
         join('prateleiras', 'embalagem.localizacao', '=', 'prateleiras.id')->

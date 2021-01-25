@@ -53,19 +53,19 @@ class RegistoSaidaController extends Controller
 
        //Movimentos::where('embalagemid', $embalagem->id)->where('operadorid',$operadores->id)->update(['data_termino' => $request->data]);
 
-       return redirect('/saidas');
+       return redirect('/produtos/'.$produto->id);
     }
-    public function load($produto_designacao, $embalagem_designacao)
+    public function load($produto_designacao, $embalagem)
     {
         //dd('cheguei');
         if($produto_designacao == 'null')
         {
             $produto_designacao = "";
-            $embalagem_designacao = "";
+            $embalagem = "";
         }
 
         $date = Carbon::now()->format('d-m-Y');
-        return view('registo-saida', ['data'=> $date, 'produtoDesignacao'=>$produto_designacao, 'embalagemDesignacao' => $embalagem_designacao]);
+        return view('registo-saida', ['data'=> $date, 'produtoDesignacao'=>$produto_designacao, 'embalagemDesignacao' => $embalagem]);
     }
 
     //le a request e devolve os dados relevantes
@@ -93,9 +93,9 @@ class RegistoSaidaController extends Controller
             $table = "produtos.designacao";
         }else if($request->get("pesquisa")== "embalagem"){
             $table = "embalagem.designacao";
-        }else if($request->get("pesquisa")== "solicitante"){ 
+        }else if($request->get("pesquisa")== "solicitante"){
             $table = "solicitantes.nome";
-        }else if($request->get("pesquisa")== "operador"){ 
+        }else if($request->get("pesquisa")== "operador"){
             $table = "operadores.nome";
         }else if($request->get("pesquisa")== "prateleira"){
             $table = "prateleiras.designacao";
