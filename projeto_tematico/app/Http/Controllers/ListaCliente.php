@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 use App\Models\Cliente;
 use App\Models\Operadores;
@@ -10,7 +11,9 @@ use Exception;
 
 class ListaCliente extends Controller{
 
-    public function show(){
+    public function show(Request $request){
+        
+        App::setLocale($request->session()->get('lang'));
         $cliente = Cliente::all();
         $operadores = Operadores::all();
 

@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 use App\Models\Movimentos_Produtos_Quimicos;
 
 class EntradaQuimicoHistorico extends Controller
 {
-    public function show()
+    public function show(Request $request)
     {
+        App::setLocale($request->session()->get('lang'));
         $produtos = Movimentos_Produtos_Quimicos::all();
         return view('entrada-quimico',['produtos'=>$produtos]);
     }

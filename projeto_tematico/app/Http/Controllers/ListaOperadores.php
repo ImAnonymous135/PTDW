@@ -2,51 +2,58 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 use App\Models\Operadores;
 use App\Models\Perfil;
 use App\Models\Operadores_Historico;
 
-class ListaOperadores extends Controller{
+class ListaOperadores extends Controller
+{
 
-    public function show(){
+    public function show(Request $request)
+    {
+
+        App::setLocale($request->session()->get('lang'));
         $operadores = Operadores::all();
         $perfil = Perfil::all();
 
-        return view('operadores',['operadores'=>$operadores,'perfil'=>$perfil]);
+        return view('operadores', ['operadores' => $operadores, 'perfil' => $perfil]);
     }
 
-    public function create(){
+    public function create()
+    {
         $perfil = Perfil::all();
-        return view('adicionar-operador',['perfil'=>$perfil]);
+        return view('adicionar-operador', ['perfil' => $perfil]);
     }
 
     public function store(Request $request)
     {
         $this->validateOperadores();
 
-        $operadores = new Operadores(request(['id_perfil','nome','email','observacoes']));
-        $operadores->id_perfil=$request->perfil;
+        $operadores = new Operadores(request(['id_perfil', 'nome', 'email', 'observacoes']));
+        $operadores->id_perfil = $request->perfil;
         //['solicitante_sala','id_perfil','nome','email','observacoes','data_criação','data_eliminação']
         $operadores->data_criação = date("d-m-Y");
-        $operadores->timestamps=false;
+        $operadores->timestamps = false;
 
-//'nome_administrador','operador','data','operacao','observacoes']
+        //'nome_administrador','operador','data','operacao','observacoes']
         $operadoresHistorico = new Operadores_Historico();
         $operadoresHistorico->nome_administrador = 'admin';
         $operadoresHistorico->operador = $operadores->nome;
         $operadoresHistorico->data = date("d-m-Y");
-        $operadoresHistorico->operacao="Operador criado";
-        $operadoresHistorico->observacoes="";
-        $operadoresHistorico->timestamps=false;
+        $operadoresHistorico->operacao = "Operador criado";
+        $operadoresHistorico->observacoes = "";
+        $operadoresHistorico->timestamps = false;
         $operadoresHistorico->save();
 
         $operadores->save();
 
-        return redirect('/movimentos/operadores')->with(['toast'=>'addSuccess']);
+        return redirect('/movimentos/operadores')->with(['toast' => 'addSuccess']);
     }
 
-    public function update($id){
+    public function update($id)
+    {
 
         $operadores = Operadores::find($id);
         $operadores->id_perfil = request()->novoCargoOperador;
@@ -56,16 +63,17 @@ class ListaOperadores extends Controller{
         $operadoresHistorico->nome_administrador = 'admin';
         $operadoresHistorico->operador = $operadores->nome;
         $operadoresHistorico->data = date("d-m-Y");
-        $operadoresHistorico->operacao="Operador alterado";
-        $operadoresHistorico->observacoes=request()->observacoes;
-        $operadoresHistorico->timestamps=false;
+        $operadoresHistorico->operacao = "Operador alterado";
+        $operadoresHistorico->observacoes = request()->observacoes;
+        $operadoresHistorico->timestamps = false;
         $operadoresHistorico->save();
 
-        return redirect('/movimentos/operadores')->with(['toast'=>'editSuccess']);
+        return redirect('/movimentos/operadores')->with(['toast' => 'editSuccess']);
     }
 
 
-    public function validateOperadores(){
+    public function validateOperadores()
+    {
         request()->validate([
             'nome' => 'required',
             'email' => 'required|email',
@@ -73,32 +81,34 @@ class ListaOperadores extends Controller{
         ]);
     }
 
-    public function destroy($id){
+    public function destroy($id)
+    {
         $operadores = Operadores::find($id);
 
         $operadoresHistorico = new Operadores_Historico();
         $operadoresHistorico->nome_administrador = 'admin';
         $operadoresHistorico->operador = $operadores->nome;
         $operadoresHistorico->data = date("d-m-Y");
-        $operadoresHistorico->operacao="Operador eliminado";
-        $operadoresHistorico->observacoes=request()->observacoes;
-        $operadoresHistorico->timestamps=false;
+        $operadoresHistorico->operacao = "Operador eliminado";
+        $operadoresHistorico->observacoes = request()->observacoes;
+        $operadoresHistorico->timestamps = false;
         $operadoresHistorico->save();
 
         Operadores::find($id)->delete();
 
-        return redirect('/operadores')->with(['toast'=>'deleteSuccess']);;
+        return redirect('/operadores')->with(['toast' => 'deleteSuccess']);;
     }
 
-    public function dadosRequest(Request $request){
+    public function dadosRequest(Request $request)
+    {
         $columnIndex_arr = $request->get('order');
         $columnName_arr = $request->get('columns');
         $search_arr = $request->get('search');
         $columnIndex = $columnIndex_arr[0]['column'];
 
-        $data = array (
+        $data = array(
             "start" => $request->get("start"),
-            "length" => $request->get("length"), 
+            "length" => $request->get("length"),
             "search" => $search_arr['value'],
             "column" => $columnName_arr[$columnIndex]['data'],
             "order" => $columnIndex_arr[0]['dir']
@@ -106,50 +116,53 @@ class ListaOperadores extends Controller{
         return $data;
     }
 
-    public function listaOperadores(Request $request){
+    public function listaOperadores(Request $request)
+    {
         $data = $this->dadosRequest($request);
 
         $count = Operadores::select('count(*)')
-        ->join('perfil', 'operadores.id_perfil', '=', 'perfil.id')
-        ->where("operadores.nome", 'ilike', '%' . $data["search"] . '%')
-        ->orWhere("perfil.perfil", 'ilike', '%' . $request->get('search')['value'] . '%')
-        ->orWhere("operadores.email", 'ilike', '%' . $request->get('search')['value'] . '%')
-        ->orWhere("operadores.data_criação", 'ilike', '%' . $request->get('search')['value'] . '%')
-        ->skip($data["start"])
-        ->take($data["length"])
-        ->count();
-        
+            ->join('perfil', 'operadores.id_perfil', '=', 'perfil.id')
+            ->where("operadores.nome", 'ilike', '%' . $data["search"] . '%')
+            ->orWhere("perfil.perfil", 'ilike', '%' . $request->get('search')['value'] . '%')
+            ->orWhere("operadores.email", 'ilike', '%' . $request->get('search')['value'] . '%')
+            ->orWhere("operadores.data_criação", 'ilike', '%' . $request->get('search')['value'] . '%')
+            ->skip($data["start"])
+            ->take($data["length"])
+            ->count();
+
         $total = Operadores::select('count(*) as allcount')->count();
 
         $result = Operadores::orderBy($data["column"], $data["order"])
-        ->join('perfil', 'operadores.id_perfil', '=', 'perfil.id')
-        ->where("operadores.nome", 'ilike', '%' . $data["search"] . '%')
-        ->orWhere("perfil.perfil", 'ilike', '%' . $request->get('search')['value'] . '%')
-        ->orWhere("operadores.email", 'ilike', '%' . $request->get('search')['value'] . '%')
-        ->orWhere("operadores.data_criação", 'ilike', '%' . $request->get('search')['value'] . '%')
-        ->select('operadores.nome as nome',
-        'operadores.email as email',
-        'perfil.perfil as perfil',
-        'operadores.data_criação as data_criação',
-        'operadores.deleted_at as data_eliminação',
-        'operadores.id as id')
-        ->skip($data["start"])
-        ->take($data["length"])
-        ->get();
+            ->join('perfil', 'operadores.id_perfil', '=', 'perfil.id')
+            ->where("operadores.nome", 'ilike', '%' . $data["search"] . '%')
+            ->orWhere("perfil.perfil", 'ilike', '%' . $request->get('search')['value'] . '%')
+            ->orWhere("operadores.email", 'ilike', '%' . $request->get('search')['value'] . '%')
+            ->orWhere("operadores.data_criação", 'ilike', '%' . $request->get('search')['value'] . '%')
+            ->select(
+                'operadores.nome as nome',
+                'operadores.email as email',
+                'perfil.perfil as perfil',
+                'operadores.data_criação as data_criação',
+                'operadores.deleted_at as data_eliminação',
+                'operadores.id as id'
+            )
+            ->skip($data["start"])
+            ->take($data["length"])
+            ->get();
 
-        if(count($result)>0){
-            foreach($result as $operador){
+        if (count($result) > 0) {
+            foreach ($result as $operador) {
                 $arrayS[] = array(
                     "nome" => $operador->nome,
                     "email" => $operador->email,
                     "perfil" => $operador->perfil,
                     "data_criação" => $operador->data_criação,
                     "data_eliminação" => $operador->data_eliminação,
-                    "buttons" => '<div class="btn-group"><button type="button" class="btn btn-primary" data-toggle="tooltip" onclick="info('.$operador->id.',true)"><i class="fas fa-eye"></i></button>  <button data-toggle="tooltip" type="button" onclick="info('.$operador->id.',false)" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>  <button data-toggle="tooltip" type="button" onclick="elim('.$operador->id.')"  class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></div>'
+                    "buttons" => '<div class="btn-group"><button type="button" class="btn btn-primary" data-toggle="tooltip" onclick="info(' . $operador->id . ',true)"><i class="fas fa-eye"></i></button>  <button data-toggle="tooltip" type="button" onclick="info(' . $operador->id . ',false)" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>  <button data-toggle="tooltip" type="button" onclick="elim(' . $operador->id . ')"  class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></div>'
                 );
             }
-        }else{
-            $arrayS=[];
+        } else {
+            $arrayS = [];
         }
 
         $response = array(
@@ -162,10 +175,12 @@ class ListaOperadores extends Controller{
         return json_encode($response);
     }
 
-    public function getOperador($id){
+    public function getOperador($id)
+    {
         $operador = Operadores::find($id);
 
-        $arrayS[] = array("nome" => $operador->nome,
+        $arrayS[] = array(
+            "nome" => $operador->nome,
             "email" => $operador->email,
             "perfil" => $operador->perfil->perfil,
             "data_criação" => $operador->data_criação,
@@ -175,6 +190,4 @@ class ListaOperadores extends Controller{
 
         return json_encode($arrayS);
     }
-
-
 }

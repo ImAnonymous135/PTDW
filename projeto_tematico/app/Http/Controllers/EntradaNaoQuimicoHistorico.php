@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 use App\Models\Movimentos_Produtos_Nao_Quimicos;
 use App\Models\Familia;
@@ -9,8 +10,9 @@ use App\Models\Familia;
 class EntradaNaoQuimicoHistorico extends Controller
 {
 
-    public function show()
+    public function show(Request $request)
     {
+        App::setLocale($request->session()->get('lang'));
         $familias = Familia::all();
         return view('entrada-nao-quimico',['familias'=>$familias]);
     }
