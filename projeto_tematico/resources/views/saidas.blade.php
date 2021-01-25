@@ -24,6 +24,20 @@
 
 <div class="card">
   <div class="card-body">
+  <div class="form-group">
+                <label class="font-weight-normal">{{ __('text.tipoEmbalagem') }}:</label>
+                <div class="input-group-prepend">
+                    <select id="pesquisa" class="select form-control" name="pesquisa">
+                        <option value="produto">Produto</option>
+                        <option value="prateleira">Prateleira</option>
+                        <option value="armario">Armario</option>
+                        <option value="cliente">Cliente</option>
+                        <option value="embalagem">Embalagem</option>
+                        <option value="solicitante">Solicitante</option>
+                        <option value="operador">Operador</option>
+                    </select>
+                </div>
+            </div>
     <table id="table" class="table table-bordered table-striped">
       <thead>
         <tr>
@@ -47,7 +61,7 @@
 {{-- Data table --}}
 <script>
   $(function () {
-    $('#table').DataTable({
+    var table = $('#table').DataTable({
       "responsive": true,
       "autoWidth": false,
       language: {
@@ -58,13 +72,16 @@
             "ajax": "{{ route('APISaidas')}}",
             "columns": [
                 { "data": 'designacao' },
-                { "data": 'prateleira' },
+                { "data": 'localizacao' },
                 { "data": 'embalagem' },
                 { "data": 'solicitante' },
                 { "data": 'operador' },
                 { "data": 'data' }
             ]
     });
+    table.on('preXhr.dt', function (e, settings, data) {
+            data.pesquisa = $('#pesquisa').val();
+        });
   });
 </script>
 @include('sub-views.exports')

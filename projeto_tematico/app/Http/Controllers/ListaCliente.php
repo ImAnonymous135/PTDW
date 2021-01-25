@@ -132,12 +132,21 @@ class ListaCliente extends Controller{
         $count = Cliente::select('count(*)')
         ->join('operadores', 'cliente.id_responsavel', '=', 'operadores.id')
         ->where("cliente.designacao", 'ilike', '%' . $data["search"] . '%')
+        ->orWhere("operadores.nome", 'ilike', '%' . $request->get('search')['value'] . '%')
+        ->orWhere("operadores.email", 'ilike', '%' . $request->get('search')['value'] . '%')
+        ->orWhere("operadores.email", 'ilike', '%' . $request->get('search')['value'] . '%')
+        ->orWhere("cliente.observacoes", 'ilike', '%' . $request->get('search')['value'] . '%')
         ->count();
         
         $total = Cliente::select('count(*) as allcount')->count();
 
         $result = Cliente::orderBy('operadores.nome', $data["order"])
         ->join('operadores', 'cliente.id_responsavel', '=', 'operadores.id')
+        ->where("cliente.designacao", 'ilike', '%' . $data["search"] . '%')
+        ->orWhere("operadores.nome", 'ilike', '%' . $request->get('search')['value'] . '%')
+        ->orWhere("operadores.email", 'ilike', '%' . $request->get('search')['value'] . '%')
+        ->orWhere("operadores.email", 'ilike', '%' . $request->get('search')['value'] . '%')
+        ->orWhere("cliente.observacoes", 'ilike', '%' . $request->get('search')['value'] . '%')
         ->select('cliente.designacao as designacao',
             'operadores.nome as nomeOperadores',
             'operadores.email as emailOperadores',

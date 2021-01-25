@@ -151,7 +151,7 @@
 </script>
 <script>
     $(function () {
-    $('#table').DataTable({
+        $('#table').DataTable({
         "responsive": true,
         "autoWidth": false,
         language: {

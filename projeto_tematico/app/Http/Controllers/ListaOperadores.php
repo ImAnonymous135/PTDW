@@ -80,8 +80,10 @@ class ListaOperadores extends Controller{
 
         $count = Operadores::select('count(*)')
         ->join('perfil', 'operadores.id_perfil', '=', 'perfil.id')
-
         ->where("operadores.nome", 'ilike', '%' . $data["search"] . '%')
+        ->orWhere("perfil.perfil", 'ilike', '%' . $request->get('search')['value'] . '%')
+        ->orWhere("operadores.email", 'ilike', '%' . $request->get('search')['value'] . '%')
+        ->orWhere("operadores.data_criação", 'ilike', '%' . $request->get('search')['value'] . '%')
         ->skip($data["start"])
         ->take($data["length"])
         ->count();
@@ -91,6 +93,9 @@ class ListaOperadores extends Controller{
         $result = Operadores::orderBy($data["column"], $data["order"])
         ->join('perfil', 'operadores.id_perfil', '=', 'perfil.id')
         ->where("operadores.nome", 'ilike', '%' . $data["search"] . '%')
+        ->orWhere("perfil.perfil", 'ilike', '%' . $request->get('search')['value'] . '%')
+        ->orWhere("operadores.email", 'ilike', '%' . $request->get('search')['value'] . '%')
+        ->orWhere("operadores.data_criação", 'ilike', '%' . $request->get('search')['value'] . '%')
         ->select('operadores.nome as nome',
         'operadores.email as email',
         'perfil.perfil as perfil',
