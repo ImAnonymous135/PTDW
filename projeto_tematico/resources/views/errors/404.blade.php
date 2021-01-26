@@ -9,7 +9,7 @@
         <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! Page not found.</h3>
 
         <p>
-            {{ __('text.404') }} <a href="../../index.html">{{ __('text.retornar') }}</a>.
+            {{ __('text.404') }} <a href="./">{{ __('text.retornar') }}</a>.
         </p>
         
       </div>
