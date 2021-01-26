@@ -18,7 +18,7 @@ class CreateTexturaViscosidadesTable extends Migration
             $table->string('textura_viscosidade');
         });
 
-        DB::table('perfil')->insert([
+        DB::table('textura_viscosidade')->insert([
             ['textura_viscosidade' => 'Sólido'],
             ['textura_viscosidade' => 'Semi-sólido'],
             ['textura_viscosidade' => 'Altamente viscoso'],
