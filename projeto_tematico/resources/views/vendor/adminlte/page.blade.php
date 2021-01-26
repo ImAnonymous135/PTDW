@@ -2,7 +2,7 @@
 
 @section('content_top_nav_right')
 
-@if (app()->getLocale() == 'pt')
+@if (app()->getLocale() == 'pt' || app()->getLocale() == null)
 <a href="/setLang/en" class="mr-2" id="lang">EN</a>
 @else
 <a href="/setLang/pt" class="mr-2" id="lang">PT</a>
