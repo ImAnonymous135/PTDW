@@ -17,6 +17,12 @@ class CreateTipoEmbalagemsTable extends Migration
             $table->id();
             $table->string('tipo_embalagem');
         });
+
+        DB::table('perfil')->insert([
+            ['tipo_embalagem' => 'Vidro'],
+            ['tipo_embalagem' => 'Plástico'],
+            ['tipo_embalagem' => 'Metálico'],
+        ]);
     }
 
     /**

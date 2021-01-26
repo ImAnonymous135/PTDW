@@ -50,8 +50,7 @@ class Trigger extends Migration
 
 
         DB::unprepared("Create Trigger stock_saida after insert on registo_saidas for each row  execute procedure alerta_stock_saida()");
-        DB::unprepared("Create Trigger stock_entrada after insert on movimentos_produtos_quimicos for each row  execute procedure alerta_stock_entrada()");
-        DB::unprepared("Create Trigger stock_entrada after insert on movimentos_produtos_nao_quimicos for each row  execute procedure alerta_stock_entrada()");
+        DB::unprepared("Create Trigger stock_entrada after insert on movimentos for each row  execute procedure alerta_stock_entrada()");
     }
 
     /**

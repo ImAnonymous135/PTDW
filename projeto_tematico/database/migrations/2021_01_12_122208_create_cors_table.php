@@ -17,6 +17,10 @@ class CreateCorsTable extends Migration
             $table->id();
             $table->string('cor');
         });
+
+        DB::table('cor')->insert([
+            ['cor' => 'TODO'],
+        ]);
     }
 
     /**

@@ -14,7 +14,7 @@ class CreateMovimentosProdutosNaoQuimicosTable extends Migration
     public function up()
     {
         Schema::create('movimentos_produtos_nao_quimicos', function (Blueprint $table) {
-            $table->integer('movimentos_n_ordem');
+            $table->integer('movimentos_n_ordem')->primary();
             $table->integer('id_tipo_embalagem');
             $table->integer('id_cor');
         });

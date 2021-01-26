@@ -17,6 +17,12 @@ class CreatePerfilsTable extends Migration
             $table->id();
             $table->string('perfil')->nullable(true);
         });
+
+        DB::table('perfil')->insert([
+            ['perfil' => 'Fiel de armazém'],
+            ['perfil' => 'Supervisor Setorial'],
+            ['perfil' => 'Supervisor geral'],
+        ]);
     }
 
     /**

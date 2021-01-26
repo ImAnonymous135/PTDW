@@ -17,6 +17,13 @@ class CreateEstadoFisicosTable extends Migration
             $table->id();
             $table->string('estado_fisico');
         });
+
+        DB::table('perfil')->insert([
+            ['estado_fisico' => 'Líquido'],
+            ['estado_fisico' => 'Sólido'],
+            ['estado_fisico' => 'Gasoso'],
+            ['estado_fisico' => 'Plasma'],
+        ]);
     }
 
     /**

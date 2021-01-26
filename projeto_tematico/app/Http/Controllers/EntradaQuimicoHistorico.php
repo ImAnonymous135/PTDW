@@ -54,7 +54,7 @@ class EntradaQuimicoHistorico extends Controller
             $endDate = $request->get("end_date");
         }
 
-        $count = Movimentos_Produtos_Quimicos::select(DB::raw('count(distinct(movimentos_produtos_quimicos.id))'))
+        $count = Movimentos_Produtos_Quimicos::select(DB::raw('count(distinct(movimentos_produtos_quimicos.movimentos_n_ordem))'))
         ->join('movimentos', 'movimentos_produtos_quimicos.movimentos_n_ordem', '=', 'movimentos.n_ordem')
         ->join('textura_viscosidade', 'movimentos_produtos_quimicos.id_textura_viscosidade', '=', 'textura_viscosidade.id')
         ->join('estado_fisico', 'movimentos_produtos_quimicos.id_estado_fisico', '=', 'estado_fisico.id')
@@ -108,7 +108,7 @@ class EntradaQuimicoHistorico extends Controller
         ->where($table, 'ilike', '%' . $request->get('search')['value'] . '%')
         ->where("movimentos.data_entrada",'>', $startDate)
         ->where("movimentos.data_entrada",'<', $endDate)
-        ->select(DB::raw('distinct(movimentos_produtos_quimicos.id)'),'produtos.designacao as designacao',
+        ->select(DB::raw('distinct(movimentos_produtos_quimicos.movimentos_n_ordem)'),'produtos.designacao as designacao',
         'fornecedor.designacao as fornecedor' ,'movimentos.marca as marca',
         'tipo_embalagem.tipo_embalagem as tipo_embalagem', 'cor.cor', 
         'estado_fisico.estado_fisico','textura_viscosidade.textura_viscosidade',
@@ -116,7 +116,7 @@ class EntradaQuimicoHistorico extends Controller
         'movimentos.data_validade as data_validade','prateleiras.designacao as prateleria',
         'armario.designacao as armario','cliente.designacao as cliente',
         DB::raw("array_agg( pictogramas.imagem ) as pictogramas"))
-        ->groupBy('movimentos_produtos_quimicos.id','produtos.designacao','fornecedor.designacao','movimentos.marca','tipo_embalagem.tipo_embalagem', 'cor.cor', 
+        ->groupBy('movimentos_produtos_quimicos.movimentos_n_ordem','produtos.designacao','fornecedor.designacao','movimentos.marca','tipo_embalagem.tipo_embalagem', 'cor.cor', 
         'estado_fisico.estado_fisico','textura_viscosidade.textura_viscosidade',
         'movimentos.peso_bruto','movimentos.data_entrada',
         'movimentos.data_validade','prateleiras.designacao',
