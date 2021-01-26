@@ -61,6 +61,18 @@
               </div>
           </div>
       </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+            <label class="font-weight-normal">{{ __('text.familia') }}:</label>
+            <div class="input-group-prepend">
+                <select id="pictogramas" class="select2 form-control" name="subfamilia[]" multiple="multiple">
+                    @foreach($pictogramas as $pictograma)
+                      <option value="{{$pictograma->id}}">{{$pictograma->designacao}}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+    </div>
         <table id="table" class="table table-bordered table-striped">
             <thead>
                 <tr>
@@ -68,6 +80,7 @@
                     <th>{{ __('text.localizacao') }}</th>
                     <th>{{ __('text.fornecedor') }}</th>
                     <th>{{ __('text.marca') }}</th>
+                    <th>{{ __('text.pictogramas') }}</th>
                     <th>{{ __('text.tipoEmbalagem') }}</th>
                     <th>{{ __('text.cor') }}</th>
                     <th>{{ __('text.estadoFisico') }}</th>
@@ -81,7 +94,6 @@
             </tbody>
         </table>
     </div>
-    <!-- /.card-body -->
 </div>
 <br>
 @stop
@@ -94,6 +106,7 @@
 
 <script>
     $(function () {
+        $('#pictogramas').select2();
         var table = $('#table').DataTable({
             "responsive": true,
             "autoWidth": false,
@@ -108,6 +121,7 @@
                 { "data": 'localizacao' },
                 { "data": 'fornecedor' },
                 { "data": 'marca' },
+                { "data": 'pictogramas' },
                 { "data": 'tipo_embalagem' },
                 { "data": 'cor' },
                 { "data": 'estado_fisico' },
@@ -132,6 +146,7 @@
                 data.start_date = temp[0];
                 data.end_date = temp[1];
             }
+            data.pictogramas = $('#pictogramas').val();
             data.pesquisa = $('#pesquisa').val();
         });
 
@@ -148,6 +163,10 @@
 
         $('#pesquisa').on('change', function () {
           table.draw();
+        });
+
+        $('#pictogramas').on('select2:select select2:unselect', function (ev, picker) {
+            table.draw();
         });
     });
 </script>

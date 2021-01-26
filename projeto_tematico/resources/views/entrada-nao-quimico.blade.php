@@ -103,7 +103,7 @@
 <script>
     $(function () {
         $('#familia').select2();
-        var  asd= "t";
+        
         var table = $('#table').DataTable({
             "responsive": true,
             "autoWidth": false,

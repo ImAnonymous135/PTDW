@@ -5,14 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 use App\Models\Movimentos_Produtos_Quimicos;
+use App\Models\Pictogramas;
+use DB;
 
 class EntradaQuimicoHistorico extends Controller
 {
     public function show(Request $request)
     {
         App::setLocale($request->session()->get('lang'));
-        $produtos = Movimentos_Produtos_Quimicos::all();
-        return view('entrada-quimico',['produtos'=>$produtos]);
+
+        $pictogramas = Pictogramas::all();
+        return view('entrada-quimico',['pictogramas'=>$pictogramas]);
     }
 
     //Este metodo tem como parametro a request
@@ -51,7 +54,7 @@ class EntradaQuimicoHistorico extends Controller
             $endDate = $request->get("end_date");
         }
 
-        $count = Movimentos_Produtos_Quimicos::select('count(*)')
+        $count = Movimentos_Produtos_Quimicos::select(DB::raw('count(distinct(movimentos_produtos_quimicos.id))'))
         ->join('movimentos', 'movimentos_produtos_quimicos.movimentos_n_ordem', '=', 'movimentos.n_ordem')
         ->join('textura_viscosidade', 'movimentos_produtos_quimicos.id_textura_viscosidade', '=', 'textura_viscosidade.id')
         ->join('estado_fisico', 'movimentos_produtos_quimicos.id_estado_fisico', '=', 'estado_fisico.id')
@@ -63,10 +66,20 @@ class EntradaQuimicoHistorico extends Controller
         ->join('prateleiras', 'embalagem.localizacao', '=', 'prateleiras.id')
         ->join('armario', 'prateleiras.id_armario', '=', 'armario.id')
         ->join('cliente', 'armario.id_cliente', '=', 'cliente.id')
+        ->join('produtos_quimicos', 'produtos.id', '=', 'produtos_quimicos.id_produto')
+        ->join('produtos_quimicos_pictogramas', 'produtos_quimicos.id_produto','=','produtos_quimicos_pictogramas.id_produtos_quimicos')
+        ->join('pictogramas', 'produtos_quimicos_pictogramas.id_pictogramas','=','pictogramas.id')
+        ->where(function ($query) use ($request){
+            if($request->get("pictogramas")==null){  
+                $query->where('pictogramas.id','ilike', '%');
+            }else{
+                $query->whereIn('pictogramas.id', $request->get("pictogramas"));
+            }
+        })
         ->where($table, 'ilike', '%' . $request->get('search')['value'] . '%')
         ->where("movimentos.data_entrada",'>', $startDate)
         ->where("movimentos.data_entrada",'<', $endDate)
-        ->count();
+        ->get();
         
         $total = Movimentos_Produtos_Quimicos::select('count(*) as allcount')->count();
 
@@ -82,22 +95,44 @@ class EntradaQuimicoHistorico extends Controller
         ->join('prateleiras', 'embalagem.localizacao', '=', 'prateleiras.id')
         ->join('armario', 'prateleiras.id_armario', '=', 'armario.id')
         ->join('cliente', 'armario.id_cliente', '=', 'cliente.id')
+        ->join('produtos_quimicos', 'produtos.id', '=', 'produtos_quimicos.id_produto')
+        ->join('produtos_quimicos_pictogramas', 'produtos_quimicos.id_produto','=','produtos_quimicos_pictogramas.id_produtos_quimicos')
+        ->join('pictogramas', 'produtos_quimicos_pictogramas.id_pictogramas','=','pictogramas.id')
+        ->where(function ($query) use ($request){
+            if($request->get("pictogramas")==null){  
+                $query->where('pictogramas.id','ilike', '%');
+            }else{
+                $query->whereIn('pictogramas.id', $request->get("pictogramas"));
+            }
+        })
         ->where($table, 'ilike', '%' . $request->get('search')['value'] . '%')
         ->where("movimentos.data_entrada",'>', $startDate)
         ->where("movimentos.data_entrada",'<', $endDate)
-        ->select('produtos.designacao as designacao',
+        ->select(DB::raw('distinct(movimentos_produtos_quimicos.id)'),'produtos.designacao as designacao',
         'fornecedor.designacao as fornecedor' ,'movimentos.marca as marca',
         'tipo_embalagem.tipo_embalagem as tipo_embalagem', 'cor.cor', 
         'estado_fisico.estado_fisico','textura_viscosidade.textura_viscosidade',
         'movimentos.peso_bruto as peso','movimentos.data_entrada as data_entrada',
         'movimentos.data_validade as data_validade','prateleiras.designacao as prateleria',
-        'armario.designacao as armario','cliente.designacao as cliente')
+        'armario.designacao as armario','cliente.designacao as cliente',
+        DB::raw("array_agg( pictogramas.imagem ) as pictogramas"))
+        ->groupBy('movimentos_produtos_quimicos.id','produtos.designacao','fornecedor.designacao','movimentos.marca','tipo_embalagem.tipo_embalagem', 'cor.cor', 
+        'estado_fisico.estado_fisico','textura_viscosidade.textura_viscosidade',
+        'movimentos.peso_bruto','movimentos.data_entrada',
+        'movimentos.data_validade','prateleiras.designacao',
+        'armario.designacao','cliente.designacao')
         ->skip($request->get("start"))
         ->take($request->get("length"))
         ->get();
-
+        
         if(count($movements)>0){
             foreach($movements as $movement){
+                $pictogramas = substr($movement->pictogramas, 1, -1);
+                $pictogramas = explode(",", $pictogramas);
+                $pict=" ";
+                for($i=0;$i<count($pictogramas);$i++){
+                    $pict .='<img src="'.$pictogramas[$i].'" width="50" height="50">';
+                }
                 $result[] = array(
                     "designacao" => $movement->designacao,
                     "fornecedor" => $movement->fornecedor,
@@ -109,17 +144,18 @@ class EntradaQuimicoHistorico extends Controller
                     "peso" => $movement->peso,
                     "data_entrada" => $movement->data_entrada,
                     "data_validade" => $movement->data_validade,
-                    "localizacao" => $movement->cliente."-".$movement->armario."-".$movement->prateleria
+                    "localizacao" => $movement->cliente."-".$movement->armario."-".$movement->prateleria,
+                    "pictogramas" => $pict
                 );
             }
         }else{
             $result=[];
         }
-        
+
         $response = array(
             "draw" => intval($request->get('draw')),
             "iTotalRecords" => $total,
-            "iTotalDisplayRecords" => $count,
+            "iTotalDisplayRecords" => $count[0]->count,
             "aaData" => $result
         );
 
