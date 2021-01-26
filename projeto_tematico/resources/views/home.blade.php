@@ -66,7 +66,7 @@
                 <h3>{{__('text.produtosStock')}}</h3>
             </div>
             <div class="card-body">
-                <table id="table2" class="table table-head-fixed">
+                <table id="table2" class="table">
                     <thead>
                         <tr>
                             <th>{{ __('text.produto') }}</th>

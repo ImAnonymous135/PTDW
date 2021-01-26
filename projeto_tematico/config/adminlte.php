@@ -308,12 +308,12 @@ return [
         ],
         [
             'text' => 'Registo de Entrada',
-            'url'  => '/entradas/null',
+            'url'  => '/entradas',
             'icon' => 'fas fa-plus',
         ],
         [
             'text' => 'Registo de Saída',
-            'url'  => '/saidas/null/null',
+            'url'  => '/saidas',
             'icon' => 'fas fa-minus',
         ],
         [

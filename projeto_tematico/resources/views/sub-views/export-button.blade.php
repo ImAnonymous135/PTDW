@@ -5,7 +5,7 @@
         </a>
         <ul class="mfb-component__list">
             <li>
-                <a href="#" id="excel" data-mfb-label="{{ __('text.exportarPara') }} Excel" class="mfb-component__button--child">
+                <a href="/saidas" data-mfb-label="{{ __('text.registarAbertura') }} Excel" class="mfb-component__button--child">
                     <i class="mfb-component__child-icon fas fa-plus"></i>
                 </a>
             </li>

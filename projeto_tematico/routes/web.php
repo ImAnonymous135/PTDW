@@ -66,11 +66,11 @@ Route::get('/produtos/{id}', 'App\Http\Controllers\ProdutoController@show');
 Route::get('/produtos/abertura/{id}','App\Http\Controllers\ProdutoController@update');
 
 //Registo de entradas
-Route::get('/entradas', 'App\Http\Controllers\RegistarEntradaController@load');
+Route::get('/entradas', 'App\Http\Controllers\RegistarEntradaController@show');
 
 Route::get('/entradas/{id}', 'App\Http\Controllers\RegistarEntradaController@load');
 
-Route::get('/produtos/saidas', function (Request $request) {
+Route::get('/saidas', function (Request $request) {
     App::setLocale($request->session()->get('lang'));
     return view('registo-saida');
 });

@@ -44,10 +44,12 @@ class RegistoSaidaController extends Controller
             'observacao' => $request->observacoes,
 
         ]);
-
+        
         $movimento = Movimentos::where('embalagemid', $embalagem->id)->where('operadorid', $operadores->id)->first();
         //dd($embalagem->id, $operadores->id, $request->data,$movimento );
+        //dd($request);
         $movimento->data_termino = $request->data;
+        
         $movimento->timestamps = false;
         //dd($movimento);
         $movimento->save();

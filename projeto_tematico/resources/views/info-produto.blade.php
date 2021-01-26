@@ -30,7 +30,7 @@
 </ul>
 
 <div class="row">
-  <div class="col-sm-6">
+  <div class="col-sm-4">
     <div class="card">
       <div class="card-header">
         <h3>{{ __('text.informacaoProduto') }}</h3>
@@ -83,7 +83,7 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-6">
+  <div class="col-sm-8">
     <div class="card">
       <div class="card-header">
         <h3>{{ __('text.armazenamento') }}</h3>
@@ -93,6 +93,7 @@
           <table id="table" class="table table-head-fixed">
             <thead>
               <tr>
+                <th>{{ __('text.embalagem') }}</th>
                 <th>{{ __('text.localizacao') }}</th>
                 <th>{{ __('text.capacidadeEmbalagem') }}</th>
                 <th>{{ __('text.dataAbertura') }}</th>
@@ -121,6 +122,7 @@
 
 <script>
   json = JSON.parse('<?php echo $embalagens ?>');
+  console.log(json);
   dataSet = [];
 
   function dataAbertura(data, eID) {
@@ -131,22 +133,23 @@
   }
 
   function terminar(dataAbertura, dataTermino, produto, embalagem) {
-    if (dataAbertura == null || dataTermino != null )  {
+    if (dataAbertura == null )  {
       return '<button type="button" data-toggle="tooltip" class="btn btn-primary" disabled>{{ __('text.termino') }}</button>';
+    } else if (dataTermino != null) {
+      return dataTermino;
     }
     return '<a href="/saidas/'+produto+'/'+embalagem+'" type="button" data-toggle="tooltip" class="btn btn-primary">{{ __('text.termino') }}</a>';
   }
 
   json.forEach(e => {
     dataSet.push([
+      e.embalagem,
       e.cliente+"-"+e.armario+"-"+e.prateleira,
       e.capacidade+" "+"{{$produto->unidades->desginacao}}",
       dataAbertura(e.data_abertura, e.embalagemid),
       terminar(e.data_abertura, e.data_termino, "{{ $produto->designacao }}", e.embalagem)
     ]);
   });
-
-  console.log(dataSet);
 
   $(function () {
     $('#table').DataTable({

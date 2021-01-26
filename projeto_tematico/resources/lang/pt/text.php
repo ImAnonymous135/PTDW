@@ -85,7 +85,7 @@ return [
     'designacao' => 'Designação',
     'inventario' => 'Stock',
     'embalagem' => 'Embalagem',
-    'localizacao' => 'Locaização',
+    'localizacao' => 'Localização',
     'tipo' => 'Tipo',
     'acoes' => 'Acções',
     'movimentosRecentes' => 'Os meus movimentos recentes',
@@ -136,7 +136,7 @@ return [
     //nao-quimicos
     'quantidade' => 'Quantidade',
     'identificacaoEmbalagem' => 'Identificação da Embalagem',
-    'capacidadeEmbalagem' => 'Capacidade da Embalagem',
+    'capacidadeEmbalagem' => 'Capacidade',
     'gramas' => 'Gramas',
     'mililitros' => 'Mililitros',
     'sala' => 'Sala',
@@ -152,4 +152,6 @@ return [
     'quimico' => 'Químico',
     //page
     'terminarSessao' => 'Terminar Sessão',
+    '404' => 'Ocorreu um erro, página não encontrada!',
+    'retornar' => 'Retornar para página principal'
 ];

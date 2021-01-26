@@ -152,4 +152,6 @@ return [
     'quimico' => 'Chemical',
     //page
     'terminarSessao' => 'Log out',
+    '404' => 'An error has occured, Requested page not found!',
+    'retornar' => 'Return to Dashboard'
 ];

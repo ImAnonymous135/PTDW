@@ -34,19 +34,19 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>{{ __('text.produto') }}</label>
-                            <input type="text" class="form-control" id="produto" value="{{ $produtoDesignacao }}" name="produto">
+                            <input type="text" class="form-control" id="produto" value="{{ $produtoDesignacao ?? '' }}" name="produto">
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="form-group">
                             <label>{{ __('text.embalagem') }}</label>
-                            <input type="text" class="form-control" id="embalagem" value="{{ $embalagemDesignacao }}" name="embalagem">
+                            <input type="text" class="form-control" id="embalagem" value="{{ $embalagemDesignacao ?? ''}}" name="embalagem">
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="form-group">
                             <label>{{ __('text.data') }}</label>
-                            <input type="text" class="form-control" id="data" value={{ $data }}  name="data" readonly>
+                            <input type="text" class="form-control" id="data" value="{{ $data ?? '' }}"  name="data" readonly>
                         </div>
                     </div>
                 </div>

@@ -57,7 +57,7 @@ class RegistarEntradaController extends Controller
         }
 
         $prateleira = Prateleira::where('designacao', $request->prateleira)->where('id_armario', $armario->id)->first();
-       // dd( $request->prateleira, $armario->id, $prateleira, !$prateleira);
+        // dd( $request->prateleira, $armario->id, $prateleira, !$prateleira);
         if (!$prateleira) {
             $prateleira = new Prateleira();
             $prateleira->designacao = $request->prateleira;
@@ -189,19 +189,16 @@ class RegistarEntradaController extends Controller
     public function load($id, Request $request)
     {
         App::setLocale($request->session()->get('lang'));
-        //dd($id);
-        if($id == 'null')
-        {
-           //dd('is null');
-            $produto = Produtos::select('*')->join('unidades', 'unidades.id', '=', 'produtos.id_unidades')->get();
-            $embalagens = null;
+        if ($id > 0) {
+            abort(404);
         }
-        else{
-            //dd('is not null');
-            $produto[0] = Produtos::find($id);
+        $produto[0] = Produtos::find($id);
 
-            $embalagens = $this->embalagens($id);
-        }
+        
+        
+
+        $embalagens = $this->embalagens($id);
+
         //dd('produto',$produto, 'id',$id, $id == 'null');
         $textura = Textura_viscosidade::all();
         $estadoFisico = Estado_Fisico::all();
@@ -212,20 +209,34 @@ class RegistarEntradaController extends Controller
         //dd($textura, $familia, $estadoFisico, $tipoEmbalagem);
         //dd($date);
 
-        return view('registo-entrada', ['embalagens'=> $embalagens, 'unidades' => $unidades, "date" => $date, "produto" => $produto, "estadoFisico" => $estadoFisico, "tipoEmbalagem" => $tipoEmbalagem, "textura" => $textura]);
+        return view('registo-entrada', ['embalagens' => $embalagens, 'unidades' => $unidades, "date" => $date, "produto" => $produto, "estadoFisico" => $estadoFisico, "tipoEmbalagem" => $tipoEmbalagem, "textura" => $textura]);
+    }
+
+    public function show(Request $request)
+    {
+        App::setLocale($request->session()->get('lang'));
+        //dd($id);
+        //dd('is null');
+        $produto = Produtos::select('*')->join('unidades', 'unidades.id', '=', 'produtos.id_unidades')->get();
+        $embalagens = null;
+
+        //dd('produto',$produto, 'id',$id, $id == 'null');
+        $textura = Textura_viscosidade::all();
+        $estadoFisico = Estado_Fisico::all();
+        $tipoEmbalagem = Tipo_Embalagem::all();
+        $unidades = Unidades::all();
+        $date = Carbon::now();
+
+        //dd($textura, $familia, $estadoFisico, $tipoEmbalagem);
+        //dd($date);
+
+        return view('registo-entrada', ['embalagens' => $embalagens, 'unidades' => $unidades, "date" => $date, "produto" => $produto, "estadoFisico" => $estadoFisico, "tipoEmbalagem" => $tipoEmbalagem, "textura" => $textura]);
     }
 
     private function embalagens($id)
     {
         //dd($id);
-        $movimentos = DB::table('embalagem')->
-        select('movimentos.*','embalagem.capacidade_embalagem AS capacidade', 'prateleiras.designacao AS prateleira', 'armario.designacao AS armario', 'cliente.designacao AS cliente')->
-        where('id_produtos', $id)->
-        join('movimentos', 'embalagem.id', '=', 'embalagemid')->
-        join('prateleiras', 'embalagem.localizacao', '=', 'prateleiras.id')->
-        join('armario', 'prateleiras.id_armario', '=', 'armario.id')->
-        join('cliente', 'armario.id_cliente', '=', 'cliente.id')->
-        get();
+        $movimentos = DB::table('embalagem')->select('movimentos.*', 'embalagem.capacidade_embalagem AS capacidade', 'prateleiras.designacao AS prateleira', 'armario.designacao AS armario', 'cliente.designacao AS cliente')->where('id_produtos', $id)->join('movimentos', 'embalagem.id', '=', 'embalagemid')->join('prateleiras', 'embalagem.localizacao', '=', 'prateleiras.id')->join('armario', 'prateleiras.id_armario', '=', 'armario.id')->join('cliente', 'armario.id_cliente', '=', 'cliente.id')->get();
 
         return $movimentos;
     }
