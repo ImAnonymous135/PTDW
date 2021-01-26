@@ -14,6 +14,7 @@ class CreateCodPrudenciaPictogramasTable extends Migration
     public function up()
     {
         Schema::create('codPrudencia_pictogramas', function (Blueprint $table) {
+            $table->id();
             $table->integer('id_pictogramas');
             $table->integer('id_codPrudencia');
         });

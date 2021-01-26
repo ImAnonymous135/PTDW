@@ -14,6 +14,7 @@ class CreateCodPerigoPictogramasTable extends Migration
     public function up()
     {
         Schema::create('codPerigo_pictogramas', function (Blueprint $table) {
+            $table->id();
             $table->integer('id_codPerigo');
             $table->integer('id_pictogramas');
         });

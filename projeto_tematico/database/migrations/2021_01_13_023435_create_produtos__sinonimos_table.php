@@ -14,7 +14,7 @@ class CreateProdutosSinonimosTable extends Migration
     public function up()
     {
         Schema::create('produtos_sinonimos', function (Blueprint $table) {
-            $table->integer('id_produtos');
+            $table->integer('id_produtos')->primary();
             $table->string('sinonimo_sinonimo');
         });
     }
