@@ -1,0 +1,28 @@
+.picto-input {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    border-radius: 50%;
+}
+
+.picto-holder {
+    margin: 5px;
+}
+
+img {
+    transition: all 0.2s;
+    position: relative;
+    cursor: pointer;
+}
+
+.picto-input:checked {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+:checked+label img {
+    transform: scale(0.9);
+    filter: brightness(80%);
+}
