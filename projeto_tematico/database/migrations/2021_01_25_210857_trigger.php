@@ -16,13 +16,14 @@ class Trigger extends Migration
         DB::unprepared('create or replace function alerta_stock_saida()
         RETURNS trigger AS $$
         declare 
-        se INTEGER = (select stock_existente from produtos where id = new.id_produto);
-        sm Integer = (select stock_minimo from produtos where id = new.id_produto);
+        pr INTEGER = (select id_produtos from embalagem where id=new.embalagemid);
+        se INTEGER = (select stock_existente from produtos p where p.id = pr);
+        sm Integer = (select stock_minimo from produtos p where p.id = pr);
         begin	
-                UPDATE produtos set stock_existente = stock_existente-1 where id = new.id_produto;
+                UPDATE produtos set stock_existente = stock_existente-1 where id = pr;
                 IF se-1<sm THEN
                 INSERT INTO alerta_stock (produto_id)
-                VALUES (new.id_produto);		
+                VALUES (pr);		
                 END if;
             
         return null;
@@ -34,12 +35,13 @@ class Trigger extends Migration
         DB::unprepared('create or replace function alerta_stock_entrada()
         RETURNS trigger AS $$
         declare 
-        se INTEGER = (select stock_existente from produtos p where id = new.id_produto);
-        sm Integer = (select stock_minimo from produtos where id = new.id_produto);
+		pr INTEGER = (select id_produtos from embalagem where id=new.embalagemid);
+        se INTEGER = (select distinct(stock_existente) from produtos p where p.id = pr);
+        sm Integer = (select distinct(stock_minimo) from produtos p where p.id = pr);
         begin	
-                UPDATE produtos set stock_existente = stock_existente+1 where id = new.id_produto;
+                UPDATE produtos set stock_existente = stock_existente+1 where id = pr;
                 IF se+1>sm THEN
-                delete from alerta_stock where produto_id = new.id_produto;		
+                delete from alerta_stock where produto_id = pr;		
                 END if;
             
         return null;
