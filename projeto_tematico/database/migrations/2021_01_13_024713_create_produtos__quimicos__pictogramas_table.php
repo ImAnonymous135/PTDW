@@ -14,6 +14,7 @@ class CreateProdutosQuimicosPictogramasTable extends Migration
     public function up()
     {
         Schema::create('produtos_quimicos_pictogramas', function (Blueprint $table) {
+            $table->id();
             $table->integer('id_produtos_quimicos');
             $table->integer('id_pictogramas');
         });

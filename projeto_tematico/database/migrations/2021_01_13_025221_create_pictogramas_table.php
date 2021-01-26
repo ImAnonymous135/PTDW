@@ -18,6 +18,18 @@ class CreatePictogramasTable extends Migration
             $table->string('designacao');
             $table->string('imagem');
         });
+
+        DB::table('pictogramas')->insert([
+            ['designacao' => 'skull', 'imagem' => 'https://www.reach-compliance.ch/downloads/GHS06_skull.png'],
+            ['designacao' => 'explosive', 'imagem' => 'https://www.reach-compliance.ch/downloads/GHS01_explos.png'],
+            ['designacao' => 'flame', 'imagem' => 'https://www.reach-compliance.ch/downloads/GHS02_flamme.png'],
+            ['designacao' => 'flame2', 'imagem' => 'https://www.reach-compliance.ch/downloads/GHS03_rondflam.png'],
+            ['designacao' => 'bottle', 'imagem' => 'https://www.reach-compliance.ch/downloads/GHS04_bottle.png'],
+            ['designacao' => 'acid', 'imagem' => 'https://www.reach-compliance.ch/downloads/GHS05_acid_red.png'],
+            ['designacao' => 'danger', 'imagem' => 'https://www.reach-compliance.ch/downloads/GHS07_exclam.png'],
+            ['designacao' => 'lungs', 'imagem' => 'https://www.reach-compliance.ch/downloads/GHS08_silhouete.png'],
+            ['designacao' => 'pollution', 'imagem' => 'https://www.reach-compliance.ch/downloads/GHS09_aq-pollut.png'],
+        ]);
     }
 
     /**

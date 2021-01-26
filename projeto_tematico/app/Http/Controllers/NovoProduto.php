@@ -8,6 +8,8 @@ use App\Models\Unidades;
 use App\Models\Produtos_Nao_Quimicos;
 use App\Models\Produtos_Quimicos;
 use App\Models\Familia;
+use App\Models\Pictogramas;
+use App\Models\Produtos_Quimicos_Pictogramas;
 
 class NovoProduto extends Controller
 {
@@ -66,6 +68,80 @@ class NovoProduto extends Controller
                 'condicaoArmazenamento' => $request->condicoesArmazenamento,
                 'ventilado' => $ventilado,
             ]);
+
+            if(isset($request->skull)){
+                $pictograma = Pictogramas::where('designacao', '=', 'skull')->get();
+                $ligacao = new Produtos_Quimicos_Pictogramas();
+                $ligacao->timestamps = false;
+                $ligacao->id_pictogramas = $pictograma[0]->id;
+                $ligacao->id_produtos_quimicos = $produto->id;
+                $ligacao->save();
+                
+            }
+            if(isset($request->explosive)){
+                $pictograma = Pictogramas::where('designacao', '=', 'explosive')->get();
+                $ligacao = new Produtos_Quimicos_Pictogramas();
+                $ligacao->timestamps = false;
+                $ligacao->id_pictogramas = $pictograma[0]->id;
+                $ligacao->id_produtos_quimicos = $produto->id;
+                $ligacao->save();
+            }
+            if(isset($request->flame)){
+                $pictograma = Pictogramas::where('designacao', '=', 'flame')->get();
+                $ligacao = new Produtos_Quimicos_Pictogramas();
+                $ligacao->timestamps = false;
+                $ligacao->id_pictogramas = $pictograma[0]->id;
+                $ligacao->id_produtos_quimicos = $produto->id;
+                $ligacao->save();
+            }
+            if(isset($request->flame2)){
+                $pictograma = Pictogramas::where('designacao', '=', 'flame2')->get();
+                $ligacao = new Produtos_Quimicos_Pictogramas();
+                $ligacao->timestamps = false;
+                $ligacao->id_pictogramas = $pictograma[0]->id;
+                $ligacao->id_produtos_quimicos = $produto->id;
+                $ligacao->save();
+            }
+            if(isset($request->bottle)){
+                $pictograma = Pictogramas::where('designacao', '=', 'bottle')->get();
+                $ligacao = new Produtos_Quimicos_Pictogramas();
+                $ligacao->timestamps = false;
+                $ligacao->id_pictogramas = $pictograma[0]->id;
+                $ligacao->id_produtos_quimicos = $produto->id;
+                $ligacao->save();
+            }
+            if(isset($request->acid)){
+                $pictograma = Pictogramas::where('designacao', '=', 'acid')->get();
+                $ligacao = new Produtos_Quimicos_Pictogramas();
+                $ligacao->timestamps = false;
+                $ligacao->id_pictogramas = $pictograma[0]->id;
+                $ligacao->id_produtos_quimicos = $produto->id;
+                $ligacao->save();
+            }
+            if(isset($request->danger)){
+                $pictograma = Pictogramas::where('designacao', '=', 'danger')->get();
+                $ligacao = new Produtos_Quimicos_Pictogramas();
+                $ligacao->timestamps = false;
+                $ligacao->id_pictogramas = $pictograma[0]->id;
+                $ligacao->id_produtos_quimicos = $produto->id;
+                $ligacao->save();
+            }
+            if(isset($request->lungs)){
+                $pictograma = Pictogramas::where('designacao', '=', 'lungs')->get();
+                $ligacao = new Produtos_Quimicos_Pictogramas();
+                $ligacao->timestamps = false;
+                $ligacao->id_pictogramas = $pictograma[0]->id;
+                $ligacao->id_produtos_quimicos = $produto->id;
+                $ligacao->save();
+            }
+            if(isset($request->pollution)){
+                $pictograma = Pictogramas::where('designacao', '=', 'pollution')->get();
+                $ligacao = new Produtos_Quimicos_Pictogramas();
+                $ligacao->timestamps = false;
+                $ligacao->id_pictogramas = $pictograma[0]->id;
+                $ligacao->id_produtos_quimicos = $produto->id;
+                $ligacao->save();
+            }
         }else { 
 
             $familias = Familia::where('designacao', '=', $request->familia)->get();
