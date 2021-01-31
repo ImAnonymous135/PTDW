@@ -55,9 +55,9 @@
           <label class="font-weight-normal">{{ __('text.tipoEmbalagem') }}:</label>
           <div class="input-group-prepend">
               <select id="pesquisa" class="select form-control" name="pesquisa">
-                  <option value="nome_administrador">Administrador</option>
-                  <option value="operador">Operador</option>
-                  <option value="operacao">Operacao</option>
+                  <option value="nome_administrador">{{ __('text.nomeAdmin') }}</option>
+                  <option value="operador">{{ __('text.operador') }}</option>
+                  <option value="operacao">{{ __('text.operacao') }}</option>
               </select>
           </div>
       </div>

@@ -52,20 +52,19 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-6">
-            <div class="form-group">
-                <label class="font-weight-normal">{{ __('text.tipoEmbalagem') }}:</label>
+        <div class="col-sm-6 ">
+            <div class="form-group ">
                 <div class="input-group-prepend">
                     <select id="pesquisa" class="select form-control" name="pesquisa">
-                        <option value="produto">Produto</option>
-                        <option value="prateleira">Prateleira</option>
-                        <option value="armario">Armario</option>
+                        <option value="produto">{{ __('text.produto') }}</option>
+                        <option value="prateleira">{{ __('text.prateleira') }}</option>
+                        <option value="armario">{{ __('text.armario') }}</option>
                         <option value="cliente">Cliente</option>
-                        <option value="fornecedor">Fornecedor</option>
-                        <option value="marca">Marca</option>
-                        <option value="tipo">Tipo de Embalagem</option>
-                        <option value="cor">Cor</option>
-                        <option value="peso">Peso Bruto</option>
+                        <option value="fornecedor">{{ __('text.fornecedor') }}</option>
+                        <option value="marca">{{ __('text.marca') }}</option>
+                        <option value="tipo">{{ __('text.tipoEmbalagem') }}</option>
+                        <option value="cor">{{ __('text.cor') }}</option>
+                        <option value="peso">{{ __('text.pesoBruto') }}</option>
                     </select>
                 </div>
             </div>

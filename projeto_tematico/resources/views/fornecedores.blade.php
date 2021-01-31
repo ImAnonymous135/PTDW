@@ -92,25 +92,15 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>{{ __('text.nome') }}</label>
-                                <input type="text" class="form-control @error('designacao') is-invalid @enderror"
+                                <input type="text" class="form-control "
                                     name="designacao" id="designacao" value={{old('designacao')}}>
-                                @error('designacao')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>{{ __('text.morada') }}</label>
-                                <input type="text" class="form-control @error('morada') is-invalid @enderror"
+                                <input type="text" class="form-control "
                                     name="morada" id="morada" value={{old('morada')}}>
-                                @error('morada')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
                             </div>
                         </div>
                     </div>
@@ -119,25 +109,15 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>{{ __('text.localizacao') }}</label>
-                                <input type="text" class="form-control @error('localidade') is-invalid @enderror"
+                                <input type="text" class="form-control"
                                     name="localidade" id="localidade" value={{old('localidade')}}>
-                                @error('localidade')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>{{ __('text.codigoPostal') }}</label>
-                                <input type="text" class="form-control @error('codigo_postal') is-invalid @enderror"
+                                <input type="text" class="form-control"
                                     name="codigo_postal" id="codigo_postal" value={{old('codigo_postal')}}>
-                                @error('codigo_postal')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
                             </div>
                         </div>
                     </div>
@@ -146,25 +126,15 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>{{ __('text.telefone') }}</label>
-                                <input type="text" class="form-control  @error('telefone') is-invalid @enderror"
+                                <input type="text" class="form-control"
                                     name="telefone" id="telefone" value={{old('telefone')}}>
-                                @error('telefone')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>NIF</label>
-                                <input type="text" class="form-control @error('nif') is-invalid @enderror" name="nif"
+                                <input type="text" class="form-control"
                                     id="nif" value={{old('nif')}}>
-                                @error('nif')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
                             </div>
                         </div>
                     </div>
@@ -173,13 +143,8 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>E-Mail</label>
-                                <input type="text" class="form-control @error('email') is-invalid @enderror"
+                                <input type="text" class="form-control"
                                     name="email" id="email" value={{old('email')}}>
-                                @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -187,7 +152,6 @@
                                 <label>{{ __('text.vendedor') }} 1</label>
                                 <input type="text" class="form-control" name="vendedor_1" id="vendedor_1"
                                     value={{old('vendedor_1')}}>
-
                             </div>
                         </div>
                     </div>
@@ -198,19 +162,13 @@
                                 <label>{{ __('text.telefone') }} 1</label>
                                 <input type="text" class="form-control " name="telemovel_1" id="telemovel_1"
                                     value={{old('telemovel_1')}}>
-
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>E-Mail 1</label>
-                                <input type="text" class="form-control @error('email_1') is-invalid @enderror"
+                                <input type="text" class="form-control"
                                     name="email_1" id="email_1" value={{old('email_1')}}>
-                                @error('email_1')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
                             </div>
                         </div>
                     </div>
@@ -236,13 +194,8 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>E-Mail 2</label>
-                                <input type="text" class="form-control @error('email_2') is-invalid @enderror"
+                                <input type="text" class="form-control"
                                     name="email_2" id="email_2" value={{old('email_2')}}>
-                                @error('email_2')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
                             </div>
                         </div>
                     </div>
