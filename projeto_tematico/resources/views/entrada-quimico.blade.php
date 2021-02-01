@@ -27,23 +27,27 @@
         </a>
         <ul class="mfb-component__list">
             <li>
-                <a href="../entradas" data-mfb-label="{{ __('text.registarEntrada') }}" class="mfb-component__button--child">
+                <a href="../entradas" data-mfb-label="{{ __('text.registarEntrada') }}"
+                    class="mfb-component__button--child">
                     <i class="mfb-component__child-icon fas fa-plus"></i>
                 </a>
             </li>
             <li>
-                <a href="#" id="pdf" data-mfb-label="{{ __('text.exportarPara') }} PDF" class="mfb-component__button--child">
+                <a href="#" id="pdf" data-mfb-label="{{ __('text.exportarPara') }} PDF"
+                    class="mfb-component__button--child">
                     <i class="mfb-component__child-icon fas fa-file-pdf"></i>
                 </a>
             </li>
             <li>
-                <a href="#" id="csv" data-mfb-label="{{ __('text.exportarPara') }} CSV" class="mfb-component__button--child">
+                <a href="#" id="csv" data-mfb-label="{{ __('text.exportarPara') }} CSV"
+                    class="mfb-component__button--child">
                     <i class="mfb-component__child-icon fas fa-file-csv"></i>
                 </a>
             </li>
 
             <li>
-                <a href="#" id="excel" data-mfb-label="{{ __('text.exportarPara') }} Excel" class="mfb-component__button--child">
+                <a href="#" id="excel" data-mfb-label="{{ __('text.exportarPara') }} Excel"
+                    class="mfb-component__button--child">
                     <i class="mfb-component__child-icon fas fa-file-excel"></i>
                 </a>
             </li>
@@ -53,7 +57,6 @@
 
 <div class="card">
     <div class="card-body">
-
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
@@ -70,18 +73,19 @@
                 </div>
             </div>
         </div>
-      <div class="col-sm-6">
-        <div class="form-group">
-            <label class="font-weight-normal">{{ __('text.familia') }}:</label>
-            <div class="input-group-prepend">
-                <select id="pictogramas" class="select2 form-control" name="subfamilia[]" multiple="multiple">
-                    @foreach($pictogramas as $pictograma)
-                      <option value="{{$pictograma->id}}">{{$pictograma->designacao}}</option>
-                    @endforeach
-                </select>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="font-weight-normal">{{ __('text.pictogramas') }}:</label>
+                <div class="input-group-prepend">
+                    <select id="pictogramas" class="select2 form-control" name="subfamilia[]" multiple="multiple">
+                        @foreach($pictogramas as $pictograma)
+                        <option value="{{$pictograma->id}}" title="{{$pictograma->imagem}}">&nbsp;
+                            {{$pictograma->designacao}}</option>
+                        @endforeach
+                    </select>
+                </div>
             </div>
         </div>
-    </div>
         <table id="table" class="table table-bordered table-striped">
             <thead>
                 <tr>
@@ -114,14 +118,37 @@
 <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
 <script>
+    json = JSON.parse('<?php echo $pictogramas ?>');
+
+    function format(state) {
+        console.log(state);
+        $state = $('<span><img width="20px" height="20px" src="' + state.title + '"class="img-flag" />'  + state.text + '</span>');
+        return $state;
+    } 
+
+    function setLang() {
+        if ('<?php echo Config::get("app.locale") ?>' == "pt") {
+                return '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
+            } else if ('<?php echo Config::get("app.locale") ?>' == "en") {
+                return '//cdn.datatables.net/plug-ins/1.10.22/i18n/English.json'
+            }
+    }
+    
+
     $(function () {
-        $('#pictogramas').select2();
+        $('#pictogramas').select2({
+             templateResult: format
+        });
+
         var table = $('#table').DataTable({
-            "dom": '<"top"<"row"<"col-sm-6"l><"col-sm-3"f><"col-sm-3">>>rt<"bottom"ip><"clear">',
+            "dom": '<"top"<"row"<"col-sm-6"l><"col-sm-4"f><"col-sm-2"<"option-box">>>>rt<"bottom"ip><"clear">',
             "responsive": true,
             "autoWidth": false,
             language: {
-                url: '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
+                url: setLang()
+            },
+            "initComplete": function () {
+                $(".option-box").html('<div class="input-group-prepend"><select id="pesquisa" class="select form-control form-control-sm" name="pesquisa"><option value="produto">{{ __('text.produto') }}</option><option value="prateleira">{{ __('text.prateleira') }}</option><option value="armario">{{ __('text.armario') }}</option><option value="cliente">Cliente</option><option value="fornecedor">{{ __('text.fornecedor') }}</option><option value="marca">{{ __('text.marca') }}</option><option value="tipo">{{ __('text.tipoEmbalagem') }}</option><option value="cor">{{ __('text.cor') }}</option><option value="estado">{{ __('text.estadoFisico') }}</option><option value="textura">{{ __('text.texturaOuViscosidade') }}</option><option value="peso">{{ __('text.pesoBruto') }}</option></select> </div>');
             },
             "processing": true,
             "serverSide": true,
@@ -142,11 +169,6 @@
             ]
         });
         
-                $(".option-box").html('<p> text</p>');
-                //$(".option-box").html('<div class="input-group-prepend"><select id="pesquisa" class="select form-control" name="pesquisa"><option value="produto">{{ __('text.produto') }}</option><option value="prateleira">{{ __('text.prateleira') }}</option><option value="armario">{{ __('text.armario') }}</option><option value="cliente">Cliente</option><option value="fornecedor">{{ __('text.fornecedor') }}</option><option value="marca">{{ __('text.marca') }}</option><option value="tipo">{{ __('text.tipoEmbalagem') }}</option><option value="cor">{{ __('text.cor') }}</option><option value="estado">{{ __('text.estadoFisico') }}</option><option value="textura">{{ __('text.texturaOuViscosidade') }}</option><option value="peso">{{ __('text.pesoBruto') }}</option></select> </div>');
-           
-
-
         var daterangepicker = $('#data').daterangepicker({
             autoUpdateInput: true,
             locale: {
