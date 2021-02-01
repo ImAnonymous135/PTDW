@@ -27,7 +27,7 @@
       </a>
       <ul class="mfb-component__list">
           <li>
-              <a href="/saidas" data-mfb-label="{{ __('text.registarSaida') }}" class="mfb-component__button--child">
+              <a href="../saidas" data-mfb-label="{{ __('text.registarSaida') }}" class="mfb-component__button--child">
                   <i class="mfb-component__child-icon fas fa-plus"></i>
               </a>
           </li>
