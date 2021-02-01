@@ -67,22 +67,22 @@
                                 <i class="far fa-calendar-alt"></i>
                             </span>
                         </div>
-                        <input type="text" class="form-control float-right" id="data">
+                        <input type="text" class="form-control-sm form-control float-right" id="data">
                     </div>
 
                 </div>
             </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="form-group">
-                <label class="font-weight-normal">{{ __('text.pictogramas') }}:</label>
-                <div class="input-group-prepend">
-                    <select id="pictogramas" class="select2 form-control" name="subfamilia[]" multiple="multiple">
-                        @foreach($pictogramas as $pictograma)
-                        <option value="{{$pictograma->id}}" title="{{$pictograma->imagem}}">&nbsp;
-                            {{$pictograma->designacao}}</option>
-                        @endforeach
-                    </select>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="font-weight-normal">{{ __('text.pictogramas') }}:</label>
+                    <div class="input-group-prepend">
+                        <select id="pictogramas" class="select2 form-control form-control-sm" name="subfamilia[]" multiple="multiple">
+                            @foreach($pictogramas as $pictograma)
+                            <option value="{{$pictograma->id}}" title="{{$pictograma->imagem}}">&nbsp;
+                                {{$pictograma->designacao}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
@@ -141,7 +141,7 @@
         });
 
         var table = $('#table').DataTable({
-            "dom": '<"top"<"row"<"col-sm-6"l><"col-sm-4"f><"col-sm-2"<"option-box">>>>rt<"bottom"ip><"clear">',
+            "dom": '<"top"<"row"<"col-sm-8"l><"col-sm-2"f><"col-sm-2"<"option-box">>>>rt<"bottom"ip><"clear">',
             "responsive": true,
             "autoWidth": false,
             language: {
