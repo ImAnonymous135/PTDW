@@ -189,12 +189,12 @@ class RegistarEntradaController extends Controller
     public function load($id, Request $request)
     {
         App::setLocale($request->session()->get('lang'));
-        if ($id > 0) {
-            abort(404);
-        }
         $produto[0] = Produtos::find($id);
 
-        
+        if (!isset($produto[0])) {
+            abort(404);
+            dd($produto);
+        }
         
 
         $embalagens = $this->embalagens($id);
@@ -207,8 +207,6 @@ class RegistarEntradaController extends Controller
         $date = Carbon::now();
 
         //dd($textura, $familia, $estadoFisico, $tipoEmbalagem);
-        //dd($date);
-
         return view('registo-entrada', ['embalagens' => $embalagens, 'unidades' => $unidades, "date" => $date, "produto" => $produto, "estadoFisico" => $estadoFisico, "tipoEmbalagem" => $tipoEmbalagem, "textura" => $textura]);
     }
 
