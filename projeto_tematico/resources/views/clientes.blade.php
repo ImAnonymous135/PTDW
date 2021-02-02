@@ -145,7 +145,7 @@
                     <div class="col-sm-6">
                     <div class="form-group">
                     <label>{{ __('text.emailSolicitante') }}</label>
-                    <input type="text"   class="form-control @error('emailSolicitante') is-invalid @enderror" id="emailSolicitante" name="emailSolicitante" value={{old('emailSolicitante')}}> 
+                    <input type="text"   class="form-control @error('emailSolicitante') is-invalid @enderror" id="emailSolicitante" name="emailSolicitante" value={{old('emailSolicitante')}}>
                     @error('emailSolicitante')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -178,7 +178,7 @@
                 </button>
             </div>
             <div class="modal-body">
-            
+
                 <p class="font-weight-bold">{{ __('text.designacao') }}: <span class="font-weight-normal" id="designacaoSpan"></span></p>
                 <p class="font-weight-bold">{{ __('text.nomeResponsavel') }}: <span class="font-weight-normal" id="nomeRspan"></span></p>
                 <p class="font-weight-bold">{{ __('text.emailResponsavel') }}: <span class="font-weight-normal" id="emailRsapn"></span>
@@ -188,7 +188,7 @@
                 <p class="font-weight-bold">{{ __('text.emailSolicitante') }}: <span class="font-weight-normal" id="emailSspan"></span>
                 </p>
                 <p class="font-weight-bold">{{ __('text.observacoes') }}: <span class="font-weight-normal" id="observacoes1"></span></p>
-            
+
             </div>
         </div>
         <!-- /.modal-content -->
@@ -221,12 +221,20 @@
         @endif
     @endif
 
+    function setLang() {
+        if ('<?php echo Config::get("app.locale") ?>' == "pt") {
+                return '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
+            } else if ('<?php echo Config::get("app.locale") ?>' == "en") {
+                return '//cdn.datatables.net/plug-ins/1.10.22/i18n/English.json'
+            }
+    }
+
     $(function () {
     $('#table').DataTable({
         "responsive": true,
         "autoWidth": false,
         language: {
-                url: '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
+                url: setLang();
         },
         "processing": true,
             "serverSide": true,

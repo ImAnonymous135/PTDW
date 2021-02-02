@@ -88,12 +88,21 @@
 <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
 <script>
+
+    function setLang() {
+        if ('<?php echo Config::get("app.locale") ?>' == "pt") {
+                return '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
+            } else if ('<?php echo Config::get("app.locale") ?>' == "en") {
+                return '//cdn.datatables.net/plug-ins/1.10.22/i18n/English.json'
+            }
+    }
+
   $(function () {
         var table = $('#table').DataTable({
             "responsive": true,
             "autoWidth": false,
             language: {
-                url: '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
+                url: setLang()
             },
             "processing": true,
             "serverSide": true,

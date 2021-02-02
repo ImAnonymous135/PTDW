@@ -77,6 +77,14 @@
     }
     @endforeach
 
+    function setLang() {
+        if ('<?php echo Config::get("app.locale") ?>' == "pt") {
+                return '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
+            } else if ('<?php echo Config::get("app.locale") ?>' == "en") {
+                return '//cdn.datatables.net/plug-ins/1.10.22/i18n/English.json'
+            }
+    }
+
     $(function () {
     $('#table').DataTable({
         data: dataSet,
@@ -84,7 +92,7 @@
         "autoWidth": false,
         "ordering": false,
         language: {
-                url: '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
+                url: setLang()
         }
     });
   });

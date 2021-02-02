@@ -76,7 +76,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
+
                         </tfoot>
                 </table>
             </div>
@@ -98,7 +98,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
+
                         </tfoot>
                 </table>
             </div>
@@ -113,7 +113,7 @@
 
     //produtos
     produtosData = [];
-    json = JSON.parse('<?php echo $produtos ?>');  
+    json = JSON.parse('<?php echo $produtos ?>');
 
     json.forEach(e => {
         produtosData.push([
@@ -124,6 +124,14 @@
         ]);
     });
 
+    function setLang() {
+        if ('<?php echo Config::get("app.locale") ?>' == "pt") {
+                return '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
+            } else if ('<?php echo Config::get("app.locale") ?>' == "en") {
+                return '//cdn.datatables.net/plug-ins/1.10.22/i18n/English.json'
+            }
+    }
+
     $(function () {
     $('#table2').DataTable({
         data: produtosData,
@@ -132,13 +140,13 @@
         "ordering": false,
         "order": [[ 1, "asc" ]],
         language: {
-                url: '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
+                url: setLang()
         }
     });
   });
     //saidas
     movimentosData = [];
-    json = JSON.parse('<?php echo $movimentos ?>');  
+    json = JSON.parse('<?php echo $movimentos ?>');
     console.log(json);
 
     json.forEach(e => {
@@ -149,17 +157,17 @@
             e.data
         ]);
     });
-    
+
     $(function () {
       $('#table').DataTable({
           data: movimentosData,
           "responsive": true,
           "autoWidth": false,
           language: {
-              url: '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
+              url: setLang()
             },
         });
     });
-   
+
 </script>
 @endsection

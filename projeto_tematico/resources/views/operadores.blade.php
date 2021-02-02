@@ -102,7 +102,7 @@
                     <textarea class="form-control" id="observacoes" name="observacoes" cols="30" rows="4" maxlength="100">{{old('observacoes')}}</textarea>
                 </div>
             </div>
-            
+
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('text.cancelar') }}</button>
                 <button type="submit" class="btn btn-primary toastrDefaultSuccess1">{{ __('text.guardar') }}</button>
@@ -153,18 +153,27 @@
             toastr.error('erro')
         @endif
     @endif
-    
+
     $(document).ready(function(){
       $('[data-toggle="tooltip"]').tooltip();
     });
 </script>
 <script>
+
+function setLang() {
+        if ('<?php echo Config::get("app.locale") ?>' == "pt") {
+                return '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
+            } else if ('<?php echo Config::get("app.locale") ?>' == "en") {
+                return '//cdn.datatables.net/plug-ins/1.10.22/i18n/English.json'
+            }
+    }
+
     $(function () {
         $('#table').DataTable({
         "responsive": true,
         "autoWidth": false,
         language: {
-                url: '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
+                url: setLang()
         },
         "processing": true,
             "serverSide": true,
@@ -178,7 +187,7 @@
                 {"data" : 'buttons'}
             ]
     });
-  
+
   });
   function elim(id){
         $('#eliminar').attr('action', '/operadores/'+id);
