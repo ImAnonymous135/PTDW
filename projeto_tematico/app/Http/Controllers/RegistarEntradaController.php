@@ -24,9 +24,16 @@ use Carbon\Carbon;
 class RegistarEntradaController extends Controller
 {
 
+    public function validateEntrada(){
+        request()->validate([
+            'designacao' => 'required',
+            'nomeResponsavel' => 'required'
+        ]);
+    }
+
     public function store(Request $request)
     {
-
+        $this->validateEntrada();
         $tempArray = explode('.', $request->state);
 
         $produto = Produtos::where('designacao', $tempArray[1])->first();
