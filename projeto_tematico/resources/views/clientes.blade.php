@@ -24,7 +24,8 @@
 
 <ul id="menu" class="mfb-component--br mfb-slidein" data-mfb-toggle="hover">
     <li class="mfb-component__wrap">
-        <a data-mfb-label="{{ __('text.novoCliente') }}" class="mfb-component__button--main" href="../clientes/adicionar">
+        <a data-mfb-label="{{ __('text.novoCliente') }}" class="mfb-component__button--main"
+            href="../clientes/adicionar">
             <i class="mfb-component__main-icon--resting fas fa-plus" style="font-size: 1.5rem;"></i>
         </a>
     </li>
@@ -66,7 +67,7 @@
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('text.nao') }}</button>
-                    <button type="submit" class="btn btn-primary toastrDefaultSuccess" >{{ __('text.sim') }}</button>
+                    <button type="submit" class="btn btn-primary toastrDefaultSuccess">{{ __('text.sim') }}</button>
                 </div>
             </form>
         </div>
@@ -88,61 +89,66 @@
                 @csrf
                 @method('PUT')
                 <div class="modal-body w-200">
-                <div class="row">
-                    <div class="col-sm-6">
-                    <div class="form-group">
-                    <label>{{ __('text.designacao') }}</label>
-                    <input type="text"  class="form-control" id="designacao" required name="designacao" value={{old('designacao')}}>
-                </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>{{ __('text.designacao') }}</label>
+                                <input type="text" class="form-control" id="designacao" required name="designacao"
+                                    value={{old('designacao')}}>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>{{ __('text.nomeResponsavel') }}</label>
+                                <input type="text" class="form-control" required id="nomeResponsavel"
+                                    name="nomeResponsavel" value={{old('nomeResponsavel')}}>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-sm-6">
-                    <div class="form-group">
-                    <label>{{ __('text.nomeResponsavel') }}</label>
-                    <input type="text"  class="form-control" required id="nomeResponsavel" name="nomeResponsavel" value={{old('nomeResponsavel')}}>
-                </div>
-                    </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-sm-6">
-                    <div class="form-group">
-                    <label>{{ __('text.emailResponsavel') }}</label>
-                    <input  type="email" class="form-control" id="emailResponsavel" name="emailResponsavel" value={{old('emailResponsavel')}}>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>{{ __('text.emailResponsavel') }}</label>
+                                <input type="email" class="form-control" id="emailResponsavel" name="emailResponsavel"
+                                    value={{old('emailResponsavel')}}>
 
-                </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label>{{ __('text.nomeSolicitante') }}</label>
-                            <input type="text" class="form-control " name="nomeSolicitante" id="nomeSolicitante"
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>{{ __('text.nomeSolicitante') }}</label>
+                                <input type="text" class="form-control " name="nomeSolicitante" id="nomeSolicitante"
                                     value={{old('nomeSolicitante')}}>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label>{{ __('text.observacoes') }}</label>
-                            <textarea class="form-control" name="observacoes" id="observacoes" cols="30" rows="3"
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>{{ __('text.observacoes') }}</label>
+                                <textarea class="form-control" name="observacoes" id="observacoes" cols="30" rows="3"
                                     maxlength="100">{{old('observacoes')}}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>{{ __('text.emailSolicitante') }}</label>
+                                <input type="email" class="form-control" id="emailSolicitante" name="emailSolicitante"
+                                    value={{old('emailSolicitante')}}>
+
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                    <div class="form-group">
-                    <label>{{ __('text.emailSolicitante') }}</label>
-                    <input type="email" class="form-control" id="emailSolicitante" name="emailSolicitante" value={{old('emailSolicitante')}}>
-                    
-                </div>
-                    </div>
-                </div>
 
                 </div>
-            <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('text.cancelar') }}</button>
-                <button type="submit" class="btn btn-primary toastrDefaultSuccess1"
-                    >{{ __('text.guardar') }}</button>
-            </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default"
+                        data-dismiss="modal">{{ __('text.cancelar') }}</button>
+                    <button type="submit"
+                        class="btn btn-primary toastrDefaultSuccess1">{{ __('text.guardar') }}</button>
+                </div>
             </form>
         </div>
         <!-- /.modal-content -->
@@ -161,15 +167,21 @@
             </div>
             <div class="modal-body">
 
-                <p class="font-weight-bold mb-1">{{ __('text.designacao') }}: <span class="font-weight-normal" id="designacaoSpan"></span></p>
-                <p class="font-weight-bold mb-1">{{ __('text.nomeResponsavel') }}: <span class="font-weight-normal" id="nomeRspan"></span></p>
-                <p class="font-weight-bold mb-1">{{ __('text.emailResponsavel') }}: <span class="font-weight-normal" id="emailRsapn"></span>
+                <p class="font-weight-bold mb-1">{{ __('text.designacao') }}: <span class="font-weight-normal"
+                        id="designacaoSpan"></span></p>
+                <p class="font-weight-bold mb-1">{{ __('text.nomeResponsavel') }}: <span class="font-weight-normal"
+                        id="nomeRspan"></span></p>
+                <p class="font-weight-bold mb-1">{{ __('text.emailResponsavel') }}: <span class="font-weight-normal"
+                        id="emailRsapn"></span>
                 </p>
-                <p class="font-weight-bold mb-1">{{ __('text.nomeSolicitante') }}: <span class="font-weight-normal" id="nomeSspan"></span>
+                <p class="font-weight-bold mb-1">{{ __('text.nomeSolicitante') }}: <span class="font-weight-normal"
+                        id="nomeSspan"></span>
                 </p>
-                <p class="font-weight-bold mb-1">{{ __('text.emailSolicitante') }}: <span class="font-weight-normal" id="emailSspan"></span>
+                <p class="font-weight-bold mb-1">{{ __('text.emailSolicitante') }}: <span class="font-weight-normal"
+                        id="emailSspan"></span>
                 </p>
-                <p class="font-weight-bold mb-1">{{ __('text.observacoes') }}: <span class="font-weight-normal" id="observacoes1"></span></p>
+                <p class="font-weight-bold mb-1">{{ __('text.observacoes') }}: <span class="font-weight-normal"
+                        id="observacoes1"></span></p>
 
             </div>
         </div>
@@ -192,13 +204,15 @@
 </script>
 
 <script>
-@if(null !== session()->get( 'toast' ))
+    @if(null !== session()->get( 'toast' ))
         @if(session()->get( 'toast' )== 'editSuccess')
             toastr.success('{{ __('text.editadoSucesso') }}')
         @elseif(session()->get( 'toast' ) == 'deleteSuccess')
             toastr.success('{{ __('text.eliminadoSucesso') }}')
         @elseif(session()->get( 'toast' ) == 'error')
-            toastr.error('{{ __('text.erro') }}')
+            toastr.error('{{ __('text.erro') }}')    
+        @elseif(session()->get( 'toast' ) == 'errorEdite')
+            toastr.error('{{ __('text.erroEdite') }}')       
         @else
             toastr.success('{{ __('text.addSuccess') }}')
         @endif

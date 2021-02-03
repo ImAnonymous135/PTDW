@@ -24,7 +24,7 @@ class ListaCliente extends Controller{
         App::setLocale($request->session()->get('lang'));
 
         $operadores = Operadores::all();
-        $solicitantes = Operadores::whereNotNull('solicitante_sala')->get();
+        $solicitantes = Operadores::whereNull('solicitante_sala')->get();
 
         return view('adicionar-cliente', ['operadores' => $operadores, 'solicitantes' => $solicitantes]);
     }
@@ -48,14 +48,14 @@ class ListaCliente extends Controller{
             $cliente->save();
         }
 
-        $operadores = DB::table('operadores')
-        ->where('nome', '=', $request->nomeSolicitante)
+        $operadores = Operadores::where('nome', '=', $request->nomeSolicitante)
         ->where('email', '=', $request->emailSolicitante)
-        ->get();
+        ->get()[0];
 
-        if(sizeof($operadores) >= 1){
-            $operadores[0]->timestamps=false;
-            $operadores[0]->solicitante_sala = $cliente->id;
+        if($operadores){
+            $operadores->timestamps=false;
+            $operadores->solicitante_sala = $cliente->id;
+            $operadores->save();
         }
             
         return redirect('/clientes')->with(['toast'=>'addSuccess']);    
@@ -75,6 +75,13 @@ class ListaCliente extends Controller{
     
     public function destroy($id)
     {
+        $operadores = Operadores::where('solicitante_sala', '=', $id)->get();
+        foreach ($operadores as $operador) {
+            $operador->solicitante_sala = null;
+            $operador->save();
+        }
+
+
         Cliente::find($id)->delete();
         return redirect('/clientes')->with(['toast'=>'deleteSuccess']);;
     }
@@ -94,6 +101,8 @@ class ListaCliente extends Controller{
         
         if(sizeof($responsavel) >= 1){
             $cliente->id_responsavel=$responsavel[0]->id;
+        } else {
+            return redirect('/clientes')->with(['toast'=>'errorEdite']); 
         }
 
         $operadores = Operadores::where('nome', '=', $request->nomeSolicitante)
@@ -104,6 +113,8 @@ class ListaCliente extends Controller{
             $operadores[0]->solicitante_sala = $cliente->id;
             $operador = $operadores[0];
             $operador->save();
+        } else {
+            return redirect('/clientes')->with(['toast'=>'errorEdite']);
         }
 
         $cliente->save();
