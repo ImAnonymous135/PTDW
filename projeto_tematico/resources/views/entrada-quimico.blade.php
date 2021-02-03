@@ -72,18 +72,16 @@
 
                 </div>
             </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label class="font-weight-normal">{{ __('text.pictogramas') }}:</label>
-                    <div class="input-group-prepend">
-                        <select id="pictogramas" class="select2 form-control form-control-sm" name="subfamilia[]" multiple="multiple">
-                            @foreach($pictogramas as $pictograma)
-                            <option value="{{$pictograma->id}}" title="{{$pictograma->imagem}}">&nbsp;
-                                {{$pictograma->designacao}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
+        </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+            <label class="font-weight-normal">{{ __('text.familia') }}:</label>
+            <div class="input-group-prepend">
+                <select id="pictogramas" class="select2 form-control" name="subfamilia[]" multiple="multiple">
+                    @foreach($pictogramas as $pictograma)
+                      <option value="{{$pictograma->id}}"><i class="{{$pictograma->imagem}}"></i></option>
+                    @endforeach
+                </select>
             </div>
         </div>
         <table id="table" class="table table-bordered table-striped">
