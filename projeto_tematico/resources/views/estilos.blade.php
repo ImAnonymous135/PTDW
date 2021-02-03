@@ -268,7 +268,7 @@
                             <input type="text" class="form-control" id="#" placeholder="Digite o NIF...">
                         </div>
                     </div>
-                </div>            
+                </div>
 
             </div>
             <div class="modal-footer justify-content-between">
@@ -352,6 +352,14 @@
 
 <script>
 
+function setLang() {
+        if ('<?php echo Config::get("app.locale") ?>' == "pt") {
+                return '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
+            } else if ('<?php echo Config::get("app.locale") ?>' == "en") {
+                return '//cdn.datatables.net/plug-ins/1.10.22/i18n/English.json'
+            }
+    }
+
     $('.toastrDefaultSuccess1').click(function() {
       toastr.success('Editado com sucesso.')
     });
@@ -361,7 +369,7 @@
         "responsive": true,
         "autoWidth": false,
         language: {
-                url: '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
+                url: setLang()
         },
         "columnDefs": [ {
             "targets": -1,

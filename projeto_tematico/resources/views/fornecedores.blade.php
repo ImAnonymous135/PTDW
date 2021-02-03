@@ -274,13 +274,22 @@
 <script src="/js/mfb.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script>
+
+function setLang() {
+        if ('<?php echo Config::get("app.locale") ?>' == "pt") {
+                return '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
+            } else if ('<?php echo Config::get("app.locale") ?>' == "en") {
+                return '//cdn.datatables.net/plug-ins/1.10.22/i18n/English.json'
+            }
+    }
+
     $(function () {
         $('[data-toggle="tooltip"]').tooltip();
         var table = $('#table').DataTable({
             "responsive": true,
             "autoWidth": false,
             language: {
-                url: '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
+                url: setLang()
             },
             "processing": true,
             "serverSide": true,
@@ -303,9 +312,9 @@
         function elim(id){
         $('#eliminar').attr('action', '/fornecedores/'+id);
         $('#modal-default').modal('show');
-    } 
+    }
     });
-    
+
     @if(null !== session()->get( 'toast' ))
         @if(session()->get( 'toast' )== 'editSuccess')
             toastr.success('{{ __('text.editadoSucesso') }}')
@@ -313,7 +322,7 @@
             toastr.success('{{ __('text.eliminadoSucesso') }}')
         @endif
     @endif
-    
+
     function info(id,modal) {
         $.ajax({
                type:'GET',
@@ -363,7 +372,7 @@
         $('#eliminar').attr('action', '/fornecedores/'+id);
         $('#modal-default').modal('show');
     }
-   
+
 </script>
 @stop
 
