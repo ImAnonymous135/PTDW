@@ -96,11 +96,6 @@ Route::get('/clientes', 'App\Http\Controllers\ListaCliente@show');
 Route::get('/clientes/adicionar', 'App\Http\Controllers\ListaCliente@create');
 Route::post('/clientes/adicionar', 'App\Http\Controllers\ListaCliente@store');
 
-Route::get('/clientes/adicionar', function (Request $request) {
-    App::setLocale($request->session()->get('lang'));
-    return view('adicionar-cliente');
-});
-
 //fornecedores
 Route::put('/fornecedores/{id}', 'App\Http\Controllers\Fornecedores@update');
 Route::delete('/fornecedores/{id}', 'App\Http\Controllers\Fornecedores@destroy');

@@ -276,6 +276,7 @@ return [
         ],
         [
             'header' => 'Histórico de Movimentos',
+            'classes' => 'display-1'
         ],
         [
             'text' => 'Entradas',

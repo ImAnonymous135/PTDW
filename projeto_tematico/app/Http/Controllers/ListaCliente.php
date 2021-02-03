@@ -20,15 +20,22 @@ class ListaCliente extends Controller{
         return view('clientes',['cliente'=>$cliente/*,'operadores'=>$operadores*/]);
     }
 
-    public function create(){
-        return view('adicionar-cliente');
+    public function create(Request $request){
+        App::setLocale($request->session()->get('lang'));
+
+        $operadores = Operadores::all();
+        $solicitantes = Operadores::whereNotNull('solicitante_sala')->get();
+
+        return view('adicionar-cliente', ['operadores' => $operadores, 'solicitantes' => $solicitantes]);
     }
 
     public function store(Request $request){
 
         $this->validateCliente();
         $cliente = new Cliente(request(['designacao','id_responsavel','observacoes']));
-        
+
+        //dd($request->all());
+
         $responsavel = DB::table('operadores')
         ->where('nome', '=', $request->nomeResponsavel)
         ->where('email', '=', $request->emailResponsavel)
@@ -39,8 +46,6 @@ class ListaCliente extends Controller{
         if(sizeof($responsavel) >= 1){
             $cliente->id_responsavel=$responsavel[0]->id;
             $cliente->save();
-        }else{
-            return redirect('/clientes')->with(['toast'=>'error']); 
         }
 
         $operadores = DB::table('operadores')
@@ -51,8 +56,6 @@ class ListaCliente extends Controller{
         if(sizeof($operadores) >= 1){
             $operadores[0]->timestamps=false;
             $operadores[0]->solicitante_sala = $cliente->id;
-        }else{
-            return redirect('/clientes')->with(['toast'=>'error']); 
         }
             
         return redirect('/clientes')->with(['toast'=>'addSuccess']);    
@@ -64,8 +67,6 @@ class ListaCliente extends Controller{
         request()->validate([
             'designacao' => 'required',
             'nomeResponsavel' => 'required',
-            'emailResponsavel' => 'required|email',
-            'emailSolicitante' => 'nullable|email',
             'nomeSolicitante' => 'nullable',
         ]);
     }

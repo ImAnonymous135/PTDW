@@ -123,11 +123,20 @@
                 </button>
             </div>
             <div class="modal-body">
+<<<<<<< Updated upstream
                 <p class="font-weight-bold">{{ __('text.nome') }}: <span class="font-weight-normal" id="nome"></span></p>
                 <p class="font-weight-bold">E-Mail: <span class="font-weight-normal" id="email"></span></p>
                 <p class="font-weight-bold">{{ __('text.perfil') }}: <span class="font-weight-normal" id="perfil"></span></p>
                 <p class="font-weight-bold">{{ __('text.dataCriacao') }}: <span class="font-weight-normal" id="dataCriacao"></span></p>
                 <p class="font-weight-bold">{{ __('text.observacoes') }}: <span class="font-weight-normal" id="observacoes"></span></p>
+=======
+                <p class="font-weight-bold mb-1">{{ __('text.nome') }}: <span class="font-weight-normal" id="nome"></span></p>
+                <p class="font-weight-bold mb-1">E-Mail: <span class="font-weight-normal" id="email"></span></p>
+                <p class="font-weight-bold mb-1">{{ __('text.perfil') }}: <span class="font-weight-normal" id="perfil"></span></p>
+                <p class="font-weight-bold mb-1">{{ __('text.dataCriacao') }}: <span class="font-weight-normal" id="dataCriacao"></span></p>
+                <p class="font-weight-bold mb-1">{{ __('text.dataEliminacao') }}: <span class="font-weight-normal" id="dataEliminacao"></span></p>
+                <p class="font-weight-bold mb-1">{{ __('text.observacoes') }}: <span class="font-weight-normal" id="observacoes"></span></p>
+>>>>>>> Stashed changes
             </div>
         </div>
         <!-- /.modal-content -->

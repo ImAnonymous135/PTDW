@@ -56,17 +56,17 @@
             </span></p>
           @endif
 
-          <p class="font-weight-bold mb-0">{{ __('text.unidades') }}: <span
+          <p class="font-weight-bold mb-1">{{ __('text.unidades') }}: <span
               class="font-weight-normal">{{$produto->unidades->desginacao}}</span></p>
-          <p class="font-weight-bold mb-0">{{ __('text.stockExistente') }}: <span
+          <p class="font-weight-bold mb-1">{{ __('text.stockExistente') }}: <span
               class="font-weight-normal">{{$produto->stock_existente}}</span></p>
-          <p class="font-weight-bold mb-0">{{ __('text.stockMinimo') }}: <span
+          <p class="font-weight-bold mb-1">{{ __('text.stockMinimo') }}: <span
               class="font-weight-normal">{{$produto->stock_minimo}}</span></p>
 
           @if ($produto->is_quimico)
-          <p class="font-weight-bold mb-0">{{ __('text.recomendacoesPrudencias') }}: <span
+          <p class="font-weight-bold mb-1">{{ __('text.recomendacoesPrudencias') }}: <span
               class="font-weight-normal"></span></p>
-          <p class="font-weight-bold mb-0">{{ __('text.advertenciaPerigos') }}: <span class="font-weight-normal"></span>
+          <p class="font-weight-bold mb-1">{{ __('text.advertenciaPerigos') }}: <span class="font-weight-normal"></span>
           </p>
           <p class="font-weight-bold mb-3">{{ __('text.pictogramas') }}:</p>
           <div>
@@ -76,7 +76,7 @@
             @endforeach
           </div>
           @else
-          <p class="font-weight-bold mb-0">{{ __('text.familia') }}: <span
+          <p class="font-weight-bold mb-1">{{ __('text.familia') }}: <span
               class="font-weight-normal">{{$produto->nao_quimico->familia->designacao}}</span></p>
           @endif
         </div>

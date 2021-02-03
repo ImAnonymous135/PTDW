@@ -161,15 +161,15 @@
             </div>
             <div class="modal-body">
 
-                <p class="font-weight-bold">{{ __('text.designacao') }}: <span class="font-weight-normal" id="designacaoSpan"></span></p>
-                <p class="font-weight-bold">{{ __('text.nomeResponsavel') }}: <span class="font-weight-normal" id="nomeRspan"></span></p>
-                <p class="font-weight-bold">{{ __('text.emailResponsavel') }}: <span class="font-weight-normal" id="emailRsapn"></span>
+                <p class="font-weight-bold mb-1">{{ __('text.designacao') }}: <span class="font-weight-normal" id="designacaoSpan"></span></p>
+                <p class="font-weight-bold mb-1">{{ __('text.nomeResponsavel') }}: <span class="font-weight-normal" id="nomeRspan"></span></p>
+                <p class="font-weight-bold mb-1">{{ __('text.emailResponsavel') }}: <span class="font-weight-normal" id="emailRsapn"></span>
                 </p>
-                <p class="font-weight-bold">{{ __('text.nomeSolicitante') }}: <span class="font-weight-normal" id="nomeSspan"></span>
+                <p class="font-weight-bold mb-1">{{ __('text.nomeSolicitante') }}: <span class="font-weight-normal" id="nomeSspan"></span>
                 </p>
-                <p class="font-weight-bold">{{ __('text.emailSolicitante') }}: <span class="font-weight-normal" id="emailSspan"></span>
+                <p class="font-weight-bold mb-1">{{ __('text.emailSolicitante') }}: <span class="font-weight-normal" id="emailSspan"></span>
                 </p>
-                <p class="font-weight-bold">{{ __('text.observacoes') }}: <span class="font-weight-normal" id="observacoes1"></span></p>
+                <p class="font-weight-bold mb-1">{{ __('text.observacoes') }}: <span class="font-weight-normal" id="observacoes1"></span></p>
 
             </div>
         </div>
