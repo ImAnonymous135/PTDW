@@ -234,7 +234,7 @@
         "responsive": true,
         "autoWidth": false,
         language: {
-                url: setLang();
+                url: setLang(),
         },
         "processing": true,
             "serverSide": true,
