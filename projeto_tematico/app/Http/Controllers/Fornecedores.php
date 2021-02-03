@@ -15,7 +15,7 @@ class Fornecedores extends Controller
         $fornecedor = new Fornecedor(request(['designacao','morada','localidade','codigo_postal','telefone','nif','email','vendedor_1','telemovel_1','email_1','vendedor_2','telemovel_2','email_2','condicoes_especiais','observacoes']));
         $fornecedor->timestamps=false;
         $fornecedor->save();
-        return redirect('/fornecedores');    
+        return redirect('/fornecedores')->with(['toast' => 'addSuccess']);;    
     }
 
     public function update($id)

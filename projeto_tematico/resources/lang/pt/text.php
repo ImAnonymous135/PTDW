@@ -1,7 +1,10 @@
 <?php
 
 return [
+    'erro' => 'Erro ao adicionar',
+    'erroEdite' => 'Erro ao editar',
     //adicionar-cliente
+    'addSuccess' => 'Adicionado com sucesso',
     'adicionarCliente' => 'Adicionar Cliente',
     'add' => 'Adicionar',
     'nomeResponsavel' => 'Nome do Responsável',
@@ -26,7 +29,7 @@ return [
     //adicionar-produto
     'adicionarProduto' => 'Adicionar Produto',
     'sinonimos' => 'Sinónimos',
-    'unidades' => 'Unidades',
+    'unidades' => 'Unidades de Medida',
     'stockMinimo' => 'Stock Mínimo',
     'pesoMolecular' => 'Peso Molecular',
     'condicoesArmazenamento' => 'Condições de Armazenamento',

@@ -21,14 +21,24 @@ class OperadoresHistorico extends Controller
     public function getOperadores(Request $request)
     {
 
+        if ($request->get('pesquisa') == 'operacao') {
+            $table = 'operacao';
+        } elseif ($request->get('pesquisa') == 'operador') {
+            $table = 'operador';
+        } elseif ($request->get('pesquisa') == 'nome_administrador') {
+            $table = 'nome_administrador';
+        } else {
+            $table = 'nome_administrador';
+        }
+
         $count = Operadores_Historico::select('count(*)')
-            ->where($request->get('pesquisa'), 'ilike', '%' .  $request->get('search')['value'] . '%')
+            ->where($table, 'ilike', '%' .  $request->get('search')['value'] . '%')
             ->count();
 
         $total = Operadores_Historico::select('count(*) as allcount')->count();
 
         $operadores = Operadores_Historico::orderBy($request->get('columns')[$request->get('order')[0]['column']]['data'], $request->get('order')[0]['dir'])
-            ->where($request->get('pesquisa'), 'ilike', '%' .  $request->get('search')['value'] . '%')
+            ->where($table, 'ilike', '%' .  $request->get('search')['value'] . '%')
             ->select('nome_administrador as administrador', 'operador', 'data', 'operacao', 'observacoes')
             ->skip($request->get("start"))
             ->take($request->get("length"))

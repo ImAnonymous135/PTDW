@@ -108,6 +108,8 @@ class RegistoSaidaController extends Controller
             $table = "armario.designacao";
         } else if ($request->get("pesquisa") == "cliente") {
             $table = "cliente.designacao";
+        }else {
+            $table = "produtos.designacao";
         }
 
         $count = Registo_Saidas::select('count(*)')

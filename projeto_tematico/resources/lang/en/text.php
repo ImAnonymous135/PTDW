@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'erro' => 'Error adding',
+    'erroEdite' => 'Error editing',
     //adicionar-cliente
     'adicionarCliente' => 'Add Client',
     'add' => 'Add',
@@ -12,6 +14,7 @@ return [
     'cancelar' => 'Cancel',
     'submeter' => 'Submit',
     //adicionar-fornecedor
+    'addSuccess' => 'Added successfully',
     'fornecedor' => 'Supplier',
     'adicionarFornecedor' => 'Add supplier',
     'morada' => 'Address',
@@ -26,7 +29,7 @@ return [
     //adicionar-produto
     'adicionarProduto' => 'Add Product',
     'sinonimos' => 'Alias',
-    'unidades' => 'Units',
+    'unidades' => 'Measuring Units',
     'stockMinimo' => 'Minimum Stock',
     'pesoMolecular' => 'Molecular weight',
     'condicoesArmazenamento' => 'Storage conditions',

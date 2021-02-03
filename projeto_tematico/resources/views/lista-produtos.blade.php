@@ -51,8 +51,22 @@
 
 @section('js')
 <script src="{{ asset('js/mfb.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script>
+@if(null !== session()->get( 'toast' ))
+        @if(session()->get( 'toast' )== 'editSuccess')
+            toastr.success('{{ __('text.editadoSucesso') }}')
+        @elseif(session()->get( 'toast' ) == 'deleteSuccess')
+            toastr.success('{{ __('text.eliminadoSucesso') }}')
+        @elseif(session()->get( 'toast' ) == 'error')
+            toastr.error('{{ __('text.erro') }}')
+        @else
+            toastr.success('{{ __('text.addSuccess') }}')
+        @endif
+    @endif
 
+</script>
+<script>
     dataSet = [];
 
     var json = JSON.parse('<?php echo $produtos?>');
@@ -63,8 +77,6 @@
         }
         return "<?php echo __('text.solido') ?>";
     }
-
-
 
     @foreach ($produtos as $produto ) {
         //dd($produto);
@@ -100,5 +112,6 @@
 @stop
 
 @section('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 <link href="{{ asset('css/mfb.css') }}" rel="stylesheet">
 @stop

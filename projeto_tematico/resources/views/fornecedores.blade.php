@@ -237,31 +237,31 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p class="font-weight-bold">{{ __('text.fornecedor') }}: <span id="nomeSpan"
+                <p class="font-weight-bold mb-1">{{ __('text.fornecedor') }}: <span id="nomeSpan"
                         class="font-weight-normal"></span>
                 </p>
-                <p class="font-weight-bold">{{ __('text.morada') }}: <span id="moradaSpan" class="font-weight-normal">
+                <p class="font-weight-bold mb-1">{{ __('text.morada') }}: <span id="moradaSpan" class="font-weight-normal">
                     </span></p>
-                <p class="font-weight-bold">{{ __('text.localizacao') }}: <span id="localizacaoSpan"
+                <p class="font-weight-bold mb-1">{{ __('text.localizacao') }}: <span id="localizacaoSpan"
                         class="font-weight-normal"></span>
                 </p>
-                <p class="font-weight-bold">{{ __('text.telefone') }}: <span id="telefoneSpan"
+                <p class="font-weight-bold mb-1">{{ __('text.telefone') }}: <span id="telefoneSpan"
                         class="font-weight-normal"></span></p>
-                <p class="font-weight-bold">NIF: <span id="NIFSpan" class="font-weight-normal"></span></p>
-                <p class="font-weight-bold">E-Mail: <span id="mailSpan" class="font-weight-normal"></span></p>
-                <p class="font-weight-bold">{{ __('text.vendedor') }} 1: <span id="vendedorSpan"
+                <p class="font-weight-bold mb-1">NIF: <span id="NIFSpan" class="font-weight-normal"></span></p>
+                <p class="font-weight-bold mb-1">E-Mail: <span id="mailSpan" class="font-weight-normal"></span></p>
+                <p class="font-weight-bold mb-1">{{ __('text.vendedor') }} 1: <span id="vendedorSpan"
                         class="font-weight-normal"></span></p>
-                <p class="font-weight-bold">{{ __('text.telefone') }} 1: <span id="telefone1Span"
+                <p class="font-weight-bold mb-1">{{ __('text.telefone') }} 1: <span id="telefone1Span"
                         class="font-weight-normal"></span></p>
-                <p class="font-weight-bold">E-Mail 1: <span id="mail1Span" class="font-weight-normal"></span></p>
-                <p class="font-weight-bold">{{ __('text.vendedor') }} 2: <span id="vendedor2Span"
+                <p class="font-weight-bold mb-1">E-Mail 1: <span id="mail1Span" class="font-weight-normal"></span></p>
+                <p class="font-weight-bold mb-1">{{ __('text.vendedor') }} 2: <span id="vendedor2Span"
                         class="font-weight-normal"></span></p>
-                <p class="font-weight-bold">{{ __('text.telefone') }} 2: <span id="telefone2Span"
+                <p class="font-weight-bold mb-1">{{ __('text.telefone') }} 2: <span id="telefone2Span"
+                        class="font-weight-normal "></span></p>
+                <p class="font-weight-bold mb-1">E-Mail 2: <span id="mail2Span" class="font-weight-normal"></span></p>
+                <p class="font-weight-bold mb-1">{{ __('text.observacoes') }}: <span id="obserSpan"
                         class="font-weight-normal"></span></p>
-                <p class="font-weight-bold">E-Mail 2: <span id="mail2Span" class="font-weight-normal"></span></p>
-                <p class="font-weight-bold">{{ __('text.observacoes') }}: <span id="obserSpan"
-                        class="font-weight-normal"></span></p>
-                <p class="font-weight-bold">{{ __('text.condicoesEspeciais') }}: <span id="condiSpan"
+                <p class="font-weight-bold mb-1">{{ __('text.condicoesEspeciais') }}: <span id="condiSpan"
                         class="font-weight-normal"></span></p>
             </div>
         </div>
@@ -318,11 +318,22 @@ function setLang() {
     @if(null !== session()->get( 'toast' ))
         @if(session()->get( 'toast' )== 'editSuccess')
             toastr.success('{{ __('text.editadoSucesso') }}')
-        @elseif(session()->get( 'toast' ) == 'elimSucess')
+        @elseif(session()->get( 'toast' ) == 'deleteSuccess')
             toastr.success('{{ __('text.eliminadoSucesso') }}')
+        @elseif(session()->get( 'toast' ) == 'error')
+            toastr.error('{{ __('text.erro') }}')
+        @else
+            toastr.success('{{ __('text.addSuccess') }}')
         @endif
     @endif
 
+<<<<<<< HEAD
+=======
+    @if(sizeof($errors) > 0)
+        toastr.error('{{ __('text.erroEdite') }}')
+    @endif
+    
+>>>>>>> main
     function info(id,modal) {
         $.ajax({
                type:'GET',

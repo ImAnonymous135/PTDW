@@ -49,7 +49,7 @@ class ListaOperadores extends Controller
 
         $operadores->save();
 
-        return redirect('/movimentos/operadores')->with(['toast' => 'addSuccess']);
+        return redirect('/operadores')->with(['toast' => 'addSuccess']);
     }
 
     public function update($id)

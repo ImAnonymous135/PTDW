@@ -66,7 +66,7 @@
                                         name="dataValidade">
                                 </div>
                             </div>
-                            <div class="col-sm-2">
+                            <div class="col-sm-3">
                                 <div class="form-group">
                                     <label>{{ __('text.numeroDeEmbalagens') }}</label>
                                     <input type="number" class="form-control" id="numeroEmbalagens"
@@ -94,7 +94,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-2">
+                            <div class="col-sm-3">
                                 <div class="form-group">
                                     <label>{{ __('text.capacidadeEmbalagem') }}</label>
                                     <div class="input-group">
@@ -191,7 +191,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-2">
+                            <div class="col-sm-3">
                                 <div class="form-group">
                                     <label>{{ __('text.texturaOuViscosidade') }}</label>
                                     <select class="form-control" id="texturaViscosidade" , name="texturaViscosidade">
