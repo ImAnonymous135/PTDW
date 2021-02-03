@@ -22,51 +22,38 @@
 
 <ul id="menu" class="mfb-component--br mfb-slidein" data-mfb-toggle="hover">
   <li class="mfb-component__wrap">
-      <a href="#" data-mfb-label={{ __('text.exportar') }} class="mfb-component__button--main">
-          <i class="mfb-component__main-icon--resting fas fa-bars"></i>
-      </a>
-      <ul class="mfb-component__list">
-          <li>
-              <a href="../saidas" data-mfb-label="{{ __('text.registarSaida') }}" class="mfb-component__button--child">
-                  <i class="mfb-component__child-icon fas fa-plus"></i>
-              </a>
-          </li>
-          <li>
-              <a href="#" id="pdf" data-mfb-label="{{ __('text.exportarPara') }} PDF" class="mfb-component__button--child">
-                  <i class="mfb-component__child-icon fas fa-file-pdf"></i>
-              </a>
-          </li>
-          <li>
-              <a href="#" id="csv" data-mfb-label="{{ __('text.exportarPara') }} CSV" class="mfb-component__button--child">
-                  <i class="mfb-component__child-icon fas fa-file-csv"></i>
-              </a>
-          </li>
+    <a href="#" data-mfb-label={{ __('text.exportar') }} class="mfb-component__button--main">
+      <i class="mfb-component__main-icon--resting fas fa-bars"></i>
+    </a>
+    <ul class="mfb-component__list">
+      <li>
+        <a href="../saidas" data-mfb-label="{{ __('text.registarSaida') }}" class="mfb-component__button--child">
+          <i class="mfb-component__child-icon fas fa-plus"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#" id="pdf" data-mfb-label="{{ __('text.exportarPara') }} PDF" class="mfb-component__button--child">
+          <i class="mfb-component__child-icon fas fa-file-pdf"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#" id="csv" data-mfb-label="{{ __('text.exportarPara') }} CSV" class="mfb-component__button--child">
+          <i class="mfb-component__child-icon fas fa-file-csv"></i>
+        </a>
+      </li>
 
-          <li>
-              <a href="#" id="excel" data-mfb-label="{{ __('text.exportarPara') }} Excel" class="mfb-component__button--child">
-                  <i class="mfb-component__child-icon fas fa-file-excel"></i>
-              </a>
-          </li>
-      </ul>
+      <li>
+        <a href="#" id="excel" data-mfb-label="{{ __('text.exportarPara') }} Excel"
+          class="mfb-component__button--child">
+          <i class="mfb-component__child-icon fas fa-file-excel"></i>
+        </a>
+      </li>
+    </ul>
   </li>
 </ul>
 
 <div class="card">
   <div class="card-body">
-  <div class="form-group">
-                <label class="font-weight-normal">{{ __('text.tipoEmbalagem') }}:</label>
-                <div class="input-group-prepend">
-                    <select id="pesquisa" class="select form-control" name="pesquisa">
-                        <option value="produto">Produto</option>
-                        <option value="prateleira">Prateleira</option>
-                        <option value="armario">Armario</option>
-                        <option value="cliente">Cliente</option>
-                        <option value="embalagem">Embalagem</option>
-                        <option value="solicitante">Solicitante</option>
-                        <option value="operador">Operador</option>
-                    </select>
-                </div>
-            </div>
     <table id="table" class="table table-bordered table-striped">
       <thead>
         <tr>
@@ -100,6 +87,10 @@ function setLang() {
 
   $(function () {
     var table = $('#table').DataTable({
+      "dom": '<"top"<"row"<"col-sm-8"l><"col-sm-2"f><"col-sm-2"<"option-box">>>>rt<"bottom"ip><"clear">',
+      "initComplete": function () {
+                $(".option-box").html('<div class="input-group-prepend"><select id="pesquisa" class="select form-control form-control-sm" name="pesquisa"><option value="produto">{{ __('text.produto') }}</option><option value="prateleira">{{ __('text.prateleira') }}</option><option value="armario">{{ __('text.armario') }}</option><option value="cliente">Cliente</option><option value="fornecedor">{{ __('text.fornecedor') }}</option><option value="marca">{{ __('text.marca') }}</option><option value="tipo">{{ __('text.tipoEmbalagem') }}</option><option value="cor">{{ __('text.cor') }}</option><option value="estado">{{ __('text.estadoFisico') }}</option><option value="textura">{{ __('text.texturaOuViscosidade') }}</option><option value="peso">{{ __('text.pesoBruto') }}</option></select> </div>');
+            },
       "responsive": true,
       "autoWidth": false,
       language: {
