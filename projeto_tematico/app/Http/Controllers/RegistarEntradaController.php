@@ -27,7 +27,23 @@ class RegistarEntradaController extends Controller
     public function validateEntrada(){
         request()->validate([
             'designacao' => 'required',
-            'nomeResponsavel' => 'required'
+            'dataEntrada' => 'required',
+            'numeroEmbalagens' => 'required',
+            'tipoEmbalagem' => 'required',
+            'capacidadeEmbalagem' => 'required',
+            'tipo' => 'required',
+            'sala' => 'required',
+            'prateleira' => 'required',
+            'armario' => 'required',
+            'pesoBruto' => 'required',
+            'marca' => 'required',
+            'referencia' => 'required',
+            'preco' => 'required',
+            'taxa' => 'required',
+            'estadoFisico' => 'required',
+            'texturaViscosidade' => 'required',
+            'operador' => 'required',
+            'fornecedor' => 'required',
         ]);
     }
 
@@ -202,7 +218,7 @@ class RegistarEntradaController extends Controller
             abort(404);
             dd($produto);
         }
-        
+
 
         $embalagens = $this->embalagens($id);
 

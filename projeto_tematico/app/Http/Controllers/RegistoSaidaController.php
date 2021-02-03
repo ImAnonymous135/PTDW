@@ -15,8 +15,20 @@ use App\Models\Registo_Saidas;
 class RegistoSaidaController extends Controller
 {
 
+    public function validateEntrada()
+    {
+        request()->validate([
+            'designacao' => 'required',
+            'embalagem' => 'required',
+            'solicitante' => 'required',
+            'operador' => 'required',
+        ]);
+    }
+
     public function store(Request $request)
     {
+        $this->validateEntrada();
+
         $produto = Produtos::where('designacao', $request->produto)->first();
         $embalagem = Embalagem::where('designacao', $request->embalagem)->where('id_produtos', $produto->id)->first();
         //dd($embalagem->prateleira->armario->cliente);
@@ -44,12 +56,12 @@ class RegistoSaidaController extends Controller
             'observacao' => $request->observacoes,
 
         ]);
-        
+
         $movimento = Movimentos::where('embalagemid', $embalagem->id)->where('operadorid', $operadores->id)->first();
         //dd($embalagem->id, $operadores->id, $request->data,$movimento );
         //dd($request);
         $movimento->data_termino = $request->data;
-        
+
         $movimento->timestamps = false;
         //dd($movimento);
         $movimento->save();
@@ -108,7 +120,7 @@ class RegistoSaidaController extends Controller
             $table = "armario.designacao";
         } else if ($request->get("pesquisa") == "cliente") {
             $table = "cliente.designacao";
-        }else {
+        } else {
             $table = "produtos.designacao";
         }
 
