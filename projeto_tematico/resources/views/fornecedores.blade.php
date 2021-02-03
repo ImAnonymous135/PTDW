@@ -305,13 +305,21 @@
         $('#modal-default').modal('show');
     } 
     });
-    
+
     @if(null !== session()->get( 'toast' ))
         @if(session()->get( 'toast' )== 'editSuccess')
             toastr.success('{{ __('text.editadoSucesso') }}')
-        @elseif(session()->get( 'toast' ) == 'elimSucess')
+        @elseif(session()->get( 'toast' ) == 'deleteSuccess')
             toastr.success('{{ __('text.eliminadoSucesso') }}')
+        @elseif(session()->get( 'toast' ) == 'error')
+            toastr.error('{{ __('text.erro') }}')
+        @else
+            toastr.success('{{ __('text.addSuccess') }}')
         @endif
+    @endif
+
+    @if(sizeof($errors) > 0)
+        toastr.error('{{ __('text.erroEdite') }}')
     @endif
     
     function info(id,modal) {

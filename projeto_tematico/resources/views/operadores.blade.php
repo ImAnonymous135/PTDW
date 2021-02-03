@@ -39,7 +39,6 @@
                     <th>E-Mail</th>
                     <th>{{ __('text.perfil') }}</th>
                     <th>{{ __('text.dataCriacao') }}</th>
-                    <th>{{ __('text.dataEliminacao') }}</th>
                     <th>{{ __('text.acoes') }}</th>
                 </tr>
             </thead>
@@ -128,7 +127,6 @@
                 <p class="font-weight-bold">E-Mail: <span class="font-weight-normal" id="email"></span></p>
                 <p class="font-weight-bold">{{ __('text.perfil') }}: <span class="font-weight-normal" id="perfil"></span></p>
                 <p class="font-weight-bold">{{ __('text.dataCriacao') }}: <span class="font-weight-normal" id="dataCriacao"></span></p>
-                <p class="font-weight-bold">{{ __('text.dataEliminacao') }}: <span class="font-weight-normal" id="dataEliminacao"></span></p>
                 <p class="font-weight-bold">{{ __('text.observacoes') }}: <span class="font-weight-normal" id="observacoes"></span></p>
             </div>
         </div>
@@ -143,6 +141,7 @@
 @section('js')
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
 <script>
 @if(null !== session()->get( 'toast' ))
         @if(session()->get( 'toast' )== 'editSuccess')
@@ -150,8 +149,14 @@
         @elseif(session()->get( 'toast' ) == 'deleteSuccess')
             toastr.success('{{ __('text.eliminadoSucesso') }}')
         @elseif(session()->get( 'toast' ) == 'error')
-            toastr.error('erro')
+            toastr.error('{{ __('text.erro') }}')
+        @else
+            toastr.success('{{ __('text.addSuccess') }}')
         @endif
+    @endif
+
+    @if(sizeof($errors) > 0)
+        toastr.error('{{ __('text.erroEdite') }}')
     @endif
 
     $(document).ready(function(){
@@ -183,7 +188,6 @@ function setLang() {
                 { "data": 'email' },
                 { "data": 'perfil' },
                 { "data": 'data_criação' },
-                { "data": 'data_eliminação'},
                 {"data" : 'buttons'}
             ]
     });
@@ -207,7 +211,6 @@ function setLang() {
                 $('#email').text(info[0].email);
                 $('#perfil').text(info[0].perfil);
                 $('#dataCriacao').text(info[0].data_criação);
-                $('#dataEliminacao').text(info[0].data_eliminação);
                 $('#observacoes').text(info[0].observacoes);
             }else{
                 $('#edit').attr('action', '/operadores/'+id);

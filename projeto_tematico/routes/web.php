@@ -109,6 +109,7 @@ Route::get('/fornecedores', function (Request $request) {
     return view('fornecedores');
 });
 Route::get('/fornecedores/adicionar', function (Request $request) {
+    App::setLocale($request->session()->get('lang'));
     return view('adicionar-fornecedor');
 });
 Route::post('/fornecedores/adicionar', 'App\Http\Controllers\Fornecedores@store');

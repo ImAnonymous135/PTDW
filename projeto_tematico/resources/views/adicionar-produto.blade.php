@@ -40,12 +40,7 @@
                     <div class="form-group">
                         <label>{{ __('text.designacao') }}</label>
                         <input name="designacao" id="designacao" type="text"
-                            class="form-control @error('designacao') is-invalid @enderror">
-                        @error('designacao')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
+                            class="form-control" required>
                     </div>
                 </div>
                 <div class="col-sm-3">
@@ -61,26 +56,16 @@
                     <div class="form-group">
                         <label>{{ __('text.unidades') }}</label>
                         <div class="input-group">
-                            <input type="text" class="form-control @error('unidades') is-invalid @enderror"
+                            <input type="text" class="form-control" required
                                 id="unidades" name="unidades">
                         </div>
-                        @error('unidades')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
                     </div>
                 </div>
                 <div class="col-sm-2">
                     <div class="form-group">
                         <label>{{ __('text.stockMinimo') }}</label>
-                        <input name="stockMinimo" id="stockMinimo" type="text"
-                            class="form-control @error('stockMinimo') is-invalid @enderror">
-                        @error('stockMinimo')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
+                        <input name="stockMinimo" id="stockMinimo" type="text" required
+                            class="form-control">
                     </div>
                 </div>
             </div>
@@ -89,25 +74,15 @@
                     <div class="quimico" style="display:block;">
                         <div class="form-group">
                             <label>{{ __('text.pesoMolecular') }}</label>
-                            <input type="text" class="form-control @error('pesoMolecular') is-invalid @enderror"
+                            <input type="text" class="form-control" required
                                 id="pesoMolecular" name="pesoMolecular">
-                            @error('pesoMolecular')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
                         </div>
                     </div>
                     <div class="naoQuimico1" style="display:none;">
                         <div class="form-group">
                             <label>Familia</label>
-                            <input type="text" class="form-control @error('familia') is-invalid @enderror" id="familia"
+                            <input type="text" class="form-contro" id="familia" required
                                 name="familia">
-                            @error('familia')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
                         </div>
                     </div>
                 </div>
@@ -116,14 +91,9 @@
                     <div class="quimico1" style="display:block;">
                         <div class="form-group">
                             <label>{{ __('text.condicoesArmazenamento') }}</label>
-                            <input type="text"
-                                class="form-control @error('condicoesArmazenamento') is-invalid @enderror"
+                            <input type="text" required
+                                class="form-control"
                                 id="condicoesArmazenamento" name="condicoesArmazenamento">
-                            @error('condicoesArmazenamento')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
                         </div>
 
                     </div>
@@ -133,17 +103,12 @@
                             <div class="input-group">
                                 <div class="custom-file">
                                     <input type="file"
-                                        class="custom-file-input @error('fotografia') is-invalid @enderror"
+                                        class="custom-file-input"
                                         id="fotografia" name="fotografia">
                                     <label class="custom-file-label" for="exampleInputFile">Escolha
                                         a fotografia</label>
                                 </div>
                             </div>
-                            @error('fotografia')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
                         </div>
                     </div>
                 </div>
@@ -155,13 +120,8 @@
                     <div class="quimico2" style="display:block;">
                         <div class="form-group">
                             <label>{{ __('text.formula') }}</label>
-                            <input type="text" class="form-control @error('formula') is-invalid @enderror" id="formula"
+                            <input type="text" class="form-control" required id="formula"
                                 name="formula">
-                            @error('formula')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
                         </div>
 
                     </div>
@@ -171,13 +131,8 @@
                     <div class="quimico3" style="display:block;">
                         <div class="form-group">
                             <label>Nº CAS</label>
-                            <input type="text" class="form-control @error('nCas') is-invalid @enderror" id="nCas"
+                            <input type="text" class="form-control" required id="nCas"
                                 name="nCas">
-                            @error('nCas')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
                         </div>
 
                     </div>
@@ -190,16 +145,11 @@
                             <div class="input-group">
                                 <div class="custom-file">
                                     <input disabled type="file"
-                                        class="custom-file-input @error('anexo') is-invalid @enderror" id="anexo"
+                                        class="custom-file-input" id="anexo"
                                         name="anexo">
                                     <label class="custom-file-label" for="exampleInputFile"></label>
                                 </div>
                             </div>
-                            @error('anexo')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
                         </div>
                     </div>
                 </div>

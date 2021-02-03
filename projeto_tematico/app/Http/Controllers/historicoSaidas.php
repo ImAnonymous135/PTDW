@@ -14,5 +14,7 @@ class historicoSaidas extends Controller{
         return view('saidas',['registo_saidas'=>$registo_saidas]);
     }
 
+    
+
 
 }

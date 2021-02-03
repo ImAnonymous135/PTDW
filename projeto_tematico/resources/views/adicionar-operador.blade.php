@@ -30,23 +30,13 @@
             <div class="col-sm-4">
                 <div class="form-group">
                     <label>{{ __('text.nome') }}</label>
-                    <input type="text" class="form-control @error('nome') is-invalid @enderror" id="nome" name="nome" value={{old('nome')}}>
-                    @error('nome')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                    <input type="text" required class="form-control" id="nome" name="nome" value={{old('nome')}}>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="form-group">
                     <label>E-mail</label>
-                    <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value={{old('email')}}>
-                    @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                    <input type="email" class="form-control" id="email" name="email" value={{old('email')}}>
                 </div>
             </div>
 
@@ -56,16 +46,11 @@
             <div class="col-sm-4">
                 <div class="form-group">
                     <label>{{ __('text.perfil') }}</label>
-                    <select class="form-control @error('perfil') is-invalid @enderror" name="perfil" id="perfil" value={{old('perfil')}}>
+                    <select class="form-control" required name="perfil" id="perfil" value={{old('perfil')}}>
                         @foreach($perfil as $perfil)
                             <option value="{{$perfil->id}}">{{$perfil->perfil}}</option>
                         @endforeach
                     </select>
-                    @error('perfil')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
                 </div>
             </div>
         </div>

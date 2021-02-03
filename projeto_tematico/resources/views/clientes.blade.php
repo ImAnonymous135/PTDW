@@ -92,23 +92,13 @@
                     <div class="col-sm-6">
                     <div class="form-group">
                     <label>{{ __('text.designacao') }}</label>
-                    <input type="text"  class="form-control @error('designacao') is-invalid @enderror" id="designacao" name="designacao" value={{old('designacao')}}>
-                    @error('designacao')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
+                    <input type="text"  class="form-control" id="designacao" required name="designacao" value={{old('designacao')}}>
                 </div>
                     </div>
                     <div class="col-sm-6">
                     <div class="form-group">
                     <label>{{ __('text.nomeResponsavel') }}</label>
-                    <input type="text"  class="form-control @error('nomeResponsavel') is-invalid @enderror" id="nomeResponsavel" name="nomeResponsavel" value={{old('nomeResponsavel')}}>
-                    @error('nomeResponsavel')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
+                    <input type="text"  class="form-control" required id="nomeResponsavel" name="nomeResponsavel" value={{old('nomeResponsavel')}}>
                 </div>
                     </div>
                 </div>
@@ -117,12 +107,8 @@
                     <div class="col-sm-6">
                     <div class="form-group">
                     <label>{{ __('text.emailResponsavel') }}</label>
-                    <input  type="text" class="form-control @error('emailResponsavel') is-invalid @enderror" id="emailResponsavel" name="emailResponsavel" value={{old('emailResponsavel')}}>
-                    @error('emailResponsavel')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
+                    <input  type="email" class="form-control" id="emailResponsavel" name="emailResponsavel" value={{old('emailResponsavel')}}>
+
                 </div>
                     </div>
                     <div class="col-sm-6">
@@ -145,12 +131,8 @@
                     <div class="col-sm-6">
                     <div class="form-group">
                     <label>{{ __('text.emailSolicitante') }}</label>
-                    <input type="text"   class="form-control @error('emailSolicitante') is-invalid @enderror" id="emailSolicitante" name="emailSolicitante" value={{old('emailSolicitante')}}>
-                    @error('emailSolicitante')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
+                    <input type="email" class="form-control" id="emailSolicitante" name="emailSolicitante" value={{old('emailSolicitante')}}>
+                    
                 </div>
                     </div>
                 </div>
@@ -200,7 +182,6 @@
 <br>
 @stop
 
-
 @section('js')
 <script src="{{ asset('js/mfb.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
@@ -217,8 +198,14 @@
         @elseif(session()->get( 'toast' ) == 'deleteSuccess')
             toastr.success('{{ __('text.eliminadoSucesso') }}')
         @elseif(session()->get( 'toast' ) == 'error')
-            toastr.error('erro')
+            toastr.error('{{ __('text.erro') }}')
+        @else
+            toastr.success('{{ __('text.addSuccess') }}')
         @endif
+    @endif
+
+    @if(sizeof($errors) > 0)
+        toastr.error('{{ __('text.erroEdite') }}')
     @endif
 
     function setLang() {

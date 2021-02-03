@@ -164,7 +164,7 @@ class NovoProduto extends Controller
             }
         }
 
-        return redirect('/produtos');
+        return redirect('/produtos')->with(['toast' => 'addSuccess']);
         //return back();
 
     }
