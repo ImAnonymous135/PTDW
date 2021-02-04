@@ -366,7 +366,6 @@
 @stop
 
 @section('js')
-<script src="{{ asset('js/adicionar.js') }}"></script>
 <script>
     $(document).ready(function() {
             $('.select2').select2({
