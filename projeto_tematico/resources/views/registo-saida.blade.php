@@ -33,12 +33,12 @@
                         <div class="row">
 
                             {{-- com id produto --}}
-                            @if (isset($produtoDesignacao))
+                            @if (isset($produto))
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>{{ __('text.produto') }}</label>
                                     <input type="text" class="form-control @error('produto') is-invalid @enderror"
-                                        id="produto" value="{{ $produtoDesignacao }}" name="produto">
+                                        id="produto" value="{{ $produto->designacao }}" title="Hello" name="produto">
                                     @error('produto')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -71,7 +71,7 @@
                                         id="produto" name="produto">
                                         <option></option>
                                         @foreach ($produtos as $item)
-                                        <option value="{{ $item->id }}">
+                                        <option value="{{ $item->designacao }}">
                                             {{ $item->designacao }}
                                         </option>
                                         @endforeach
@@ -87,7 +87,7 @@
                             @if (isset($embalagens))
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <label>{{ __('text.designacao') }}</label>
+                                    <label>{{ __('text.embalagem') }}</label>
                                     <select class="select-search form-control @error('embalagem') is-invalid @enderror"
                                         id="embalagem" name="embalagem" disabled value="hello">
                                         <option></option>
@@ -193,10 +193,10 @@
             });
         });
 
-        function info(id) {
+        function info(nome) {
         $.ajax({
                type:'GET',
-               url:'api/embalagens/'+id,
+               url:'api/embalagens/'+nome,
                success: function(info) {
                json = JSON.parse(info);
                console.log(json);

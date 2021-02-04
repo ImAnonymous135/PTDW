@@ -30,11 +30,10 @@ class RegistoSaidaController extends Controller
         $this->validateEntrada();
 
         //dd($request->all());
-        //$produtos = Produtos::find($request->produto);
-        //$produto = Produtos::where('designacao', $produtos)->first();
+        $produto = Produtos::where('designacao', $request->produto)->first();
         //dd($request->all());
         $embalagem = Embalagem::where('designacao', (int)$request->embalagem)
-        ->where('id_produtos',$request->produto)
+        ->where('id_produtos',$produto->id)
         ->first();
 
         $operadores = Operadores::where('nome', $request->operador)->first();
@@ -59,6 +58,8 @@ class RegistoSaidaController extends Controller
 
         ]);
 
+        
+
         $movimento = Movimentos::where('embalagemid', $embalagem->id)
         ->where('operadorid', $operadores->id)
         ->first();
@@ -75,21 +76,16 @@ class RegistoSaidaController extends Controller
 
         return redirect('/produtos/' . $produto->id);
     }
-    public function load($produto_designacao, $embalagem, Request $request)
+    public function load($id, $embalagem, Request $request)
     {
         App::setLocale($request->session()->get('lang'));
 
         $operadores = Operadores::all();
         $solicitantes = Operadores::whereNotNull('solicitante_sala')->get();
-
-        //dd('cheguei');
-        if ($produto_designacao == 'null') {
-            $produto_designacao = "";
-            $embalagem = "";
-        }
+        $produto = Produtos::find($id);
 
         $date = Carbon::now()->format('d-m-Y');
-        return view('registo-saida', ['data' => $date, 'produtoDesignacao' => $produto_designacao, 'embalagemDesignacao' => $embalagem, 'operadores' => $operadores, 'solicitantes' => $solicitantes]);
+        return view('registo-saida', ['data' => $date, 'produto' => $produto, 'embalagemDesignacao' => $embalagem, 'operadores' => $operadores, 'solicitantes' => $solicitantes]);
     }
 
     public function show(Request $request)
@@ -208,10 +204,13 @@ class RegistoSaidaController extends Controller
     }
 
     //vai buscar as embalagens dependendo do id produto
-    public function getEmbalagens($id)
+    public function getEmbalagens($name)
     {
-        $produtos = Embalagem::where('id_produtos', '=', $id)->get();
-        //dd($produtos);
-        return json_encode($produtos);
+        $produtos = Produtos::where('designacao', $name)->get();
+        $embalagens = Embalagem::join('movimentos', 'movimentos.embalagemid', '=', 'embalagem.id')
+        ->where('id_produtos', $produtos[0]->id)
+        ->whereNull('movimentos.data_abertura')
+        ->get();
+        return json_encode($embalagens);
     }
 }

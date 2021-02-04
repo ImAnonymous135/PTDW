@@ -34,4 +34,4 @@ Route::get('/fornecedores','App\Http\Controllers\Fornecedores@getFornecedores')-
 Route::get('/fornecedor/{id}','App\Http\Controllers\Fornecedores@getFornecedor')->name("APIFornecedor");
 
 //embalagens de um produto
-Route::get('/embalagens/{id}','App\Http\Controllers\RegistoSaidaController@getEmbalagens');
+Route::get('/embalagens/{name}','App\Http\Controllers\RegistoSaidaController@getEmbalagens');

@@ -147,7 +147,7 @@
       e.cliente+"-"+e.armario+"-"+e.prateleira,
       e.capacidade+" "+"{{$produto->unidades->desginacao}}",
       dataAbertura(e.data_abertura, e.embalagemid),
-      terminar(e.data_abertura, e.data_termino, "{{ $produto->designacao }}", e.embalagem)
+      terminar(e.data_abertura, e.data_termino, "{{ $produto->id }}", e.embalagem)
     ]);
   });
 
