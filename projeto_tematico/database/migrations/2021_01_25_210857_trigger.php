@@ -22,7 +22,7 @@ class Trigger extends Migration
         begin	
                 UPDATE produtos set stock_existente = stock_existente-1 where id = pr;
                 IF se-1<sm THEN
-                INSERT INTO alerta_stock (produto_id)
+                INSERT INTO alerta_stock (id_produto)
                 VALUES (pr);		
                 END if;
             

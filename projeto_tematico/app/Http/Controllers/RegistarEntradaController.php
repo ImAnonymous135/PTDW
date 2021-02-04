@@ -214,7 +214,7 @@ class RegistarEntradaController extends Controller
 
         if (!isset($produto[0])) {
             abort(404);
-            dd($produto);
+            //dd($produto);
         }
 
         $salas = Cliente::all();

@@ -38,7 +38,7 @@
                                 <div class="form-group">
                                     <label>{{ __('text.produto') }}</label>
                                     <input type="text" class="form-control @error('produto') is-invalid @enderror"
-                                        id="produto" value="{{ $produtoDesignacao ?? '' }}" name="produto">
+                                        id="produto" value="{{ $produtoDesignacao }}" name="produto">
                                     @error('produto')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -52,7 +52,7 @@
                                 <div class="form-group">
                                     <label>{{ __('text.embalagem') }}</label>
                                     <input type="text" class="form-control @error('embalagem') is-invalid @enderror"
-                                        id="embalagem" value="{{ $embalagemDesignacao ?? '' }}" name="embalagem">
+                                        id="embalagem" value="{{ $embalagemDesignacao}}" name="embalagem">
                                     @error('embalagem')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -71,7 +71,7 @@
                                         id="produto" name="produto">
                                         <option></option>
                                         @foreach ($produtos as $item)
-                                        <option value="{{ $item->id }}.{{ $item->designacao }}">
+                                        <option value="{{ $item->id }}">
                                             {{ $item->designacao }}
                                         </option>
                                         @endforeach
@@ -189,7 +189,7 @@
                 
                 $('#embalagem').prop('disabled', false);
                 $('#embalagem').empty();
-                info($("#produto").val().split(".")[0]);    
+                info($("#produto").val());    
             });
         });
 
@@ -201,14 +201,12 @@
                json = JSON.parse(info);
                console.log(json);
                json.forEach(e => {
-                $('#embalagem').append('<option value="'+e.id+'.'+e.designacao+'">'+e.designacao+'</option>');
+                $('#embalagem').append('<option value="'+e.id+'">'+e.designacao+'</option>');
                });
             }
         
         });
     }
 
-
     </script>
-
 @stop

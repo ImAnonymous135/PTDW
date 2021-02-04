@@ -29,14 +29,13 @@ class RegistoSaidaController extends Controller
     {
         $this->validateEntrada();
 
-        $tempArrayProduto = explode('.', $request->produto);
-        $tempArraEmbalagem = explode('.', $request->embalagem);
-        //dd($tempArray[0]);
-        //$produto = Produtos::where('designacao', $request->produto)->first();
-        //dd($request->embalagem);
-        $embalagem = Embalagem::where('designacao', $tempArraEmbalagem[0])->where('id_produtos', $tempArrayProduto[0])->first();
-
-
+        //dd($request->all());
+        //$produtos = Produtos::find($request->produto);
+        //$produto = Produtos::where('designacao', $produtos)->first();
+        //dd($request->all());
+        $embalagem = Embalagem::where('designacao', (int)$request->embalagem)
+        ->where('id_produtos',$request->produto)
+        ->first();
 
         $operadores = Operadores::where('nome', $request->operador)->first();
         $solicitante = Operadores::where('nome', $request->solicitante)->first();
@@ -60,8 +59,10 @@ class RegistoSaidaController extends Controller
 
         ]);
 
-        $movimento = Movimentos::where('embalagemid', $embalagem->id)->where('operadorid', $operadores->id)->first();
-        dd($movimento);
+        $movimento = Movimentos::where('embalagemid', $embalagem->id)
+        ->where('operadorid', $operadores->id)
+        ->first();
+        //dd($movimento);
         //dd($embalagem->id, $operadores->id, $request->data,$movimento );
         //dd($request);
         $movimento->data_termino = $request->data;
@@ -72,7 +73,7 @@ class RegistoSaidaController extends Controller
 
         //Movimentos::where('embalagemid', $embalagem->id)->where('operadorid',$operadores->id)->update(['data_termino' => $request->data]);
 
-        return redirect('/produtos/' . $tempArrayProduto[0]);
+        return redirect('/produtos/' . $produto->id);
     }
     public function load($produto_designacao, $embalagem, Request $request)
     {
