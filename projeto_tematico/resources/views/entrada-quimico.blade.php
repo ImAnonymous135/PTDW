@@ -76,9 +76,9 @@
                 <div class="form-group">
                     <label class="font-weight-normal">{{ __('text.familia') }}:</label>
                     <div class="input-group-prepend">
-                        <select id="pictogramas" class="select2 form-control" name="subfamilia[]" multiple="multiple">
+                        <select id="pictogramas" class="select2 form-control form-control-sm" name="subfamilia[]" multiple="multiple">
                             @foreach($pictogramas as $pictograma)
-                            <option value="{{$pictograma->id}}"><i class="{{$pictograma->imagem}}"></i></option>
+                            <option value="{{$pictograma->id}}" title="{{$pictograma->imagem}}">{{$pictograma->designacao}}</option>
                             @endforeach
                         </select>
                     </div>

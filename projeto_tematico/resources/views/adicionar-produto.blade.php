@@ -301,11 +301,6 @@
 <br>
 @stop
 
-@section('js')
-<script src="{{ asset('js/adicionar.js') }}"></script>
-<script src="{{ asset('js/pictogramas.js') }}"></script>
-@stop
-
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/pictogramas.css') }}">
 @endsection

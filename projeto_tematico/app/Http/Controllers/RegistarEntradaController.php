@@ -202,12 +202,9 @@ class RegistarEntradaController extends Controller
                     'id_cor' => 1,
                 ]);
             }
-        }
+        }   
 
-        //dd($movimentos);
-
-        //$produto->save();
-        return redirect('/movimentos/entrada-quimico');
+        return redirect('/entradas');
     }
 
     public function load($id, Request $request)

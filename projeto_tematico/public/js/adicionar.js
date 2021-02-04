@@ -1,4 +1,4 @@
-let selectTipo = document.getElementById("state");
+let selectTipo = document.getElementById("selectTipo");
 
     $("#familia").val("place");
 
@@ -26,7 +26,7 @@ selectTipo.addEventListener("change", function (event) {
         quimico5.style.display = "block";
         quimico7.style.display = "block";
         quimico8.style.display = "block";
-        quimico9.style.display = "block";
+        quimico9.style.display = "flex";
         quimico10.style.display = "block";
         $("#pesoMolecular").val(null);
         $("#condicoesArmazenamento").val(null);

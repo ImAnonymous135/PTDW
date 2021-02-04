@@ -37,7 +37,7 @@ class HomeController extends Controller
         $movimentos = Registo_Saidas::select('registo_saidas.data','embalagem.capacidade_embalagem AS capacidade',
          'produtos.designacao AS produto', 'prateleiras.designacao AS prateleira', 'armario.designacao AS armario',
          'cliente.designacao as sala')
-        ->join('embalagem', 'id_embalagem', '=', 'embalagem.id')
+        ->join('embalagem', 'embalagemid', '=', 'embalagem.id')
         ->join('produtos', 'id_produtos', '=', 'produtos.id')
         ->join('prateleiras', 'embalagem.localizacao', '=', 'prateleiras.id')
         ->join('armario', 'prateleiras.id_armario', '=', 'armario.id')

@@ -94,9 +94,11 @@ class RegistoSaidaController extends Controller
         $solicitantes = Operadores::whereNotNull('solicitante_sala')->get();
         $produtos = Produtos::all();
         $embalagens = Embalagem::all();
+        
+        
 
         $date = Carbon::now()->format('d-m-Y');
-        return view('registo-saida', ['data' => $date, 'produtoDesignacao' => $produtos, 'embalagemDesignacao' => $embalagens, 'operadores' => $operadores, 'solicitantes' => $solicitantes]);
+        return view('registo-saida', ['data' => $date, 'produtos' => $produtos, 'embalagens' => $embalagens, 'operadores' => $operadores, 'solicitantes' => $solicitantes]);
     }
 
     //le a request e devolve os dados relevantes

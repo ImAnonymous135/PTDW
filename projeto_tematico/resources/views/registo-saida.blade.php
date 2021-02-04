@@ -31,6 +31,9 @@
                 <div class="row">
                     <div class="card-body" style="display: block;">
                         <div class="row">
+
+                            {{-- com id produto --}}
+                            @if (isset($produtoDesignacao))
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>{{ __('text.produto') }}</label>
@@ -43,6 +46,8 @@
                                     @enderror
                                 </div>
                             </div>
+                            @endif
+                            @if (isset($embalagemDesignacao))
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <label>{{ __('text.embalagem') }}</label>
@@ -55,6 +60,38 @@
                                     @enderror
                                 </div>
                             </div>
+                            @endif
+
+                            {{-- com array --}}
+                            @if (isset($produtos))
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>{{ __('text.produto') }}</label>
+                                    <input type="text" class="form-control @error('produto') is-invalid @enderror"
+                                        id="produto" value="{{ $produtoDesignacao ?? '' }}" name="produto">
+                                    @error('produto')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            @endif
+                            @if (isset($embalagens))
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>{{ __('text.embalagem') }}</label>
+                                    <input type="text" class="form-control @error('embalagem') is-invalid @enderror"
+                                        id="embalagem" value="{{ $embalagemDesignacao ?? '' }}" name="embalagem">
+                                    @error('embalagem')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            @endif
+
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <label>{{ __('text.data') }}</label>
