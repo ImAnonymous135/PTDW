@@ -66,13 +66,20 @@
                             @if (isset($produtos))
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label>{{ __('text.produto') }}</label>
-                                    <input type="text" class="form-control @error('produto') is-invalid @enderror"
-                                        id="produto" value="{{ $produtoDesignacao ?? '' }}" name="produto">
+                                    <label>{{ __('text.designacao') }}</label>
+                                    <select class="select-search form-control @error('produto') is-invalid @enderror"
+                                        id="produto" name="produto">
+                                        <option></option>
+                                        @foreach ($produtos as $item)
+                                        <option value="{{ $item->id }}.{{ $item->designacao }}">
+                                            {{ $item->designacao }}
+                                        </option>
+                                        @endforeach
+                                    </select>
                                     @error('produto')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                     @enderror
                                 </div>
                             </div>
@@ -80,13 +87,20 @@
                             @if (isset($embalagens))
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <label>{{ __('text.embalagem') }}</label>
-                                    <input type="text" class="form-control @error('embalagem') is-invalid @enderror"
-                                        id="embalagem" value="{{ $embalagemDesignacao ?? '' }}" name="embalagem">
+                                    <label>{{ __('text.designacao') }}</label>
+                                    <select class="select-search form-control @error('embalagem') is-invalid @enderror"
+                                        id="embalagem" name="embalagem" disabled>
+                                        <option></option>
+                                        @foreach ($embalagens as $item)
+                                        <option value="{{ $item->id }}.{{ $item->designacao }}">
+                                            {{ $item->designacao }}
+                                        </option>
+                                        @endforeach
+                                    </select>
                                     @error('embalagem')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                     @enderror
                                 </div>
                             </div>
@@ -171,6 +185,18 @@
             });
             $('#select-solicitante').select2({
                 placeholder: "Nome..."
+            });
+            $('#produto').select2({
+                placeholder: "Produto..."
+            });
+            $('#embalagem').select2({
+                placeholder: "Embalagens..."
+            });
+
+            $("#produto").change(function (e) { 
+                
+                $('#embalagem').prop('disabled', false);
+                
             });
         });
 
