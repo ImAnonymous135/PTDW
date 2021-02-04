@@ -327,13 +327,10 @@ function setLang() {
         @endif
     @endif
 
-<<<<<<< HEAD
-=======
     @if(sizeof($errors) > 0)
         toastr.error('{{ __('text.erroEdite') }}')
     @endif
     
->>>>>>> main
     function info(id,modal) {
         $.ajax({
                type:'GET',
