@@ -66,7 +66,7 @@ class ForeignKeys extends Migration
         });
 
         Schema::table('registo_saidas', function (Blueprint $table) {
-            $table->foreign('id_embalagem')->references('id')->on('embalagem')->onDelete('cascade');
+            $table->foreign('embalagemid')->references('id')->on('embalagem')->onDelete('cascade');
             $table->foreign('id_cliente')->references('id')->on('cliente')->onDelete('cascade');
             $table->foreign('id_solicitante')->references('id')->on('operadores')->onDelete('cascade');
             $table->foreign('id_operador')->references('id')->on('operadores')->onDelete('cascade');
