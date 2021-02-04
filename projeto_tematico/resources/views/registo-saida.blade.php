@@ -157,7 +157,7 @@
                     <div class="d-flex flex-row justify-content-end">
                         <span class="mr-2">
                             <button type="button" class="btn btn-block btn-outline-primary"
-                                onclick="window.location.href='../produtos/info-produto'">{{ __('text.cancelar') }}</button>
+                                onclick="window.history.back()">{{ __('text.cancelar') }}</button>
                         </span>
                         <span class="mr-2">
                             <button type="submit" class="btn btn-block btn-primary">{{ __('text.submeter') }}</button>
