@@ -34,9 +34,9 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>{{ __('text.produto') }}</label>
-                                    <input type="text" class="form-control @error('designacao') is-invalid @enderror"
+                                    <input type="text" class="form-control @error('produto') is-invalid @enderror"
                                         id="produto" value="{{ $produtoDesignacao ?? '' }}" name="produto">
-                                    @error('designacao')
+                                    @error('produto')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -74,27 +74,33 @@
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <label>{{ __('text.solicitante') }}</label>
-                                    <input type="text" class="form-control @error('solicitante') is-invalid @enderror"
-                                        id="solicitante" name="solicitante" placeholder="Digite o solicitante..">
-
+                                    <label>{{ __('text.nomeSolicitante') }}</label>
+                                    <select class="select-search form-control @error('solicitante') is-invalid @enderror" id="select-solicitante" name="solicitante">
+                                        <option value=""></option>
+                                        @foreach ($solicitantes as $solicitante)
+                                        <option value="{{$solicitante->nome}}">{{$solicitante->nome}}</option>
+                                        @endforeach
+                                    </select>
                                     @error('solicitante')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                     @enderror
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <label>{{ __('text.operador') }}</label>
-                                    <input type="text" class="form-control @error('operador') is-invalid @enderror"
-                                        id="operador" name="operador" placeholder="Digite o operador..">
-
+                                    <label>{{ __('text.nomeResponsavel') }}</label>
+                                    <select class="select-search form-control @error('operador') is-invalid @enderror" id="select-operador" name="operador">
+                                        <option value=""></option>
+                                        @foreach ($operadores as $operador)
+                                        <option value="{{$operador->nome}}">{{$operador->nome}}</option>
+                                        @endforeach
+                                    </select>
                                     @error('operador')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                     @enderror
                                 </div>
                             </div>
@@ -123,8 +129,11 @@
 
     <script>
         $(document).ready(function() {
-            $('.select2').select2({
-                placeholder: "Selecione os pictogramas..."
+            $('#select-operador').select2({
+                placeholder: "Nome..."
+            });
+            $('#select-solicitante').select2({
+                placeholder: "Nome..."
             });
         });
 

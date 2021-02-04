@@ -84,12 +84,17 @@ function togglePopup() {
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label>{{ __('text.nomeResponsavel') }}</label>
-                        <select class="select-search form-control" id="select-operador" name="nomeResponsavel">
+                        <select class="select-search form-control @error('nomeResponsavel') is-invalid @enderror" id="select-operador" name="nomeResponsavel">
                             <option value=""></option>
                             @foreach ($operadores as $operador)
                             <option value="{{$operador->nome}}">{{$operador->nome}}</option>
                             @endforeach
                         </select>
+                        @error('nomeResponsavel')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                 </div>
                 <div class="col-sm-3">
@@ -103,12 +108,17 @@ function togglePopup() {
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label>{{ __('text.nomeSolicitante') }}</label>
-                        <select class="select-search form-control" id="select-solicitante" name="nomeSolicitante">
+                        <select class="select-search form-control @error('nomeSolicitante') is-invalid @enderror" id="select-solicitante" name="nomeSolicitante">
                             <option value=""></option>
                             @foreach ($solicitantes as $solicitante)
                             <option value="{{$solicitante->nome}}">{{$solicitante->nome}}</option>
                             @endforeach
                         </select>
+                        @error('nomeSolicitante')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                 </div>
                 <div class="col-sm-3">

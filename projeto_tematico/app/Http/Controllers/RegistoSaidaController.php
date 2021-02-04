@@ -18,7 +18,7 @@ class RegistoSaidaController extends Controller
     public function validateEntrada()
     {
         request()->validate([
-            'designacao' => 'required',
+            'produto' => 'required',
             'embalagem' => 'required',
             'solicitante' => 'required',
             'operador' => 'required',
@@ -31,7 +31,6 @@ class RegistoSaidaController extends Controller
 
         $produto = Produtos::where('designacao', $request->produto)->first();
         $embalagem = Embalagem::where('designacao', $request->embalagem)->where('id_produtos', $produto->id)->first();
-        //dd($embalagem->prateleira->armario->cliente);
 
 
 
@@ -48,7 +47,7 @@ class RegistoSaidaController extends Controller
        $registoSaida->save();*/
 
         Registo_Saidas::insert([
-            'id_embalagem' => $embalagem->id,
+            'embalagemid' => $embalagem->id,
             'data' => $request->data,
             'id_solicitante' => $solicitante->id,
             'id_cliente' => $embalagem->prateleira->armario->cliente->id,
@@ -73,6 +72,10 @@ class RegistoSaidaController extends Controller
     public function load($produto_designacao, $embalagem, Request $request)
     {
         App::setLocale($request->session()->get('lang'));
+
+        $operadores = Operadores::all();
+        $solicitantes = Operadores::whereNotNull('solicitante_sala')->get();
+
         //dd('cheguei');
         if ($produto_designacao == 'null') {
             $produto_designacao = "";
@@ -80,7 +83,20 @@ class RegistoSaidaController extends Controller
         }
 
         $date = Carbon::now()->format('d-m-Y');
-        return view('registo-saida', ['data' => $date, 'produtoDesignacao' => $produto_designacao, 'embalagemDesignacao' => $embalagem]);
+        return view('registo-saida', ['data' => $date, 'produtoDesignacao' => $produto_designacao, 'embalagemDesignacao' => $embalagem, 'operadores' => $operadores, 'solicitantes' => $solicitantes]);
+    }
+
+    public function show(Request $request)
+    {
+        App::setLocale($request->session()->get('lang'));
+
+        $operadores = Operadores::all();
+        $solicitantes = Operadores::whereNotNull('solicitante_sala')->get();
+        $produtos = Produtos::all();
+        $embalagens = Embalagem::all();
+
+        $date = Carbon::now()->format('d-m-Y');
+        return view('registo-saida', ['data' => $date, 'produtoDesignacao' => $produtos, 'embalagemDesignacao' => $embalagens, 'operadores' => $operadores, 'solicitantes' => $solicitantes]);
     }
 
     //le a request e devolve os dados relevantes
@@ -125,10 +141,10 @@ class RegistoSaidaController extends Controller
         }
 
         $count = Registo_Saidas::select('count(*)')
-            ->join('embalagem', 'registo_saidas.id_embalagem', '=', 'embalagem.id')
+            ->join('embalagem', 'registo_saidas.embalagemid', '=', 'embalagem.id')
             ->join('produtos', 'embalagem.id_produtos', '=', 'produtos.id')
             ->join('cliente', 'registo_saidas.id_cliente', '=', 'cliente.id')
-            ->join('operadores as solicitantes', 'registo_saidas.id_solicitante', '=', 'solicitantes.solicitante_sala')
+            ->join('operadores as solicitantes', 'registo_saidas.id_solicitante', '=', 'solicitantes.id')
             ->join('operadores', 'registo_saidas.id_operador', '=', 'operadores.id')
             ->join('prateleiras', 'embalagem.localizacao', '=', 'prateleiras.id')
             ->join('armario', 'prateleiras.id_armario', '=', 'armario.id')
@@ -138,10 +154,10 @@ class RegistoSaidaController extends Controller
         $total = Registo_Saidas::select('count(*) as allcount')->count();
 
         $movements = Registo_Saidas::orderBy($data["column"], $data["order"])
-            ->join('embalagem', 'registo_saidas.id_embalagem', '=', 'embalagem.id')
+            ->join('embalagem', 'registo_saidas.embalagemid', '=', 'embalagem.id')
             ->join('produtos', 'embalagem.id_produtos', '=', 'produtos.id')
             ->join('cliente', 'registo_saidas.id_cliente', '=', 'cliente.id')
-            ->join('operadores as solicitantes', 'registo_saidas.id_solicitante', '=', 'solicitantes.solicitante_sala')
+            ->join('operadores as solicitantes', 'registo_saidas.id_solicitante', '=', 'solicitantes.id')
             ->join('operadores', 'registo_saidas.id_operador', '=', 'operadores.id')
             ->join('prateleiras', 'embalagem.localizacao', '=', 'prateleiras.id')
             ->join('armario', 'prateleiras.id_armario', '=', 'armario.id')

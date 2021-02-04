@@ -50,9 +50,10 @@ class ListaCliente extends Controller{
 
         $operadores = Operadores::where('nome', '=', $request->nomeSolicitante)
         ->where('email', '=', $request->emailSolicitante)
-        ->get()[0];
+        ->get();
 
-        if($operadores){
+        if(sizeof($operadores) >= 1){
+            $operadores = $operadores[0];
             $operadores->timestamps=false;
             $operadores->solicitante_sala = $cliente->id;
             $operadores->save();
@@ -65,9 +66,8 @@ class ListaCliente extends Controller{
 
     public function validateCliente(){
         request()->validate([
-            'designacao' => 'required',
-            'nomeResponsavel' => 'required',
-            'nomeSolicitante' => 'nullable',
+            'designacao' => 'required|unique:cliente',
+            'nomeResponsavel' => 'required'
         ]);
     }
 

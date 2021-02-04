@@ -18,6 +18,8 @@ class ProdutoController extends Controller
         $produto = Produtos::find($id);
         $embalagens = $this->embalagens($id);
 
+        //dd($embalagens);
+
         //dd('produto', $produto, 'embalagem', $embalagens);
         return view('info-produto', ['produto' => $produto, 'embalagens' => $embalagens]);
     }

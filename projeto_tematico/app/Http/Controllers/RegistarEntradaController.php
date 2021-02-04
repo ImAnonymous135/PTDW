@@ -26,7 +26,7 @@ class RegistarEntradaController extends Controller
 
     public function validateEntrada(){
         request()->validate([
-            'designacao' => 'required',
+            'state' => 'required',
             'dataEntrada' => 'required',
             'numeroEmbalagens' => 'required',
             'tipoEmbalagem' => 'required',
@@ -49,12 +49,13 @@ class RegistarEntradaController extends Controller
 
     public function store(Request $request)
     {
+        //dd($request->all());
         $this->validateEntrada();
+        
         $tempArray = explode('.', $request->state);
 
         $produto = Produtos::where('designacao', $tempArray[1])->first();
         //dd($produto);
-        //dd($request);
         $operadores = Operadores::where('nome', $request->operador)->first();
 
         $query = Embalagem::query();
@@ -206,7 +207,7 @@ class RegistarEntradaController extends Controller
         //dd($movimentos);
 
         //$produto->save();
-        return redirect('/entradas/null');
+        return redirect('/movimentos/entrada-quimico');
     }
 
     public function load($id, Request $request)
@@ -219,7 +220,9 @@ class RegistarEntradaController extends Controller
             dd($produto);
         }
 
-
+        $salas = Cliente::all();
+        $operadores = Operadores::all();
+        $fornecedores = Fornecedor::all();
         $embalagens = $this->embalagens($id);
 
         //dd('produto',$produto, 'id',$id, $id == 'null');
@@ -230,7 +233,7 @@ class RegistarEntradaController extends Controller
         $date = Carbon::now();
 
         //dd($textura, $familia, $estadoFisico, $tipoEmbalagem);
-        return view('registo-entrada', ['embalagens' => $embalagens, 'unidades' => $unidades, "date" => $date, "produto" => $produto, "estadoFisico" => $estadoFisico, "tipoEmbalagem" => $tipoEmbalagem, "textura" => $textura]);
+        return view('registo-entrada', ['fornecedores' => $fornecedores,'operadores' => $operadores,'salas' => $salas, 'embalagens' => $embalagens, 'unidades' => $unidades, "date" => $date, "produto" => $produto, "estadoFisico" => $estadoFisico, "tipoEmbalagem" => $tipoEmbalagem, "textura" => $textura]);
     }
 
     public function show(Request $request)
@@ -248,10 +251,14 @@ class RegistarEntradaController extends Controller
         $unidades = Unidades::all();
         $date = Carbon::now();
 
+        $salas = Cliente::all();
+        $operadores = Operadores::all();
+        $fornecedores = Fornecedor::all();
+
         //dd($textura, $familia, $estadoFisico, $tipoEmbalagem);
         //dd($date);
 
-        return view('registo-entrada', ['embalagens' => $embalagens, 'unidades' => $unidades, "date" => $date, "produto" => $produto, "estadoFisico" => $estadoFisico, "tipoEmbalagem" => $tipoEmbalagem, "textura" => $textura]);
+        return view('registo-entrada', ['fornecedores' => $fornecedores,'operadores' => $operadores,'salas' => $salas, 'embalagens' => $embalagens, 'unidades' => $unidades, "date" => $date, "produto" => $produto, "estadoFisico" => $estadoFisico, "tipoEmbalagem" => $tipoEmbalagem, "textura" => $textura]);
     }
 
     private function embalagens($id)

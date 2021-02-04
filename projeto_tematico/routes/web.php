@@ -67,17 +67,11 @@ Route::get('/produtos/abertura/{id}','App\Http\Controllers\ProdutoController@upd
 
 //Registo de entradas
 Route::get('/entradas', 'App\Http\Controllers\RegistarEntradaController@show');
-
 Route::get('/entradas/{id}', 'App\Http\Controllers\RegistarEntradaController@load');
-
-Route::get('/saidas', function (Request $request) {
-    App::setLocale($request->session()->get('lang'));
-    return view('registo-saida');
-});
-
 Route::post('/entradas/adicionar', 'App\Http\Controllers\RegistarEntradaController@store');
 
 //Registo Saida
+Route::get('/saidas', 'App\Http\Controllers\RegistoSaidaController@show');
 Route::get('/saidas/{produto}/{embalagem}', 'App\Http\Controllers\RegistoSaidaController@load');
 Route::post('/saidas/adicionar', 'App\Http\Controllers\RegistoSaidaController@store');
 

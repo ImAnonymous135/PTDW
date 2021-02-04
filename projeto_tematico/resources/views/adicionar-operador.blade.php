@@ -93,8 +93,3 @@
 <br>
 </form>
 @stop
-
-@section('js')
-
-
-@stop

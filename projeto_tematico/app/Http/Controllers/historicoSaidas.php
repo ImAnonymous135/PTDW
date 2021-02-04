@@ -13,8 +13,4 @@ class historicoSaidas extends Controller{
         $registo_saidas = Registo_Saidas::all();
         return view('saidas',['registo_saidas'=>$registo_saidas]);
     }
-
-    
-
-
 }

@@ -1,4 +1,4 @@
-let selectTipo = document.getElementById("selectTipo");
+let selectTipo = document.getElementById("state");
 
     $("#familia").val("place");
 
