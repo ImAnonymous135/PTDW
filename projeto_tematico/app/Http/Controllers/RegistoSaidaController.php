@@ -94,8 +94,6 @@ class RegistoSaidaController extends Controller
         $solicitantes = Operadores::whereNotNull('solicitante_sala')->get();
         $produtos = Produtos::all();
         $embalagens = Embalagem::all();
-        
-        
 
         $date = Carbon::now()->format('d-m-Y');
         return view('registo-saida', ['data' => $date, 'produtos' => $produtos, 'embalagens' => $embalagens, 'operadores' => $operadores, 'solicitantes' => $solicitantes]);
@@ -201,5 +199,13 @@ class RegistoSaidaController extends Controller
         );
 
         return json_encode($response);
+    }
+
+    //vai buscar as embalagens dependendo do id produto
+    public function getEmbalagens($id)
+    {
+        $produtos = Embalagem::where('id_produtos', '=', $id)->get();
+        //dd($produtos);
+        return json_encode($produtos);
     }
 }

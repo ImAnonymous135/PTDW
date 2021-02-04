@@ -89,13 +89,8 @@
                                 <div class="form-group">
                                     <label>{{ __('text.designacao') }}</label>
                                     <select class="select-search form-control @error('embalagem') is-invalid @enderror"
-                                        id="embalagem" name="embalagem" disabled>
+                                        id="embalagem" name="embalagem" disabled value="hello">
                                         <option></option>
-                                        @foreach ($embalagens as $item)
-                                        <option value="{{ $item->id }}.{{ $item->designacao }}">
-                                            {{ $item->designacao }}
-                                        </option>
-                                        @endforeach
                                     </select>
                                     @error('embalagem')
                                     <span class="invalid-feedback" role="alert">
@@ -176,8 +171,6 @@
 @stop
 
 @section('js')
-    <script src="{{ asset('js/adicionar.js') }}"></script>
-
     <script>
         $(document).ready(function() {
             $('#select-operador').select2({
@@ -192,13 +185,29 @@
             $('#embalagem').select2({
                 placeholder: "Embalagens..."
             });
-
             $("#produto").change(function (e) { 
                 
                 $('#embalagem').prop('disabled', false);
-                
+                $('#embalagem').empty();
+                info($("#produto").val().split(".")[0]);    
             });
         });
+
+        function info(id) {
+        $.ajax({
+               type:'GET',
+               url:'api/embalagens/'+id,
+               success: function(info) {
+               json = JSON.parse(info);
+               console.log(json);
+               json.forEach(e => {
+                $('#embalagem').append('<option value="'+e.id+'.'+e.designacao+'">'+e.designacao+'</option>');
+               });
+            }
+        
+        });
+    }
+
 
     </script>
 
