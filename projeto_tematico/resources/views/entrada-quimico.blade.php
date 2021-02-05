@@ -76,9 +76,11 @@
                 <div class="form-group">
                     <label class="font-weight-normal">{{ __('text.familia') }}:</label>
                     <div class="input-group-prepend">
-                        <select id="pictogramas" class="select2 form-control form-control-sm" name="subfamilia[]" multiple="multiple">
+                        <select id="pictogramas" class="select2 form-control form-control-sm" name="subfamilia[]"
+                            multiple="multiple">
                             @foreach($pictogramas as $pictograma)
-                            <option value="{{$pictograma->id}}" title="{{$pictograma->imagem}}">{{$pictograma->designacao}}</option>
+                            <option value="{{$pictograma->id}}" title="{{$pictograma->imagem}}">
+                                {{$pictograma->designacao}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -121,22 +123,22 @@
 
     function format(state) {
         console.log(state);
-        $state = $('<span><img width="20px" height="20px" src="' + state.title + '"class="img-flag" />'  + state.text + '</span>');
+        $state = $('<span><img width="20px" height="20px" src="' + state.title + '"class="img-flag" />' + state.text + '</span>');
         return $state;
-    } 
+    }
 
     function setLang() {
         if ('<?php echo Config::get("app.locale") ?>' == "pt") {
-                return '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
-            } else if ('<?php echo Config::get("app.locale") ?>' == "en") {
-                return '//cdn.datatables.net/plug-ins/1.10.22/i18n/English.json'
-            }
+            return '//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese.json'
+        } else if ('<?php echo Config::get("app.locale") ?>' == "en") {
+            return '//cdn.datatables.net/plug-ins/1.10.22/i18n/English.json'
+        }
     }
-    
+
 
     $(function () {
         $('#pictogramas').select2({
-             templateResult: format
+            templateResult: format
         });
 
         var table = $('#table').DataTable({
@@ -167,7 +169,7 @@
                 { "data": 'data_validade' },
             ]
         });
-        
+
         var daterangepicker = $('#data').daterangepicker({
             autoUpdateInput: true,
             locale: {
@@ -194,11 +196,11 @@
         });
 
         $('#data').on('apply.daterangepicker', function (ev, picker) {
-          table.draw();
+            table.draw();
         });
 
         $('#pesquisa').on('change', function () {
-          table.draw();
+            table.draw();
         });
 
         $('#pictogramas').on('select2:select select2:unselect', function (ev, picker) {

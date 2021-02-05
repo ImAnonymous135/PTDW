@@ -142,6 +142,14 @@ class RegistoSaidaController extends Controller
             $table = "produtos.designacao";
         }
 
+        if($request->get("start_date") == $request->get("end_date")){
+            $startDate = "1970/01/01";
+            $endDate = "9999/12/31";
+        }else{
+            $startDate = $request->get("start_date");
+            $endDate = $request->get("end_date");
+        }
+
         $count = Registo_Saidas::select('count(*)')
             ->join('embalagem', 'registo_saidas.embalagemid', '=', 'embalagem.id')
             ->join('produtos', 'embalagem.id_produtos', '=', 'produtos.id')
@@ -151,6 +159,10 @@ class RegistoSaidaController extends Controller
             ->join('prateleiras', 'embalagem.localizacao', '=', 'prateleiras.id')
             ->join('armario', 'prateleiras.id_armario', '=', 'armario.id')
             ->where($table, 'ilike', '%' . $data["search"] . '%')
+            ->where("registo_saidas.data",'>', $startDate)
+            ->where("registo_saidas.data",'<', $endDate)
+            ->orWhere("registo_saidas.data",'=', $startDate)
+            ->orWhere("registo_saidas.data",'=', $endDate)
             ->count();
 
         $total = Registo_Saidas::select('count(*) as allcount')->count();
@@ -164,6 +176,10 @@ class RegistoSaidaController extends Controller
             ->join('prateleiras', 'embalagem.localizacao', '=', 'prateleiras.id')
             ->join('armario', 'prateleiras.id_armario', '=', 'armario.id')
             ->where($table, 'ilike', '%' . $data["search"] . '%')
+            ->where("registo_saidas.data",'>', $startDate)
+            ->where("registo_saidas.data",'<', $endDate)
+            ->orWhere("registo_saidas.data",'=', $startDate)
+            ->orWhere("registo_saidas.data",'=', $endDate)
             ->select(
                 'produtos.designacao as designacao',
                 'prateleiras.designacao as prateleira',

@@ -74,6 +74,8 @@ class EntradaNaoQuimicoHistorico extends Controller
         ->where($table, 'ilike', '%' . $request->get('search')['value'] . '%')
         ->where("movimentos.data_entrada",'>', $startDate)
         ->where("movimentos.data_entrada",'<', $endDate)
+        ->orWhere("movimentos.data_entrada",'=', $startDate)
+        ->orWhere("movimentos.data_entrada",'=', $endDate)
         ->count();
 
         $total = Movimentos_Produtos_Nao_Quimicos::select('count(*) as allcount')->count();
@@ -100,6 +102,8 @@ class EntradaNaoQuimicoHistorico extends Controller
         ->where($table, 'ilike', '%' . $request->get('search')['value'] . '%')
         ->where("movimentos.data_entrada",'>', $startDate)
         ->where("movimentos.data_entrada",'<', $endDate)
+        ->orWhere("movimentos.data_entrada",'=', $startDate)
+        ->orWhere("movimentos.data_entrada",'=', $endDate)
         ->select('produtos.designacao as designacao',
         'fornecedor.designacao as fornecedor','movimentos.marca as marca',
         'familia.designacao as familia','tipo_embalagem.tipo_embalagem as tipo_embalagem',

@@ -307,5 +307,4 @@
 
 @section('js')
 <script src="{{  asset('js/adicionar.js') }}"> </script>
-<script src="{{  asset('js/pictogramas.js') }}"></script>
 @stop

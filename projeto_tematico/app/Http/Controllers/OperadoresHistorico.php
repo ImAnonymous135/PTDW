@@ -31,14 +31,30 @@ class OperadoresHistorico extends Controller
             $table = 'nome_administrador';
         }
 
+        if($request->get("start_date") == $request->get("end_date")){
+            $startDate = "1970/01/01";
+            $endDate = "9999/12/31";
+        }else{
+            $startDate = $request->get("start_date");
+            $endDate = $request->get("end_date");
+        }
+
         $count = Operadores_Historico::select('count(*)')
             ->where($table, 'ilike', '%' .  $request->get('search')['value'] . '%')
+            ->where("data",'>', $startDate)
+            ->where("data",'<', $endDate)
+            ->orWhere("data",'=', $startDate)
+            ->orWhere("data",'=', $endDate)
             ->count();
 
         $total = Operadores_Historico::select('count(*) as allcount')->count();
 
         $operadores = Operadores_Historico::orderBy($request->get('columns')[$request->get('order')[0]['column']]['data'], $request->get('order')[0]['dir'])
             ->where($table, 'ilike', '%' .  $request->get('search')['value'] . '%')
+            ->where("data",'>', $startDate)
+            ->where("data",'<', $endDate)
+            ->orWhere("data",'=', $startDate)
+            ->orWhere("data",'=', $endDate)
             ->select('nome_administrador as administrador', 'operador', 'data', 'operacao', 'observacoes')
             ->skip($request->get("start"))
             ->take($request->get("length"))

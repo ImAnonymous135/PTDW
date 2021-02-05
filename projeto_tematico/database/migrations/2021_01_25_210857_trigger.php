@@ -41,7 +41,7 @@ class Trigger extends Migration
         begin	
                 UPDATE produtos set stock_existente = stock_existente+1 where id = pr;
                 IF se+1>sm THEN
-                delete from alerta_stock where produto_id = pr;		
+                delete from alerta_stock where id_produto = pr;		
                 END if;
             
         return null;
