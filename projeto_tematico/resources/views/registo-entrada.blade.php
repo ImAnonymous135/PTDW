@@ -36,7 +36,7 @@
                         {{-- nao quimicos --}}
                 {{-- @include('sub-views.nao-quimicos')
                 @endif --}}
-                <form method="POST" action="/entradas/adicionar">
+                <form method="POST" action="../entradas/adicionar">
                     @csrf
                     <div id="quimicos">
                         <div class="row">

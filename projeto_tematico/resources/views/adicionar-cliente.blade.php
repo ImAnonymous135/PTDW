@@ -63,7 +63,7 @@ function togglePopup() {
 @endif
 <div class="card">
     <div class="card-body">
-        <form method="POST" action="/clientes/adicionar">
+        <form method="POST" action="../clientes/adicionar">
             @csrf
             <div class="row">
                 <div class="col-sm-4">

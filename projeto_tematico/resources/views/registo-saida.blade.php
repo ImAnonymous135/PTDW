@@ -24,7 +24,11 @@
 
 
 @section('content')
-    <form method="POST" action="/saidas/adicionar">
+@if (isset($produto))
+    <form method="POST" action="../../saidas/adicionar">
+@else
+    <form method="POST" action="./saidas/adicionar">
+@endif
         @csrf
         <div class="card">
             <div class="card-header">

@@ -3,9 +3,9 @@
 @section('content_top_nav_right')
 
 @if (app()->getLocale() == 'pt' || app()->getLocale() == null)
-<a href="~ptdw-2020-gr4/setLang/en" class="mr-2" id="lang">EN</a>
+<a href="./setLang/en" class="mr-2" id="lang">EN</a>
 @else
-<a href="~ptdw-2020-gr4/setLang/pt" class="mr-2" id="lang">PT</a>
+<a href="./setLang/pt" class="mr-2" id="lang">PT</a>
 @endif
 
 <div class="dropdown" style="margin-right: 15px">

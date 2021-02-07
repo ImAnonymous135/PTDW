@@ -125,9 +125,10 @@
   console.log(json);
   dataSet = [];
 
+
   function dataAbertura(data, eID) {
     if (data == null) {
-      return '<a href="/produtos/abertura/' + eID + '" type="button" data-toggle="tooltip" class="btn btn-primary">{{ __('text.registarAbertura') }}</a>';
+      return '<a href="../produtos/abertura/' + eID + '" type="button" data-toggle="tooltip" class="btn btn-primary">{{ __('text.registarAbertura') }}</a>';
     }
     return data;
   }
@@ -138,7 +139,7 @@
     } else if (dataTermino != null) {
       return dataTermino;
     }
-    return '<a href="/saidas/'+produto+'/'+embalagem+'" type="button" data-toggle="tooltip" class="btn btn-primary">{{ __('text.termino') }}</a>';
+    return '<a href="../saidas/'+produto+'/'+embalagem+'" type="button" data-toggle="tooltip" class="btn btn-primary">{{ __('text.termino') }}</a>';
   }
 
   json.forEach(e => {

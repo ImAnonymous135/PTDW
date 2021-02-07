@@ -17,15 +17,13 @@
     </div>
 </div>
 @stop
-<!--
-    Adicionar o botao no final para a ação como eliminar ou mudar de cargo ou assim
--->
+
 @section('content')
 
 <ul id="menu" class="mfb-component--br mfb-slidein" data-mfb-toggle="hover">
     <li class="mfb-component__wrap">
         <a data-mfb-label="{{ __('text.novoCliente') }}" class="mfb-component__button--main"
-            href="../clientes/adicionar">
+            href="./clientes/adicionar">
             <i class="mfb-component__main-icon--resting fas fa-plus" style="font-size: 1.5rem;"></i>
         </a>
     </li>

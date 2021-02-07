@@ -22,7 +22,7 @@
 @stop
 
 @section('content')
-<form id="form" method="post" action="/produtos/adicionar">
+<form id="form" method="post" action="../produtos/adicionar">
     @csrf
     <div class="card">
         <div class="card-body">
