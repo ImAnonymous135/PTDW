@@ -10,15 +10,16 @@ use App\Models\Cliente;
 use App\Models\Fornecedor;
 use App\Models\Operadores;
 use App\Models\Registo_Saidas;
+use App\Models\Alerta_Stock;
 
 class HomeController extends Controller
 {
     public function show(Request $request) {
-        
+
         App::setLocale($request->session()->get('lang'));
         return view('home', ['cards' => $this->getCards(), 'produtos' => $this->getLowStockProducts(), 'movimentos' => $this->getUserTransactions(1)]);
     }
-    
+
     public function getCards()
     {
         return $cards = ['produtos' => Produtos::select('*')->count(),
@@ -29,7 +30,8 @@ class HomeController extends Controller
 
     public function getLowStockProducts()
     {
-        return $produtos = Produtos::whereColumn('stock_existente', '<', 'stock_minimo')->get();
+        $idStockBaixo = Alerta_Stock::get()->pluck('id_produto');
+        return $produtos = Produtos::whereIn('id', $idStockBaixo)->get();
     }
 
     public function getUserTransactions($id)
@@ -45,7 +47,7 @@ class HomeController extends Controller
         ->where('id_operador', '=', $id)
         ->get();
 
-        
+
         return $movimentos;
     }
 
