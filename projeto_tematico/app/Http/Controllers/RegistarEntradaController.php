@@ -51,7 +51,7 @@ class RegistarEntradaController extends Controller
     {
         //dd($request->all());
         $this->validateEntrada();
-        
+
         $tempArray = explode('.', $request->state);
 
         $produto = Produtos::where('designacao', $tempArray[1])->first();
@@ -202,7 +202,7 @@ class RegistarEntradaController extends Controller
                     'id_cor' => 1,
                 ]);
             }
-        }   
+        }
 
         return redirect('/entradas');
     }
@@ -254,6 +254,7 @@ class RegistarEntradaController extends Controller
 
         //dd($textura, $familia, $estadoFisico, $tipoEmbalagem);
         //dd($date);
+        //dd($produto);
 
         return view('registo-entrada', ['fornecedores' => $fornecedores,'operadores' => $operadores,'salas' => $salas, 'embalagens' => $embalagens, 'unidades' => $unidades, "date" => $date, "produto" => $produto, "estadoFisico" => $estadoFisico, "tipoEmbalagem" => $tipoEmbalagem, "textura" => $textura]);
     }
