@@ -10,11 +10,12 @@ use App\Models\Produtos_Quimicos;
 use App\Models\Familia;
 use App\Models\Pictogramas;
 use App\Models\Produtos_Quimicos_Pictogramas;
+use App\Models\Alerta_Stock;
 
 class NovoProduto extends Controller
 {
     public function store(Request $request) {
-        
+
         $request->validate([
             'selectTipo' => 'required',
             'designacao' => 'required',
@@ -26,9 +27,9 @@ class NovoProduto extends Controller
             'nCas' => 'required',
             'familia' => 'required',
         ]);
-        
+
         $produto = new Produtos();
-     
+
         $produto->timestamps=false;
         $produto->designacao = $request->designacao;
         $produto->stock_existente = 0;
@@ -54,6 +55,10 @@ class NovoProduto extends Controller
 
         $produto->save();
 
+        $alerta_stock = new Alerta_Stock();
+        $alerta_stock->timestamps=false;
+        $alerta_stock->id_produto = $produto->id;
+
         if($produto->is_quimico){
             if(isset($request->ventilado)){
                 $ventilado = true;
@@ -76,7 +81,7 @@ class NovoProduto extends Controller
                 $ligacao->id_pictogramas = $pictograma[0]->id;
                 $ligacao->id_produtos_quimicos = $produto->id;
                 $ligacao->save();
-                
+
             }
             if(isset($request->explosive)){
                 $pictograma = Pictogramas::where('designacao', '=', 'explosive')->get();
@@ -142,7 +147,7 @@ class NovoProduto extends Controller
                 $ligacao->id_produtos_quimicos = $produto->id;
                 $ligacao->save();
             }
-        }else { 
+        }else {
 
             $familias = Familia::where('designacao', '=', $request->familia)->get();
 
