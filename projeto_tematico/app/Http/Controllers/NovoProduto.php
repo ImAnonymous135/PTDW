@@ -58,6 +58,7 @@ class NovoProduto extends Controller
         $alerta_stock = new Alerta_Stock();
         $alerta_stock->timestamps=false;
         $alerta_stock->id_produto = $produto->id;
+        $alerta_stock->save();
 
         if($produto->is_quimico){
             if(isset($request->ventilado)){
