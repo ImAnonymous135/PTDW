@@ -31,8 +31,8 @@ class RegistoSaidaController extends Controller
 
         //dd($request->all());
         $produto = Produtos::where('designacao', $request->produto)->first();
-        //dd($request->all());
-        $embalagem = Embalagem::where('designacao', (int)$request->embalagem)
+        //dd($produto);
+        $embalagem = Embalagem::where('designacao', $request->embalagem)
         ->where('id_produtos',$produto->id)
         ->first();
 
@@ -55,6 +55,8 @@ class RegistoSaidaController extends Controller
        $registoSaida->observacao = $request->observacoes;
        $registoSaida->timestamps = false;
        $registoSaida->save();*/
+
+       //dd($request->all());
 
         Registo_Saidas::insert([
             'embalagemid' => $embalagem->id,
@@ -82,7 +84,7 @@ class RegistoSaidaController extends Controller
 
         //Movimentos::where('embalagemid', $embalagem->id)->where('operadorid',$operadores->id)->update(['data_termino' => $request->data]);
 
-        return redirect('/produtos/' . $produto->id);
+        return redirect('/produtos'.'/'.$produto->id)->with(['toast' => 'removed']);
     }
     public function load($id, $embalagem, Request $request)
     {
@@ -93,7 +95,7 @@ class RegistoSaidaController extends Controller
         $produto = Produtos::find($id);
 
         $date = Carbon::now()->format('d-m-Y');
-        return view('registo-saida', ['data' => $date, 'produto' => $produto, 'embalagemDesignacao' => $embalagem, 'operadores' => $operadores, 'solicitantes' => $solicitantes]);
+        return view('registo-saida', ['data' => $date, 'produto' => $produto, 'embalagem' => $embalagem, 'operadores' => $operadores, 'solicitantes' => $solicitantes]);
     }
 
     public function show(Request $request)
@@ -233,7 +235,8 @@ class RegistoSaidaController extends Controller
         $produtos = Produtos::where('designacao', $name)->get();
         $embalagens = Embalagem::join('movimentos', 'movimentos.embalagemid', '=', 'embalagem.id')
         ->where('id_produtos', $produtos[0]->id)
-        ->whereNull('movimentos.data_abertura')
+        ->whereNotNull('movimentos.data_abertura')
+        ->whereNull('movimentos.data_termino')
         ->get();
         return json_encode($embalagens);
     }

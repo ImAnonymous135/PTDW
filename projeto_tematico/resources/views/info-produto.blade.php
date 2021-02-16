@@ -115,12 +115,25 @@
 
 @section('css')
 <link href="{{ asset('css/mfb.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 @stop
 
 @section('js')
-<script src="{{ asset('css/mfb.css') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 <script>
+  //toast
+
+  @if (session()->get('toast')) {
+    @if (session()->get('toast') == 'success') {
+      toastr.success('{{ __('text.addSuccess') }}');
+    }@else
+      toastr.success('{{ __('text.saidasSucesso') }}');
+     @endif
+  }
+  @endif
+
+  //toast end
   json = JSON.parse('<?php echo $embalagens ?>');
   console.log(json);
   dataSet = [];

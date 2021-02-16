@@ -31,7 +31,6 @@ class RegistarEntradaController extends Controller
             'numeroEmbalagens' => 'required',
             'tipoEmbalagem' => 'required',
             'capacidadeEmbalagem' => 'required',
-            'tipo' => 'required',
             'sala' => 'required',
             'prateleira' => 'required',
             'armario' => 'required',
@@ -101,7 +100,7 @@ class RegistarEntradaController extends Controller
                 $novaEmbalagem->id_produtos = $produto->id;
                 $novaEmbalagem->id_tipo_embalagem = $request->tipoEmbalagem;
                 $novaEmbalagem->localizacao = $prateleira->id;
-                $novaEmbalagem->capacidade_embalagem = $request->capacidadeEmbalagem . '.' . $request->tipo;
+                $novaEmbalagem->capacidade_embalagem = $request->capacidadeEmbalagem;
                 $novaEmbalagem->timestamps = false;
                 $novaEmbalagem->save();
                 $embalagensFinais[$i - 1] = $novaEmbalagem;
@@ -139,7 +138,6 @@ class RegistarEntradaController extends Controller
         //dd($embalagensFinais, $embalagensFinais[0], $embalagensFinais[1]);
 
         //dd($fornecedor->id);
-        //dd($embalagens[1]);
         //dd($operadores->id);
 
         //$isQuimico = Produtos::where('id', $tempArray[1])->first()->value('is_quimico');
@@ -204,7 +202,7 @@ class RegistarEntradaController extends Controller
             }
         }
 
-        return redirect('/entradas');
+        return redirect('/produtos'.'/'.$produto->id)->with(['toast' => 'success']);
     }
 
     public function load($id, Request $request)

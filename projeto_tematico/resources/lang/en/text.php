@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'saidasSucesso' => 'Checkout successful',
     'erro' => 'Error adding',
     'erroEdite' => 'Error editing',
     //adicionar-cliente
@@ -80,6 +81,7 @@ return [
     'operacao' => 'Operation',
     'nomeAdmin' => 'Name of Administrator',
     //home
+    'home' => 'Dashboard',
     'produtos' => 'Products',
     'clientes' => 'Clients',
     'utilizadores' => 'Users',

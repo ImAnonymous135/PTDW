@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'saidasSucesso' => 'Saída com sucesso',
     'erro' => 'Erro ao adicionar',
     'erroEdite' => 'Erro ao editar',
     //adicionar-cliente
@@ -80,6 +81,7 @@ return [
     'operacao' => 'Operação',
     'nomeAdmin' => 'Nome do Administrador',
     //home
+    'home' => 'Página Inicial',
     'produtos' => 'Produtos',
     'clientes' => 'Clientes',
     'utilizadores' => 'Utilizadores',

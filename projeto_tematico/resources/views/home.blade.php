@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Home</h1>
+                <h1 class="m-0 text-dark">{{__('text.home')}}</h1>
             </div>
 
         </div>
@@ -111,7 +111,8 @@
 @section('js')
 <script>
 
-    //produtos
+    $(document).ready(function () {
+        //produtos
     produtosData = [];
     json = JSON.parse('<?php echo $produtos ?>');
 
@@ -168,6 +169,6 @@
             },
         });
     });
-
+    });
 </script>
 @endsection

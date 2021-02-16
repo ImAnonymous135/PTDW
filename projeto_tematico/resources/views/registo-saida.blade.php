@@ -42,7 +42,7 @@
                                 <div class="form-group">
                                     <label>{{ __('text.produto') }}</label>
                                     <input type="text" class="form-control @error('produto') is-invalid @enderror"
-                                        id="produto" value="{{ $produto->designacao }}" title="Hello" name="produto">
+                                        id="produto" value="{{ $produto->designacao }}" title="Hello" name="produto" readonly>
                                     @error('produto')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -51,12 +51,12 @@
                                 </div>
                             </div>
                             @endif
-                            @if (isset($embalagemDesignacao))
+                            @if (isset($embalagem))
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <label>{{ __('text.embalagem') }}</label>
                                     <input type="text" class="form-control @error('embalagem') is-invalid @enderror"
-                                        id="embalagem" value="{{ $embalagemDesignacao}}" name="embalagem">
+                                        id="embalagem" value="{{ $embalagem}}" name="embalagem" readonly>
                                     @error('embalagem')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -205,7 +205,7 @@
                json = JSON.parse(info);
                console.log(json);
                json.forEach(e => {
-                $('#embalagem').append('<option value="'+e.id+'">'+e.designacao+'</option>');
+                $('#embalagem').append('<option value="'+e.designacao+'">'+e.designacao+'</option>');
                });
             }
         
