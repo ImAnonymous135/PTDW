@@ -29,12 +29,24 @@ class RegistoSaidaController extends Controller
     {
         $this->validateEntrada();
 
+<<<<<<< Updated upstream
         //dd($request->all());
         $produto = Produtos::where('designacao', $request->produto)->first();
         //dd($request->all());
         $embalagem = Embalagem::where('designacao', (int)$request->embalagem)
         ->where('id_produtos',$produto->id)
         ->first();
+=======
+        dd($request);
+        $tempArrayProduto = explode('.', $request->produto);
+        $tempArraEmbalagem = explode('.', $request->embalagem);
+        //dd($tempArray[0]);
+        //$produto = Produtos::where('designacao', $request->produto)->first();
+        //dd($request->embalagem);
+        $embalagem = Embalagem::where('designacao', $tempArraEmbalagem[0])->where('id_produtos', $tempArrayProduto[0])->first();
+
+
+>>>>>>> Stashed changes
 
         $operadores = Operadores::where('nome', $request->operador)->first();
         $solicitante = Operadores::where('nome', $request->solicitante)->first();
