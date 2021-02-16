@@ -373,13 +373,6 @@
     <script>
         $(document).ready(function() {
 
-            var arraySplit = $(this).val().split(".");
-            if (arraySplit[2]) {
-                console.log("Quimico");
-            } else {
-                console.log("Não Quimico");
-            }
-
             $('.select2').select2({
                 placeholder: "Selecione os pictogramas..."
             });
@@ -403,6 +396,14 @@
                 }
 
             });
+
+            var arraySplit = $(this).val().split(".");
+            if (arraySplit[2]) {
+                console.log("Quimico");
+            } else {
+                console.log("Não Quimico");
+            }
+
         });
 
     </script>
