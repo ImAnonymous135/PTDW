@@ -248,7 +248,7 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-2 quimico">
                     <div class="form-group">
                         <label>{{ __('text.estadoFisico') }}</label>
                         <select class="form-control @error('estadoFisico') is-invalid @enderror" id="estadoFisico"
@@ -264,7 +264,7 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-3 quimico">
                     <div class="form-group">
                         <label>{{ __('text.texturaOuViscosidade') }}</label>
                         <select class="form-control @error('texturaViscosidade') is-invalid @enderror"
@@ -368,8 +368,10 @@
                 $('#tipo').val(arraySplit[0]);
                 if (arraySplit[2]) {
                     console.log("Quimico");
+                    $(".quimico").show();
                 } else {
                     console.log("Não Quimico");
+                    $(".quimico").hide();
                 }
 
             });
@@ -377,8 +379,10 @@
             var arraySplit = $(this).val().split(".");
             if (arraySplit[2]) {
                 console.log("Quimico");
+                $(".quimico").show();
             } else {
                 console.log("Não Quimico");
+                $(".quimico").hide();
             }
 
         });
