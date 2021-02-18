@@ -134,11 +134,7 @@
                             <div class="form-group">
                                 <label>NIF</label>
                                 <input type="text" class="form-control"
-<<<<<<< Updated upstream
-                                    id="nif" name="nif" value={{old('nif')}}>
-=======
                                     id="nif" name="nif">
->>>>>>> Stashed changes
                             </div>
                         </div>
                     </div>

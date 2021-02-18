@@ -31,7 +31,7 @@ class EntradaQuimicoHistorico extends Controller
         }else if($request->get("pesquisa")== "cor"){
             $table = "cor.cor";
         }else if($request->get("pesquisa")== "tipo"){
-            $table = "tipo_embalagems.tipo_embalagem";
+            $table = "tipo_embalagem.tipo_embalagem";
         }else if($request->get("pesquisa")== "estado"){
             $table = "estado_fisico.estado_fisico";
         }else if($request->get("pesquisa")== "textura"){
