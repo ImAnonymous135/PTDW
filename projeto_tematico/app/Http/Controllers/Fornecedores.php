@@ -19,7 +19,8 @@ class Fornecedores extends Controller
     }
 
     public function update($id)
-    {
+    {   
+        dd(request());
         $data = $this->validateFornecedor();
 
         $fornecedor = Fornecedor::find($id);
