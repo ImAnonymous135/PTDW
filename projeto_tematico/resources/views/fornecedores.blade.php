@@ -134,7 +134,7 @@
                             <div class="form-group">
                                 <label>NIF</label>
                                 <input type="text" class="form-control"
-                                    id="nif" value={{old('nif')}}>
+                                    id="nif" name="nif" value={{old('nif')}}>
                             </div>
                         </div>
                     </div>

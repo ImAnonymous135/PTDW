@@ -66,7 +66,7 @@ class ListaCliente extends Controller{
 
     public function validateCliente(){
         request()->validate([
-            'designacao' => 'required|unique:cliente',
+            'designacao' => 'required',
             'nomeResponsavel' => 'required'
         ]);
     }

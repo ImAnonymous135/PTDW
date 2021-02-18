@@ -376,7 +376,7 @@
 
             });
 
-            var arraySplit = $(this).val().split(".");
+            var arraySplit = $('#state').val().split(".");
             if (arraySplit[2]) {
                 console.log("Quimico");
                 $(".quimico").show();

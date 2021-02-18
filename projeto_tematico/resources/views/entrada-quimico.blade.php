@@ -74,7 +74,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label class="font-weight-normal">{{ __('text.familia') }}:</label>
+                    <label class="font-weight-normal">{{ __('text.pictogramas') }}:</label>
                     <div class="input-group-prepend">
                         <select id="pictogramas" class="select2 form-control form-control-sm" name="subfamilia[]"
                             multiple="multiple">

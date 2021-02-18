@@ -217,6 +217,7 @@
     @endif
 
     @if(sizeof($errors) > 0)
+    {{dd($errors)}};
         toastr.error('{{ __('text.erroEdite') }}')
     @endif
 

@@ -51,7 +51,7 @@ class Fornecedores extends Controller
 
     public function validateFornecedor(){
         request()->validate([
-            'designacao' => 'required|unique:fornecedor',
+            'designacao' => 'required',
             'morada' => 'required',
             'localidade' => 'required',
             'codigo_postal' => 'required',

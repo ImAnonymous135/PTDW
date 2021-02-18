@@ -81,7 +81,7 @@
                     <div class="form-group">
                         <label>{{ __('text.telefone') }}</label>
                         <input type="text" class="form-control  @error('telefone') is-invalid @enderror" name="telefone"
-                            id="telefone" value={{old('telefone')}}>
+                            id="telefone" maxlength="9" value={{old('telefone')}}>
                         @error('telefone')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

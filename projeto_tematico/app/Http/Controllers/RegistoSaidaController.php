@@ -36,13 +36,13 @@ class RegistoSaidaController extends Controller
         ->where('id_produtos',$produto->id)
         ->first();
 
-        dd($request);
+        //dd($request);
         $tempArrayProduto = explode('.', $request->produto);
         $tempArraEmbalagem = explode('.', $request->embalagem);
         //dd($tempArray[0]);
-        //$produto = Produtos::where('designacao', $request->produto)->first();
+        $produto = Produtos::where('designacao', $request->produto)->first();
         //dd($request->embalagem);
-        $embalagem = Embalagem::where('designacao', $tempArraEmbalagem[0])->where('id_produtos', $tempArrayProduto[0])->first();
+        $embalagem = Embalagem::where('designacao', $tempArraEmbalagem[0])->where('id_produtos', $produto->id)->first();
 
         $operadores = Operadores::where('nome', $request->operador)->first();
         $solicitante = Operadores::where('nome', $request->solicitante)->first();
