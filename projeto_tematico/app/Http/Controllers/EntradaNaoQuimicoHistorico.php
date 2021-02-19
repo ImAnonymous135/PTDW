@@ -28,7 +28,7 @@ class EntradaNaoQuimicoHistorico extends Controller
         }else if($request->get("pesquisa")== "marca"){ 
             $table = "movimentos.marca";
         }else if($request->get("pesquisa")== "tipo"){ 
-            $table = "tipo_embalagems.tipo_embalagem";
+            $table = "tipo_embalagem.tipo_embalagem";
         }else if($request->get("pesquisa")== "cor"){
             $table = "cor.cor";
         }else if($request->get("pesquisa")== "peso"){

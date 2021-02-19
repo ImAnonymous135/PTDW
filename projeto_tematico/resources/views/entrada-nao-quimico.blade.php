@@ -132,7 +132,7 @@ function setLang() {
                 url: setLang()
             },
             "initComplete": function () {
-                $(".option-box").html('<div class="input-group-prepend"><select id="pesquisa" class="select form-control form-control-sm" name="pesquisa"><option value="produto">{{ __('text.produto') }}</option><option value="prateleira">{{ __('text.prateleira') }}</option><option value="armario">{{ __('text.armario') }}</option><option value="cliente">Cliente</option><option value="fornecedor">{{ __('text.fornecedor') }}</option><option value="marca">{{ __('text.marca') }}</option><option value="tipo">{{ __('text.tipoEmbalagem') }}</option><option value="cor">{{ __('text.cor') }}</option><option value="estado">{{ __('text.estadoFisico') }}</option><option value="textura">{{ __('text.texturaOuViscosidade') }}</option><option value="peso">{{ __('text.pesoBruto') }}</option></select> </div>');
+                $(".option-box").html('<div class="input-group-prepend"><select id="pesquisa" class="select form-control form-control-sm" name="pesquisa"><option value="produto">{{ __('text.produto') }}</option><option value="prateleira">{{ __('text.prateleira') }}</option><option value="armario">{{ __('text.armario') }}</option><option value="cliente">Cliente</option><option value="fornecedor">{{ __('text.fornecedor') }}</option><option value="marca">{{ __('text.marca') }}</option><option value="tipo">{{ __('text.tipoEmbalagem') }}</option><option value="cor">{{ __('text.cor') }}</option><option value="peso">{{ __('text.pesoBruto') }}</option></select> </div>');
             },
             "processing": true,
             "serverSide": true,

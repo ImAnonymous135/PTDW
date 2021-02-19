@@ -134,7 +134,7 @@
                             <div class="form-group">
                                 <label>NIF</label>
                                 <input type="text" class="form-control"
-                                    id="nif" name="nif" value={{old('nif')}}>
+                                    id="nif" name="nif">
                             </div>
                         </div>
                     </div>
@@ -321,6 +321,7 @@ function setLang() {
         @elseif(session()->get( 'toast' ) == 'deleteSuccess')
             toastr.success('{{ __('text.eliminadoSucesso') }}')
         @elseif(session()->get( 'toast' ) == 'error')
+        dd
             toastr.error('{{ __('text.erro') }}')
         @else
             toastr.success('{{ __('text.addSuccess') }}')
