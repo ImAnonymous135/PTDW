@@ -210,6 +210,7 @@
         @elseif(session()->get( 'toast' ) == 'error')
             toastr.error('{{ __('text.erro') }}')    
         @elseif(session()->get( 'toast' ) == 'errorEdite')
+        {{dd(session())}};
             toastr.error('{{ __('text.erroEdite') }}')       
         @else
             toastr.success('{{ __('text.addSuccess') }}')

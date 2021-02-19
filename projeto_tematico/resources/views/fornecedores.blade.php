@@ -321,7 +321,6 @@ function setLang() {
         @elseif(session()->get( 'toast' ) == 'deleteSuccess')
             toastr.success('{{ __('text.eliminadoSucesso') }}')
         @elseif(session()->get( 'toast' ) == 'error')
-        dd
             toastr.error('{{ __('text.erro') }}')
         @else
             toastr.success('{{ __('text.addSuccess') }}')

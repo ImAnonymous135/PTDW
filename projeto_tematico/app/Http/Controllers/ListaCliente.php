@@ -113,8 +113,6 @@ class ListaCliente extends Controller{
             $operadores[0]->solicitante_sala = $cliente->id;
             $operador = $operadores[0];
             $operador->save();
-        } else {
-            return redirect('/clientes')->with(['toast'=>'errorEdite']);
         }
 
         $cliente->save();
