@@ -252,7 +252,7 @@
   });
 
   function elim(id){
-        $('#eliminar').attr('action', '/clientes/'+id);
+        $('#eliminar').attr('action', './clientes/'+id);
         $('#modal-default').modal('show');
     }
 
@@ -273,7 +273,7 @@
                 $('#emailSspan').text(info[0].emailSolicitante);
                 $('#observacoes1').text(info[0].observacoes);
             }else{
-                $('#edit').attr('action', '/clientes/'+id);
+                $('#edit').attr('action', './clientes/'+id);
                 $('#modal-default1').modal('show');
                 $('#designacao').val(info[0].designacao);
                 $('#nomeResponsavel').val(info[0].nomeOperadores);

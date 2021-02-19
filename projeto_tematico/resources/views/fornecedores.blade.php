@@ -355,7 +355,7 @@ function setLang() {
                 $('#obserSpan').text(info.observacoes);
                 $('#condiSpan').text(info.condicoes_especiais);
             }else{
-                $('#edit').attr('action', '/fornecedores/'+info.id);
+                $('#edit').attr('action', './fornecedores/'+info.id);
                 $('#modal-default1').modal('show');
                 $('#designacao').val(info.designacao);
                 $('#morada').val(info.morada);
@@ -377,7 +377,7 @@ function setLang() {
         });
     }
     function elim(id){
-        $('#eliminar').attr('action', '/fornecedores/'+id);
+        $('#eliminar').attr('action', './fornecedores/'+id);
         $('#modal-default').modal('show');
     }
 

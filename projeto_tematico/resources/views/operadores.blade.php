@@ -192,7 +192,7 @@ function setLang() {
 
   });
   function elim(id){
-        $('#eliminar').attr('action', '/operadores/'+id);
+        $('#eliminar').attr('action', './operadores/'+id);
         $('#modal-default').modal('show');
     }
 
@@ -211,7 +211,7 @@ function setLang() {
                 $('#dataCriacao').text(info[0].data_criação);
                 $('#observacoes').text(info[0].observacoes);
             }else{
-                $('#edit').attr('action', '/operadores/'+id);
+                $('#edit').attr('action', './operadores/'+id);
                 $('#modal-default1').modal('show');
                 $('#novoCargoOperador').val(info[0].perfil);
             }
